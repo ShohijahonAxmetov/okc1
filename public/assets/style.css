@@ -1,0 +1,12 @@
+.nav-link.active {
+    font-weight: 500;
+    color: black!important;
+}
+
+.dashboardcode-bsmultiselect .dropdown-menu ul li {
+    margin-bottom: 8px;
+}
+
+.swal2-actions {
+    flex-direction: row-reverse;
+}
