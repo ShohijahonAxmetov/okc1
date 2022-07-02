@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CommentController;
 
 use App\Http\Controllers\AdminAuthController;
 
@@ -61,13 +62,19 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::get('banners', [BannerController::class, 'index'])->name('banners.index');
     Route::post('banners/{id}/update', [BannerController::class, 'update'])->name('banners.update');
     Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
+    
+    // comments
+    Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
+    Route::post('comments/update/{comment}', [CommentController::class, 'update'])->name('comments.update');
 });
 
 
+// upload updates
 Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
 Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
 Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
 
+// for allIn marketplace
 Route::get('/store-to-allin', [\App\Http\Controllers\WebController::class, 'store_to_allin']);
 
 Route::post('/upload_from_dropzone', [\App\Http\Controllers\ProductController::class, 'upload_from_dropzone']);

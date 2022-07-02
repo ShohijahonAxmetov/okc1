@@ -14,7 +14,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::latest()->with('product', 'user')->get();
+        
+        return view('app.comments.index', compact('comments'));
     }
 
     /**
@@ -46,9 +48,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comment $comment)
     {
-        //
+	$comment->update([
+	    'answer' => $request->answer
+	]);
+        
+        
+        return back()->with(['success' => true, 'message' => 'Soxraneno']);
     }
 
     /**

@@ -104,8 +104,10 @@ Route::get('/popular_products', [WebController::class, 'popular_products']);
 Route::get('/new_products', [WebController::class, 'new_products']);
 Route::get('/posts', [WebController::class, 'posts']);
 Route::get('/brands', [WebController::class, 'brands']);
+Route::get('/brands/all', [WebController::class, 'brands_all']);
 Route::get('/brands/{slug}', [WebController::class, 'brand']);
 Route::get('/categories', [WebController::class, 'categories']);
+Route::get('/categories/all', [WebController::class, 'categories_all']);
 Route::get('/categories/{slug}', [WebController::class, 'category']);
 Route::get('/categories/{slug}/products', [WebController::class, 'category_products']);
 Route::get('/products/{slug}', [WebController::class, 'product']);
@@ -114,6 +116,8 @@ Route::get('/products', [WebController::class, 'products']);
 Route::get('/search', [WebController::class, 'search']);
 Route::post('/application-store', [WebController::class, 'application_store']);
 Route::post('/special-offer-client', [WebController::class, 'special_offer_client']);
+
+Route::get('get_comments/{id}', [WebController::class, 'get_comments']);
 
 // for test
 Route::get('discounts', function() {

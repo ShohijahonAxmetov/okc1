@@ -80,12 +80,12 @@ class WebController extends Controller
     public function comment_store(Request $request)
     {
         $data = $request->all();
-
+        $data['user_id'] = auth()->user()->id;
+        
         $validator = Validator::make($data, [
-            'user_id' => 'required|integer',
             'product_id' => 'required|integer',
-            'parent_id' => 'required|integer',
-            'text' => 'required'
+            'text' => 'required',
+            'rating' => 'integer|required|in:1,2,3,4,5'
         ]);
         if($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
@@ -102,6 +102,13 @@ class WebController extends Controller
         }
 
         return response(['message' => 'Kommentirovano', 'success' => true], 200);
+    }
+    
+    public function get_comments($id)
+    {
+        $comments = Comment::where('product_id', $id)->with('user')->get();
+        
+        return response(['comments' => $comments, 'success' => true], 200);
     }
 
     public function get_user_orders()
@@ -137,7 +144,7 @@ class WebController extends Controller
             if(isset($product_variation->discount_price)) {
                 $amount += (preg_replace('/[^0-9]/', '', $product_variation->discount_price) * 100) * $variation['count'];
             } else {
-                $brand_discount = isset($product_variation->product) ? $product_variation->product->brand->discount : null;
+                $brand_discount = isset($product_variation->product->brand->discount) ? $product_variation->product->brand->discount : null;
                 if(isset($brand_discount)) {
                     $amount += (100 - $brand_discount->discount)/100 * (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $variation['count'];
                 } else {
@@ -212,6 +219,12 @@ class WebController extends Controller
         $brands = Brand::latest()->with('products', 'products.productVariations', 'products.productVariations.color', 'products.categories')->get();
         return response(['data' => $brands], 200);
     }
+    
+    public function brands_all()
+    {
+    	$brands = Brand::where('is_active', 1)->latest()->get();
+    	return response(['data' => $brands], 200);
+    }
 
     public function brand($slug) {
         $brand = Brand::where('slug', $slug)->with('products')->get();
@@ -220,6 +233,12 @@ class WebController extends Controller
 
     public function categories() {
         $categories = Category::where('is_active', 1)->latest()->doesntHave('parent')->with('children')->with('products', 'products.productVariations')->get();
+        return response(['data' => $categories], 200);
+    }
+    
+    public function categories_all()
+    {
+    	$categories = Category::where('is_active', 1)->latest()->get();
         return response(['data' => $categories], 200);
     }
 
@@ -430,7 +449,7 @@ class WebController extends Controller
         if($data_exists) {
             $similar_products = Category::whereHas('products.productVariations', function($query) use ($slug) {
                 $query->where('slug', $slug);
-            })->first()->products()->with('productVariations', 'productVariations.productVariationImages')->get();
+            })->first()->products()->with('productVariations', 'productVariations.productVariationImages')->take(8)->get();
         } else {
             $similar_products = null;
         }

@@ -13,7 +13,9 @@ class Comment extends Model
         'user_id',
         'product_id',
         'parent_id',
-        'text'
+        'text',
+        'answer',
+        'rating'
     ];
 
     public function user() {
