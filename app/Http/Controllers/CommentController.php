@@ -68,10 +68,11 @@ class CommentController extends Controller
     {
         $comment = Comment::find($id);
         if(!$comment) {
-            return response(['message' => 'Net takogo kommentariya'], 400);
+            return back()->with(['message' => 'Net takoy kommentarii', 'success' => false]);
+            // return response(['message' => 'Net takogo kommentariya'], 400);
         }
         $comment->delete();
-
-        return response(['message' => 'Успешно удален'], 200);
+        return back()->with(['message' => 'Uspeshno udalen', 'success' => true]);
+        // return response(['message' => 'Успешно удален'], 200);
     }
 }

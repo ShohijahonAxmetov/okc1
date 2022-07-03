@@ -145,7 +145,7 @@ class WebController extends Controller
                 $amount += (preg_replace('/[^0-9]/', '', $product_variation->discount_price) * 100) * $variation['count'];
             } else {
                 $brand_discount = isset($product_variation->product->brand->discount) ? $product_variation->product->brand->discount : null;
-                if(isset($brand_discount)) {
+                if($brand_discount) {
                     $amount += (100 - $brand_discount->discount)/100 * (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $variation['count'];
                 } else {
                     $amount += (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $variation['count'];

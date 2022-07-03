@@ -66,6 +66,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     // comments
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
     Route::post('comments/update/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::post('comments/{id}/destroy', [CommentController::class, 'destroy'])->name('comments.destroy');
 });
 
 

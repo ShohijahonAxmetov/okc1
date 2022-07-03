@@ -119,7 +119,7 @@
 
 <script>
     @foreach($applications as $application)
-    const button = document.getElementById('kt_docs_sweetalert_html{{ $application->id }}');
+    button = document.getElementById('kt_docs_sweetalert_html{{ $application->id }}');
 
     button.addEventListener('click', e => {
         e.preventDefault();
