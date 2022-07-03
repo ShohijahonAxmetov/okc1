@@ -196,7 +196,8 @@ class BrandController extends Controller
     	    	    'venkon_id' => $item['id']
     	    	], [
     		    'title' => $item['name'],
-    		    'link' => $item['link']
+    		    'link' => $item['link'],
+                'is_active' => 1
     	    	]);
     	    }
     	} else {
