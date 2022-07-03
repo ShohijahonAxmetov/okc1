@@ -437,19 +437,21 @@ class WebController extends Controller
                 $product = $product->with('productVariationImages', 'product', 'product.brand', 'product.categories')->first();
             } else {
                 $product = ProductVariation::whereHas('attributeOptions', function($query) use ($attribute_id, $option_id) {
-                    $query->where('attribute_id', $attribute_id)->where('attribute_option_id', $option_id);
-                })->with('productVariationImages', 'product', 'product.brand', 'product.categories')->first();
+                    $query->where('attribute_id', $attribute_id)
+                            ->where('attribute_option_id', $option_id);
+                })->with('productVariationImages', 'product', 'product.brand', 'product.categories')
+                    ->first();
             }
         }
 
         $data_exists = Category::whereHas('products.productVariations', function($query) use ($slug) {
             $query->where('slug', $slug);
         })->exists();
-
+dd($product->product);
         if($data_exists) {
             $similar_products = Category::whereHas('products.productVariations', function($query) use ($slug) {
                 $query->where('slug', $slug);
-            })->first()->products()->where('is_active', 1)->with('productVariations', 'productVariations.productVariationImages')->take(8)->get();
+            })->first()->products()->where('is_active', 1)->except($product->product->id)->with('productVariations', 'productVariations.productVariationImages')->take(8)->get();
         } else {
             $similar_products = null;
         }
