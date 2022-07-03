@@ -612,6 +612,7 @@ class WebController extends Controller
             ->orderBy('products.is_popular', 'desc')
             ->select('products.*')
             ->whereIn('brand_id', $brand)
+            ->where('is_popular', 1)
             ->with('brand')
             ->paginate(1);
             return response([
