@@ -124,6 +124,7 @@ class WebController extends Controller
     public function order(Request $request)
     {
     	$data = $request->all();
+        dd($data);
 
         // validaciya dannix
         $validator = Validator::make($data, [
