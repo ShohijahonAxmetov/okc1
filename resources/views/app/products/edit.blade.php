@@ -430,7 +430,7 @@
                                     <label for="is_popular" class="form-label">Popular</label>
                                     <select class="form-select" aria-label="" name="is_popular" id="is_popular" data-control="select2" data-hide-search="true">
                                         <option value="1" {{ $product->is_popular == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="0" {{ $product->is_popular == 1 ? 'selected' : '' }}>No</option>
+                                        <option value="0" {{ $product->is_popular == 0 ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
