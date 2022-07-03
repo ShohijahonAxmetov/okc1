@@ -29,7 +29,7 @@ class Brand extends Model
     }
 
     public function discount() {
-        return $this->hasOne(Discount::class);
+        return $this->hasOne(Discount::class, 'venkon_brand_id');
     }
 
     public function products() {

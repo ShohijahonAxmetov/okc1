@@ -26,6 +26,6 @@ class Discount extends Model
     ];
 
     public function brand() {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class, 'venkon_id');
     }
 }
