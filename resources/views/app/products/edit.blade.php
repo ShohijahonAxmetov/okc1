@@ -429,8 +429,8 @@
                                 <div class="mb-6">
                                     <label for="is_popular" class="form-label">Popular</label>
                                     <select class="form-select" aria-label="" name="is_popular" id="is_popular" data-control="select2" data-hide-search="true">
-                                        <option value="1">Yes</option>An SSL Certificate allows your site to be accessed securely (lockhttps instead of warninghttps). The data is encrypted and backed by a warranty from Comodo SSL to protect the end user.
-                                        <option value="0">No</option>
+                                        <option value="1" {{ $product->is_popular == 1 ? 'selected' : '' }}>Yes</option>
+                                        <option value="0" {{ $product->is_popular == 1 ? 'selected' : '' }}>No</option>
                                     </select>
                                 </div>
                             </div>
