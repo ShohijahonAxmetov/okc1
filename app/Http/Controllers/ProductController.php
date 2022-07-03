@@ -577,7 +577,7 @@ class ProductController extends Controller
             return response(['message' => 'Ошибка со стороны сервера'], 400);
         }
 
-        return response(['message' => 'Успешна загружен'], 200);
+        return back()->with(['message' => 'Success', 'success' => true]);
     }
 
     public function withLang($data)
