@@ -449,7 +449,7 @@ class WebController extends Controller
         if($data_exists) {
             $similar_products = Category::whereHas('products.productVariations', function($query) use ($slug) {
                 $query->where('slug', $slug);
-            })->first()->products()->with('productVariations', 'productVariations.productVariationImages')->take(8)->get();
+            })->first()->products()->where('is_active', 1)->with('productVariations', 'productVariations.productVariationImages')->take(8)->get();
         } else {
             $similar_products = null;
         }
