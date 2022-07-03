@@ -72,7 +72,7 @@
                             </div>
                         </td>
                         <td>
-                            <a href="{{ route('products.edit', ['product' => $comment->product]) }}" class="text-dark text-hover-primary d-block mb-1 fs-6">{{ isset($comment->product->title['ru']) ? $comment->product->title['ru'] : '--' }}</a>
+                            <a @if($comment->product) href="{{ route('products.edit', ['product' => $comment->product]) }}" @endif class="text-dark text-hover-primary d-block mb-1 fs-6">{{ isset($comment->product->title['ru']) ? $comment->product->title['ru'] : '--' }}</a>
                         </td>
                         <td>
                             <a class="text-dark text-hover-primary d-block mb-1 fs-6">{{ $comment->text }}</a>
