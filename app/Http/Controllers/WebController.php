@@ -418,7 +418,7 @@ class WebController extends Controller
                 
             }
         }
-        // dd($request->all());
+
         if(isset($request->attribute) && isset($request->option)) {
             $attribute_id = $request->attribute;
             $option_id = $request->option;
@@ -447,7 +447,7 @@ class WebController extends Controller
         $data_exists = Category::whereHas('products.productVariations', function($query) use ($slug) {
             $query->where('slug', $slug);
         })->exists();
-dd($product->product);
+
         if($data_exists) {
             $similar_products = Category::whereHas('products.productVariations', function($query) use ($slug) {
                 $query->where('slug', $slug);
