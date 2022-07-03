@@ -32,12 +32,11 @@ class WebController extends Controller
         if(!$search) {
             return response(null);
         }
-        $products = Product::
-            where('is_active', 1)
-            ->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%'.$search.'%')
-            ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%'.mb_strtolower($search).'%')
-            ->latest()
-            ->get();
+        $products = Product::where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%'.$search.'%')
+                            ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%'.mb_strtolower($search).'%')
+                            ->where('is_active', 1)
+                            ->latest()
+                            ->get();
         return response($products);
     }
 
