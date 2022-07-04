@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\VenkonController;
 
 use App\Http\Controllers\AdminAuthController;
 
@@ -67,6 +68,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
     Route::post('comments/update/{comment}', [CommentController::class, 'update'])->name('comments.update');
     Route::post('comments/{id}/destroy', [CommentController::class, 'destroy'])->name('comments.destroy');
+
+    // upload datas from 1c
+    Route::post('upload_datas', [VenkonController::class, 'upload_datas'])->name('upload_datas');
 });
 
 
