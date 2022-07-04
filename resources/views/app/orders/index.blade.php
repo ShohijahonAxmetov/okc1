@@ -24,12 +24,13 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Product</th>
-                        <th class="min-w-125px">Amount</th>
-                        <th class="min-w-125px">Date</th>
-                        <th class="min-w-200px">Client</th>
-                        <th class="min-w-150px">Status</th>
-                        <th class="min-w-200px text-end rounded-end"></th>
+                        <th class="ps-4 min-w-125px rounded-start">Order ID</th>
+                        <th class="min-w-200">Customer</th>
+                        <th class="min-w-125px">Status</th>
+                        <th class="min-w-125px">Total</th>
+                        <th class="min-w-200px">Date added</th>
+                        <th class="min-w-200px">Date modified</th>
+                        <th class="min-w-125px text-end rounded-end">Actions</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -39,25 +40,54 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <div class="symbol symbol-50px me-5">
+                                <!-- <div class="symbol symbol-50px me-5">
                                     <img src="/assets/media/stock/600x400/img-26.jpg" class="" alt="">
-                                </div>
-                                <div class="d-flex justify-content-start flex-column">
-                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">Sant Extreanet Solution</a>
+                                </div> -->
+                                <div class="d-flex justify-content-start flex-column ps-4">
+                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">#{{ $order->id }}</a>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">$2,790</a>
+                            <div class="d-flex align-items-center">
+                                <div class="symbol symbol-50px me-5">
+                                    <img src="/assets/media/stock/600x400/img-26.jpg" class="" alt="">
+                                </div>
+                                <div class="d-flex justify-content-start flex-column">
+                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $order->user->name }}</a>
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">$520</a>
+                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ date('H:i d.m.Y', strtotime($order->created_at)) }}</a>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">Bradly Beal</a>
+                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->user->name }}</a>
                         </td>
                         <td>
-                            <span class="badge badge-light-primary fs-7 fw-bold">Approved</span>
+                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->amount }}</a>
+                        </td>
+                        <td>
+                            @switch($order->status)
+                                @case('new')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,202,240);">{{ $order->status }}</span>
+                                @break
+                                @case('collected')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,110,253);">{{ $order->status }}</span>
+                                @break
+                                @case('on_the_way')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(225,193,7);">{{ $order->status }}</span>
+                                @break
+                                @case('returned')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: #ff39f9;">{{ $order->status }}</span>
+                                @break
+                                @case('done')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(25,135,84);">{{ $order->status }}</span>
+                                @break
+                                @case('cancelled')
+                                <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(220,53,69);">{{ $order->status }}</span>
+                                @break
+                            @endswitch
                         </td>
                         <td class="text-end">
                             <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">

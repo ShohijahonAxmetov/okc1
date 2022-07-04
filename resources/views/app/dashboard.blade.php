@@ -229,7 +229,7 @@
                             <!--begin::Title-->
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bolder text-gray-800">Product Orders</span>
-                                <span class="text-gray-400 mt-1 fw-bold fs-6">Avg. 57 orders per day</span>
+                                <!-- <span class="text-gray-400 mt-1 fw-bold fs-6">Avg. 57 orders per day</span> -->
                             </h3>
                             <!--end::Title-->
                             <!--begin::Actions-->
