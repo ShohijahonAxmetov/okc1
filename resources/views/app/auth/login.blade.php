@@ -31,7 +31,7 @@
 						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
 							<!--begin::Logo-->
 							<a href="../../demo1/dist/index.html" class="py-9 mb-5">
-								<img alt="Logo" src="assets/media/logos/logo-2.svg" class="h-60px" />
+								<img alt="Logo" src="assets/media/logo.svg" class="h-60px" />
 							</a>
 							<!--end::Logo-->
 							<!--begin::Title-->
