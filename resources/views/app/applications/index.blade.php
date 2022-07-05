@@ -90,7 +90,7 @@
                             </a> -->
                             <form action="{{ route('applications.destroy', ['id' => $application->id]) }}" method="post">
                                 @csrf
-                                <button type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button" id="kt_docs_sweetalert_html{{ $application->id }}">
+                                <button type="button" onclick="confirmation(this)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button">
                                     <span class="svg-icon svg-icon-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                             <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
@@ -118,12 +118,7 @@
 @section('scripts')
 
 <script>
-    @foreach($applications as $application)
-    button = document.getElementById('kt_docs_sweetalert_html{{ $application->id }}');
-
-    button.addEventListener('click', e => {
-        e.preventDefault();
-
+    function confirmation(item) {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -134,11 +129,10 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                button.parentNode.submit();
+                item.parentNode.submit();
             }
         });
-    });
-    @endforeach
+    }
 </script>
 
 @endsection

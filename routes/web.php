@@ -31,6 +31,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     // orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::post('orders/{id}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
 
     // brands
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');

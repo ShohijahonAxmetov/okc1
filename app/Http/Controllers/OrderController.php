@@ -91,11 +91,13 @@ class OrderController extends Controller
         $order = Order::find($id);
 
         if(!$order) {
-            return response(['message' => 'Net takogo zakaza'], 400);
+            return back()->with(['message' => 'Order not found', 'success' => false]);
+            // return response(['message' => 'Net takogo zakaza'], 400);
         }
         $order->update([
             'is_deleted' => 1
         ]);
-        return response(['message' => 'Успешно удален'], 200);
+        return back()->with(['message' => 'Successfully deleted', 'success' => true]);
+        // return response(['message' => 'Успешно удален'], 200);
     }
 }
