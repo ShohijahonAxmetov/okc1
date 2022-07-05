@@ -614,6 +614,7 @@ class WebController extends Controller
             ->select('products.*')
             ->whereIn('brand_id', $brand)
             ->where('is_popular', 1)
+            ->where('is_active', 1)
             ->with('brand')
             ->paginate(1);
             return response([
@@ -631,6 +632,7 @@ class WebController extends Controller
             ->orderBy('product_variations.price', 'desc')
             ->select('products.*')
             ->whereIn('brand_id', $brand)
+            ->where('is_active', 1)
             ->with('brand')
             ->paginate(1);
             return response([
@@ -647,6 +649,7 @@ class WebController extends Controller
             ->orderBy('product_variations.price')
             ->select('products.*')
             ->whereIn('brand_id', $brand)
+            ->where('is_active', 1)
             ->with('brand')
             ->paginate(1);
             return response([
@@ -663,6 +666,7 @@ class WebController extends Controller
             ->latest()
             ->select('products.*')
             ->whereIn('brand_id', $brand)
+            ->where('is_active', 1)
             ->with('brand')
             ->paginate(1);
             return response([
