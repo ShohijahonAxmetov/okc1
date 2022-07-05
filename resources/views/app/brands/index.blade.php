@@ -63,7 +63,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="{{ isset($brand->img) ? asset($brand->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="">
+                                    <img src="{{ isset($brand->img) ? asset($brand->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" style="object-fit:contain">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $brand->title }}</a>
