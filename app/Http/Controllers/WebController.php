@@ -664,7 +664,7 @@ class WebController extends Controller
                                 ->latest()
                                 ->select('products.*')
                                 ->whereIn('brand_id', $brand)
-                                ->where('product.is_active', 1)
+                                ->where('products.is_active', 1)
                                 ->with('brand')
                                 ->paginate(1);
             return response([
