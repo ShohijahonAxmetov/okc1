@@ -656,7 +656,7 @@ class WebController extends Controller
                 'end_price' => $end_price
             ], 200);
         } else if($sort_type == 'new') {
-            $products = Product::where('is_active', 1)
+            $products = Product::where('is_active', '=', '1')
                                 ->join('product_variations', function($join) use ($start_price, $end_price) {
                                     $join->on('products.id', '=', 'product_variations.product_id')
                                     ->where('product_variations.is_default', 1)
