@@ -656,17 +656,17 @@ class WebController extends Controller
                 'end_price' => $end_price
             ], 200);
         } else if($sort_type == 'new') {
-            $products = Product::join('product_variations', function($join) use ($start_price, $end_price) {
-                $join->on('products.id', '=', 'product_variations.product_id')
-                ->where('product_variations.is_default', 1)
-                ->whereBetween('product_variations.price', [$start_price, $end_price]);
-            })
-            ->latest()
-            ->select('products.*')
-            ->where('is_active', 1)
-            ->whereIn('brand_id', $brand)
-            ->with('brand')
-            ->paginate(1);
+            $products = Product::where('is_active', 1)
+                                ->join('product_variations', function($join) use ($start_price, $end_price) {
+                                    $join->on('products.id', '=', 'product_variations.product_id')
+                                    ->where('product_variations.is_default', 1)
+                                    ->whereBetween('product_variations.price', [$start_price, $end_price]);
+                                })
+                                ->latest()
+                                ->select('products.*')
+                                ->whereIn('brand_id', $brand)
+                                ->with('brand')
+                                ->paginate(1);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
