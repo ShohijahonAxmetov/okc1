@@ -105,7 +105,13 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::find($id)->delete();
-        return response(['message' => 'Успешно удален'], 200);
+        $banner = Banner::find($id);
+        if(!$banner) {
+            return back()->with(['message' => 'Net takogo bannera', 'success' => false]);
+            // return response(['message' => 'Net takogo kommentariya'], 400);
+        }
+        $banner->delete();
+        return back()->with(['message' => 'Successfully deleted', 'success' => true]);
+        // return response(['message' => 'Успешно удален'], 200);
     }
 }

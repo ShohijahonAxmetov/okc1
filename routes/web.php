@@ -53,6 +53,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::get('banners', [BannerController::class, 'index'])->name('banners.index');
     Route::post('banners/{id}/update', [BannerController::class, 'update'])->name('banners.update');
     Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
+    Route::post('banners/{id}/destroy', [BannerController::class, 'destroy'])->name('banners.destroy');
     
     // comments
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
