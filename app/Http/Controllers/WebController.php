@@ -588,6 +588,7 @@ class WebController extends Controller
                 ->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%'.$search.'%')
                 ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%'.mb_strtolower($search).'%')
                 ->with('brand', 'categories')
+                ->where('is_active', 1)
                 ->paginate(1);
             return response([
                 'data' => $products,

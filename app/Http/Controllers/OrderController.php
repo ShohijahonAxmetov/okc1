@@ -42,8 +42,12 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')->find($id);
-        return response(['data' => $order]);
+        $order = Order::with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')
+                        ->find($id);
+        if(!$order) abort(404);
+                        
+        return view('app.orders.show', compact('order'));
+        // return response(['data' => $order]);
     }
 
     /**

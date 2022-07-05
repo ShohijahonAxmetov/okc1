@@ -8,7 +8,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+	<link rel="shortcut icon" href="/assets/media/okc-shortcut.png" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<!--end::Fonts-->
@@ -277,7 +277,7 @@
 				</div>
 				<!--end::Aside menu-->
 				<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-					<a href="../../demo1/dist/documentation/getting-started.html" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="200+ in-house components and 3rd-party plugins">
+					<a href="{{ route('upload_datas') }}" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="200+ in-house components and 3rd-party plugins">
 						<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 						<span class="svg-icon svg-icon-2">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -286,7 +286,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->	
-						<span class="btn-label">Download updates</span>
+						<span class="btn-label">Download updates1</span>
 					</a>
 				</div>
 			</div>

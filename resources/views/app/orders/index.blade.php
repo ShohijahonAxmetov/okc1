@@ -2,6 +2,22 @@
 
 @section('title', 'ORDERS')
 
+@section('breadcrumb')
+
+@include('app.components.breadcrumb', [
+'items' => [
+[
+'title' => 'home',
+'route' => 'dashboard'
+],
+[
+'title' => 'orders'
+]
+]
+])
+
+@endsection
+
 @section('content')
 
 <div class="card mb-5 mb-xl-8">

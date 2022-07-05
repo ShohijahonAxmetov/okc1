@@ -10,19 +10,8 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\VenkonController;
-
 use App\Http\Controllers\AdminAuthController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Route::get('/', function () {
     // $client = new GuzzleHttp\Client();
@@ -41,6 +30,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     
     // orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
 
     // brands
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');
@@ -70,16 +60,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::post('comments/{id}/destroy', [CommentController::class, 'destroy'])->name('comments.destroy');
 
     // upload datas from 1c
-    Route::post('upload_datas', [VenkonController::class, 'upload_datas'])->name('upload_datas');
+    Route::get('upload_datas', [VenkonController::class, 'upload_datas'])->name('upload_datas');
+    Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
+    Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
+    Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
 });
 
-
-// upload updates
-Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
-Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
-Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
 
 // for allIn marketplace
 Route::get('/store-to-allin', [\App\Http\Controllers\WebController::class, 'store_to_allin']);
 
+// dropzone upload files
 Route::post('/upload_from_dropzone', [\App\Http\Controllers\ProductController::class, 'upload_from_dropzone']);
