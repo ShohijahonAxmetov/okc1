@@ -277,7 +277,7 @@
 				</div>
 				<!--end::Aside menu-->
 				<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-					<a href="{{ route('upload_datas') }}" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="200+ in-house components and 3rd-party plugins">
+					<a href="{{ route('upload_datas') }}" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="Upload updates from 1c servers">
 						<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 						<span class="svg-icon svg-icon-2">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -286,7 +286,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->	
-						<span class="btn-label">Download updates1</span>
+						<span class="btn-label">Download updates</span>
 					</a>
 				</div>
 			</div>
@@ -353,10 +353,10 @@
 												<!--end::Avatar-->
 												<!--begin::Username-->
 												<div class="d-flex flex-column">
-													<div class="fw-bolder d-flex align-items-center fs-5">Max Smith
-														<span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span>
+													<div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->name }}
+														<span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{ auth()->user()->role }}</span>
 													</div>
-													<a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+													<a class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->username }}</a>
 												</div>
 												<!--end::Username-->
 											</div>
@@ -367,7 +367,7 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a href="../../demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+											<a class="menu-link px-5">My Profile</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu separator-->
@@ -375,7 +375,7 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5 my-1">
-											<a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+											<a class="menu-link px-5">Account Settings</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
