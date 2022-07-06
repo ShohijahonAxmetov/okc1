@@ -47,7 +47,7 @@ class OrderController extends Controller
         if(!$order) abort(404);
 
         $orders_history = Order::where('user_id', $order->user_id)
-                                ->with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')
+                                ->with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product')
                                 ->get();
                         
         return view('app.orders.show', compact('order', 'orders_history'));

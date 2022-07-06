@@ -100,7 +100,7 @@
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end text-capitalize">{{ $order->payment_method }}
-                                            <img src="/assets/media/svg/card-logos/visa.svg" class="w-50px ms-2" />
+                                            <!-- <img src="/assets/media/svg/card-logos/visa.svg" class="w-50px ms-2" /> -->
                                         </td>
                                     </tr>
                                     <!--end::Payment method-->
@@ -372,174 +372,64 @@
                                                 <th class="min-w-100px">Date Added</th>
                                                 <th class="min-w-175px">Comment</th>
                                                 <th class="min-w-70px">Order Status</th>
-                                                <th class="min-w-100px">Customer Notifed</th>
+                                                <th class="min-w-175px">Product</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
                                         <!--begin::Table body-->
                                         <tbody class="fw-bold text-gray-600">
+                                            @foreach($orders_history as $order_item)
                                             <tr>
                                                 <!--begin::Date-->
-                                                <td>30/03/2022</td>
+                                                <td>{{ date('d/m/Y', strtotime($order_item->created_at)) }}</td>
                                                 <!--end::Date-->
                                                 <!--begin::Comment-->
-                                                <td>Order completed</td>
+                                                <td>{{ $order_item->comments ?? '--' }}</td>
                                                 <!--end::Comment-->
                                                 <!--begin::Status-->
                                                 <td>
                                                     <!--begin::Badges-->
-                                                    <div class="badge badge-light-success">Completed</div>
+                                                    @switch($order->status)
+                                                    @case('new')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,202,240);">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @case('collected')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,110,253);">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @case('on_the_way')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(225,193,7);">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @case('returned')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: #ff39f9;">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @case('done')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(25,135,84);">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @case('cancelled')
+                                                    <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(220,53,69);">{{ $order_item->status }}</span>
+                                                    @break
+                                                    @endswitch
                                                     <!--end::Badges-->
                                                 </td>
                                                 <!--end::Status-->
                                                 <!--begin::Customer Notified-->
-                                                <td>No</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>29/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Order received by customer</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
                                                 <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-success">Delivered</div>
-                                                    <!--end::Badges-->
+                                                    @if(isset($order_item->productVariations))
+                                                    @foreach($order_item->productVariations as $product)
+                                                        @if(isset($product->title['ru']))
+                                                        <a href="{{ route('products.edit', ['id' => $product->id]) }}">{{ $product->title['ru'] }}</a>
+                                                        @else
+                                                        Deleted product
+                                                        @endif
+                                                        <br>
+                                                    @endforeach
+                                                    @else
+                                                    Deleted product
+                                                    @endif
                                                 </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>Yes</td>
                                                 <!--end::Customer Notified-->
                                             </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>28/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Order shipped from warehouse</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-primary">Delivering</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>Yes</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>27/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Payment received</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-primary">Processing</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>No</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>26/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Pending payment</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-warning">Pending</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>No</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>25/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Payment method updated</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-warning">Pending</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>No</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>24/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Payment method expired</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-danger">Failed</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>Yes</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>23/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Pending payment</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-warning">Pending</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>No</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
-                                            <tr>
-                                                <!--begin::Date-->
-                                                <td>22/03/2022</td>
-                                                <!--end::Date-->
-                                                <!--begin::Comment-->
-                                                <td>Order received</td>
-                                                <!--end::Comment-->
-                                                <!--begin::Status-->
-                                                <td>
-                                                    <!--begin::Badges-->
-                                                    <div class="badge badge-light-warning">Pending</div>
-                                                    <!--end::Badges-->
-                                                </td>
-                                                <!--end::Status-->
-                                                <!--begin::Customer Notified-->
-                                                <td>Yes</td>
-                                                <!--end::Customer Notified-->
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                         <!--end::Table head-->
                                     </table>
