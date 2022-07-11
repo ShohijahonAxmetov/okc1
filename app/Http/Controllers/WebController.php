@@ -153,6 +153,7 @@ class WebController extends Controller
             }
         }
         $data['amount'] = $amount;
+        unset($amount);
         $data['status'] = 'new';
         // soxranenie dannix
         DB::beginTransaction();
@@ -719,4 +720,13 @@ class WebController extends Controller
 		fclose($fp);
 
 	}
+
+    public function get_regions_districts(Request $request)
+    {
+        $districts = array_values(array_filter(config('app.DISTRICTS'), function($item) use ($request) {
+            if($item['parent_id'] == $request->region_id) return $item;
+        }));
+
+        return response(['success' => true, 'districts' => $districts]);
+    }
 }

@@ -49,8 +49,14 @@ class OrderController extends Controller
         $orders_history = Order::where('user_id', $order->user_id)
                                 ->with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product')
                                 ->get();
+
+        $products_variations = ProductVariation::with('product')
+                                                ->whereHas('product', function($product) {
+                                                    $product->where('is_active', 1);
+                                                })
+                                                ->get();
                         
-        return view('app.orders.show', compact('order', 'orders_history'));
+        return view('app.orders.show', compact('order', 'orders_history', 'products_variations'));
         // return response(['data' => $order]);
     }
 
@@ -63,10 +69,17 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only('status');
+        $data = $request->only('status', 'region', 'district', 'payment_method', 'delivery_method', 'postal_code', 'address');
+        $data['with_delivery'] = $data['delivery_method'] ? 1 : 0;
 
         $validator = Validator::make($data, [
-            'status' => 'required|in:new,collected,on_the_way,returned,done,cancelled'
+            'status' => 'required|in:new,collected,on_the_way,returned,done,cancelled',
+            'region' => 'nullable|integer',
+            'district' => 'nullable|integer',
+            'payment_method' => 'required|in:cash,online',
+            'delivery_method' => 'nullable|in:bts,delivery',
+            'postal_code' => 'nullable|max:12'
+
         ]);
         if($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
@@ -77,11 +90,13 @@ class OrderController extends Controller
             return response(['message' => 'Net takogo zakaza'], 400);
         }
 
-        $order->update([
-            'status' => $data['status']
-        ]);
+        $order->update($data);
 
-        return response(['message' => 'Успешно обновлен'], 200);
+        return redirect()->route('orders.show', ['id' => $id])->with([
+            'success' => true,
+            'message' => 'Successfully updated'
+        ]);
+        // return response(['message' => 'Успешно обновлен'], 200);
     }
 
     /**
@@ -103,5 +118,64 @@ class OrderController extends Controller
         ]);
         return back()->with(['message' => 'Successfully deleted', 'success' => true]);
         // return response(['message' => 'Успешно удален'], 200);
+    }
+
+    public function edit($id)
+    {
+        $order = Order::with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')
+                        ->find($id);
+        if(!$order) abort(404);
+                        
+        return view('app.orders.edit', compact('order'));
+    }
+
+    public function add_product($id, Request $request)
+    {
+        $request->validate([
+            'variation_id' => 'integer|required',
+            'count' => 'required|integer'
+        ]);
+
+        $product_variation = ProductVariation::find($request->variation_id);
+        $amount = 0;
+        if(isset($product_variation->discount_price)) {
+            $amount += (preg_replace('/[^0-9]/', '', $product_variation->discount_price) * 100) * $request->count;
+        } else {
+            $brand_discount = isset($product_variation->product->brand->discount) ? $product_variation->product->brand->discount : null;
+            if($brand_discount) {
+                $amount += (100 - $brand_discount->discount)/100 * (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $request->count;
+            } else {
+                $amount += (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $request->count;
+            }
+        }
+
+        DB::table('order_product_variation')->insert([
+            'order_id' => $id,
+            'product_variation_id' => $request->variation_id,
+            'count' => $request->count,
+            'price' => $amount,
+            'discount_price' => 1,
+            'brand_discount' => 1
+        ]);
+        unset($amount);
+
+        return back()->with([
+            'success' => true
+        ]);
+    }
+
+    public function delete_product($id, Request $request)
+    {
+        $request->validate([
+            'order_id' => 'integer|required'
+        ]);
+
+        DB::table('order_product_variation')->where('product_variation_id', $id)
+                                            ->where('order_id', $request->order_id)
+                                            ->delete();
+                                            
+        return back()->with([
+            'success' => true
+        ]);
     }
 }

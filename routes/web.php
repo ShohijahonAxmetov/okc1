@@ -11,6 +11,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\VenkonController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\WebController;
 
 
 // Route::get('/', function () {
@@ -31,7 +32,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     // orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('orders/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
     Route::post('orders/{id}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
+    Route::post('orders/{id}/update', [OrderController::class, 'update'])->name('orders.update');
+    Route::post('orders/{id}/add_product', [OrderController::class, 'add_product'])->name('orders.add_product');
+    Route::post('orders/{id}/delete_product', [OrderController::class, 'delete_product'])->name('orders.delete_product');
 
     // brands
     Route::get('brands', [BrandController::class, 'index'])->name('brands.index');
@@ -66,6 +71,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
     Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
     Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
+
+    // get regions districts
+    Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);
 });
 
 

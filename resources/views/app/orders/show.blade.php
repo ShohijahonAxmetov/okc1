@@ -46,7 +46,9 @@
                 </ul>
                 <!--end:::Tabs-->
                 <!--begin::Button-->
-                <a href="../../demo1/dist/apps/ecommerce/sales/edit-order.html" class="btn btn-light-primary btn-sm me-lg-n7">Edit Order</a>
+                <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#delete_product">Delete product from Order</a> -->
+                <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Add product to Order</a>
+                <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="btn btn-light-primary btn-sm me-lg-n7">Edit Order</a>
                 <!--end::Button-->
             </div>
             <!--begin::Order summary-->
@@ -253,8 +255,8 @@
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
-                                <div class="card-body pt-0">City: {{ $order->region ? config('app.REGIONS')[$order->region]['uz'] : '--' }},
-                                    <br />Region: {{ $order->district ? config('app.DISTRICTS')[$order->region]['title'] : '--' }},
+                                <div class="card-body pt-0">City: {{ $order->region ? config('app.REGIONS')[$order->region - 1]['uz'] : '--' }},
+                                    <br />Region: {{ $order->district ? config('app.DISTRICTS')[$order->district - 1]['title'] : '--' }},
                                     <br />Address: {{ $order->address ?? '--' }},
                                     <br />Postal code: {{ $order->postal_code ?? '--' }}.
                                 </div>
@@ -284,6 +286,7 @@
                                                 <th class="min-w-70px text-end">Qty</th>
                                                 <th class="min-w-100px text-end">Unit Price</th>
                                                 <th class="min-w-100px text-end">Total</th>
+                                                <th class="min-w-100px text-end">Actions</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -320,6 +323,23 @@
                                                 <!--end::Price-->
                                                 <!--begin::Total-->
                                                 <td class="text-end">{{ isset($product->pivot) ? $product->pivot->count * $product->pivot->price : '--' }}</td>
+                                                <!--end::Total-->
+                                                <!--begin::Total-->
+                                                <td class="text-end">
+                                                    <form action="{{ route('orders.delete_product', ['id' => $product->id]) }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                                                        <button type="button" onclick="confirmation(this)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button">
+                                                            <span class="svg-icon svg-icon-3">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                    <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                                                    <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                                                    <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                                                </svg>
+                                                            </span>
+                                                        </button>
+                                                    </form>
+                                                </td>
                                                 <!--end::Total-->
                                             </tr>
                                             @endforeach
@@ -372,7 +392,7 @@
                                                 <th class="min-w-100px">Date Added</th>
                                                 <th class="min-w-175px">Comment</th>
                                                 <th class="min-w-70px">Order Status</th>
-                                                <th class="min-w-175px">Product</th>
+                                                <th class="min-w-175px">Products</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -389,7 +409,7 @@
                                                 <!--begin::Status-->
                                                 <td>
                                                     <!--begin::Badges-->
-                                                    @switch($order->status)
+                                                    @switch($order_item->status)
                                                     @case('new')
                                                     <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,202,240);">{{ $order_item->status }}</span>
                                                     @break
@@ -416,12 +436,12 @@
                                                 <td>
                                                     @if(isset($order_item->productVariations))
                                                     @foreach($order_item->productVariations as $product)
-                                                        @if(isset($product->title['ru']))
-                                                        <a href="{{ route('products.edit', ['id' => $product->id]) }}">{{ $product->title['ru'] }}</a>
-                                                        @else
-                                                        Deleted product
-                                                        @endif
-                                                        <br>
+                                                    @if(isset($product->product->title['ru']))
+                                                    <a href="{{ route('products.edit', ['product' => $product->product]) }}">{{ $product->product->title['ru'] }}</a>
+                                                    @else
+                                                    Deleted product
+                                                    @endif
+                                                    <br>
                                                     @endforeach
                                                     @else
                                                     Deleted product
@@ -451,5 +471,99 @@
     <!--end::Container-->
 </div>
 <!--end::Post-->
+
+
+<!-- modal for add products to order -->
+<!--begin::Modal - New Product-->
+<div class="modal fade" id="add_product" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-650px">
+        <!--begin::Modal content-->
+        <div class="modal-content">
+            <!--begin::Form-->
+            <form class="form" action="{{ route('orders.add_product', ['id' => $order->id]) }}" method="post">
+                @csrf
+                <!--begin::Modal header-->
+                <div class="modal-header">
+                    <!--begin::Modal title-->
+                    <h2 class="fw-bolder" data-kt-calendar="title">Add product to Order #{{ $order->id }}</h2>
+                    <!--end::Modal title-->
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                        <span class="svg-icon svg-icon-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <!--end::Modal header-->
+                <!--begin::Modal body-->
+                <div class="modal-body py-10 px-lg-17">
+                    <div class="fv-row mb-9">
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Select product</label>
+                        <select class="form-select" name="variation_id" data-control="select2" data-hide-search="false" required>
+                            @foreach($products_variations as $product)
+                            <option value="{{ $product->id }}">{{ $product->product->title['ru'] }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-9">
+                        <!--begin::Label-->
+                        <label class="fs-6 fw-bold required mb-2">Product count</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="text" class="form-control form-control-solid" required name="count" />
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                </div>
+                <!--end::Modal body-->
+                <!--begin::Modal footer-->
+                <div class="modal-footer flex-center">
+                    <!--begin::Button-->
+                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <!--end::Button-->
+                    <!--begin::Button-->
+                    <button type="submit" class="btn btn-primary">
+                        <span class="indicator-label">Submit</span>
+                    </button>
+                    <!--end::Button-->
+                </div>
+                <!--end::Modal footer-->
+            </form>
+            <!--end::Form-->
+        </div>
+    </div>
+</div>
+<!--end::Modal - New Product-->
+
+@endsection
+
+@section('scripts')
+
+<script>
+    function confirmation(item) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                item.parentNode.submit();
+            }
+        });
+    }
+</script>
 
 @endsection

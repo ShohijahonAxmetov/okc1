@@ -535,7 +535,7 @@
             document.body.append(input);
             // console.log(response);
         },
-        removedfile: function(file) {
+        removedfile: function (file) {
             if(file.xhr) {
     	    	let data = JSON.parse(file.xhr.response);
                 let removing_img = document.querySelector('[value="' + data.file_name + '"]');
