@@ -175,12 +175,16 @@ class WebController extends Controller
 
             DB::commit();
             
-            return response(['url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100)]);
-            // return response(['message' => 'Успешно оформлен'], 200);
+            return response([
+                'url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100),
+                'with_url' => true
+            ]);
         } catch (\Exception $e) {
             DB::rollback();
-            throw($e);
-            return response(['message' => 'Ошибка'], 400);
+            return response([
+                'message' => 'Error',
+                'success' => false
+            ], 400);
         }
     }
 
