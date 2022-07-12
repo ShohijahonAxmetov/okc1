@@ -228,7 +228,7 @@
 							</div>
 
 							<div class="menu-item">
-								<a class="menu-link {{ Request::is('dashboard/users/*') || Request::is('dashboard/users') ? 'active' : '' }}" href="../../demo1/dist/apps/calendar.html">
+								<a class="menu-link {{ Request::is('dashboard/users/*') || Request::is('dashboard/users') ? 'active' : '' }}" href="{{ route('users.index') }}">
 									<span class="menu-icon">
 										<!--begin::Svg Icon | path: /assets/media/icons/duotune/communication/com014.svg-->
 										<span class="svg-icon ms-2 svg-icon-3 rotate-180">

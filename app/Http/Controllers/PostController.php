@@ -17,8 +17,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(24);
-        return response(['data' => $posts], 200);
+        $posts = Post::latest()
+                        ->paginate(12);
+        $languages = ['ru', 'uz'];
+
+        return view('app.posts.index', compact(
+            'posts',
+            'languages'
+        ));
+        // return response(['data' => $posts], 200);
     }
 
     /**
@@ -32,11 +39,11 @@ class PostController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            'title' => 'required',
+            'title_ru' => 'required',
             'img' => 'image|nullable|max:2048'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with(['message' => $validator->errors()], 400);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
@@ -50,12 +57,23 @@ class PostController extends Controller
             })->save(public_path().'/upload/posts/600/'.$img_name, 80);
             $data['img'] = $img_name;
         }
-        $data['title'] = json_decode($data['title']);
-        $data['subtitle'] = json_decode($data['subtitle']);
-        $data['desc'] = json_decode($data['desc']);
+        // $data['title'] = json_decode($data['title']);
+        $data['title'] = json_decode(json_encode([
+            'ru' => $data['title_ru'],
+            'uz' => $data['title_uz']
+        ]));
+        $data['subtitle'] = json_decode(json_encode([
+            'ru' => $data['subtitle_ru'],
+            'uz' => $data['subtitle_uz']
+        ]));
+        $data['desc'] = json_decode(json_encode([
+            'ru' => $data['desc_ru'],
+            'uz' => $data['desc_uz']
+        ]));
         Post::create($data);
 
-        return response(['message' => 'Успешно добавлен'], 200);
+        return back()->with(['message' => 'Успешно добавлен', 'success' => true], 200);
+        // return response(['message' => 'Успешно добавлен'], 200);
     }
 
     /**
@@ -82,11 +100,11 @@ class PostController extends Controller
         $data = $request->all();
 
         $validator = Validator::make($data, [
-            'title' => 'required|max:255',
+            'title_ru' => 'required|max:255',
             'img' => 'image|nullable|max:2048'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with(['message' => $validator->errors()], 400);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
@@ -100,12 +118,24 @@ class PostController extends Controller
             })->save(public_path().'/upload/posts/600/'.$img_name, 80);
             $data['img'] = $img_name;
         }
-        $data['title'] = json_decode($data['title']);
-        isset($data['subtitle']) ? $data['subtitle'] = json_decode($data['subtitle']) : null;
-        isset($data['desc']) ? $data['desc'] = json_decode($data['desc']) : null;
+
+        // $data['title'] = json_decode($data['title']);
+        $data['title'] = json_decode(json_encode([
+            'ru' => $data['title_ru'],
+            'uz' => $data['title_uz']
+        ]));
+        $data['subtitle'] = json_decode(json_encode([
+            'ru' => $data['subtitle_ru'],
+            'uz' => $data['subtitle_uz']
+        ]));
+        $data['desc'] = json_decode(json_encode([
+            'ru' => $data['desc_ru'],
+            'uz' => $data['desc_uz']
+        ]));
         Post::find($id)->update($data);
 
-        return response(['message' => 'Успешно редактирован'], 200);
+        return back()->with(['message' => 'Успешно редактирован', 'success' => true]);
+        // return response(['message' => 'Успешно редактирован'], 200);
     }
 
     /**
@@ -116,7 +146,13 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
-        return response(['message' => 'Успешно удален'], 200);
+        $post = Post::find($id);
+        if(!$post) {
+            return back()->with(['message' => 'Post not found', 'success' => false]);
+            // return response(['message' => 'Net takogo kommentariya'], 400);
+        }
+        $post->delete();
+        return back()->with(['message' => 'Successfully deleted', 'success' => true]);
+        // return response(['message' => 'Успешно удален'], 200);
     }
 }

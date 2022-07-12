@@ -178,9 +178,9 @@ Route::prefix('admin')->group(function() {
 		// banners
 		// Route::apiResource('/banners', BannerController::class);
 		// posts
-		Route::apiResource('/posts', PostController::class);
+		// Route::apiResource('/posts', PostController::class);
 		// clients
-		Route::apiResource('/users', UserController::class);
+		// Route::apiResource('/users', UserController::class);
 		Route::post('users/{id}/delete-img', [UserController::class, 'delete_img']);
 		// discounts
 		Route::get('discounts/all', [DiscountController::class, 'all']);

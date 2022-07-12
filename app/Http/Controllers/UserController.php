@@ -15,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('orders', 'comments')->paginate(24);
+        $users = User::with('orders', 'comments')
+                        ->paginate(12);
+
+        return view('app.users.index', compact('users'));
         return response(['data' => $users], 200);
     }
 
@@ -38,7 +41,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::with('orders')->find($id);
+        $user = User::with('orders')
+                        ->find($id);
+
+        return view('app.users.show', compact('user'));
         return response(['data' => $user], 200);
     }
 
@@ -71,11 +77,13 @@ class UserController extends Controller
 
             DB::commit();
 
-            return response(['message' => 'Успешно удален'], 200);
+            return back()->with(['success' => true,'message' => 'Successfully deleted']);
+            // return response(['message' => 'Успешно удален'], 200);
         } catch (\Exception $e) {
             DB::rollback();
             throw($e);
-            return response(['message' => 'Ошибка'], 400);
+            return back()->with(['success' => false,'message' => 'Error']);
+            // return response(['message' => 'Ошибка'], 400);
         }
     }
 

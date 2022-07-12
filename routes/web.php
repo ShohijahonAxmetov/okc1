@@ -12,6 +12,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\VenkonController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 
 // Route::get('/', function () {
@@ -66,11 +68,22 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::post('comments/update/{comment}', [CommentController::class, 'update'])->name('comments.update');
     Route::post('comments/{id}/destroy', [CommentController::class, 'destroy'])->name('comments.destroy');
 
+    // posts
+    Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+    Route::post('posts/{id}/update', [PostController::class, 'update'])->name('posts.update');
+    Route::post('posts/store', [PostController::class, 'store'])->name('posts.store');
+    Route::post('posts/{id}/destroy', [PostController::class, 'destroy'])->name('posts.destroy');
+
     // upload datas from 1c
     Route::get('upload_datas', [VenkonController::class, 'upload_datas'])->name('upload_datas');
     Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
     Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
     Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
+
+    // users
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::post('users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
 
     // get regions districts
     Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);
