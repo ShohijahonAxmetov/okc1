@@ -44,7 +44,7 @@
                         <th class="min-w-200">Customer</th>
                         <th class="min-w-125px">Date added</th>
                         <th class="min-w-125px">Date modified</th>
-                        <th class="min-w-125px">Total</th>
+                        <th class="min-w-125px">Total(sum)</th>
                         <th class="min-w-125px">Status</th>
                         <th class="min-w-125px text-end rounded-end">Actions</th>
                     </tr>
@@ -81,7 +81,7 @@
                             <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ date('H:i d.m.Y', strtotime($order->updated_at)) }}</a>
                         </td>
                         <td>
-                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->amount }}</a>
+                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->amount / 100 }}</a>
                         </td>
                         <td>
                             @switch($order->status)
