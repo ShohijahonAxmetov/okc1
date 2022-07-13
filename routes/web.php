@@ -53,7 +53,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     Route::get('products', [ProductController::class, 'index'])->name('products.index');
     Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::post('products/{id}/update', [ProductController::class, 'update'])->name('products.update');
-    Route::get('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::post('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
 
     // applications
     Route::get('applications', [ApplicationController::class, 'index'])->name('applications.index');
