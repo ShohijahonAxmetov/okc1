@@ -17,20 +17,20 @@ use App\Http\Controllers\UserController;
 
 
 // Route::get('/', function () {
-    // $client = new GuzzleHttp\Client();
-    // $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
-    // $resp = (string) $res->getBody();
-    // return response()->json(json_decode($resp, true), $res->getStatusCode());
-    // return view('welcome');
+// $client = new GuzzleHttp\Client();
+// $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
+// $resp = (string) $res->getBody();
+// return response()->json(json_decode($resp, true), $res->getStatusCode());
+// return view('welcome');
 // });
 
 Route::get('/', [AdminAuthController::class, 'login_form'])->name('login');
 Route::post('/login', [AdminAuthController::class, 'login'])->name('auth.login');
 Route::post('/logout', [AdminAuthController::class, 'logout'])->name('auth.logout');
 
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    
+
     // orders
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('orders/{id}', [OrderController::class, 'show'])->name('orders.show');
@@ -62,7 +62,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::post('banners/{id}/update', [BannerController::class, 'update'])->name('banners.update');
     Route::post('banners/store', [BannerController::class, 'store'])->name('banners.store');
     Route::post('banners/{id}/destroy', [BannerController::class, 'destroy'])->name('banners.destroy');
-    
+
     // comments
     Route::get('comments', [CommentController::class, 'index'])->name('comments.index');
     Route::post('comments/update/{comment}', [CommentController::class, 'update'])->name('comments.update');
@@ -96,3 +96,56 @@ Route::get('/store-to-allin', [\App\Http\Controllers\WebController::class, 'stor
 
 // dropzone upload files
 Route::post('/upload_from_dropzone', [\App\Http\Controllers\ProductController::class, 'upload_from_dropzone']);
+
+
+// venkon api
+Route::group(['prefix' => 'venkon'], function () {
+    Route::get('brands', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/brands', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('categories', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('colors', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/colors', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('products', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('warehouses', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/warehouses', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('discount', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/discount', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+
+    Route::get('remainders', function () {
+        $client = new GuzzleHttp\Client();
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/remainders', ['auth' =>  ['Venkon', 'overlord']]);
+        $resp = (string) $res->getBody();
+        return response()->json(json_decode($resp, true), $res->getStatusCode());
+    });
+});
