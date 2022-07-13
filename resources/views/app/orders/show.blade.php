@@ -172,15 +172,15 @@
                                             <div class="d-flex align-items-center justify-content-end">
                                                 <!--begin:: Avatar -->
                                                 <div class="symbol symbol-circle symbol-25px overflow-hidden me-3">
-                                                    <a href="../../demo1/dist/apps/ecommerce/customers/details.html">
+                                                    <a>
                                                         <div class="symbol-label">
-                                                            <img src="{{ isset($order->user) ? (isset($order->user->img) ? asset($order->user->img) : '/assets/media/default-user.jpg' ) : 'Deleted user' }}" alt="Dan Wilson" class="w-100" />
+                                                            <img src="{{ isset($order->user->img) ? asset($order->user->img) : '/assets/media/default-user.jpg' }}" alt="Dan Wilson" class="w-100" />
                                                         </div>
                                                     </a>
                                                 </div>
                                                 <!--end::Avatar-->
                                                 <!--begin::Name-->
-                                                <a href="../../demo1/dist/apps/ecommerce/customers/details.html" class="text-gray-600 text-hover-primary">{{ isset($order->user) ? $order->user->name : 'Deleted user' }}</a>
+                                                <a class="text-gray-600 text-hover-primary">{{ isset($order->user) ? $order->user->name : 'Deleted user' }}</a>
                                                 <!--end::Name-->
                                             </div>
                                         </td>
@@ -201,7 +201,7 @@
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end">
-                                            <a href="../../demo1/dist/apps/user-management/users/view.html" class="text-gray-600 text-hover-primary">{{ $order->email }}</a>
+                                            <a class="text-gray-600 text-hover-primary">{{ $order->email ?? '--' }}</a>
                                         </td>
                                     </tr>
                                     <!--end::Payment method-->
@@ -299,13 +299,13 @@
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <!--begin::Thumbnail-->
-                                                        <a href="../../demo1/dist/apps/ecommerce/catalog/edit-product.html" class="symbol symbol-50px">
+                                                        <a href="{{ route('products.edit', ['product' => $product->product]) }}" class="symbol symbol-50px">
                                                             <span class="symbol-label" style="background-image:url(/assets/media//stock/ecommerce/1.gif);"></span>
                                                         </a>
                                                         <!--end::Thumbnail-->
                                                         <!--begin::Title-->
                                                         <div class="ms-5">
-                                                            <a href="../../demo1/dist/apps/ecommerce/catalog/edit-product.html" class="fw-bolder text-gray-600 text-hover-primary">{{ isset($product->product) ? $product->product->title['ru'] : 'Deleted product' }}</a>
+                                                            <a href="{{ route('products.edit', ['product' => $product->product]) }}" class="fw-bolder text-gray-600 text-hover-primary">{{ isset($product->product) ? $product->product->title['ru'] : 'Deleted product' }}</a>
                                                             <div class="fs-7 text-muted">Delivery Date: {{ date('d/m/Y', strtotime($order->created_at)) }}</div>
                                                         </div>
                                                         <!--end::Title-->

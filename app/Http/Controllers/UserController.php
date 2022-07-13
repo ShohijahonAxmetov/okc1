@@ -48,6 +48,14 @@ class UserController extends Controller
         return response(['data' => $user], 200);
     }
 
+    public function show_orders($id)
+    {
+        $user = User::with('orders')
+                        ->find($id);
+
+        return view('app.users.show_orders', compact('user'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

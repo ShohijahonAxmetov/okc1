@@ -84,6 +84,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function() {
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::post('users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
     Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
+    Route::get('users/{id}/show/orders', [UserController::class, 'show_orders'])->name('users.show.orders');
 
     // get regions districts
     Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);

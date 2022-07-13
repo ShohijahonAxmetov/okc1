@@ -40,12 +40,12 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-125px rounded-start">Order ID</th>
+                        <th class="ps-4 min-w-75px rounded-start">Order ID</th>
                         <th class="min-w-200">Customer</th>
-                        <th class="min-w-125px">Status</th>
+                        <th class="min-w-125px">Date added</th>
+                        <th class="min-w-125px">Date modified</th>
                         <th class="min-w-125px">Total</th>
-                        <th class="min-w-200px">Date added</th>
-                        <th class="min-w-200px">Date modified</th>
+                        <th class="min-w-125px">Status</th>
                         <th class="min-w-125px text-end rounded-end">Actions</th>
                     </tr>
                 </thead>
@@ -70,7 +70,7 @@
                                     <img src="/assets/media/stock/600x400/img-26.jpg" class="" alt="">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
-                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $order->user->name }}</a>
+                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ isset($order->user) ? $order->user->name : 'Deleted client' }}</a>
                                 </div>
                             </div>
                         </td>
@@ -78,7 +78,7 @@
                             <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ date('H:i d.m.Y', strtotime($order->created_at)) }}</a>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->user->name }}</a>
+                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ date('H:i d.m.Y', strtotime($order->updated_at)) }}</a>
                         </td>
                         <td>
                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $order->amount }}</a>
@@ -142,6 +142,8 @@
     </div>
     <!--begin::Body-->
 </div>
+
+{!! $orders->links() !!}
 
 @endsection
 

@@ -142,12 +142,12 @@
 
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Settings</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show', ['id' => $user->id]) }}">Settings</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show.orders', ['id' => $user->id]) }}">Orders</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Orders</a>
                         </li>
                         <!--end::Nav item-->
                     </ul>
@@ -160,110 +160,96 @@
     </div>
 </div>
 
-<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+<!--begin::Product List-->
+<div class="card card-flush py-4 flex-row-fluid overflow-hidden">
     <!--begin::Card header-->
-    <div class="card-header cursor-pointer">
-        <!--begin::Card title-->
-        <div class="card-title m-0">
-            <h3 class="fw-bolder m-0">Profile Details</h3>
+    <div class="card-header">
+        <div class="card-title">
+            <h2>Orders</h2>
         </div>
-        <!--end::Card title-->
     </div>
-    <!--begin::Card header-->
+    <!--end::Card header-->
     <!--begin::Card body-->
-    <div class="card-body p-9">
-        <!--begin::Row-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Full Name</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">{{ $user->name }}</span>
-            </div>
-            <!--end::Col-->
+    <div class="card-body pt-0">
+        <div class="table-responsive">
+            <!--begin::Table-->
+            <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                <!--begin::Table head-->
+                <thead>
+                    <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+                        <th class="min-w-100px">Order ID</th>
+                        <th class="min-w-200px text-end">Comments</th>
+                        <th class="min-w-100px text-end">Payment method</th>
+                        <th class="min-w-100px text-end">Amount (sum)</th>
+                        <th class="min-w-100px text-end">Status</th>
+                        <th class="min-w-100px text-end">Actions</th>
+                    </tr>
+                </thead>
+                <!--end::Table head-->
+                <!--begin::Table body-->
+                <tbody class="fw-bold text-gray-600">
+                    <!--begin::Products-->
+                    @foreach($user->orders as $order)
+                    <tr>
+                        <td class="text-end">
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex justify-content-start flex-column ps-4">
+                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">#{{ $order->id }}</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-end">{{ isset($order->comments) ? $order->comments : '--' }}</td>
+                        <td class="text-end">{{ $order->payment_method }}</td>
+                        <td class="text-end">{{ $order->amount }}</td>
+                        <td class="text-end">
+                            @switch($order->status)
+                            @case('new')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,202,240);">{{ $order->status }}</span>
+                            @break
+                            @case('collected')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,110,253);">{{ $order->status }}</span>
+                            @break
+                            @case('on_the_way')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(225,193,7);">{{ $order->status }}</span>
+                            @break
+                            @case('returned')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: #ff39f9;">{{ $order->status }}</span>
+                            @break
+                            @case('done')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(25,135,84);">{{ $order->status }}</span>
+                            @break
+                            @case('cancelled')
+                            <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(220,53,69);">{{ $order->status }}</span>
+                            @break
+                            @endswitch
+                        </td>
+                        <td class="text-end">
+                            <form action="" method="post">
+                                @csrf
+                                <input type="hidden" name="order_id" value="{{ $order->id }}">
+                                <button type="button" onclick="confirmation(this)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button">
+                                    <span class="svg-icon svg-icon-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                            <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                            <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </form>
+                        </td>
+                        <!--end::Total-->
+                    </tr>
+                    @endforeach
+                </tbody>
+                <!--end::Table head-->
+            </table>
+            <!--end::Table-->
         </div>
-        <!--end::Row-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Email</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8 fv-row">
-                <span class="fw-bold text-gray-800 fs-6">{{ $user->email ?? '--' }}</span>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Contact Phone
-                <!-- <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Phone number must be active"></i> -->
-            </label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8 d-flex align-items-center">
-                <span class="fw-bolder fs-6 text-gray-800 me-2">{{ $user->phone_number }}</span>
-                <!-- <span class="badge badge-success">Verified</span> -->
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Region</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{ config('app.REGIONS')[$user->region - 1]['uz'] }}</a>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">District
-                <!-- <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i> -->
-            </label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">{{ isset($user->district) ? config('app.DISTRICTS')[$user->district - 1]['title'] : '' }}</span>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-7">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Address</label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8">
-                <span class="fw-bolder fs-6 text-gray-800">{{ $user->address ?? '--' }}</span>
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-        <!--begin::Input group-->
-        <div class="row mb-10">
-            <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Postal code</label>
-            <!--begin::Label-->
-            <!--begin::Label-->
-            <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800">{{ $user->postal_code ?? '--' }}</span>
-            </div>
-            <!--begin::Label-->
-        </div>
-        <!--end::Input group-->
     </div>
     <!--end::Card body-->
 </div>
+<!--end::Product List-->
 
 @endsection
 

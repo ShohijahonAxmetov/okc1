@@ -175,10 +175,19 @@ class WebController extends Controller
 
             DB::commit();
             
-            return response([
-                'url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100),
-                'with_url' => true
-            ]);
+            if($data['payment_method'] != 'cash') {
+                return response([
+                    'url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100),
+                    'with_url' => true,
+                    'success' => true
+                ]);
+            } else {
+                return response([
+                    'with_url' => false,
+                    'success' => true
+                ]);
+            }
+            
         } catch (\Exception $e) {
             DB::rollback();
             return response([

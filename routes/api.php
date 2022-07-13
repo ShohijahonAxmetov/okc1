@@ -214,7 +214,7 @@ Route::any('/handle/{paysys}',function($paysys){
 //redirect to payment system or payment form
 Route::any('/pay/{paysys}/{key}/{amount}',function($paysys, $key, $amount){
 	$model = Goodoneuz\PayUz\Services\PaymentService::convertKeyToModel($key);
-    $url = request('redirect_url','https://okc2.vercel.app?alert=success'); // redirect url after payment completed
+    $url = request('redirect_url','https://okc.uz?alert=success'); // redirect url after payment completed
     $pay_uz = new Goodoneuz\PayUz\PayUz;
     $pay_uz
     	->driver($paysys)
