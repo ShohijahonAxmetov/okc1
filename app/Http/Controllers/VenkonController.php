@@ -550,6 +550,30 @@ class VenkonController extends Controller
             return response(['message' => 'Ошибка со стороны сервера'], 400);
         }
 
+        // upload colors from venkom
+        $url = 'http://213.230.65.189/Invema_Test/hs/invema_API/colors';
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->get($url, ['auth' =>  $url_auth]);
+        $resp = (string) $res->getBody();
+        $resp_toArray = json_decode($resp, true);
+
+        if ($resp_toArray['success']) {
+            $colors = $resp_toArray['colors'];
+
+            foreach ($colors as $item) {
+                Color::updateOrCreate([
+                    'venkon_id' => $item['id']
+                ], [
+                    'title' => json_decode($this->withLang($item['title'])),
+                    'hex_code' => $item['hex_code'],
+                    'is_active' => 1
+                ]);
+            }
+        } else {
+            return response(['message' => 'Ошибка со стороны сервера'], 400);
+        }
+
         // upload products from venkom
         $url = 'http://213.230.65.189/Invema_Test/hs/invema_API/products';
         $url_auth = ['Venkon', 'overlord'];
@@ -630,6 +654,29 @@ class VenkonController extends Controller
                         'category_id' => $item['category_id']
                     ]);
                 }
+            }
+        } else {
+            return response(['message' => 'Ошибка со стороны сервера'], 400);
+        }
+
+        // upload warehouses from venkom
+        $url = 'http://213.230.65.189/Invema_Test/hs/invema_API/warehouses';
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->get($url, ['auth' =>  $url_auth]);
+        $resp = (string) $res->getBody();
+        $resp_toArray = json_decode($resp, true);
+
+        if ($resp_toArray['success']) {
+            $warehouses = $resp_toArray['warehouses'];
+
+            foreach ($warehouses as $item) {
+                Warehouse::updateOrCreate([
+                    'venkon_id' => $item['id']
+                ], [
+                    'title' => $item['title'],
+                    'is_active' => 1
+                ]);
             }
         } else {
             return response(['message' => 'Ошибка со стороны сервера'], 400);

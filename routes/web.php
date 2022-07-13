@@ -77,9 +77,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // upload datas from 1c
     Route::get('upload_datas', [VenkonController::class, 'upload_datas'])->name('upload_datas');
-    Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
-    Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
-    Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
+    // Route::get('/categories-upload-from', [\App\Http\Controllers\CategoryController::class, 'upload_from'])->name('categories.upload_from');
+    // Route::get('/brands-upload-from', [\App\Http\Controllers\BrandController::class, 'upload_from'])->name('brands.upload_from');
+    // Route::get('/products-upload-from', [\App\Http\Controllers\ProductController::class, 'upload_from'])->name('products.upload_from');
 
     // users
     Route::get('users', [UserController::class, 'index'])->name('users.index');
