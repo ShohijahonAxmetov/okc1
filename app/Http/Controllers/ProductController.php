@@ -448,11 +448,19 @@ class ProductController extends Controller
 
             DB::commit();
 
-            return response(['message' => 'Успешно удален'], 200);
+            return back()->with([
+                'success' => true,
+                'message' => 'Успешно удален'
+            ]);
+            // return response(['message' => 'Успешно удален'], 200);
         } catch (\Exception $e) {
             DB::rollback();
-            throw ($e);
-            return response(['message' => 'Ошибка'], 400);
+            // throw ($e);
+            return back()->with([
+                'success' => false,
+                'message' => 'Error'
+            ]);
+            // return response(['message' => 'Ошибка'], 400);
         }
     }
 
