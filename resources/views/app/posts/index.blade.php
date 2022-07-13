@@ -245,7 +245,7 @@
                         <label class="fs-6 fw-bold mb-2">Poster (image)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
+                        <input type="file" class="form-control form-control-solid" accept="image/*" placeholder="" name="img" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
@@ -399,7 +399,7 @@
                         <label class="fs-6 fw-bold mb-2">Poster (image)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
+                        <input type="file" class="form-control form-control-solid" accept="image/*" placeholder="" name="img" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

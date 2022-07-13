@@ -43,7 +43,10 @@ class PostController extends Controller
             'img' => 'image|nullable|max:2048'
         ]);
         if($validator->fails()) {
-            return back()->with(['message' => $validator->errors()], 400);
+            return back()->with([
+                'success' => false,
+                'message' => $validator->errors()
+            ]);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
@@ -104,7 +107,10 @@ class PostController extends Controller
             'img' => 'image|nullable|max:2048'
         ]);
         if($validator->fails()) {
-            return back()->with(['message' => $validator->errors()], 400);
+            return back()->with([
+                'success' => false,
+                'message' => $validator->errors()
+            ]);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');

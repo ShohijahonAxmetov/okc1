@@ -63,7 +63,7 @@
                                             <!--end::Svg Icon-->{{ $user->username }}
                                         </a>
                                         @endif
-                                        @if($user->region)
+                                        @if($user->region && $user->district)
                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen018.svg-->
                                             <span class="svg-icon svg-icon-4 me-1">
@@ -218,7 +218,7 @@
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
-                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{ config('app.REGIONS')[$user->region - 1]['uz'] }}</a>
+                <a href="#" class="fw-bold fs-6 text-gray-800 text-hover-primary">{{ isset($user->region) ? config('app.REGIONS')[$user->region - 1]['uz'] : '--' }}</a>
             </div>
             <!--end::Col-->
         </div>
