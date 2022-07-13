@@ -9,14 +9,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariationImageController;
 use App\Http\Controllers\AttributeController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\SpecialOfferClientController;
 use App\Http\Controllers\VenkonController;
 use App\Http\Controllers\WarehouseController;
@@ -167,7 +163,7 @@ Route::prefix('admin')->group(function() {
 		Route::post('categories/{id}/delete-img', [CategoryController::class, 'delete_img']);
 		// products
 		Route::post('products/filter', [ProductController::class, 'filter']);
-		Route::apiResource('/products', ProductController::class);
+		// Route::apiResource('/products', ProductController::class);
 		Route::apiResource('/product_variation_images', ProductVariationImageController::class);
 		// attributes
 		Route::get('attributes/all', [AttributeController::class, 'all']);
