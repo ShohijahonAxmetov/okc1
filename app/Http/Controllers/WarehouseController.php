@@ -21,9 +21,13 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        $warehouses = Warehouse::with('productVariations')->get();
+        $warehouses = Warehouse::with('productVariations')
+                                ->paginate(12);
 
-        return response(['success' => true, 'warehouses' => $warehouses], 200);
+        return view('app.warehouses.index', compact([
+            'success' => true,
+            'warehouses' => $warehouses
+        ]));
     }
 
     /**

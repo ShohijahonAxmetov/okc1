@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\WebController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WarehouseController;
 
 
 // Route::get('/', function () {
@@ -86,6 +87,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
     Route::get('users/{id}/show/orders', [UserController::class, 'show_orders'])->name('users.show.orders');
 
+    // warehouses
+    Route::get('warehouses', [WarehouseController::class, 'index'])->name('warehouses.index');
+
     // get regions districts
     Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);
 });
@@ -142,9 +146,9 @@ Route::group(['prefix' => 'venkon'], function () {
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('remainders', function () {
+    Route::get('remainder', function () {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/remainders', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/remainder', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
