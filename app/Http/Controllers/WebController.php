@@ -177,7 +177,8 @@ class WebController extends Controller
             
             if($data['payment_method'] != 'cash') {
                 return response([
-                    'url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100),
+                    // 'url' => url('').'/api/pay/payme/'.$order->id.'/'.($order->amount / 100),
+                    'url' => url('').'/api/pay/payme/'.$order->id.'/'.$order->amount,
                     'with_url' => true,
                     'success' => true
                 ]);
