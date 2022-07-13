@@ -173,7 +173,7 @@
                                 <label class="fs-6 required fw-bold mb-2">Title</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="" name="title_ru" value="{{ $post->title['ru'] ?? '' }}" />
+                                <input type="text" class="form-control form-control-solid" placeholder="" required name="title_ru" value="{{ $post->title['ru'] ?? '' }}" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -327,7 +327,7 @@
                                 <label class="fs-6 required fw-bold mb-2">Title</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="" name="title_ru" />
+                                <input type="text" class="form-control form-control-solid" required placeholder="" name="title_ru" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
