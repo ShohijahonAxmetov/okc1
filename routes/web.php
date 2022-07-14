@@ -90,6 +90,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // warehouses
     Route::get('warehouses', [WarehouseController::class, 'index'])->name('warehouses.index');
+    Route::get('warehouses/{id}/show', [WarehouseController::class, 'show'])->name('warehouses.show');
 
     // get regions districts
     Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);

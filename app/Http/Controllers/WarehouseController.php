@@ -21,15 +21,21 @@ class WarehouseController extends Controller
      */
     public function index($id = 0)
     {
+        if(isset($_GET['id'])) {
+            $id = $_GET['id'];
+        } else {
+            $id = 0;
+        }
         $is_empty = true ? $id == 0 : false;
 
         if (!$is_empty) {
-            $products = Warehouse::find('venkon_id', $id)
+            $products = Warehouse::where('venkon_id', $id)
+                ->first()
                 ->productVariations()
+                ->orderBy('product_variation_warehouse.remainder', 'desc')
                 ->paginate(12);
         } else {
             $products = Warehouse::orderBy('id', 'desc')
-                ->get()
                 ->first()
                 ->productVariations()
                 ->orderBy('product_variation_warehouse.remainder', 'desc')
@@ -74,13 +80,19 @@ class WarehouseController extends Controller
      */
     public function show($id)
     {
-        $warehouse = Warehouse::with('productVariations')
-            ->find($id);
+        $warehouses = Warehouse::orderBy('id', 'desc')
+                                ->get();
+        $products = Warehouse::where('venkon_id', $id)
+                ->first()
+                ->productVariations()
+                ->orderBy('product_variation_warehouse.remainder', 'desc')
+                ->paginate(24);
 
-        return view('app.warehouses.show', [
-            'success' => true,
-            'warehouse' => $warehouse
-        ]);
+        return view('app.warehouses.show', compact(
+            'warehouses',
+            'products',
+            'id'
+        ));
     }
 
     /**
