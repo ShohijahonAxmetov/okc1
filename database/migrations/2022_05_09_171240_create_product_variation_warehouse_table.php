@@ -17,7 +17,7 @@ class CreateProductVariationWarehouseTable extends Migration
             $table->id();
             $table->string('product_variation_id');
             $table->string('warehouse_id');
-            $table->string('remainder')->nullable();
+            $table->integer('remainder')->nullable();
             $table->timestamps();
         });
     }

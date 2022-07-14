@@ -191,7 +191,7 @@ Route::prefix('admin')->group(function() {
 		Route::apiResource('/special_offer_clients', SpecialOfferClientController::class);
 		// warehouses
 		Route::get('warehouses/all', [WarehouseController::class, 'all']);
-		Route::apiResource('/warehouses', WarehouseController::class);
+		// Route::apiResource('/warehouses', WarehouseController::class);
 		// colors
 		Route::get('colors', [WebController::class, 'colors']);
 	});

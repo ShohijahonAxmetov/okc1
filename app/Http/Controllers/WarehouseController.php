@@ -19,15 +19,30 @@ class WarehouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = 0)
     {
-        $warehouses = Warehouse::with('productVariations')
-                                ->paginate(12);
+        $is_empty = true ? $id == 0 : false;
 
-        return view('app.warehouses.index', compact([
-            'success' => true,
-            'warehouses' => $warehouses
-        ]));
+        if (!$is_empty) {
+            $products = Warehouse::find('venkon_id', $id)
+                ->productVariations()
+                ->paginate(12);
+        } else {
+            $products = Warehouse::orderBy('id', 'desc')
+                ->get()
+                ->first()
+                ->productVariations()
+                ->orderBy('product_variation_warehouse.remainder', 'desc')
+                ->paginate(12);
+        }
+
+        $warehouses = Warehouse::orderBy('id', 'desc')
+            ->get();
+
+        return view('app.warehouses.index', compact(
+            'products',
+            'warehouses'
+        ));
     }
 
     /**
@@ -60,7 +75,7 @@ class WarehouseController extends Controller
     public function show($id)
     {
         $warehouse = Warehouse::with('productVariations')
-                                ->find($id);
+            ->find($id);
 
         return view('app.warehouses.show', [
             'success' => true,
