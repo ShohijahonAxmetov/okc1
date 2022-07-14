@@ -692,7 +692,7 @@ class VenkonController extends Controller
 
         if ($resp_toArray['success']) {
             $remainder = $resp_toArray['remainder'];
-
+            DB::table('product_variation_warehouse')->truncate();
             foreach ($remainder as $item) {
                 foreach($item['products'] as $product) {
                     DB::table('product_variation_warehouse')
