@@ -682,6 +682,31 @@ class VenkonController extends Controller
             return response(['message' => 'Ошибка со стороны сервера'], 400);
         }
 
+        // upload warehouses and warehouses products
+        $url = 'http://213.230.65.189/Invema_Test/hs/invema_API/remainder';
+
+        $client = new \GuzzleHttp\Client();
+        $res = $client->get($url, ['auth' =>  $url_auth]);
+        $resp = (string) $res->getBody();
+        $resp_toArray = json_decode($resp, true);
+
+        if ($resp_toArray['success']) {
+            $remainder = $resp_toArray['remainder'];
+
+            foreach ($remainder as $item) {
+                foreach($item['products'] as $product) {
+                    DB::table('product_variation_warehouse')
+                        ->insert([
+                            'warehouse_id' => $item['id'],
+                            'product_variation_id' => $product['id'],
+                            'remainder' => $product['remainder']
+                        ]);
+                }
+            }
+        } else {
+            return response(['message' => 'Ошибка со стороны сервера'], 400);
+        }
+
         return back()->with(['message' => 'Successfully uploaded!', 'success' => true]);
     }
 }
