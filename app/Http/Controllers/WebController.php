@@ -230,6 +230,33 @@ class WebController extends Controller
         return response(['data' => $posts], 200);
     }
 
+    public function all_posts()
+    {
+        $posts = Post::latest()
+                        ->paginate(12);
+
+        return response([
+            'success' => true,
+            'data' => $posts
+        ], 200);
+    }
+
+    public function post($slug)
+    {
+        $post = Post::where('slug', $slug)
+                    ->first();
+
+        $other_posts = Post::latest()
+                            ->get()
+                            ->except($post->id);
+
+        return response([
+            'success' => true,
+            'data' => $post,
+            'other_posts' => $other_posts
+        ], 200);
+    }
+
     public function brands() {
         $brands = Brand::latest()->with('products', 'products.productVariations', 'products.productVariations.color', 'products.categories')->get();
         return response(['data' => $brands], 200);

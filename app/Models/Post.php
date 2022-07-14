@@ -13,7 +13,8 @@ class Post extends Model
     	'title',
     	'subtitle',
     	'desc',
-    	'img'
+    	'img',
+        'slug'
     ];
 
     protected $casts = [

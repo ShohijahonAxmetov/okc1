@@ -99,6 +99,8 @@ Route::get('/banners', [WebController::class, 'banners']);
 Route::get('/popular_products', [WebController::class, 'popular_products']);
 Route::get('/new_products', [WebController::class, 'new_products']);
 Route::get('/posts', [WebController::class, 'posts']);
+Route::get('/all_posts', [WebController::class, 'all_posts']);
+Route::get('/posts/{slug}', [WebController::class, 'post']);
 Route::get('/brands', [WebController::class, 'brands']);
 Route::get('/brands/all', [WebController::class, 'brands_all']);
 Route::get('/brands/{slug}', [WebController::class, 'brand']);

@@ -52,7 +52,8 @@
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-325px rounded-start">Title</th>
                         <th class="min-w-200px">Subtitle</th>
-                        <th class="min-w-125px text-end rounded-end">Actions</th>
+                        <th class="min-w-200px">Slug</th>
+                        <th class="min-w-125px text-end rounded-end pe-2">Actions</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -72,6 +73,9 @@
                         </td>
                         <td>
                             <p>{!! $post->subtitle['ru'] ?? '--' !!}</p>
+                        </td>
+                        <td>
+                            <p>{!! $post->slug ?? '--' !!}</p>
                         </td>
                         <td class="text-end">
                             <div class="d-flex justify-content-end">

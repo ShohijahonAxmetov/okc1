@@ -73,6 +73,7 @@ class PostController extends Controller
             'ru' => $data['desc_ru'],
             'uz' => $data['desc_uz']
         ]));
+        $data['slug'] = Str::slug($data['title_ru']);
         Post::create($data);
 
         return back()->with(['message' => 'Успешно добавлен', 'success' => true], 200);
@@ -138,6 +139,7 @@ class PostController extends Controller
             'ru' => $data['desc_ru'],
             'uz' => $data['desc_uz']
         ]));
+        $data['slug'] = Str::slug($data['title_ru']);
         Post::find($id)->update($data);
 
         return back()->with(['message' => 'Успешно редактирован', 'success' => true]);
