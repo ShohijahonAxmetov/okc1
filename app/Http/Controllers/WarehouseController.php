@@ -57,10 +57,15 @@ class WarehouseController extends Controller
      * @param  \App\Models\Warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function show(Warehouse $warehouse)
+    public function show($id)
     {
+        $warehouse = Warehouse::with('productVariations')
+                                ->find($id);
 
-        return response(['success' => true, 'warehouse' => $warehouse], 200);
+        return view('app.warehouses.show', [
+            'success' => true,
+            'warehouse' => $warehouse
+        ]);
     }
 
     /**

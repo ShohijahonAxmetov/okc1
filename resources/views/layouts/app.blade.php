@@ -162,7 +162,7 @@
 								</div>
 							</div>
 
-							<!-- <div class="menu-item">
+							<div class="menu-item">
 								<a class="menu-link {{ Request::is('dashboard/warehouses/*') || Request::is('dashboard/warehouses') ? 'active' : '' }}" href="{{ route('warehouses.index') }}">
 									<span class="menu-icon">
 										<span class="svg-icon ms-2 svg-icon-3 rotate-180">
@@ -174,7 +174,7 @@
 									</span>
 									<span class="menu-title">Warehouses</span>
 								</a>
-							</div> -->
+							</div>
 
 							<div class="menu-item">
 								<a class="menu-link {{ Request::is('dashboard/applications/*') || Request::is('dashboard/applications') ? 'active' : '' }}" href="{{ route('applications.index') }}">
