@@ -40,10 +40,11 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Product</th>
+                        <th class="ps-4 min-w-125px rounded-start">ID</th>
+                        <th class="ps-4 min-w-325px">Product</th>
                         <th class="min-w-125px">Brand</th>
                         <th class="min-w-150px">Status</th>
-                        <th class="min-w-200px text-end rounded-end">Actions</th>
+                        <th class="min-w-150px text-end rounded-end pe-2">Actions</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -51,6 +52,9 @@
                 <tbody>
                     @foreach($products as $product)
                     <tr>
+                        <td>
+                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">#{{$product->id }}</a>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">

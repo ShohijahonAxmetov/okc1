@@ -40,6 +40,11 @@ class Admin extends Authenticatable implements JWTSubject
         'min_img',
     ];
 
+    public function logs()
+    {
+        return $this->hasMany(Log::class);
+    }
+
     public function getMinImgAttribute()
     {
         if(isset($this->img)) {

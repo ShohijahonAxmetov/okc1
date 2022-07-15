@@ -182,7 +182,6 @@
                         <th class="min-w-100px text-end">Payment method</th>
                         <th class="min-w-100px text-end">Amount (sum)</th>
                         <th class="min-w-100px text-end">Status</th>
-                        <th class="min-w-100px text-end">Actions</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -224,7 +223,7 @@
                             @endswitch
                         </td>
                         <td class="text-end">
-                            <form action="" method="post">
+                            <!-- <form action="" method="post">
                                 @csrf
                                 <input type="hidden" name="order_id" value="{{ $order->id }}">
                                 <button type="button" onclick="confirmation(this)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button">
@@ -236,7 +235,7 @@
                                         </svg>
                                     </span>
                                 </button>
-                            </form>
+                            </form> -->
                         </td>
                         <!--end::Total-->
                     </tr>

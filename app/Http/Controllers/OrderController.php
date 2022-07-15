@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\ProductVariation;
 use App\Models\Discount;
+use App\Models\Log;
 
 class OrderController extends Controller
 {
@@ -31,7 +32,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -43,19 +43,19 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')
-                        ->find($id);
-        if(!$order) abort(404);
+            ->find($id);
+        if (!$order) abort(404);
 
         $orders_history = Order::where('user_id', $order->user_id)
-                                ->with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product')
-                                ->get();
+            ->with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product')
+            ->get();
 
         $products_variations = ProductVariation::with('product')
-                                                ->whereHas('product', function($product) {
-                                                    $product->where('is_active', 1);
-                                                })
-                                                ->get();
-                        
+            ->whereHas('product', function ($product) {
+                $product->where('is_active', 1);
+            })
+            ->get();
+
         return view('app.orders.show', compact('order', 'orders_history', 'products_variations'));
         // return response(['data' => $order]);
     }
@@ -81,12 +81,12 @@ class OrderController extends Controller
             'postal_code' => 'nullable|max:12'
 
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
         }
 
         $order = Order::find($id);
-        if(!$order) {
+        if (!$order) {
             return response(['message' => 'Net takogo zakaza'], 400);
         }
 
@@ -109,7 +109,7 @@ class OrderController extends Controller
     {
         $order = Order::find($id);
 
-        if(!$order) {
+        if (!$order) {
             return back()->with(['message' => 'Order not found', 'success' => false]);
             // return response(['message' => 'Net takogo zakaza'], 400);
         }
@@ -123,9 +123,9 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::with('user', 'productVariations', 'productVariations.ProductVariationImages', 'productVariations.product', 'productVariations.product.brand')
-                        ->find($id);
-        if(!$order) abort(404);
-                        
+            ->find($id);
+        if (!$order) abort(404);
+
         return view('app.orders.edit', compact('order'));
     }
 
@@ -138,12 +138,12 @@ class OrderController extends Controller
 
         $product_variation = ProductVariation::find($request->variation_id);
         $amount = 0;
-        if(isset($product_variation->discount_price)) {
+        if (isset($product_variation->discount_price)) {
             $amount += (preg_replace('/[^0-9]/', '', $product_variation->discount_price) * 100) * $request->count;
         } else {
             $brand_discount = isset($product_variation->product->brand->discount) ? $product_variation->product->brand->discount : null;
-            if($brand_discount) {
-                $amount += (100 - $brand_discount->discount)/100 * (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $request->count;
+            if ($brand_discount) {
+                $amount += (100 - $brand_discount->discount) / 100 * (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $request->count;
             } else {
                 $amount += (preg_replace('/[^0-9]/', '', $product_variation->price) * 100) * $request->count;
             }
@@ -159,6 +159,13 @@ class OrderController extends Controller
         ]);
         unset($amount);
 
+        Log::create([
+            'admin_id' => auth()->user()->id,
+            'model' => 'Order',
+            'item_id' => $id,
+            'action' => 'updated'
+        ]);
+
         return back()->with([
             'success' => true
         ]);
@@ -170,10 +177,18 @@ class OrderController extends Controller
             'order_id' => 'integer|required'
         ]);
 
-        DB::table('order_product_variation')->where('product_variation_id', $id)
-                                            ->where('order_id', $request->order_id)
-                                            ->delete();
-                                            
+        DB::table('order_product_variation')
+            ->where('product_variation_id', $id)
+            ->where('order_id', $request->order_id)
+            ->delete();
+
+        Log::create([
+            'admin_id' => auth()->user()->id,
+            'model' => 'Order',
+            'item_id' => $request->order_id,
+            'action' => 'updated'
+        ]);
+
         return back()->with([
             'success' => true
         ]);

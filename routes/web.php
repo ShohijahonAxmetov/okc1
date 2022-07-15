@@ -15,6 +15,7 @@ use App\Http\Controllers\WebController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\AdminController;
 
 
 // Route::get('/', function () {
@@ -87,6 +88,12 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     Route::post('users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
     Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
     Route::get('users/{id}/show/orders', [UserController::class, 'show_orders'])->name('users.show.orders');
+
+    // admins
+    Route::get('admins', [AdminController::class, 'index'])->name('admins.index');
+    // Route::post('users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
+    // Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
+    // Route::get('users/{id}/show/orders', [UserController::class, 'show_orders'])->name('users.show.orders');
 
     // warehouses
     Route::get('warehouses', [WarehouseController::class, 'index'])->name('warehouses.index');

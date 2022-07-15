@@ -19,8 +19,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = Admin::orderBy('id', 'desc')->whereNotIn('id', [Auth::guard('admin')->id()])->paginate(24);
-        return response(['data' => $users], 200);
+        $admins = Admin::latest()
+                        ->where('role', '!=', 'admin')
+                        ->paginate(12);
+        
+        return view('app.admins.index', compact(
+            'admins'
+        ));
+        // return response(['data' => $users], 200);
     }
 
     /**

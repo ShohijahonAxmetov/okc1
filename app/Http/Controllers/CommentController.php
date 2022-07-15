@@ -14,9 +14,13 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::latest()->with('product', 'user')->get();
-        
-        return view('app.comments.index', compact('comments'));
+        $comments = Comment::latest()
+            ->with('product', 'user')
+            ->get();
+
+        return view('app.comments.index', compact(
+            'comments'
+        ));
     }
 
     /**
@@ -50,12 +54,14 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-	$comment->update([
-	    'answer' => $request->answer
-	]);
-        
-        
-        return back()->with(['success' => true, 'message' => 'Soxraneno']);
+        $comment->update([
+            'answer' => $request->answer
+        ]);
+
+        return back()->with([
+            'success' => true,
+            'message' => 'Saved'
+        ]);
     }
 
     /**
@@ -67,7 +73,7 @@ class CommentController extends Controller
     public function destroy($id)
     {
         $comment = Comment::find($id);
-        if(!$comment) {
+        if (!$comment) {
             return back()->with(['message' => 'Net takoy kommentarii', 'success' => false]);
             // return response(['message' => 'Net takogo kommentariya'], 400);
         }

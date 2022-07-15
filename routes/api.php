@@ -150,8 +150,8 @@ Route::prefix('admin')->group(function() {
 		// Route::apiResource('/users', AdminController::class);
 		// Route::post('users/{id}/delete-img', [AdminController::class, 'delete_img']);
 		// edited to
-		Route::apiResource('/admins', AdminController::class);
-		Route::post('admins/{id}/delete-img', [AdminController::class, 'delete_img']);
+		// Route::apiResource('/admins', AdminController::class);
+		// Route::post('admins/{id}/delete-img', [AdminController::class, 'delete_img']);
 		// brands
 		Route::get('brands/all', [BrandController::class, 'all']);
 		// Route::apiResource('/brands', BrandController::class);
