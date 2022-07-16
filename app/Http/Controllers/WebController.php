@@ -233,7 +233,7 @@ class WebController extends Controller
     public function all_posts()
     {
         $posts = Post::latest()
-                        ->paginate(12);
+                        ->paginate(1);
 
         return response([
             'success' => true,
@@ -246,6 +246,8 @@ class WebController extends Controller
         $post = Post::where('slug', $slug)
                     ->first();
 
+        $post->increment('views_count');
+
         $other_posts = Post::latest()
                             ->get()
                             ->except($post->id);
@@ -254,19 +256,6 @@ class WebController extends Controller
             'success' => true,
             'data' => $post,
             'other_posts' => $other_posts
-        ], 200);
-    }
-
-    public function post_increment($slug)
-    {
-        $post = Post::where('slug', $slug)
-            ->first();
-
-        $post->increment('views_count');
-
-        return response([
-            'success' => true,
-            'post' => $post
         ], 200);
     }
 
