@@ -84,7 +84,7 @@
                         </td>
                         <td class="text-end">
                             <div class="d-flex justify-content-end">
-                                <a href="{{ route('users.show', ['id' => $user->id]) }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-3">
+                                <a href="{{ route('admins.show', ['id' => $user->id]) }}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-3">
                                     <!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com006.svg-->
                                     <span class="svg-icon svg-icon-3">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -102,7 +102,7 @@
                                         </svg>
                                     </span>
                                 </a>
-                                <form action="{{ route('users.destroy', ['id' => $user->id]) }}" method="post">
+                                <form action="{{ route('admins.destroy', ['id' => $user->id]) }}" method="post">
                                     @csrf
                                     <button type="button" onclick="confirmation(this)" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm" type="button">
                                         <span class="svg-icon svg-icon-3">
@@ -199,7 +199,7 @@
                         <label class="fs-6 fw-bold required mb-2">Password</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" required name="password" value="{{ old('password') }}" />
+                        <input type="text" class="form-control form-control-solid" required minlength="8" name="password" value="{{ old('password') }}" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
@@ -209,7 +209,7 @@
                         <label class="fs-6 fw-bold required mb-2">Password confirmation</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" required name="password_confirmation" value="{{ old('password_confirmation') }}" />
+                        <input type="text" class="form-control form-control-solid" required minlength="8" name="password_confirmation" value="{{ old('password_confirmation') }}" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

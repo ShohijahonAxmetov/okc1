@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('desc')->nullable();
             $table->string('img')->nullable();
             $table->string('slug');
+            $table->integer('views_count')->default(1);
             $table->timestamps();
         });
     }

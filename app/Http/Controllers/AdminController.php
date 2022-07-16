@@ -41,7 +41,7 @@ class AdminController extends Controller
 
         $validator = Validator::make($data, [
             'username' => 'unique:App\Models\Admin,username|required|max:255',
-            'password' => 'required|max:255|min:8',
+            'password' => 'required|max:255|min:8|confirmed',
             // 'role' => 'in:admin,content,operator|required',
             'img' => 'image|max:2048|nullable'
         ]);
@@ -73,8 +73,13 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        $user = Admin::find($id);
-        return response(['data' => $user], 200);
+        $user = Admin::with('logs')
+            ->find($id);
+
+        return view('app.admins.show', compact(
+            'user'
+        ));
+        // return response(['data' => $user], 200);
     }
 
     /**
@@ -127,10 +132,13 @@ class AdminController extends Controller
     public function destroy($id)
     {
         Admin::find($id)->delete();
-        return response(['message' => 'Успешно удален'], 200);
+
+        return back()->with(['success' => true]);
+        // return response(['message' => 'Успешно удален'], 200);
     }
 
-    public function delete_img($id) {
+    public function delete_img($id)
+    {
         $user = Admin::find($id);
         $data = $user->toArray();
         $data['img'] = null;

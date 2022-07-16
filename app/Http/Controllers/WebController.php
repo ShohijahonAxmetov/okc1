@@ -257,6 +257,19 @@ class WebController extends Controller
         ], 200);
     }
 
+    public function post_increment($slug)
+    {
+        $post = Post::where('slug', $slug)
+            ->first();
+
+        $post->increment('views_count');
+
+        return response([
+            'success' => true,
+            'post' => $post
+        ], 200);
+    }
+
     public function brands() {
         $brands = Brand::latest()->with('products', 'products.productVariations', 'products.productVariations.color', 'products.categories')->get();
         return response(['data' => $brands], 200);

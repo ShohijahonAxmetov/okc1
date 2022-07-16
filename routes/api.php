@@ -117,6 +117,8 @@ Route::post('/special-offer-client', [WebController::class, 'special_offer_clien
 
 Route::get('get_comments/{id}', [WebController::class, 'get_comments']);
 
+Route::get('/post_increment/{slug}', [WebController::class, 'post_increment']);
+
 // for test
 Route::get('discounts', function() {
 	$discounts = \App\Models\Discount::all();
