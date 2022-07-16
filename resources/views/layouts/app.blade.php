@@ -299,10 +299,10 @@
 								</div>
 							</div>
 
+							@if(auth()->user()->role == 'admin')
 							<div class="menu-item">
 								<a class="menu-link {{ Request::is('dashboard/admins/*') || Request::is('dashboard/admins') ? 'active' : '' }}" href="{{ route('admins.index') }}">
 									<span class="menu-icon">
-										<!--begin::Svg Icon | path: /assets/media/icons/duotune/communication/com014.svg-->
 										<span class="svg-icon ms-2 svg-icon-3 rotate-180">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 												<path d="M16.0173 9H15.3945C14.2833 9 13.263 9.61425 12.7431 10.5963L12.154 11.7091C12.0645 11.8781 12.1072 12.0868 12.2559 12.2071L12.6402 12.5183C13.2631 13.0225 13.7556 13.6691 14.0764 14.4035L14.2321 14.7601C14.2957 14.9058 14.4396 15 14.5987 15H18.6747C19.7297 15 20.4057 13.8774 19.912 12.945L18.6686 10.5963C18.1487 9.61425 17.1285 9 16.0173 9Z" fill="currentColor" />
@@ -311,12 +311,11 @@
 												<rect opacity="0.3" x="6" y="5" width="6" height="6" rx="3" fill="currentColor" />
 											</svg>
 										</span>
-										<!--end::Svg Icon-->
-										<!--end::Svg Icon-->
 									</span>
 									<span class="menu-title">Content managers</span>
 								</a>
 							</div>
+							@endif
 
 
 						</div>

@@ -91,6 +91,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // admins
     Route::get('admins', [AdminController::class, 'index'])->name('admins.index');
+    Route::post('admins/store', [AdminController::class, 'store'])->name('admins.store');
+    Route::post('admins/{id}/update', [AdminController::class, 'update'])->name('admins.update');
     // Route::post('users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
     // Route::get('users/{id}/show', [UserController::class, 'show'])->name('users.show');
     // Route::get('users/{id}/show/orders', [UserController::class, 'show_orders'])->name('users.show.orders');

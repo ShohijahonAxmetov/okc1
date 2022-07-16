@@ -42,7 +42,7 @@ class AdminController extends Controller
         $validator = Validator::make($data, [
             'username' => 'unique:App\Models\Admin,username|required|max:255',
             'password' => 'required|max:255|min:8',
-            'role' => 'in:admin,content,operator|required',
+            // 'role' => 'in:admin,content,operator|required',
             'img' => 'image|max:2048|nullable'
         ]);
         if($validator->fails()) {
@@ -58,9 +58,11 @@ class AdminController extends Controller
             $data['img'] = $img_name;
         }
         $data['password'] = Hash::make($data['password']);
+        $data['role'] = 'content';
         Admin::create($data);
 
-        return response(['message' => 'Успешно добавлен'], 200);
+        return back()->with(['success' => true]);
+        // return response(['message' => 'Успешно добавлен'], 200);
     }
 
     /**
@@ -87,13 +89,18 @@ class AdminController extends Controller
         $data = $request->all();
         $validator = Validator::make($data, [
             'username' => 'unique:App\Models\Admin,username,'.$id.'|required|max:255',
-            'role' => 'in:admin,content,operator|required'
+            // 'role' => 'in:admin,content,operator|required'
         ]);
         if($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
         }
+
+        $admin = Admin::find($id);
+
         if(isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
+        } else {
+            $data['password'] = $admin->password;
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
@@ -104,10 +111,11 @@ class AdminController extends Controller
             })->save(public_path().'/upload/admins/200/'.$img_name, 60);
             $data['img'] = $img_name;
         }
+        $data['role'] = 'content';
+        $admin->update($data);
 
-        Admin::find($id)->update($data);
-
-        return response(['message' => 'Успешно редактирован'], 200);
+        return back()->with(['success' => true]);
+        // return response(['message' => 'Успешно редактирован'], 200);
     }
 
     /**
