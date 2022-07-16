@@ -38,7 +38,7 @@
                     <label for="users" class="fs-6 fw-bold mb-2">Users</label>
                     <select class="form-select" multiple name="users[]" data-control="select2" data-hide-search="false">
                         @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->email }}</option>
+                        <option value="{{ $user->email }}">{{ $user->email }}</option>
                         @endforeach
                     </select>
                 </div>

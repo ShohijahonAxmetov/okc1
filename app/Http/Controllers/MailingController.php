@@ -21,16 +21,33 @@ class MailingController extends Controller
     public function send(Request $request)
     {
         $request->validate([
-            'message' => 'required',
-            'users' => 'required',
-            'users.*' => 'integer'
+            'subject' => 'required',
+            'message' => 'required'
         ]);
 
-        foreach ($request->users as $user) {
-            Mail::raw($request->message, function ($message) use ($request, $user) {
-                $message->to($user->email)
-                  ->subject($request->subject);
-              });
+        // if(!isset($request->users) && !isset($request->all_users)) {
+        //     return back()->with([
+        //         'success' => false
+        //     ]);
+        // }
+
+        if (isset($request->all_users)) {
+            $users = SpecialOfferClient::latest()
+                ->get('email');
+
+            foreach ($users as $user) {
+                Mail::raw($request->message, function ($message) use ($request, $user) {
+                    $message->to($user->email)
+                        ->subject($request->subject);
+                });
+            }
+        } else {
+            foreach ($request->users as $user) {
+                Mail::raw($request->message, function ($message) use ($request, $user) {
+                    $message->to($user)
+                        ->subject($request->subject);
+                });
+            }
         }
 
         return back()->with([
