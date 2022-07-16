@@ -50,7 +50,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Title</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-325px">Title</th>
                         <th class="min-w-200px">Subtitle</th>
                         <th class="min-w-200px">Slug</th>
                         <th class="min-w-125px text-end rounded-end pe-2">Actions</th>
@@ -61,10 +62,13 @@
                 <tbody>
                     @foreach($posts as $post)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $post->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="{{ isset($post->img) ? $post->img : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="">
+                                    <img src="{{ isset($post->img) ? $post->img : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" style="object-fit:cover">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{!! $post->title['ru'] ?? '--' !!}</a>

@@ -50,7 +50,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Name</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-325px">Name</th>
                         <th class="min-w-125px">Phone number</th>
                         <th class="min-w-125px">Email</th>
                         <th class="min-w-125px">Username</th>
@@ -62,6 +63,9 @@
                 <tbody>
                     @foreach($admins as $user)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $user->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
@@ -312,7 +316,7 @@
                         <label class="fs-6 fw-bold mb-2">Password</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid"  name="password" />
+                        <input type="text" class="form-control form-control-solid" name="password" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

@@ -50,7 +50,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Banner</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-325px">Banner</th>
                         <th class="min-w-125px">Link</th>
                         <th class="min-w-150px">Status</th>
                         <th class="min-w-200px text-end rounded-end"></th>
@@ -61,10 +62,13 @@
                 <tbody>
                     @foreach($banners as $banner)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $banner->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="me-5">
-                                    <img src="{{ isset($banner->img) ? asset($banner->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" width="300">
+                                    <img src="{{ isset($banner->img) ? asset($banner->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" width="300" style="object-fit:cover">
                                 </div>
                             </div>
                         </td>

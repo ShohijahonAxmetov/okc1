@@ -49,7 +49,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Title</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-325px">Title</th>
                         <th class="min-w-125px">Parents</th>
                         <th class="min-w-150px">Status</th>
                         <th class="min-w-200px text-end rounded-end">Actions</th>
@@ -60,6 +61,9 @@
                 <tbody>
                     @foreach($categories as $category)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $category->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">

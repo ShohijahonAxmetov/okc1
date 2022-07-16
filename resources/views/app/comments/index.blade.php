@@ -49,7 +49,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-125px rounded-start">User</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-125px">User</th>
                         <th class="min-w-125px">Product</th>
                         <th class="min-w-150px">Comment</th>
                         <th class="min-w-150px">Answer</th>
@@ -61,10 +62,13 @@
                 <tbody>
                     @foreach($comments as $comment)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $comment->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="{{ isset($comment->user->img) ? asset($comment->user->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="">
+                                    <img src="{{ isset($comment->user->img) ? asset($comment->user->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" style="object-fit:cover">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $comment->user->name }}</a>

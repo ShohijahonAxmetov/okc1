@@ -5,15 +5,15 @@
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
-    'items' => [
-        [
-            'title' => 'home',
-            'route' => 'dashboard'
-        ],
-        [
-            'title' => 'applications'
-        ]
-    ]
+'items' => [
+[
+'title' => 'home',
+'route' => 'dashboard'
+],
+[
+'title' => 'applications'
+]
+]
 ])
 
 @endsection
@@ -40,7 +40,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-125px rounded-start">Name</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-125px">Name</th>
                         <th class="min-w-200">Phone number</th>
                         <th class="min-w-200">Email</th>
                         <th class="min-w-325px">Message</th>
@@ -52,6 +53,9 @@
                 <tbody>
                     @foreach($applications as $application)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $application->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <!-- <div class="symbol symbol-50px me-5">

@@ -5,15 +5,15 @@
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
-    'items' => [
-        [
-            'title' => 'home',
-            'route' => 'dashboard'
-        ],
-        [
-            'title' => 'brands'
-        ]
-    ]
+'items' => [
+[
+'title' => 'home',
+'route' => 'dashboard'
+],
+[
+'title' => 'brands'
+]
+]
 ])
 
 @endsection
@@ -40,7 +40,8 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Title</th>
+                        <th class="ps-4 min-w-75px rounded-start">ID</th>
+                        <th class="min-w-325px">Title</th>
                         <th class="min-w-150px">Link</th>
                         <th class="min-w-150px">Status</th>
                         <th class="min-w-200px text-end rounded-end">Actions</th>
@@ -51,6 +52,9 @@
                 <tbody>
                     @foreach($brands as $brand)
                     <tr>
+                        <td class="ps-3 fw-bold">
+                            <p>#{{ $brand->id }}</p>
+                        </td>
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
@@ -271,27 +275,27 @@
     //     params.set('status', status);
     //     params.set('img', img);
 
-        // fetch('/dashboard/brands/2/update?_token=' + csrf, {
-        //     method: 'POST',
-        //     body: params
-        // }).then((response) => {
-        //     response.json().then(text => {
+    // fetch('/dashboard/brands/2/update?_token=' + csrf, {
+    //     method: 'POST',
+    //     body: params
+    // }).then((response) => {
+    //     response.json().then(text => {
 
 
-        //         if(text.success) {
+    //         if(text.success) {
 
-        //             window.location.href = '/dashboard/products?success=true';
+    //             window.location.href = '/dashboard/products?success=true';
 
-        //         } else {
-        //             $.notify("Something went wrong !", 'error');
-        //         }
+    //         } else {
+    //             $.notify("Something went wrong !", 'error');
+    //         }
 
-        //     }).catch((error) => {
+    //     }).catch((error) => {
 
-        //         $.notify("Something went wrong !", 'error');
+    //         $.notify("Something went wrong !", 'error');
 
-        //     });
-        // });
+    //     });
+    // });
     // });
 </script>
 
