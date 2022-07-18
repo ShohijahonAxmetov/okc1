@@ -16,3 +16,29 @@
     height: 100%;
     object-fit: cover;
 }
+
+.rotation {
+    animation: rotate 2s infinite;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.clicked{
+    pointer-events: none;
+    opacity: .5;
+}
+.clicked #btn-txt{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+#btn-txt{
+    transition: .5s;
+}
