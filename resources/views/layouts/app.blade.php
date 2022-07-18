@@ -565,7 +565,7 @@
 		$.notify("Success!", 'success');
 	</script>
 	@endif
-	@if(!session('success') && session('success') == false)
+	@if(session()->has('success') && session('success') == false)
 	<script>
 		$.notify("{{ session()->has('message') ? session('message') : 'Unknown error' }}", 'error');
 	</script>
