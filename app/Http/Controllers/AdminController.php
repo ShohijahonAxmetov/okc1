@@ -46,7 +46,11 @@ class AdminController extends Controller
             'img' => 'image|max:2048|nullable'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with([
+                'success' => false,
+                'message' => 'Passwords do not match'
+            ]);
+            // return response(['message' => $validator->errors()], 400);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');

@@ -565,6 +565,11 @@
 		$.notify("Success!", 'success');
 	</script>
 	@endif
+	@if(!session('success') && session('success') == false)
+	<script>
+		$.notify("{{ session()->has('message') ? session('message') : 'Unknown error' }}", 'error');
+	</script>
+	@endif
 	<!-- Include the Quill library -->
 	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 	<!--begin::Page Custom Javascript(used by this page)-->

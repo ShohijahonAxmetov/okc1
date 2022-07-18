@@ -25,11 +25,11 @@ class MailingController extends Controller
             'message' => 'required'
         ]);
 
-        // if(!isset($request->users) && !isset($request->all_users)) {
-        //     return back()->with([
-        //         'success' => false
-        //     ]);
-        // }
+        if(!isset($request->users) && !isset($request->all_users)) {
+            return back()->with([
+                'success' => false
+            ]);
+        }
 
         if (isset($request->all_users)) {
             $users = SpecialOfferClient::latest()
@@ -44,7 +44,7 @@ class MailingController extends Controller
         } else {
             foreach ($request->users as $user) {
                 Mail::raw($request->message, function ($message) use ($request, $user) {
-                    $message->to('licko37225021@gmail.com')
+                    $message->to($user)
                         ->subject($request->subject);
                 });
             }
