@@ -44,7 +44,7 @@ class MailingController extends Controller
         } else {
             foreach ($request->users as $user) {
                 Mail::raw($request->message, function ($message) use ($request, $user) {
-                    $message->to($user)
+                    $message->to('licko37225021@gmail.com')
                         ->subject($request->subject);
                 });
             }
