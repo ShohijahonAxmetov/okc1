@@ -23,7 +23,7 @@ class OrderController extends Controller
             ->latest()
             ->with('user', 'productVariations');
 
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && $_GET['search'] != '') {
             $orders->where('id', trim($_GET['search']));
         }
         $orders = $orders->paginate(12);
