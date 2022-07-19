@@ -19,8 +19,18 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('is_deleted', 0)->latest()->with('user', 'productVariations')->paginate(12);
-        return view('app.orders.index', compact('orders'));
+        $orders = Order::where('is_deleted', 0)
+            ->latest()
+            ->with('user', 'productVariations');
+
+        if (isset($_GET['search'])) {
+            $orders->where('id', trim($_GET['search']));
+        }
+        $orders = $orders->paginate(12);
+
+        $search = $_GET['search'] ?? '';
+
+        return view('app.orders.index', compact('orders', 'search'));
         // return response(['data' => $orders]);
     }
 
