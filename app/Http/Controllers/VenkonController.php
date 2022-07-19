@@ -587,11 +587,14 @@ class VenkonController extends Controller
             $products = $resp_toArray['products'];
 
             foreach ($products as $item) {
-                $productVariation = ProductVariation::where('venkon_id', $item['id'])->first();
+                $productVariation = ProductVariation::where('venkon_id', $item['id'])
+                    ->first();
 
                 if (!$productVariation) {
 
-                    $product = Product::where('vendor_code', $item['vendor_code'])->where('vendor_code', '!=', '')->first();
+                    $product = Product::where('vendor_code', $item['vendor_code'])
+                        ->where('vendor_code', '!=', '')
+                        ->first();
 
                     if (!$product) {
                         $product = new Product;
@@ -626,9 +629,11 @@ class VenkonController extends Controller
                         $sub_data->remainder = $summa;
                     }
 
-                    $color = Color::where('venkon_id', $item['color_id'])->first();
+                    $color = Color::where('venkon_id', $item['color_id'])
+                        ->first();
 
-                    ProductVariation::where('slug', Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? ''))->delete();
+                    ProductVariation::where('slug', Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? ''))
+                        ->delete();
 
                     $sub_data->slug = Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? '');
                     $sub_data->save();

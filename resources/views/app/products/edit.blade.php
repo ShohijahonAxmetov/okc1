@@ -20,12 +20,15 @@
         padding-left: 16px;
         padding-right: 16px;
     }
+
     .alert .icon:hover {
         cursor: pointer;
     }
+
     .alert .icon {
         padding-left: 12px;
     }
+
     .alert .text {
         padding-right: 12px;
         border-right: 1px solid rgba(255, 255, 255, .5);
@@ -37,19 +40,19 @@
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
-    'items' => [
-        [
-            'title' => 'home',
-            'route' => 'dashboard'
-        ],
-        [
-            'title' => 'products',
-            'route' => 'products.index'
-        ],
-        [
-            'title' => 'Edit'    
-        ]
-    ]
+'items' => [
+[
+'title' => 'home',
+'route' => 'dashboard'
+],
+[
+'title' => 'products',
+'route' => 'products.index'
+],
+[
+'title' => 'Edit'
+]
+]
 ])
 
 @endsection
@@ -278,97 +281,105 @@
             </div>
 
             <h3 class="mb-6">Product Variations ({{ count($product->productVariations) }})</h3>
-        @if(isset($product->productVariations[0]))
-        @foreach($product->productVariations as $variation)
-        <div class="card mb-5 mb-xl-8">
-            <!--begin::Body-->
-            <div class="card-body py-3">
+            @if(isset($product->productVariations[0]))
+            @foreach($product->productVariations as $variation)
+            <div class="card mb-5 mb-xl-8">
+                <!--begin::Body-->
+                <div class="card-body py-3">
 
-                <div class="card card-flush h-lg-100">
-                    <!--begin::Header-->
-                    <div class="card-header p-3 pt-5">
-                        <div class="row w-100">
-                            <div class="col-6">
-                                <div class="mb-6 w-100">
-                                    <!--begin::Label-->
-                                    <label class="form-label">Product code</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" data-id="data_{{ $variation->id }}" name="product_code" class="form-control mb-2" placeholder="Product code" value="{{ $variation->product_code }}">
-                                    <!--end::Input-->
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-6 w-100">
-                                    <!--begin::Label-->
-                                    <label class="required form-label">Price</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" required data-id="data_{{ $variation->id }}" name="price" class="form-control mb-2" placeholder="Price" value="{{ $variation->price }}">
-                                    <!--end::Input-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row w-100">
-                            <div class="col-6">
-                                <div class="mb-6">
-                                    <label for="exampleFormControlInput1" class="form-label">Status</label>
-                                    <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="variation_status" data-control="select2" data-hide-search="true">
-                                        <option value="1" {{ $variation->is_active == 1 ? 'selected' : '' }}>Active</option>
-                                        <option value="0" {{ $variation->is_active == 0 ? 'selected' : '' }}>Not active</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-6">
-                                    <label for="exampleFormControlInput1" class="form-label">Color</label>
-                                    <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="color" data-control="select2" data-hide-search="true">
-                                        <option value="">Select</option>
-                                        @foreach($colors as $color)
-                                        <option value="{{ $color->venkon_id }}" {{ $variation->color_id == $color->venkon_id ? 'selected' : '' }}>{{ $color->title['ru'] }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row w-100">
-                            <div class="col-12">
-                                <!--begin::Dropzone-->
-                                <div class="dropzone" id="dropzone_{{ $variation->id }}">
-                                    <!--begin::Message-->
-                                    <div class="dz-message needsclick">
-                                        <!--begin::Icon-->
-                                        <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
-                                        <!--end::Icon-->
-
-                                        <!--begin::Info-->
-                                        <div class="ms-4">
-                                            <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Drop files here or click to upload.</h3>
-                                            <span class="fs-7 fw-bold text-gray-400">Upload up to 6 files</span>
-                                        </div>
-                                        <!--end::Info-->
+                    <div class="card card-flush h-lg-100">
+                        <!--begin::Header-->
+                        <div class="card-header p-3 pt-5">
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="w-100 d-flex">
+                                        <p class="fw-bold me-3 mb-0">Slug:</p><span>{{ $variation->slug }}</span>
                                     </div>
                                 </div>
-                                <!--end::Dropzone-->
                             </div>
+                            <hr class="w-100">
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Product code</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="product_code" class="form-control mb-2" placeholder="Product code" value="{{ $variation->product_code }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Price</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" required data-id="data_{{ $variation->id }}" name="price" class="form-control mb-2" placeholder="Price" value="{{ $variation->price }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="mb-6">
+                                        <label for="exampleFormControlInput1" class="form-label">Status</label>
+                                        <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="variation_status" data-control="select2" data-hide-search="true">
+                                            <option value="1" {{ $variation->is_active == 1 ? 'selected' : '' }}>Active</option>
+                                            <option value="0" {{ $variation->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-6">
+                                        <label for="exampleFormControlInput1" class="form-label">Color</label>
+                                        <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="color" data-control="select2" data-hide-search="true">
+                                            <option value="">Select</option>
+                                            @foreach($colors as $color)
+                                            <option value="{{ $color->venkon_id }}" {{ $variation->color_id == $color->venkon_id ? 'selected' : '' }}>{{ $color->title['ru'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-12">
+                                    <!--begin::Dropzone-->
+                                    <div class="dropzone" id="dropzone_{{ $variation->id }}">
+                                        <!--begin::Message-->
+                                        <div class="dz-message needsclick">
+                                            <!--begin::Icon-->
+                                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                                            <!--end::Icon-->
 
+                                            <!--begin::Info-->
+                                            <div class="ms-4">
+                                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Drop files here or click to upload.</h3>
+                                                <span class="fs-7 fw-bold text-gray-400">Upload up to 6 files</span>
+                                            </div>
+                                            <!--end::Info-->
+                                        </div>
+                                    </div>
+                                    <!--end::Dropzone-->
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body pt-0 px-0">
 
                         </div>
+                        <!--end::Body-->
                     </div>
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body pt-0 px-0">
 
-                    </div>
-                    <!--end::Body-->
                 </div>
-
+                <!--begin::Body-->
             </div>
-            <!--begin::Body-->
-        </div>
-        <input type="hidden" data-id="data_{{ $variation->id }}" name="variation_real_id" class="form-control mb-2" placeholder="Product code" value="{{ $variation->id }}" }}">
-        @endforeach
-        @endif
+            <input type="hidden" data-id="data_{{ $variation->id }}" name="variation_real_id" class="form-control mb-2" placeholder="Product code" value="{{ $variation->id }}" }}">
+            @endforeach
+            @endif
         </div>
         <div class="col-4">
 
@@ -591,7 +602,7 @@
         let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         let title_ru = document.querySelector('[name="title_ru"]').value;
 
-        if(title_ru == null || title_ru == '') {
+        if (title_ru == null || title_ru == '') {
             // document.querySelector('[name="title_ru"]').style.border = '1px solid red';
             $.notify("Product title is required!");
             return false;
@@ -614,7 +625,7 @@
         var dropzone_images = [...checked_dropzone].map(option => {
             var object = new Object();
             object.value = option.value,
-            object.id = option.getAttribute('data-id')
+                object.id = option.getAttribute('data-id')
 
             return object;
         });
@@ -623,8 +634,8 @@
         let categories = [...checked].map(option => option.value);
 
         var variations_data = [];
-        @if(isset($product->productVariations[0]))
-        @foreach($product->productVariations as $variation)
+        @if(isset($product -> productVariations[0]))
+        @foreach($product -> productVariations as $variation)
 
         var variations = document.querySelectorAll('[data-id="data_' + '{{ $variation->id }}' + '"]');
         var variations_data_item = [...variations].map(option => {
@@ -641,12 +652,12 @@
 
         var stop_script = false;
         variations_data.forEach((item) => {
-            if(item[1].value == null || item[1].value == '') {
+            if (item[1].value == null || item[1].value == '') {
                 stop_script = true;
                 $.notify("Price input is required!", 'error');
             }
         });
-        if(stop_script) {
+        if (stop_script) {
             return false;
         }
 
@@ -666,16 +677,20 @@
         params.set('dropzone_images', JSON.stringify(dropzone_images));
         params.set('variations_data', JSON.stringify(variations_data));
 
-        fetch('/dashboard/products/' + {{ $product->id }} + '/update?_token=' + csrf, {
+        fetch('/dashboard/products/' + {{ $product -> id }} + '/update?_token=' + csrf, {
             method: 'POST',
             body: params
         }).then((response) => {
             response.json().then(text => {
 
 
-                if(text.success) {
+                if (text.success) {
                     @if($page_number)
-                    let redirect_url = '/dashboard/products?page=' + {{ $page_number }} + '&success=true';
+                    let redirect_url = '/dashboard/products?page=' + {
+                        {
+                            $page_number
+                        }
+                    } + '&success=true';
                     @else
                     let redirect_url = '/dashboard/products?success=true';
                     @endif
