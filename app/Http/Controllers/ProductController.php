@@ -24,10 +24,17 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()
-            ->with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages')
-            ->paginate(12);
+            ->with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages');
 
-        return view('app.products.index', compact('products'));
+        if(isset($_GET['search'])) {
+            $products->where('title', 'like', '%'.trim($_GET['search']).'%')
+                ->orWhere('id', trim($_GET['search']));
+        }
+        $products = $products->paginate(12);
+
+        $search = $_GET['search'] ?? '';
+
+        return view('app.products.index', compact('products', 'search'));
         // return response(['data' => $products], 200);
     }
 
