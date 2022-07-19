@@ -632,12 +632,14 @@ class VenkonController extends Controller
                     $color = Color::where('venkon_id', $item['color_id'])
                         ->first();
 
-                    $delete_data = ProductVariation::where('slug', Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? ''))
-                        ->get();
+                    $dublicate_data = ProductVariation::where('slug', Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? ''))
+                        ->first();
 
-                    dd($delete_data);
-
-                    $sub_data->slug = Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? '');
+                    if(isset($dublicate_data)) {
+                        $sub_data->slug = Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? '').'-dublicate';
+                    } else {
+                        $sub_data->slug = Str::slug($item['title'] . '-' . $item['vendor_code'] ?? '' . '-' . $color->title['ru'] ?? '');
+                    }
                     $sub_data->save();
                 } else {
                     $productVariation->color_id = $item['color_id'];
