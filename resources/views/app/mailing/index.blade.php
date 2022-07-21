@@ -28,11 +28,11 @@
             <div class="container">
                 <div class="my-10">
                     <label for="subject" class="required form-label">Subject</label>
-                    <input name="subject" id="subject" class="form-control form-control-solid" placeholder="subject">
+                    <input name="subject" id="subject" class="form-control form-control-solid" required placeholder="subject">
                 </div>
                 <div class="my-10">
                     <label for="message" class="required form-label">Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10" class="form-control form-control-solid" placeholder="enter message..."></textarea>
+                    <textarea name="message" id="message" cols="30" rows="10" required class="form-control form-control-solid" placeholder="enter message..."></textarea>
                 </div>
                 <div class="fv-row mb-4">
                     <label for="users" class="fs-6 fw-bold mb-2">Users</label>

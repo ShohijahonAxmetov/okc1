@@ -17,7 +17,7 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('admin')->check()) { /* && $request->user()->type >= 1*/
+        if (Auth::guard('api')->check()) { /* && $request->user()->type >= 1*/
             return $next($request);
         } else {
             return response(["message" => "Unauthorized"], 401);

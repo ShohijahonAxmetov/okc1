@@ -40,7 +40,10 @@ class BannerController extends Controller
             'is_active' => 'boolean|required'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with([
+                'success' =>false,
+                'message' => $validator->errors()->messages()['img'][0]
+            ], 400);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');

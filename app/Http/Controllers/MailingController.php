@@ -27,7 +27,8 @@ class MailingController extends Controller
 
         if(!isset($request->users) && !isset($request->all_users)) {
             return back()->with([
-                'success' => false
+                'success' => false,
+                'message' => 'Users not selected'
             ]);
         }
 

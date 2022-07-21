@@ -175,7 +175,7 @@
                         <label class="fs-6 fw-bold mb-2">Link</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="https://example.com" name="link" value="{{ $banner->link }}" />
+                        <input type="text" class="form-control form-control-solid" placeholder="https://example.com" name="link" maxlength="255" value="{{ $banner->link }}" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

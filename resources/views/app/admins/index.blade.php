@@ -52,8 +52,8 @@
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
                         <th class="min-w-325px">Name</th>
-                        <th class="min-w-125px">Phone number</th>
-                        <th class="min-w-125px">Email</th>
+                        <th class="min-w-200px">Phone number</th>
+                        <!-- <th class="min-w-125px">Email</th> -->
                         <th class="min-w-125px">Username</th>
                         <th class="min-w-200px text-end rounded-end">Actions</th>
                     </tr>
@@ -80,9 +80,9 @@
                         <td>
                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $user->phone_number ?? '--' }}</a>
                         </td>
-                        <td>
+                        <!-- <td>
                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $user->email ?? '--' }}</a>
-                        </td>
+                        </td> -->
                         <td>
                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $user->username }}</a>
                         </td>
