@@ -75,7 +75,7 @@ Route::prefix('auth')->group(function() {
 	Route::post('forgot', [AuthController::class, 'forgot']);
 	Route::post('forgot_check_code', [AuthController::class, 'forgot_check_code']);
 	Route::post('forgot_update', [AuthController::class, 'forgot_update']);
-	Route::middleware('auth:api')->group(function() {
+	Route::middleware('auth')->group(function() {
 		Route::post('logout', [AuthController::class, 'logout']);
 		Route::post('refresh', [AuthController::class, 'refresh']);
     	Route::get('me', [AuthController::class, 'me']);
