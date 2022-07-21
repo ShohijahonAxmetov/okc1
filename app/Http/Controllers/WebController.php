@@ -233,7 +233,7 @@ class WebController extends Controller
     public function all_posts()
     {
         $posts = Post::latest()
-            ->paginate(1);
+            ->paginate(12);
 
         return response([
             'success' => true,
@@ -332,7 +332,7 @@ class WebController extends Controller
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -356,7 +356,7 @@ class WebController extends Controller
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -377,7 +377,7 @@ class WebController extends Controller
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -398,7 +398,7 @@ class WebController extends Controller
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -419,7 +419,7 @@ class WebController extends Controller
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -638,7 +638,7 @@ class WebController extends Controller
                 ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%')
                 ->where('products.is_active', 1)
                 ->with('brand', 'categories')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -665,7 +665,7 @@ class WebController extends Controller
                 ->where('is_popular', 1)
                 ->where('products.is_active', 1)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -682,7 +682,7 @@ class WebController extends Controller
                 ->whereIn('brand_id', $brand)
                 ->where('products.is_active', 1)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -699,7 +699,7 @@ class WebController extends Controller
                 ->whereIn('brand_id', $brand)
                 ->where('products.is_active', 1)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -716,7 +716,7 @@ class WebController extends Controller
                 ->whereIn('brand_id', $brand)
                 ->where('products.is_active', 1)
                 ->with('brand')
-                ->paginate(1);
+                ->paginate(12);
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
@@ -776,4 +776,21 @@ class WebController extends Controller
         return response(['success' => true, 'districts' => $districts]);
     }
 
+    // upload image for CKEditor
+    public function uploadImage(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $fileName = time() . '.' . $request->file('upload')->getClientOriginalExtension();
+
+            $request->file('upload')->move(public_path('upload'), $fileName);
+
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('upload/' . $fileName);
+            $msg = 'Image upload successfully!';
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+
+            @header('Content-type: text/html; charset=utf-8');
+            echo $response;
+        }
+    }   
 }

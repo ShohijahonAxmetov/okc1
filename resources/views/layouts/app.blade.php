@@ -25,6 +25,18 @@
 	@yield('links')
 	<link href="/assets/style.css" rel="stylesheet" type="text/css" />
 	<!--end::Global Stylesheets Bundle-->
+
+	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script>
+        // CKEDITOR.config.toolbar = [
+        // 	{ name: 'document', items : [ 'Undo','Redo'] },
+        // ];
+        // 	{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Subscript','Superscript','Format' ] },
+        // CKEDITOR.config.filebrowserBrowseUrl = '/browse.php';
+        // CKEDITOR.config.extraPlugins = 'uploadimage';
+        CKEDITOR.config.filebrowserUploadUrl = "{{ route('upload-image', ['_token' => csrf_token()]) }}";
+        CKEDITOR.config.filebrowserUploadMethod = 'form';
+    </script>
 </head>
 <!--end::Head-->
 <!--begin::Body-->

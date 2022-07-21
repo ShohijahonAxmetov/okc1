@@ -357,7 +357,7 @@
                                 <label class="fs-6 fw-bold mb-2">Description</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description..."></textarea>
+                                <textarea name="desc_ru" class="form-control ckeditor form-control-solid" id="desc_ru" rows="4" placeholder="description..."></textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->

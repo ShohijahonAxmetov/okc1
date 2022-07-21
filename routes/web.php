@@ -107,6 +107,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // get regions districts
     Route::post('get_regions_districts', [WebController::class, 'get_regions_districts']);
+
+    // ckeditor upload image
+    Route::post('upload-image', [WebController::class, 'uploadImage'])->name('upload-image');
 });
 
 

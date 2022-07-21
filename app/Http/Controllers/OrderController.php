@@ -92,12 +92,15 @@ class OrderController extends Controller
 
         ]);
         if ($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with([
+                'success' => false,
+                'message' => $validator->errors()->messages()
+            ], 400);
         }
 
         $order = Order::find($id);
         if (!$order) {
-            return response(['message' => 'Net takogo zakaza'], 400);
+            return response(['message' => 'Order not found'], 400);
         }
 
         $order->update($data);
