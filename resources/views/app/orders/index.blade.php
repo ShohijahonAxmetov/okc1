@@ -81,7 +81,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="/assets/media/stock/600x400/img-26.jpg" class="" alt="">
+                                    <img src="/assets/media/default.png" class="" alt="">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ isset($order->user) ? $order->user->name : 'Deleted client' }}</a>
