@@ -74,7 +74,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
 
-                                    <img src="{{ $product->productVariations->first() && $product->productVariations->first()->productVariationImages->first() ? asset($product->productVariations->first()->productVariationImages->first()->img) : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" style="object-fit:cover">
+                                    <img src="{{ $product->productVariations->first() && $product->productVariations->first()->productVariationImages->first() ? asset($product->productVariations->first()->productVariationImages->first()->img) : '/assets/media/default.png' }}" class="" alt="" style="object-fit:cover">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $product->title['ru'] }}</a>
