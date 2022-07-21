@@ -68,7 +68,7 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-50px me-5">
-                                    <img src="{{ isset($post->img) ? $post->img : '/assets/media/stock/600x400/img-26.jpg' }}" class="" alt="" style="object-fit:cover">
+                                    <img src="{{ isset($post->img) ? $post->img : '/assets/media/default.png' }}" class="" alt="" style="object-fit:cover">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
                                     <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{!! $post->title['ru'] ?? '--' !!}</a>
