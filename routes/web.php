@@ -17,6 +17,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WarehouseController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailingController;
+use App\Http\Controllers\ProfileController;
 
 
 Route::get('/bass', function () {
@@ -110,6 +111,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // ckeditor upload image
     Route::post('upload-image', [WebController::class, 'uploadImage'])->name('upload-image');
+
+    // profile
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 
