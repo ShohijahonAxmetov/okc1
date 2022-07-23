@@ -20,9 +20,16 @@ class BrandController extends Controller
         $brands = Brand::latest()
                         ->with('products')
                         ->paginate(12);
+        $show_count = $brands->count();
+        $all_brands_count = Brand::count();
         $languages = ['ru', 'uz'];
 
-        return view('app.brands.index', compact('brands', 'languages')); 
+        return view('app.brands.index', compact(
+            'brands',
+            'languages',
+            'show_count',
+            'all_brands_count'
+        )); 
         // return response(['data' => $brands], 200);
     }
 

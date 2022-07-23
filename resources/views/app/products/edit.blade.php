@@ -297,6 +297,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="w-100 d-flex">
+                                        <p class="fw-bold me-3 mb-0">Remainder:</p><span>{{ $variation->remainder }}</span>
+                                    </div>
+                                </div>
+                            </div>
                             <hr class="w-100">
                             <div class="row w-100">
                                 <div class="col-6">
@@ -406,7 +413,7 @@
                                     <label class="form-label">Remainder</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input type="text" disabled class="form-control mb-2" value="152">
+                                    <input type="text" disabled class="form-control mb-2" value="{{ $remainder }}">
                                     <!--end::Input-->
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>

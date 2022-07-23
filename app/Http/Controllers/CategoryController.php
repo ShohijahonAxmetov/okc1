@@ -21,10 +21,19 @@ class CategoryController extends Controller
                                 ->with('products', 'filters', 'children', 'parent')
                                 ->paginate(12);
 
+        $show_count = $categories->count();
+        $all_categories_count = Category::count();
+
         $languages = ['ru', 'uz'];
         $all_categories = Category::all();
 
-        return view('app.categories.index', compact('categories', 'languages', 'all_categories'));
+        return view('app.categories.index', compact(
+            'categories',
+            'languages',
+            'all_categories',
+            'show_count',
+            'all_categories_count'
+        ));
         // return response(['data' => $categories], 200);
     }
 

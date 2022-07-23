@@ -25,19 +25,32 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bolder fs-3 mb-1">Products</span>
-            <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 products</span> -->
+            <span class="text-muted mt-1 fw-bold fs-7">Showing {{ $show_count }} of {{ $all_products_count }}</span>
         </h3>
         <div class="card-toolbar">
             <form action="{{ route('products.index') }}" class="d-flex align-items-center">
                 <div class="d-flex align-items-center position-relative my-1">
-                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                    <select class="form-control form-select form-control-solid w-150px" name="brand" data-control="select2" data-hide-search="false">
+                        <option value="">Select brand</option>
+                        @foreach($brands as $item)
+                        <option value="{{ $item->venkon_id }}" {{ $brand == $item->venkon_id ? 'selected' : '' }}>{{ $item->title }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="d-flex align-items-center position-relative my-1 ms-4">
+                    <select class="form-control form-select form-control-solid w-150px" name="is_active" data-control="select2" data-hide-search="true">
+                        <option value="">Select status</option>
+                        <option value="1" {{ $is_active == 1 ? 'selected' : '' }}>Active</option>
+                        <option value="0" {{ $is_active == 0 ? 'selected' : '' }}>Not active</option>
+                    </select>
+                </div>
+                <div class="d-flex align-items-center position-relative my-1 ms-4">
                     <span class="svg-icon svg-icon-1 position-absolute ms-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
                             <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
                         </svg>
                     </span>
-                    <!--end::Svg Icon-->
                     <input type="text" name="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search Product" value="{{ $search }}">
                 </div>
                 <button class="btn btn-success ms-2" style="height: min-content;">Search</button>
@@ -58,6 +71,7 @@
                         <th class="ps-4 min-w-125px rounded-start">ID</th>
                         <th class="ps-4 min-w-325px">Product</th>
                         <th class="min-w-125px">Brand</th>
+                        <th class="min-w-125px">Remainder</th>
                         <th class="min-w-150px">Status</th>
                         <th class="min-w-150px text-end rounded-end pe-2">Actions</th>
                     </tr>
@@ -83,6 +97,9 @@
                         </td>
                         <td>
                             <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ isset($product->brand) ? $product->brand->title : '--' }}</a>
+                        </td>
+                        <td>
+                            <span class="fs-6 fw-bold">{{ $product->productVariations()->sum('remainder') }}</span>
                         </td>
                         <td>
                             @if($product->is_active)

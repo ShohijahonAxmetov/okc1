@@ -26,15 +26,35 @@ class ProductController extends Controller
         $products = Product::latest()
             ->with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages');
 
-        if(isset($_GET['search'])) {
+        if(isset($_GET['brand']) && $_GET['brand'] != '') {
+            $products->where('brand_id', $_GET['brand']);
+        }
+        if(isset($_GET['is_active']) && $_GET['is_active'] != '') {
+            $products->where('is_active', $_GET['is_active']);
+        }
+        if(isset($_GET['search']) && $_GET['search'] != '') {
             $products->where('title', 'like', '%'.trim($_GET['search']).'%')
                 ->orWhere('id', trim($_GET['search']));
         }
         $products = $products->paginate(12);
+        $show_count = $products->count();
+        $all_products_count = Product::count();
+        $brands = Brand::latest()
+            ->get();
 
         $search = $_GET['search'] ?? '';
+        $brand = $_GET['brand'] ?? '';
+        $is_active = $_GET['is_active'] ?? '';
 
-        return view('app.products.index', compact('products', 'search'));
+        return view('app.products.index', compact(
+            'products',
+            'search',
+            'brands',
+            'brand',
+            'is_active',
+            'all_products_count',
+            'show_count'
+        ));
         // return response(['data' => $products], 200);
     }
 
@@ -619,8 +639,18 @@ class ProductController extends Controller
         $colors = Color::all();
         $brands = Brand::all();
         $categories = Category::all();
+        $remainder = $product->productVariations()
+            ->sum('remainder');
 
-        return view('app.products.edit', compact('product', 'languages', 'colors', 'brands', 'categories', 'page_number'));
+        return view('app.products.edit', compact(
+            'product',
+            'languages',
+            'colors',
+            'brands',
+            'categories',
+            'page_number',
+            'remainder'
+        ));
     }
 
     public function upload_from_dropzone(Request $request)

@@ -25,7 +25,7 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bolder fs-3 mb-1">Categories</span>
-            <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 categories</span> -->
+            <span class="text-muted mt-1 fw-bold fs-7">Showing {{ $show_count }} of {{ $all_categories_count }}</span>
         </h3>
         <!-- <div class="card-toolbar">
             <a href="#" class="btn btn-sm btn-light-primary">
