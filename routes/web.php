@@ -21,7 +21,7 @@ use App\Http\Controllers\MailingController;
 
 Route::get('/bass', function () {
     $client = new GuzzleHttp\Client();
-    $res = $client->get('http://213.230.65.189/Invema/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
+    $res = $client->get('http://213.230.65.189/invema/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
     $resp = (string) $res->getBody();
     return response()->json(json_decode($resp, true), $res->getStatusCode());
     return view('welcome');
