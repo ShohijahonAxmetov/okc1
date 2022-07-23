@@ -3,7 +3,7 @@
 <!--begin::Head-->
 
 <head>
-	<title>DASHBOARD | @yield('title', 'ACTIVE PAGE')</title>
+	<title>Админ панель | @yield('title', 'ACTIVE PAGE')</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -92,14 +92,14 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Dashboard</span>
+									<span class="menu-title">Главная</span>
 								</a>
 							</div>
 
 
 							<div class="menu-item">
 								<div class="menu-content pt-8 pb-2">
-									<span class="menu-section text-muted text-uppercase fs-8 ls-1">Main links</span>
+									<span class="menu-section text-muted text-uppercase fs-8 ls-1">Главные разделы</span>
 								</div>
 							</div>
 
@@ -116,7 +116,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Orders</span>
+									<span class="menu-title">Заказы</span>
 								</a>
 							</div>
 
@@ -134,7 +134,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Catalog</span>
+									<span class="menu-title">Каталог</span>
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -143,7 +143,7 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">Brands</span>
+											<span class="menu-title">Бренды</span>
 										</a>
 									</div>
 									<div class="menu-item">
@@ -151,7 +151,7 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">Categories</span>
+											<span class="menu-title">Категории</span>
 										</a>
 									</div>
 									<div class="menu-item">
@@ -159,7 +159,7 @@
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
-											<span class="menu-title">Products</span>
+											<span class="menu-title">Продукты</span>
 										</a>
 									</div>
 									<!-- <div class="menu-item">
@@ -286,7 +286,7 @@
 									<span class="menu-title">Blog</span>
 								</a>
 							</div>
-							
+
 							<div class="menu-item">
 								<a class="menu-link {{ Request::is('dashboard/comments/*') || Request::is('dashboard/comments') ? 'active' : '' }}" href="{{ route('comments.index') }}">
 									<span class="menu-icon">
@@ -302,7 +302,7 @@
 									<span class="menu-title">Comments</span>
 								</a>
 							</div>
-							
+
 
 							<div class="menu-item">
 								<div class="menu-content">
@@ -344,7 +344,7 @@
 								<path opacity="0.3" d="M2 3.62592H7C7.6 3.62592 8 4.02592 8 4.62592V9.62589L2 3.62592ZM16 14.4259V19.4259C16 20.0259 16.4 20.4259 17 20.4259H22L16 14.4259Z" fill="currentColor"></path>
 							</svg>
 						</span>
-						<!--end::Svg Icon-->	
+						<!--end::Svg Icon-->
 						<span id="btn-txt" class="btn-label">Download updates</span>
 					</a>
 				</div>
