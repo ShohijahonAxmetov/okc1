@@ -19,13 +19,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MailingController;
 
 
-// Route::get('/', function () {
-// $client = new GuzzleHttp\Client();
-// $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
-// $resp = (string) $res->getBody();
-// return response()->json(json_decode($resp, true), $res->getStatusCode());
-// return view('welcome');
-// });
+Route::get('/bass', function () {
+    $client = new GuzzleHttp\Client();
+    $res = $client->get('http://213.230.65.189/Invema/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
+    $resp = (string) $res->getBody();
+    return response()->json(json_decode($resp, true), $res->getStatusCode());
+    return view('welcome');
+});
 
 Route::get('/', [AdminAuthController::class, 'login_form'])->name('login');
 Route::post('/login', [AdminAuthController::class, 'login'])->name('auth.login');
