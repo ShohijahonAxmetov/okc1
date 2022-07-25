@@ -27,11 +27,9 @@ class WarehouseController extends Controller
             $id = 0;
         }
         $is_empty = true ? $id == 0 : false;
-
+        $warehouse = Warehouse::orderBy('id', 'desc')->first();
         if (!$is_empty) {
-            if(Warehouse::orderBy('id', 'desc')
-                ->first()
-                ->productVariations) {
+            if($warehouse && $warehouse->productVariations()->exists()) {
                     $products = Warehouse::where('venkon_id', $id)
                         ->first()
                         ->productVariations()
@@ -41,9 +39,7 @@ class WarehouseController extends Controller
                 $products = [];
             }
         } else {
-            if(Warehouse::orderBy('id', 'desc')
-                ->first()
-                ->productVariations) {
+            if($warehouse && $warehouse->productVariations()->exists()) {
                 $products = Warehouse::orderBy('id', 'desc')
                     ->first()
                     ->productVariations()

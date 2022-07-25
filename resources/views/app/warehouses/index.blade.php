@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'WAREHOUSES')
+@section('title', 'СКЛАДЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'warehouses'
+'title' => 'Склады'
 ]
 ]
 ])
@@ -24,8 +24,8 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column" style="min-width:250px">
-            <span class="card-label fw-bolder fs-3 mb-1 mb-4">Warehouses</span>
-            <p class="mb-0 mt-6">Select warehouse</p>
+            <span class="card-label fw-bolder fs-3 mb-1 mb-4">Склады</span>
+            <p class="mb-0 mt-6">Выберите склада</p>
             <!--begin::Navs-->
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                 @foreach($warehouses as $warehouse)
