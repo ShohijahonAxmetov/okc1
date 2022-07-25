@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CATEGORIES')
+@section('title', 'КОММЕНТАРИИ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'comments'
+'title' => 'Комментарии'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Comments</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Комментарии</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 categories</span> -->
         </h3>
         <!-- <div class="card-toolbar">
@@ -50,10 +50,10 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-125px">User</th>
-                        <th class="min-w-125px">Product</th>
-                        <th class="min-w-150px">Comment</th>
-                        <th class="min-w-150px">Answer</th>
+                        <th class="min-w-125px">Пользователь</th>
+                        <th class="min-w-125px">Продукт</th>
+                        <th class="min-w-150px">Коммент</th>
+                        <th class="min-w-150px">Ответ</th>
                         <th class="min-w-200px text-end rounded-end"></th>
                     </tr>
                 </thead>
@@ -145,7 +145,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Answet to comment</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Ответ к комментарию</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -165,10 +165,10 @@
                 <div class="modal-body py-10 px-lg-17">
 
                     <div>
-                        <label>Comment</label>
+                        <label>Комментария</label>
                         <textarea disabled class="form-control form-control-solid mb-5" id="" rows="6" placeholder="description...">{{ $comment->text }}</textarea>
 
-                        <label>Answer</label>
+                        <label>Ответ</label>
                         <textarea name="answer" class="form-control form-control-solid" id="" rows="6" placeholder="description...">{{ $comment->answer }}</textarea>
                     </div>
 
@@ -177,11 +177,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -201,13 +201,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

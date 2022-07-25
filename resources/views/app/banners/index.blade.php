@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'BANNERS')
+@section('title', 'БАННЕРЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'banners'
+'title' => 'Баннеры'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Banners</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Баннеры</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 banners</span> -->
         </h3>
         <div class="card-toolbar">
@@ -36,7 +36,7 @@
                         <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
                     </svg>
                 </span>
-                <!--end::Svg Icon-->New Item
+                <!--end::Svg Icon-->Добавить
             </a>
         </div>
     </div>
@@ -51,9 +51,9 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-325px">Banner</th>
-                        <th class="min-w-125px">Link</th>
-                        <th class="min-w-150px">Status</th>
+                        <th class="min-w-325px">Баннер</th>
+                        <th class="min-w-125px">Ссылка</th>
+                        <th class="min-w-150px">Статус</th>
                         <th class="min-w-200px text-end rounded-end"></th>
                     </tr>
                 </thead>
@@ -77,9 +77,9 @@
                         </td>
                         <td>
                             @if($banner->is_active)
-                            <span class="badge badge-light-success fs-7 fw-bold">Active</span>
+                              <span class="badge badge-light-success fs-7 fw-bold">Активный</span>
                             @else
-                            <span class="badge badge-light-danger fs-7 fw-bold">Not active</span>
+                              <span class="badge badge-light-danger fs-7 fw-bold">Неактивный</span>
                             @endif
                         </td>
                         <td class="text-end">
@@ -140,7 +140,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Edit banner</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Изменить баннера</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -162,7 +162,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Banner (image)</label>
+                        <label class="fs-6 fw-bold mb-2">Баннер (фото)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
@@ -172,7 +172,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Link</label>
+                        <label class="fs-6 fw-bold mb-2">Ссылка</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" placeholder="https://example.com" name="link" maxlength="255" value="{{ $banner->link }}" />
@@ -180,10 +180,10 @@
                     </div>
                     <!--end::Input group-->
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Status</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Статус</label>
                         <select class="form-select" aria-label="" name="is_active" data-control="select2" data-hide-search="true">
-                            <option value="1" {{ $banner->is_active == 1 ? 'selected' : '' }}>Active</option>
-                            <option value="0" {{ $banner->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                            <option value="1" {{ $banner->is_active == 1 ? 'selected' : '' }}>Активный</option>
+                            <option value="0" {{ $banner->is_active == 0 ? 'selected' : '' }}>Неактивный</option>
                         </select>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" id="success_button" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -222,7 +222,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Add banner</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Добавить баннера</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -244,7 +244,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 required fw-bold mb-2">Banner (image)</label>
+                        <label class="fs-6 required fw-bold mb-2">Баннер (фото)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" required placeholder="" name="img" />
@@ -254,7 +254,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Link</label>
+                        <label class="fs-6 fw-bold required mb-2">Ссылка</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required placeholder="https://example.com" name="link" value="{{ old('link') }}" />
@@ -262,10 +262,10 @@
                     </div>
                     <!--end::Input group-->
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Status</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Статус</label>
                         <select class="form-select" aria-label="" name="is_active" data-control="select2" data-hide-search="true" required>
-                            <option value="1" {{ old('is_active') == 1 ? 'selected' : '' }}>Active</option>
-                            <option value="0" {{ old('is_active') == 0 ? 'selected' : '' }}>Not active</option>
+                            <option value="1" {{ old('is_active') == 1 ? 'selected' : '' }}>Активный</option>
+                            <option value="0" {{ old('is_active') == 0 ? 'selected' : '' }}>Неактивный</option>
                         </select>
                     </div>
                 </div>
@@ -273,11 +273,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -295,13 +295,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

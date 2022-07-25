@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CONTENT MANAGERS')
+@section('title', 'КОНТЕНТ МЕНЕДЖЕРЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'Content managers'
+'title' => 'Контент менеджеры'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Content managers</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Контент менеджеры</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 products</span> -->
         </h3>
         <div class="card-toolbar">
@@ -36,7 +36,7 @@
                         <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
                     </svg>
                 </span>
-                <!--end::Svg Icon-->Add Manager
+                <!--end::Svg Icon-->Добавить
             </a>
         </div>
     </div>
@@ -51,11 +51,11 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-325px">Name</th>
-                        <th class="min-w-200px">Phone number</th>
+                        <th class="min-w-325px">ФИО</th>
+                        <th class="min-w-200px">Номер телефона</th>
                         <!-- <th class="min-w-125px">Email</th> -->
                         <th class="min-w-125px">Username</th>
-                        <th class="min-w-200px text-end rounded-end">Actions</th>
+                        <th class="min-w-200px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -148,7 +148,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Add manager</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Добавить менеджера</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -170,7 +170,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Name</label>
+                        <label class="fs-6 fw-bold required mb-2">ФИО</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required name="name" value="{{ old('name') }}" />
@@ -180,7 +180,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Phone number</label>
+                        <label class="fs-6 fw-bold mb-2">Номер телефона</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" name="phone_number" value="{{ old('phone_number') }}" />
@@ -200,7 +200,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Password</label>
+                        <label class="fs-6 fw-bold required mb-2">Пароль</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required minlength="8" name="password" value="{{ old('password') }}" />
@@ -210,7 +210,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Password confirmation</label>
+                        <label class="fs-6 fw-bold required mb-2">Подтверждение пароля</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required minlength="8" name="password_confirmation" value="{{ old('password_confirmation') }}" />
@@ -220,7 +220,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Photo</label>
+                        <label class="fs-6 fw-bold mb-2">Фото</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
@@ -232,11 +232,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -261,7 +261,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Edit manager</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Изменение менеджера</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -283,7 +283,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Name</label>
+                        <label class="fs-6 fw-bold required mb-2">ФИО</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required name="name" value="{{ $user->name }}" />
@@ -293,7 +293,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Phone number</label>
+                        <label class="fs-6 fw-bold mb-2">Номер телефона</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" name="phone_number" value="{{ $user->phone_number }}" />
@@ -313,7 +313,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Password</label>
+                        <label class="fs-6 fw-bold mb-2">Пароль</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" name="password" />
@@ -323,7 +323,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Password confirmation</label>
+                        <label class="fs-6 fw-bold mb-2">Подтверждение пароля</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" name="password_confirmation" />
@@ -333,7 +333,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Photo</label>
+                        <label class="fs-6 fw-bold mb-2">Фото</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" name="img" />
@@ -345,11 +345,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Отправить</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" id="success_button" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -369,13 +369,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

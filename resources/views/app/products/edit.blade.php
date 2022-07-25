@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'PRODUCTS')
+@section('title', 'ПРОДУКТЫ')
 
 @section('links')
 
@@ -42,15 +42,15 @@
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'products',
+'title' => 'Продукты',
 'route' => 'products.index'
 ],
 [
-'title' => 'Edit'
+'title' => 'Изменить'
 ]
 ]
 ])
@@ -64,8 +64,8 @@
     @csrf
     <div class="row">
         <div class="d-flex w-100 justify-content-end">
-            <button type="submit" id="success_button" class="btn btn-success">Save</button>
-            <a href="{{ route('products.index') }}{{ isset($page_number) ? '?page='.$page_number : '' }}" class="btn btn-danger ms-5">Cancel</a>
+            <button type="submit" id="success_button" class="btn btn-success">Сохранить</button>
+            <a href="{{ route('products.index') }}{{ isset($page_number) ? '?page='.$page_number : '' }}" class="btn btn-danger ms-5">Отмена</a>
         </div>
 
         <div class="col-8">
@@ -95,32 +95,32 @@
                                 <div class="card-header pt-5">
                                     <!--begin::Title-->
                                     <h3 class="card-title align-items-start w-100 mb-10">
-                                        <span class="card-label fw-bolder text-dark">Main data</span>
+                                        <span class="card-label fw-bolder text-dark">Основные данные</span>
                                     </h3>
                                     <div class="w-100">
                                         <!--end::Title-->
                                         <div class="mb-6 w-100">
                                             <!--begin::Label-->
-                                            <label class="required form-label">Product Name</label>
+                                            <label class="required form-label">Наименование продукта</label>
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <input type="text" name="title_ru" required class="form-control mb-2" placeholder="Product name" value="{{ old('title_ru') ?? $product->title['ru'] }}">
                                             <!--end::Input-->
                                             <!--begin::Description-->
-                                            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+                                            <div class="text-muted fs-7">Название продукта обязательно и рекомендуется, чтобы оно было уникальным..</div>
                                             <!--end::Description-->
                                             <div class="fv-plugins-message-container invalid-feedback"></div>
                                         </div>
 
                                         <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
                                             <li class="nav-item">
-                                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1">Description</a>
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_1">Описание</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">How to use</a>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_2">Как использовать</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3">Meta parametrs</a>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_3">Meta параметры</a>
                                             </li>
                                         </ul>
 
@@ -156,8 +156,8 @@
                                                     <input id="kt_ecommerce_add_category_meta_keywords" name="meta_keywords_ru" class="form-control mb-2" value="{{ old('meta_keywords_ru') ?? $product->meta_keywords['ru'] ?? '' }}" />
                                                     <!--end::Editor-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Set a list of keywords that the category is related to. Separate the keywords by adding a comma
-                                                        <code>,</code>between each keyword.
+                                                    <div class="text-muted fs-7">Установите список ключевых слов, с которыми связана категория. Разделяйте ключевые слова, добавляя запятую
+                                                        <code>,</code>между каждым ключевым словом.
                                                     </div>
                                                     <!--end::Description-->
                                                 </div>
@@ -192,32 +192,32 @@
                                 <div class="card-header pt-5">
                                     <!--begin::Title-->
                                     <h3 class="card-title align-items-start w-100 mb-10">
-                                        <span class="card-label fw-bolder text-dark">Main data</span>
+                                        <span class="card-label fw-bolder text-dark">Основные данные</span>
                                     </h3>
                                     <div class="w-100">
                                         <!--end::Title-->
                                         <div class="mb-6 w-100">
                                             <!--begin::Label-->
-                                            <label class="form-label">Product Name</label>
+                                            <label class="form-label">Наименование продукта</label>
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <input type="text" name="title_uz" class="form-control mb-2" placeholder="Product name" value="{{ old('title_uz') ?? $product->title['uz'] }}">
                                             <!--end::Input-->
                                             <!--begin::Description-->
-                                            <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+                                            <div class="text-muted fs-7">Название продукта обязательно и рекомендуется, чтобы оно было уникальным..</div>
                                             <!--end::Description-->
                                             <div class="fv-plugins-message-container invalid-feedback"></div>
                                         </div>
 
                                         <ul class="nav nav-tabs nav-line-tabs mb-5 fs-6">
                                             <li class="nav-item">
-                                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_11">Description</a>
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#kt_tab_pane_11">Описание</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_22">How to use</a>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_22">Как использовать</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_31">Meta parametrs</a>
+                                                <a class="nav-link" data-bs-toggle="tab" href="#kt_tab_pane_31">Meta параметры</a>
                                             </li>
                                         </ul>
 
@@ -253,8 +253,8 @@
                                                     <input id="kt_ecommerce_add_category_meta_keywords" name="meta_keywords_uz" class="form-control mb-2" value="{{ old('meta_keywords_uz') ?? $product->meta_keywords['uz'] ?? '' }}" />
                                                     <!--end::Editor-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Set a list of keywords that the category is related to. Separate the keywords by adding a comma
-                                                        <code>,</code>between each keyword.
+                                                    <div class="text-muted fs-7">Установите список ключевых слов, с которыми связана категория. Разделяйте ключевые слова, добавляя запятую
+                                                        <code>,</code>между каждым ключевым словом.
                                                     </div>
                                                     <!--end::Description-->
                                                 </div>
@@ -280,7 +280,7 @@
                 </div>
             </div>
 
-            <h3 class="mb-6">Product Variations ({{ count($product->productVariations) }})</h3>
+            <h3 class="mb-6">Варианты продукта ({{ count($product->productVariations) }})</h3>
             @if(isset($product->productVariations[0]))
             @foreach($product->productVariations as $variation)
             <div class="card mb-5 mb-xl-8">
@@ -300,7 +300,7 @@
                             <div class="row w-100">
                                 <div class="col-6">
                                     <div class="w-100 d-flex">
-                                        <p class="fw-bold me-3 mb-0">Remainder:</p><span>{{ $variation->remainder }}</span>
+                                        <p class="fw-bold me-3 mb-0">Остаток:</p><span>{{ $variation->remainder }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -309,20 +309,20 @@
                                 <div class="col-6">
                                     <div class="mb-6 w-100">
                                         <!--begin::Label-->
-                                        <label class="form-label">Product code</label>
+                                        <label class="form-label">Код продукта</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" data-id="data_{{ $variation->id }}" name="product_code" class="form-control mb-2" placeholder="Product code" value="{{ $variation->product_code }}">
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="product_code" class="form-control mb-2" placeholder="Код продукта" value="{{ $variation->product_code }}">
                                         <!--end::Input-->
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-6 w-100">
                                         <!--begin::Label-->
-                                        <label class="required form-label">Price</label>
+                                        <label class="required form-label">Цена</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" required data-id="data_{{ $variation->id }}" name="price" class="form-control mb-2" placeholder="Price" value="{{ $variation->price }}">
+                                        <input type="text" required data-id="data_{{ $variation->id }}" name="price" class="form-control mb-2" placeholder="Цена" value="{{ $variation->price }}">
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -330,18 +330,18 @@
                             <div class="row w-100">
                                 <div class="col-6">
                                     <div class="mb-6">
-                                        <label for="exampleFormControlInput1" class="form-label">Status</label>
+                                        <label for="exampleFormControlInput1" class="form-label">Статус</label>
                                         <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="variation_status" data-control="select2" data-hide-search="true">
-                                            <option value="1" {{ $variation->is_active == 1 ? 'selected' : '' }}>Active</option>
-                                            <option value="0" {{ $variation->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                                            <option value="1" {{ $variation->is_active == 1 ? 'selected' : '' }}>Активный</option>
+                                            <option value="0" {{ $variation->is_active == 0 ? 'selected' : '' }}>Неактивный</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-6">
-                                        <label for="exampleFormControlInput1" class="form-label">Color</label>
+                                        <label for="exampleFormControlInput1" class="form-label">Цвет</label>
                                         <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="color" data-control="select2" data-hide-search="true">
-                                            <option value="">Select</option>
+                                            <option value="">Выберите</option>
                                             @foreach($colors as $color)
                                             <option value="{{ $color->venkon_id }}" {{ $variation->color_id == $color->venkon_id ? 'selected' : '' }}>{{ $color->title['ru'] }}</option>
                                             @endforeach
@@ -361,8 +361,8 @@
 
                                             <!--begin::Info-->
                                             <div class="ms-4">
-                                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Drop files here or click to upload.</h3>
-                                                <span class="fs-7 fw-bold text-gray-400">Upload up to 6 files</span>
+                                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Перетащите файлы сюда или нажмите, чтобы загрузить.</h3>
+                                                <span class="fs-7 fw-bold text-gray-400">Загрузить до 6 файлов</span>
                                             </div>
                                             <!--end::Info-->
                                         </div>
@@ -384,7 +384,7 @@
                 </div>
                 <!--begin::Body-->
             </div>
-            <input type="hidden" data-id="data_{{ $variation->id }}" name="variation_real_id" class="form-control mb-2" placeholder="Product code" value="{{ $variation->id }}" }}">
+            <input type="hidden" data-id="data_{{ $variation->id }}" name="variation_real_id" class="form-control mb-2" placeholder="Код продукта" value="{{ $variation->id }}">
             @endforeach
             @endif
         </div>
@@ -400,17 +400,17 @@
                             <!--begin::Title-->
                             <div class="w-100">
                                 <div class="mb-6">
-                                    <label for="exampleFormControlInput1" class="form-label required">Status</label>
+                                    <label for="exampleFormControlInput1" class="form-label required">Статус</label>
                                     <select class="form-select" aria-label="" name="status" data-control="select2" data-hide-search="true">
-                                        <option value="1" {{ $product->is_active == 1 ? 'selected' : '' }}>Active</option>
-                                        <option value="0" {{ $product->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                                        <option value="1" {{ $product->is_active == 1 ? 'selected' : '' }}>Активный</option>
+                                        <option value="0" {{ $product->is_active == 0 ? 'selected' : '' }}>Неактивный</option>
                                     </select>
-                                    <div class="text-muted fs-7 mt-2">Set the product status.</div>
+                                    <div class="text-muted fs-7 mt-2">Установить статус продукта.</div>
                                 </div>
 
                                 <div class="mb-6 w-100">
                                     <!--begin::Label-->
-                                    <label class="form-label">Remainder</label>
+                                    <label class="form-label">Остаток</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
                                     <input type="text" disabled class="form-control mb-2" value="{{ $remainder }}">
@@ -441,21 +441,21 @@
                         <div class="card-header pt-5">
                             <!--begin::Title-->
                             <h3 class="card-title align-items-start w-100 mb-10">
-                                <span class="card-label fw-bolder text-dark">Parametrs</span>
+                                <span class="card-label fw-bolder text-dark">Параметры</span>
                             </h3>
                             <div class="w-100">
                                 <div class="mb-6">
-                                    <label for="is_popular" class="form-label">Popular</label>
+                                    <label for="is_popular" class="form-label">Популярный,</label>
                                     <select class="form-select" aria-label="" name="is_popular" id="is_popular" data-control="select2" data-hide-search="true">
-                                        <option value="1" {{ $product->is_popular == 1 ? 'selected' : '' }}>Yes</option>
-                                        <option value="0" {{ $product->is_popular == 0 ? 'selected' : '' }}>No</option>
+                                        <option value="1" {{ $product->is_popular == 1 ? 'selected' : '' }}>Да</option>
+                                        <option value="0" {{ $product->is_popular == 0 ? 'selected' : '' }}>Нет</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="w-100">
                                 <div class="mb-6">
-                                    <label for="brand" class="form-label required">Brand</label>
-                                    <select class="form-select mb-2" name="brand" id="brand" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                                    <label for="brand" class="form-label required">Бренд</label>
+                                    <select class="form-select mb-2" name="brand" id="brand" data-control="select2" data-hide-search="true" data-placeholder="Выберите вариант" id="kt_ecommerce_add_product_status_select">
                                         @foreach($brands as $brand)
                                         <option value="{{ $brand->venkon_id }}" {{ $product->brand_id == $brand->venkon_id ? 'selected' : '' }}>{{ $brand->title }}</option>
                                         @endforeach
@@ -465,7 +465,7 @@
 
                             <div class="w-100">
                                 <div class="mb-6">
-                                    <label for="categories" class="required form-label">Categories</label>
+                                    <label for="categories" class="required form-label">Категории</label>
                                     <select class="form-select categories" aria-label="" name="categories" id="categories" multiple>
                                         @foreach($categories as $category)
                                         <option value="{{ $category->venkon_id }}" {{ in_array($category->venkon_id, $product->categories->pluck('venkon_id')->toArray()) ? 'selected' : '' }}>{{ $category->title['ru'] ?? null }}</option>
@@ -589,9 +589,9 @@
                     thisDropzone.emit("thumbnail", mockFile, '{{ $image->img }}');
                     thisDropzone.emit("complete", mockFile);
                 @endforeach
-                
+
             @endif
-            
+
         }
     });
 
@@ -661,7 +661,7 @@
         variations_data.forEach((item) => {
             if (item[1].value == null || item[1].value == '') {
                 stop_script = true;
-                $.notify("Price input is required!", 'error');
+                $.notify("Укажите цену!", 'error');
             }
         });
         if (stop_script) {
@@ -704,12 +704,12 @@
                     window.location.href = redirect_url;
 
                 } else {
-                    $.notify("Something went wrong !", 'error');
+                    $.notify("Что-то пошло не так !", 'error');
                 }
 
             }).catch((error) => {
 
-                $.notify("Something went wrong !", 'error');
+                $.notify("Что-то пошло не так !", 'error');
 
             });
         });

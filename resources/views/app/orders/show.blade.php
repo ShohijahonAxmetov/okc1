@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'ORDERS')
+@section('title', 'ЗАКАЗЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'orders',
+'title' => 'Заказы',
 'route' => 'orders.index'
 ],
 [
@@ -35,20 +35,20 @@
                 <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-lg-n2 me-auto">
                     <!--begin:::Tab item-->
                     <li class="nav-item">
-                        <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_sales_order_summary">Order Summary</a>
+                        <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_sales_order_summary">Итоговая сумма</a>
                     </li>
                     <!--end:::Tab item-->
                     <!--begin:::Tab item-->
                     <li class="nav-item">
-                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_sales_order_history">Order History</a>
+                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_sales_order_history">История заказа</a>
                     </li>
                     <!--end:::Tab item-->
                 </ul>
                 <!--end:::Tabs-->
                 <!--begin::Button-->
                 <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#delete_product">Delete product from Order</a> -->
-                <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Add product to Order</a>
-                <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="btn btn-light-primary btn-sm me-lg-n7">Edit Order</a>
+                <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Добавить товар в заказ</a>
+                <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="btn btn-light-primary btn-sm me-lg-n7">Изменить заказ</a>
                 <!--end::Button-->
             </div>
             <!--begin::Order summary-->
@@ -58,7 +58,7 @@
                     <!--begin::Card header-->
                     <div class="card-header">
                         <div class="card-title">
-                            <h2>Order Details (#{{ $order->id }})</h2>
+                            <h2>Информация заказа (#{{ $order->id }})</h2>
                         </div>
                     </div>
                     <!--end::Card header-->
@@ -80,7 +80,7 @@
                                                         <path d="M19 0.400024H1C0.4 0.400024 0 0.800024 0 1.40002V4.40002C0 5.00002 0.4 5.40002 1 5.40002H19C19.6 5.40002 20 5.00002 20 4.40002V1.40002C20 0.800024 19.6 0.400024 19 0.400024Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->Date Added
+                                                <!--end::Svg Icon-->Дата добавления
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end">{{ date('H:i d/m/Y', strtotime($order->created_at)) }}</td>
@@ -98,7 +98,7 @@
                                                         <path d="M13 13.9189C13 12.2189 14.3 10.9189 16 10.9189H21V7.91895C21 6.81895 20.1 5.91895 19 5.91895H3C2.4 5.91895 2 6.31895 2 6.91895V20.9189C2 21.5189 2.4 21.9189 3 21.9189H19C20.1 21.9189 21 21.0189 21 19.9189V16.9189H16C14.3 16.9189 13 15.6189 13 13.9189Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->Payment Method
+                                                <!--end::Svg Icon-->Метод оплаты
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end text-capitalize">{{ $order->payment_method }}
@@ -117,14 +117,14 @@
                                                         <path opacity="0.3" d="M20 18C20 19.1 19.1 20 18 20C16.9 20 16 19.1 16 18C16 16.9 16.9 16 18 16C19.1 16 20 16.9 20 18ZM15 4C15 3.4 14.6 3 14 3H3C2.4 3 2 3.4 2 4V13C2 13.6 2.4 14 3 14H15V4ZM6 16C4.9 16 4 16.9 4 18C4 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->Shipping Method
+                                                <!--end::Svg Icon-->Способ доставки
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end text-capitalize">
                                             @if($order->with_delivery == 0)
-                                            pick up from showroom
+                                              Забрать из шоу-рума
                                             @else
-                                            with delivery
+                                              С доставкой
                                             @endif
                                         </td>
                                     </tr>
@@ -143,7 +143,7 @@
                     <!--begin::Card header-->
                     <div class="card-header">
                         <div class="card-title">
-                            <h2>Customer Details</h2>
+                            <h2>Сведения о клиенте</h2>
                         </div>
                     </div>
                     <!--end::Card header-->
@@ -165,7 +165,7 @@
                                                         <path d="M12 22C14.6 22 17 21 18.7 19.4C17.9 16.9 15.2 15 12 15C8.8 15 6.09999 16.9 5.29999 19.4C6.99999 21 9.4 22 12 22Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->Customer
+                                                <!--end::Svg Icon-->Клиент
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end">
@@ -180,7 +180,7 @@
                                                 </div>
                                                 <!--end::Avatar-->
                                                 <!--begin::Name-->
-                                                <a class="text-gray-600 text-hover-primary">{{ isset($order->user) ? $order->user->name : 'Deleted user' }}</a>
+                                                <a class="text-gray-600 text-hover-primary">{{ isset($order->user) ? $order->user->name : 'Пользователь удален' }}</a>
                                                 <!--end::Name-->
                                             </div>
                                         </td>
@@ -216,7 +216,7 @@
                                                         <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon-->Phone
+                                                <!--end::Svg Icon-->Телефон
                                             </div>
                                         </td>
                                         <td class="fw-bolder text-end">+{{ $order->phone_number }}</td>
@@ -250,15 +250,15 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Shipping Address</h2>
+                                        <h2>Адрес доставки</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
-                                <div class="card-body pt-0">City: {{ $order->region ? config('app.REGIONS')[$order->region - 1]['uz'] : '--' }},
-                                    <br />Region: {{ $order->district ? config('app.DISTRICTS')[$order->district - 1]['title'] : '--' }},
-                                    <br />Address: {{ $order->address ?? '--' }},
-                                    <br />Postal code: {{ $order->postal_code ?? '--' }}.
+                                <div class="card-body pt-0">Город: {{ $order->region ? config('app.REGIONS')[$order->region - 1]['uz'] : '--' }},
+                                    <br />Область: {{ $order->district ? config('app.DISTRICTS')[$order->district - 1]['title'] : '--' }},
+                                    <br />Адрес: {{ $order->address ?? '--' }},
+                                    <br />Почтовый индекс: {{ $order->postal_code ?? '--' }}.
                                 </div>
                                 <!--end::Card body-->
                             </div>
@@ -269,7 +269,7 @@
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h2>Order #{{ $order->id }}</h2>
+                                    <h2>Заказ #{{ $order->id }}</h2>
                                 </div>
                             </div>
                             <!--end::Card header-->
@@ -281,12 +281,12 @@
                                         <!--begin::Table head-->
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                                <th class="min-w-175px">Product</th>
+                                                <th class="min-w-175px">Продукт</th>
                                                 <th class="min-w-100px text-end">ID</th>
-                                                <th class="min-w-70px text-end">Qty</th>
-                                                <th class="min-w-100px text-end">Unit Price</th>
-                                                <th class="min-w-100px text-end">Total</th>
-                                                <th class="min-w-100px text-end">Actions</th>
+                                                <th class="min-w-70px text-end">Количество</th>
+                                                <th class="min-w-100px text-end">Цена за единицу</th>
+                                                <th class="min-w-100px text-end">Итоговая</th>
+                                                <th class="min-w-100px text-end">Действия</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -352,8 +352,8 @@
                                                 <td class="text-end">$5.00</td>
                                             </tr> -->
                                             <tr>
-                                                <td colspan="4" class="fs-3 text-dark text-end">Grand Total</td>
-                                                <td class="text-dark fs-3 fw-boldest text-end">{{ $order->amount }} SUM</td>
+                                                <td colspan="4" class="fs-3 text-dark text-end">Итоговая сумма</td>
+                                                <td class="text-dark fs-3 fw-boldest text-end">{{ $order->amount }} UZS</td>
                                             </tr>
                                         </tbody>
                                         <!--end::Table head-->
@@ -377,7 +377,7 @@
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h2>Order History</h2>
+                                    <h2>История заказа</h2>
                                 </div>
                             </div>
                             <!--end::Card header-->
@@ -389,10 +389,10 @@
                                         <!--begin::Table head-->
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                                                <th class="min-w-100px">Date Added</th>
-                                                <th class="min-w-175px">Comment</th>
-                                                <th class="min-w-70px">Order Status</th>
-                                                <th class="min-w-175px">Products</th>
+                                                <th class="min-w-100px">Дата добавления</th>
+                                                <th class="min-w-175px">Комментарии</th>
+                                                <th class="min-w-70px">Статус заказа</th>
+                                                <th class="min-w-175px">Товары</th>
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -435,16 +435,16 @@
                                                 <!--begin::Customer Notified-->
                                                 <td>
                                                     @if(isset($order_item->productVariations))
-                                                    @foreach($order_item->productVariations as $product)
-                                                    @if(isset($product->product->title['ru']))
-                                                    <a href="{{ route('products.edit', ['product' => $product->product]) }}">{{ $product->product->title['ru'] }}</a>
+                                                      @foreach($order_item->productVariations as $product)
+                                                        @if(isset($product->product->title['ru']))
+                                                          <a href="{{ route('products.edit', ['product' => $product->product]) }}">{{ $product->product->title['ru'] }}</a>
+                                                        @else
+                                                          Продукт удален
+                                                        @endif
+                                                      <br>
+                                                      @endforeach
                                                     @else
-                                                    Deleted product
-                                                    @endif
-                                                    <br>
-                                                    @endforeach
-                                                    @else
-                                                    Deleted product
+                                                      Продукт удален
                                                     @endif
                                                 </td>
                                                 <!--end::Customer Notified-->
@@ -486,7 +486,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Add product to Order #{{ $order->id }}</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Добавить товар в заказ #{{ $order->id }}</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -505,7 +505,7 @@
                 <!--begin::Modal body-->
                 <div class="modal-body py-10 px-lg-17">
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Select product</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Выбрать продукт</label>
                         <select class="form-select" name="variation_id" data-control="select2" data-hide-search="false" required>
                             @foreach($products_variations as $product)
                             <option value="{{ $product->id }}">{{ $product->product->title['ru'] }}</option>
@@ -515,7 +515,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Product count</label>
+                        <label class="fs-6 fw-bold required mb-2">Количество продуктов</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required name="count" />
@@ -528,11 +528,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -551,13 +551,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'POSTS')
+@section('title', 'БЛОГ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'posts'
+'title' => 'Блог'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Posts</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Блог</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 banners</span> -->
         </h3>
         <div class="card-toolbar">
@@ -36,7 +36,7 @@
                         <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
                     </svg>
                 </span>
-                <!--end::Svg Icon-->New Post
+                <!--end::Svg Icon-->Добавить
             </a>
         </div>
     </div>
@@ -51,10 +51,10 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-325px">Title</th>
-                        <th class="min-w-200px">Subtitle</th>
+                        <th class="min-w-325px">Заголовок</th>
+                        <th class="min-w-200px">Подзаголовок</th>
                         <th class="min-w-200px">Slug</th>
-                        <th class="min-w-125px text-end rounded-end pe-2">Actions</th>
+                        <th class="min-w-125px text-end rounded-end pe-2">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -139,7 +139,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Edit post</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Изменения блога</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -178,7 +178,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 required fw-bold mb-2">Title</label>
+                                <label class="fs-6 required fw-bold mb-2">Заголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" required name="title_ru" value="{{ $post->title['ru'] ?? '' }}" />
@@ -189,7 +189,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 required fw-bold mb-2">Subtitle</label>
+                                <label class="fs-6 required fw-bold mb-2">Подзаголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="subtitle_ru" value="{{ $post->subtitle['ru'] ?? '' }}" />
@@ -200,10 +200,10 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $post->desc['ru'] ?? '' }}</textarea>
+                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="Описание">{{ $post->desc['ru'] ?? '' }}</textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -225,7 +225,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Subtitle</label>
+                                <label class="fs-6 fw-bold mb-2">Подзаголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="subtitle_uz" value="{{ $post->subtitle['uz'] ?? '' }}" />
@@ -236,7 +236,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <textarea name="desc_uz" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $post->desc['uz'] ?? '' }}</textarea>
@@ -250,7 +250,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Poster (image)</label>
+                        <label class="fs-6 fw-bold mb-2">Плакат (фото)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" accept="image/*" placeholder="" name="img" />
@@ -262,11 +262,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" id="success_button" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -293,7 +293,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder">Add post</h2>
+                    <h2 class="fw-bolder">Добавить фото</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -332,7 +332,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 required fw-bold mb-2">Title</label>
+                                <label class="fs-6 required fw-bold mb-2">Заголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" required placeholder="" name="title_ru" />
@@ -343,7 +343,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Subtitle</label>
+                                <label class="fs-6 fw-bold mb-2">Подзаголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="subtitle_ru" />
@@ -354,7 +354,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <textarea name="desc_ru" class="form-control ckeditor form-control-solid" id="desc_ru" rows="4" placeholder="description..."></textarea>
@@ -368,7 +368,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Title</label>
+                                <label class="fs-6 fw-bold mb-2">Заголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="title_uz" />
@@ -379,7 +379,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Subtitle</label>
+                                <label class="fs-6 fw-bold mb-2">Подзаголовок</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="subtitle_uz" />
@@ -390,7 +390,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <textarea name="desc_uz" class="form-control form-control-solid" rows="4" placeholder="description..."></textarea>
@@ -404,7 +404,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Poster (image)</label>
+                        <label class="fs-6 fw-bold mb-2">Плакат (фото)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" accept="image/*" placeholder="" name="img" />
@@ -416,11 +416,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>
@@ -438,13 +438,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

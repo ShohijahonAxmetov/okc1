@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CONTENT MANAGERS')
+@section('title', 'КОНТЕНТ МЕНЕДЖЕРЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'content managers'
+'title' => 'Контент менеджеры'
 ]
 ]
 ])
@@ -44,7 +44,7 @@
                                 <div class="d-flex flex-column">
                                     <!--begin::Name-->
                                     <div class="d-flex align-items-center mb-5">
-                                        <a class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name ?? 'No name' }}</a>
+                                        <a class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name ?? 'Нет ФИО' }}</a>
                                     </div>
                                     <!--end::Name-->
                                     <!--begin::Info-->
@@ -53,13 +53,13 @@
                                             Username:<span class="text-gray-800 ps-2">{{ $user->username }}</span>
                                         </a>
                                         <a class="d-flex align-items-center text-gray-400 text-hover-primary mb-2 me-6">
-                                            Phone number:<span class="text-gray-800 ps-2">{{ $user->phone_number ?? '--' }}</span>
+                                            Номер телефона:<span class="text-gray-800 ps-2">{{ $user->phone_number ?? '--' }}</span>
                                         </a>
                                         <a class="d-flex align-items-center text-gray-400 text-hover-primary mb-2 me-6">
-                                            Role:<span class="text-gray-800 ps-2">Content manager</span>
+                                            Роль:<span class="text-gray-800 ps-2">Контент менеджер</span>
                                         </a>
                                         <a class="d-flex align-items-center text-gray-400 text-hover-primary mb-2 me-6">
-                                            Date added:<span class="text-gray-800 ps-2">{{ date('d/m/Y', strtotime($user->created_at)) }}</span>
+                                            Дата добавления:<span class="text-gray-800 ps-2">{{ date('d/m/Y', strtotime($user->created_at)) }}</span>
                                         </a>
                                     </div>
                                     <!--end::Info-->
@@ -85,7 +85,7 @@
     <div class="card-header border-0">
         <!--begin::Card title-->
         <div class="card-title">
-            <h2>Logs</h2>
+            <h2>Журналы</h2>
         </div>
         <!--end::Card title-->
         <!--begin::Card toolbar-->
@@ -114,9 +114,9 @@
                 <!--begin::Table body-->
                 <tbody>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="rounded-start ps-2">Log id</th>
-                        <th>Action</th>
-                        <th class="text-end rounded-end pe-2">Datetime</th>
+                        <th class="rounded-start ps-2">Журнал id</th>
+                        <th>Действие</th>
+                        <th class="text-end rounded-end pe-2">Время</th>
                     </tr>
                     <!--begin::Table row-->
                     @foreach($user->logs()->latest()->paginate(12) as $log)
@@ -157,13 +157,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

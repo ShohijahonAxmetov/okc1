@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'ORDERS')
+@section('title', 'ЗАКАЗЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'orders'
+'title' => 'Заказы'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Orders</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Заказы</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 orders</span> -->
         </h3>
         <div class="card-toolbar">
@@ -38,9 +38,9 @@
                         </svg>
                     </span>
                     <!--end::Svg Icon-->
-                    <input type="text" name="search" class="form-control form-control-solid w-250px ps-14" placeholder="Enter order ID..." value="{{ $search }}">
+                    <input type="text" name="search" class="form-control form-control-solid w-250px ps-14" placeholder="Введите заказ ID..." value="{{ $search }}">
                 </div>
-                <button class="btn btn-success ms-2" style="height: min-content;">Search</button>
+                <button class="btn btn-success ms-2" style="height: min-content;">Поиск</button>
             </form>
         </div>
     </div>
@@ -54,13 +54,13 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-75px rounded-start">Order ID</th>
-                        <th class="min-w-200">Customer</th>
-                        <th class="min-w-125px">Date added</th>
-                        <th class="min-w-125px">Date modified</th>
-                        <th class="min-w-125px">Total(sum)</th>
-                        <th class="min-w-125px">Status</th>
-                        <th class="min-w-125px text-end rounded-end">Actions</th>
+                        <th class="ps-4 min-w-75px rounded-start">Заказ ID</th>
+                        <th class="min-w-200">Клиент</th>
+                        <th class="min-w-125px">Дата добавления</th>
+                        <th class="min-w-125px">Дата изменения</th>
+                        <th class="min-w-125px">Общяя(сумма)</th>
+                        <th class="min-w-125px">Статус</th>
+                        <th class="min-w-125px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -84,7 +84,7 @@
                                     <img src="/assets/media/default.png" class="" alt="">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
-                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ isset($order->user) ? $order->user->name : 'Deleted client' }}</a>
+                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ isset($order->user) ? $order->user->name : 'Клиент удален' }}</a>
                                 </div>
                             </div>
                         </td>
@@ -166,13 +166,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

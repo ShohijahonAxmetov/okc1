@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CATEGORIES')
+@section('title', 'КАТЕГОРИИ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'categories'
+'title' => 'Категории'
 ]
 ]
 ])
@@ -24,8 +24,8 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Categories</span>
-            <span class="text-muted mt-1 fw-bold fs-7">Showing {{ $show_count }} of {{ $all_categories_count }}</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Категории</span>
+            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_categories_count }}</span>
         </h3>
         <!-- <div class="card-toolbar">
             <a href="#" class="btn btn-sm btn-light-primary">
@@ -50,10 +50,10 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-325px">Title</th>
-                        <th class="min-w-125px">Parents</th>
-                        <th class="min-w-150px">Status</th>
-                        <th class="min-w-200px text-end rounded-end">Actions</th>
+                        <th class="min-w-325px">Название</th>
+                        <th class="min-w-125px">Родительская категория</th>
+                        <th class="min-w-150px">Статус</th>
+                        <th class="min-w-200px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -79,9 +79,9 @@
                         </td>
                         <td>
                             @if($category->is_active)
-                            <span class="badge badge-light-success fs-7 fw-bold">Active</span>
+                            <span class="badge badge-light-success fs-7 fw-bold">Активный</span>
                             @else
-                            <span class="badge badge-light-danger fs-7 fw-bold">Not active</span>
+                            <span class="badge badge-light-danger fs-7 fw-bold">Неактивный</span>
                             @endif
                         </td>
                         <td class="text-end">
@@ -139,7 +139,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Edit category "{{ $category->title['ru'] }}"</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Изменение категории "{{ $category->title['ru'] }}"</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -178,7 +178,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 required fw-bold mb-2">Title</label>
+                                <label class="fs-6 required fw-bold mb-2">Название</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="title_ru" value="{{ $category->title['ru'] ?? '' }}" />
@@ -189,10 +189,10 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $category->desc['ru'] ?? '' }}</textarea>
+                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="Описание...">{{ $category->desc['ru'] ?? '' }}</textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -225,7 +225,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Title</label>
+                                <label class="fs-6 fw-bold mb-2">Название</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="title_uz" value="{{ $category->title['uz'] ?? '' }}" />
@@ -236,10 +236,10 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 fw-bold mb-2">Description</label>
+                                <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_uz" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $category->desc['uz'] ?? '' }}</textarea>
+                                <textarea name="desc_uz" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="Описание...">{{ $category->desc['uz'] ?? '' }}</textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -273,7 +273,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Image</label>
+                        <label class="fs-6 fw-bold mb-2">Фото</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
@@ -282,9 +282,9 @@
                     <!--end::Input group-->
 
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Parent category</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Родительская категория</label>
                         <select class="form-select" aria-label="" name="parent_id" data-control="select2" data-hide-search="true">
-                            <option value="">Select from the list</option>
+                            <option value="">Выберите из списка</option>
                             @foreach($all_categories as $item)
                             <option value="{{ $item->id }}" {{ $category->parent_id == $item->id ? 'selected' : '' }}>{{ $item->title['ru'] }}</option>
                             @endforeach
@@ -293,10 +293,10 @@
 
 
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Status</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Статус</label>
                         <select class="form-select" aria-label="" name="is_active" data-control="select2" data-hide-search="true">
-                            <option value="1" {{ $category->is_active == 1 ? 'selected' : '' }}>Active</option>
-                            <option value="0" {{ $category->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                            <option value="1" {{ $category->is_active == 1 ? 'selected' : '' }}>Активный</option>
+                            <option value="0" {{ $category->is_active == 0 ? 'selected' : '' }}>Неактивный</option>
                         </select>
                     </div>
                 </div>
@@ -304,11 +304,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>

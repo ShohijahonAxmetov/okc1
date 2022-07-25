@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CLIENTS')
+@section('title', 'КЛИЕНТЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'clients'
+'title' => 'Клиенты'
 ]
 ]
 ])
@@ -103,7 +103,7 @@
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
-                                            <div class="fw-bold fs-6 text-gray-400">Bought for the amount</div>
+                                            <div class="fw-bold fs-6 text-gray-400">Купил за сумму</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -123,7 +123,7 @@
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
-                                            <div class="fw-bold fs-6 text-gray-400">The number of orders</div>
+                                            <div class="fw-bold fs-6 text-gray-400">Количество заказов</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -142,12 +142,12 @@
 
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show', ['id' => $user->id]) }}">Settings</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show', ['id' => $user->id]) }}">Настройки</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Orders</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Заказы</a>
                         </li>
                         <!--end::Nav item-->
                     </ul>
@@ -177,11 +177,11 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                        <th class="min-w-100px">Order ID</th>
-                        <th class="min-w-200px text-end">Comments</th>
-                        <th class="min-w-100px text-end">Payment method</th>
-                        <th class="min-w-100px text-end">Amount (sum)</th>
-                        <th class="min-w-100px text-end">Status</th>
+                        <th class="min-w-100px">Заказ ID</th>
+                        <th class="min-w-200px text-end">Комментарии</th>
+                        <th class="min-w-100px text-end">Метод оплаты</th>
+                        <th class="min-w-100px text-end">Сумма (UZS)</th>
+                        <th class="min-w-100px text-end">Статус</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -257,13 +257,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

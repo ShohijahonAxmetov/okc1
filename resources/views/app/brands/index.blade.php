@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'BRANDS')
+@section('title', 'БРЕНДЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'brands'
+'title' => 'Бренды'
 ]
 ]
 ])
@@ -24,8 +24,8 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Brands</span>
-            <span class="text-muted mt-1 fw-bold fs-7">Showing {{ $show_count }} of {{ $all_brands_count }}</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Бренды</span>
+            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_brands_count }}</span>
         </h3>
         <div class="card-toolbar">
         </div>
@@ -41,10 +41,10 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-325px">Title</th>
-                        <th class="min-w-150px">Link</th>
-                        <th class="min-w-150px">Status</th>
-                        <th class="min-w-200px text-end rounded-end">Actions</th>
+                        <th class="min-w-325px">Название</th>
+                        <th class="min-w-150px">Ссылка</th>
+                        <th class="min-w-150px">Статус</th>
+                        <th class="min-w-200px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -70,9 +70,9 @@
                         </td>
                         <td>
                             @if($brand->is_active)
-                            <span class="badge badge-light-success fs-7 fw-bold">Active</span>
+                              <span class="badge badge-light-success fs-7 fw-bold">Активный</span>
                             @else
-                            <span class="badge badge-light-danger fs-7 fw-bold">Not active</span>
+                              <span class="badge badge-light-danger fs-7 fw-bold">Неактивный</span>
                             @endif
                         </td>
                         <td class="text-end">
@@ -131,7 +131,7 @@
                 <!--begin::Modal header-->
                 <div class="modal-header">
                     <!--begin::Modal title-->
-                    <h2 class="fw-bolder" data-kt-calendar="title">Edit brand "{{ $brand->title }}"</h2>
+                    <h2 class="fw-bolder" data-kt-calendar="title">Изменение бренда "{{ $brand->title }}"</h2>
                     <!--end::Modal title-->
                     <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
@@ -152,7 +152,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold required mb-2">Title</label>
+                        <label class="fs-6 fw-bold required mb-2">Название</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" placeholder="" name="title" value="{{ $brand->title }}" />
@@ -191,7 +191,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Logo (image)</label>
+                        <label class="fs-6 fw-bold mb-2">Лого (image)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="file" class="form-control form-control-solid" placeholder="" name="img" />
@@ -201,7 +201,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Position</label>
+                        <label class="fs-6 fw-bold mb-2">Позиция</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="number" min="1" class="form-control form-control-solid" placeholder="position number" name="position" value="{{ $brand->position }}" />
@@ -211,7 +211,7 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
                         <!--begin::Label-->
-                        <label class="fs-6 fw-bold mb-2">Link to website</label>
+                        <label class="fs-6 fw-bold mb-2">Ссылка на сайт</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" placeholder="https://example.com" name="link" value="{{ $brand->link }}" />
@@ -219,10 +219,10 @@
                     </div>
                     <!--end::Input group-->
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Status</label>
+                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2">Статус</label>
                         <select class="form-select" aria-label="" name="is_active" data-control="select2" data-hide-search="true">
-                            <option value="1" {{ $brand->is_active == 1 ? 'selected' : '' }}>Active</option>
-                            <option value="0" {{ $brand->is_active == 0 ? 'selected' : '' }}>Not active</option>
+                            <option value="1" {{ $brand->is_active == 1 ? 'selected' : '' }}>Активный</option>
+                            <option value="0" {{ $brand->is_active == 0 ? 'selected' : '' }}>Неактивный</option>
                         </select>
                     </div>
                 </div>
@@ -230,11 +230,11 @@
                 <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
                     <!--begin::Button-->
-                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Cancel</button>
+                    <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
                     <!--end::Button-->
                     <!--begin::Button-->
                     <button type="submit" id="success_button" class="btn btn-primary">
-                        <span class="indicator-label">Submit</span>
+                        <span class="indicator-label">Сохранить</span>
                     </button>
                     <!--end::Button-->
                 </div>

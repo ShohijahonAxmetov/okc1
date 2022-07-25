@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'APPLICATIONS')
+@section('title', 'ЗАЯВКИ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'applications'
+'title' => 'Заявки'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Applications</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Заявки</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 applications</span> -->
         </h3>
         <div class="card-toolbar">
@@ -41,10 +41,10 @@
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
-                        <th class="min-w-125px">Name</th>
-                        <th class="min-w-200">Phone number</th>
+                        <th class="min-w-125px">Название</th>
+                        <th class="min-w-200">Номер телефона</th>
                         <th class="min-w-200">Email</th>
-                        <th class="min-w-325px">Message</th>
+                        <th class="min-w-325px">Сообщение</th>
                         <th class="min-w-150px text-end rounded-end"></th>
                     </tr>
                 </thead>

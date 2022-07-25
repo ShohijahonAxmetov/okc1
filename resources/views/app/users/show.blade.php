@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'CLIENTS')
+@section('title', 'КЛИЕНТЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'clients'
+'title' => 'Клиенты'
 ]
 ]
 ])
@@ -45,7 +45,7 @@
                                 <div class="d-flex flex-column">
                                     <!--begin::Name-->
                                     <div class="d-flex align-items-center mb-2">
-                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name ?? 'No name' }}</a>
+                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $user->name ?? 'Нет ФИО' }}</a>
                                     </div>
                                     <!--end::Name-->
                                     <!--begin::Info-->
@@ -103,7 +103,7 @@
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
-                                            <div class="fw-bold fs-6 text-gray-400">Bought for the amount</div>
+                                            <div class="fw-bold fs-6 text-gray-400">Купил за сумму</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -123,7 +123,7 @@
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
-                                            <div class="fw-bold fs-6 text-gray-400">The number of orders</div>
+                                            <div class="fw-bold fs-6 text-gray-400">Количество заказов</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -142,12 +142,12 @@
 
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Settings</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5 active">Настройки</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item mt-2">
-                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show.orders', ['id' => $user->id]) }}">Orders</a>
+                            <a class="nav-link text-active-primary ms-0 me-10 py-5" href="{{ route('users.show.orders', ['id' => $user->id]) }}">Заказы</a>
                         </li>
                         <!--end::Nav item-->
                     </ul>
@@ -165,7 +165,7 @@
     <div class="card-header cursor-pointer">
         <!--begin::Card title-->
         <div class="card-title m-0">
-            <h3 class="fw-bolder m-0">Profile Details</h3>
+            <h3 class="fw-bolder m-0">Детали профиля</h3>
         </div>
         <!--end::Card title-->
     </div>
@@ -175,7 +175,7 @@
         <!--begin::Row-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Full Name</label>
+            <label class="col-lg-4 fw-bold text-muted">Полное имя</label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
@@ -199,7 +199,7 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Contact Phone
+            <label class="col-lg-4 fw-bold text-muted">Номер телефона
                 <!-- <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Phone number must be active"></i> -->
             </label>
             <!--end::Label-->
@@ -214,7 +214,7 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Region</label>
+            <label class="col-lg-4 fw-bold text-muted">Область</label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
@@ -226,7 +226,7 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">District
+            <label class="col-lg-4 fw-bold text-muted">Район
                 <!-- <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i> -->
             </label>
             <!--end::Label-->
@@ -240,7 +240,7 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Address</label>
+            <label class="col-lg-4 fw-bold text-muted">Адрес</label>
             <!--end::Label-->
             <!--begin::Col-->
             <div class="col-lg-8">
@@ -252,7 +252,7 @@
         <!--begin::Input group-->
         <div class="row mb-10">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-bold text-muted">Postal code</label>
+            <label class="col-lg-4 fw-bold text-muted">Почтовый индекс</label>
             <!--begin::Label-->
             <!--begin::Label-->
             <div class="col-lg-8">
@@ -272,13 +272,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

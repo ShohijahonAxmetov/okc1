@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'DASHBOARD')
+@section('title', 'ГЛАВНАЯ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ]
 ]

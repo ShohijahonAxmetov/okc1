@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
-@section('title', 'Clients')
+@section('title', 'КЛИЕНТЫ')
 
 @section('breadcrumb')
 
 @include('app.components.breadcrumb', [
 'items' => [
 [
-'title' => 'home',
+'title' => 'Главная',
 'route' => 'dashboard'
 ],
 [
-'title' => 'clients'
+'title' => 'Клиенты'
 ]
 ]
 ])
@@ -24,7 +24,7 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bolder fs-3 mb-1">Clients</span>
+            <span class="card-label fw-bolder fs-3 mb-1">Клиенты</span>
             <!-- <span class="text-muted mt-1 fw-bold fs-7">Last 12 products</span> -->
         </h3>
         <div class="card-toolbar">
@@ -40,11 +40,11 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-325px rounded-start">Name</th>
-                        <th class="min-w-125px">Phone number</th>
+                        <th class="ps-4 min-w-325px rounded-start">ФИО</th>
+                        <th class="min-w-125px">Номер телефона</th>
                         <th class="min-w-125px">Email</th>
                         <th class="min-w-125px">Username</th>
-                        <th class="min-w-200px text-end rounded-end">Actions</th>
+                        <th class="min-w-200px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -119,13 +119,13 @@
 <script>
     function confirmation(item) {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Вы уверены?',
+            text: "Вы не сможете отменить это!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
             cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Да, удалить!'
         }).then((result) => {
             if (result.value) {
                 item.parentNode.submit();

@@ -183,7 +183,7 @@
 											</svg>
 										</span>
 									</span>
-									<span class="menu-title">Warehouses</span>
+									<span class="menu-title">Склады</span>
 								</a>
 							</div>
 
@@ -199,7 +199,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Applications</span>
+									<span class="menu-title">Заявки</span>
 								</a>
 							</div>
 
@@ -217,7 +217,7 @@
 										<!--end::Svg Icon-->
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Banners</span>
+									<span class="menu-title">Баннеры</span>
 								</a>
 							</div>
 
@@ -248,7 +248,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Mailing</span>
+									<span class="menu-title">Почтовые отправления</span>
 								</a>
 							</div>
 
@@ -267,7 +267,7 @@
 										<!--end::Svg Icon-->
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Clients</span>
+									<span class="menu-title">Клиенты</span>
 								</a>
 							</div>
 
@@ -283,7 +283,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Blog</span>
+									<span class="menu-title">Блог</span>
 								</a>
 							</div>
 
@@ -299,7 +299,7 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Comments</span>
+									<span class="menu-title">Комментарии</span>
 								</a>
 							</div>
 
@@ -323,7 +323,7 @@
 											</svg>
 										</span>
 									</span>
-									<span class="menu-title">Content managers</span>
+									<span class="menu-title">Контент-менеджеры</span>
 								</a>
 							</div>
 							@endif
@@ -345,7 +345,7 @@
 							</svg>
 						</span>
 						<!--end::Svg Icon-->
-						<span id="btn-txt" class="btn-label">Download updates</span>
+						<span id="btn-txt" class="btn-label">Скачать обновления</span>
 					</a>
 				</div>
 			</div>
@@ -426,7 +426,7 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
-											<a class="menu-link px-5">My Profile</a>
+											<a class="menu-link px-5">Профиль</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu separator-->
@@ -434,14 +434,14 @@
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5 my-1">
-											<a href="{{ route('profile.edit') }}" class="menu-link px-5">Account Settings</a>
+											<a href="{{ route('profile.edit') }}" class="menu-link px-5">Настройки аккаунта</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
 											<form action="{{ route('auth.logout') }}" method="post">
 												@csrf
-												<button class="menu-link px-5 border-0 bg-transparent">Sign Out</button>
+												<button class="menu-link px-5 border-0 bg-transparent">Выйти</button>
 											</form>
 										</div>
 										<!--end::Menu item-->
@@ -479,7 +479,7 @@
 							<!--begin::Page title-->
 							<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
 								<!--begin::Title-->
-								<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">@yield('title', 'DASHBOARD')</h1>
+								<h1 class="d-flex text-dark fw-bolder fs-3 align-items-center my-1">@yield('title', 'Главная')</h1>
 								<!--end::Title-->
 								<!--begin::Separator-->
 								<span class="h-20px border-gray-300 border-start mx-4"></span>
@@ -522,7 +522,7 @@
 		<div class="card shadow-none rounded-0 w-100">
 			<!--begin::Header-->
 			<div class="card-header" id="kt_engage_demos_header">
-				<h3 class="card-title fw-bolder text-gray-700">Explore</h3>
+				<h3 class="card-title fw-bolder text-gray-700">Исследовать</h3>
 				<div class="card-toolbar">
 					<button type="button" class="btn btn-sm btn-icon btn-active-color-primary h-40px w-40px me-n6" id="kt_engage_demos_close">
 						<!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
