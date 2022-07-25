@@ -13,5 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-/public/upload
-/public/uploads
+/public/upload/
+/public/uploads/
