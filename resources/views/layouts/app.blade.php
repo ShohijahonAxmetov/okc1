@@ -336,7 +336,7 @@
 				</div>
 				<!--end::Aside menu-->
 				<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
-					<a onclick="clickBtn()" href="{{ route('upload_datas') }}" id="download_updates" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="Upload updates from 1c servers">
+					<a onclick="clickBtn()" href="{{ route('upload_datas') }}" id="download_updates" class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click" title="" data-bs-original-title="Загружать обновления с серверов 1с">
 						<!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
 						<span id="circle" class="svg-icon svg-icon-2">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
