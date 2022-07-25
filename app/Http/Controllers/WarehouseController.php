@@ -29,17 +29,29 @@ class WarehouseController extends Controller
         $is_empty = true ? $id == 0 : false;
 
         if (!$is_empty) {
-            $products = Warehouse::where('venkon_id', $id)
+            if(Warehouse::orderBy('id', 'desc')
                 ->first()
-                ->productVariations()
-                ->orderBy('product_variation_warehouse.remainder', 'desc')
-                ->paginate(12);
+                ->productVariations) {
+                    $products = Warehouse::where('venkon_id', $id)
+                        ->first()
+                        ->productVariations()
+                        ->orderBy('product_variation_warehouse.remainder', 'desc')
+                        ->paginate(12);
+            } else {
+                $products = [];
+            }
         } else {
-            $products = Warehouse::orderBy('id', 'desc')
+            if(Warehouse::orderBy('id', 'desc')
                 ->first()
-                ->productVariations()
-                ->orderBy('product_variation_warehouse.remainder', 'desc')
-                ->paginate(12);
+                ->productVariations) {
+                $products = Warehouse::orderBy('id', 'desc')
+                    ->first()
+                    ->productVariations()
+                    ->orderBy('product_variation_warehouse.remainder', 'desc')
+                    ->paginate(12);
+            } else {
+                $products = [];
+            }
         }
 
         $warehouses = Warehouse::orderBy('id', 'desc')
