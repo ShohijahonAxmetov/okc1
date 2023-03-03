@@ -239,7 +239,8 @@ return [
         [
             'value' => 1,
             'uz' => 'Toshkent shahri',
-            'ru' => 'Город Ташкент'
+            'ru' => 'Город Ташкент',
+            'fargo_id' => '1216279901'
         ],
         [   
             'value' => 2,
@@ -312,959 +313,1297 @@ return [
         [
           'value' => 1,
           'parent_id' => 1,
-          'title' => 'Olmazor tumani'
+          'title' => 'Olmazor tumani',
+          'fargo_id' => '1216494670'
         ],
         [
           'value' => 2,
           'parent_id' => 1,
-          'title' => 'Bektemir tumani'
+          'title' => 'Bektemir tumani',
+          'fargo_id' => '1216494666'
         ],
         [
           'value' => 3,
           'parent_id' => 1,
-          'title' => 'Mirobod tumani'
+          'title' => 'Mirobod tumani',
+          'fargo_id' => '1216494668'
         ],
         [
             'value' => 4,
             'parent_id' => 1,
-            'title' => 'Mirzo Ulug`bek tumani'
+            'title' => 'Mirzo Ulug`bek tumani',
+          'fargo_id' => '1216494669'
         ],
         [
           'value' => 5,
           'parent_id' => 1,
-          'title' => 'Sirg’ali tumani'
+          'title' => 'Sirg’ali tumani',
+          'fargo_id' => '1216494671'
         ],
         [
             'value' => 6,
             'parent_id' => 1,
-            'title' => 'Uchtepa tumani'
+            'title' => 'Uchtepa tumani',
+          'fargo_id' => '1216494673'
         ],
         [
           'value' => 7,
           'parent_id' => 1,
-          'title' => 'Xamza tumani'
+          'title' => 'Xamza tumani',
+          'fargo_id' => '1216494675'
         ],
         [
           'value' => 8,
           'parent_id' => 1,
-          'title' => 'Chilonzor tumani'
+          'title' => 'Chilonzor tumani',
+          'fargo_id' => '1216494667'
         ],
         [
           'value' => 9,
           'parent_id' => 1,
-          'title' => 'Shayxontoxur tumani'
+          'title' => 'Shayxontoxur tumani',
+          'fargo_id' => '1216404884'
         ],
         [
           'value' => 10,
           'parent_id' => 1,
-          'title' => 'Yunusobod tumani'
+          'title' => 'Yunusobod tumani',
+          'fargo_id' => '1216494676'
         ],
         [
           'value' => 11,
           'parent_id' => 1,
-          'title' => 'Yakkasaroy tumani'
+          'title' => 'Yakkasaroy tumani',
+          'fargo_id' => '1216494672'
         ],
+
+
+
+
+
+
+
+
+
         [
           'value' => 12,
           'parent_id' => 2,
-          'title' => 'Yakkasaroy tumani'
+          'title' => 'Bekobod tumani',
+          'fargo_id' => '263947468'
         ],
         [
           'value' => 13,
           'parent_id' => 2,
-          'title' => 'Bekobod tumani'
+          'title' => 'Boʻstonliq tumani',
+          'fargo_id' => '263947472'
         ],
         [
           'value' => 14,
           'parent_id' => 2,
-          'title' => 'Boʻstonliq tumani'
+          'title' => 'Boʻka tumani',
+          'fargo_id' => '263947470'
         ],
         [
           'value' => 15,
           'parent_id' => 2,
-          'title' => 'Boʻka tumani'
+          'title' => 'Zangiota tumani',
+          'fargo_id' => '263947509'
         ],
         [
           'value' => 16,
           'parent_id' => 2,
-          'title' => 'Zangiota tumani'
+          'title' => 'Qibray tumani',
+          'fargo_id' => '263947489'
         ],
         [
           'value' => 17,
           'parent_id' => 2,
-          'title' => 'Qibray tumani'
+          'title' => 'Quyichirchiq tumani',
+          'fargo_id' => '263947492'
         ],
         [
           'value' => 18,
           'parent_id' => 2,
-          'title' => 'Quyichirchiq tumani'
+          'title' => 'Parkent tumani',
+          'fargo_id' => '263947485'
         ],
         [
           'value' => 19,
           'parent_id' => 2,
-          'title' => 'Parkent tumani'
+          'title' => 'Piskent tumani',
+          'fargo_id' => '263947487'
         ],
         [
           'value' => 20,
           'parent_id' => 2,
-          'title' => 'Piskent tumani'
+          'title' => 'Oʻrtachirchiq tumani',
+          'fargo_id' => '263947477'
         ],
         [
           'value' => 21,
           'parent_id' => 2,
-          'title' => 'Oʻrtachirchiq tumani'
+          'title' => 'Chinoz tumani',
+          'fargo_id' => '263947474'
         ],
         [
           'value' => 22,
           'parent_id' => 2,
-          'title' => 'Toshkent tumani'
+          'title' => 'Yuqorichirchiq tumani',
+          'fargo_id' => '263947507'
         ],
         [
           'value' => 23,
           'parent_id' => 2,
-          'title' => 'Oʻrtachirchiq tumani'
+          'title' => 'Yangiyoʻl tumani',
+          'fargo_id' => '263947505'
         ],
         [
           'value' => 24,
           'parent_id' => 2,
-          'title' => 'Chinoz tumani'
+          'title' => 'Olmaliq',
+          'fargo_id' => '1113695725'
         ],
         [
           'value' => 25,
           'parent_id' => 2,
-          'title' => 'Yuqorichirchiq tumani'
+          'title' => 'Angren',
+          'fargo_id' => '501056439'
         ],
         [
           'value' => 26,
           'parent_id' => 2,
-          'title' => 'Yangiyoʻl tumani'
+          'title' => 'Bekobod',
+          'fargo_id' => '263947468'
         ],
         [
           'value' => 27,
           'parent_id' => 2,
-          'title' => 'Olmaliq'
+          'title' => 'Chirchiq',
+          'fargo_id' => '501067990'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 28,
-          'parent_id' => 2,
-          'title' => 'Angren'
+          'parent_id' => 3,
+          'title' => 'Oltinko`l tumani',
+          'fargo_id' => '1295884726'
         ],
         [
           'value' => 29,
-          'parent_id' => 2,
-          'title' => 'Bekobod'
+          'parent_id' => 3,
+          'title' => 'Andijon tumani',
+          'fargo_id' => '1125206270'
         ],
         [
           'value' => 30,
-          'parent_id' => 2,
-          'title' => 'Chirchiq'
+          'parent_id' => 3,
+          'title' => 'Asaka tumani',
+          'fargo_id' => '263947002'
         ],
-
         [
           'value' => 31,
           'parent_id' => 3,
-          'title' => 'Oltinko`l tumani'
+          'title' => 'Baliqchi tumani',
+          'fargo_id' => '263947005'
         ],
         [
           'value' => 32,
           'parent_id' => 3,
-          'title' => 'Andijon tumani'
+          'title' => 'Buloqboshi tumani',
+          'fargo_id' => '263947009'
         ],
         [
           'value' => 33,
           'parent_id' => 3,
-          'title' => 'Asaka tumani'
+          'title' => 'Jaloquduq tumani',
+          'fargo_id' => '263947015'
         ],
         [
           'value' => 34,
           'parent_id' => 3,
-          'title' => 'Baliqchi tumani'
+          'title' => 'Izboskan tumani',
+          'fargo_id' => '263947013'
         ],
         [
           'value' => 35,
           'parent_id' => 3,
-          'title' => 'Bo’z tumani'
+          'title' => 'Qo’rg’ontepa tumani',
+          'fargo_id' => '263947038'
         ],
         [
           'value' => 36,
           'parent_id' => 3,
-          'title' => 'Buloqboshi tumani'
+          'title' => 'Marhamat tumani',
+          'fargo_id' => '263947028'
         ],
         [
           'value' => 37,
           'parent_id' => 3,
-          'title' => 'Jalaquduq tumani'
+          'title' => 'Paxtaobod tumani',
+          'fargo_id' => '263947033'
         ],
         [
           'value' => 38,
           'parent_id' => 3,
-          'title' => 'Izboskan tumani'
+          'title' => 'Xo’jaobod tumani',
+          'fargo_id' => '263947047'
         ],
         [
           'value' => 39,
           'parent_id' => 3,
-          'title' => 'Qo’rg’ontepa tumani'
+          'title' => 'Shahrixon tumani',
+          'fargo_id' => '263947043'
         ],
         [
           'value' => 40,
           'parent_id' => 3,
-          'title' => 'Marhamat tumani'
+          'title' => 'Andijon shahri',
+          'fargo_id' => '1125210871'
         ],
         [
           'value' => 41,
           'parent_id' => 3,
-          'title' => 'Paxtaobod tumani'
+          'title' => 'Xonobod shahri',
+          'fargo_id' => '1125248321'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 42,
-          'parent_id' => 3,
-          'title' => 'Qo’rg’ontepa tumani'
+          'parent_id' => 4,
+          'title' => 'Olot tumani',
+          'fargo_id' => '263947057'
         ],
         [
           'value' => 43,
-          'parent_id' => 3,
-          'title' => 'Xo’jaobod tumani'
+          'parent_id' => 4,
+          'title' => 'Buxoro tumani',
+          'fargo_id' => '263947049'
         ],
         [
           'value' => 44,
-          'parent_id' => 3,
-          'title' => 'Shahrixon tumani'
+          'parent_id' => 4,
+          'title' => 'Vobkent tumani',
+          'fargo_id' => '263947069'
         ],
         [
           'value' => 45,
-          'parent_id' => 3,
-          'title' => 'Andijon shahri'
+          'parent_id' => 4,
+          'title' => 'G’ijduvon tumani',
+          'fargo_id' => '263947051'
         ],
         [
           'value' => 46,
-          'parent_id' => 3,
-          'title' => 'Xonobod shahri'
+          'parent_id' => 4,
+          'title' => 'Jondor tumani',
+          'fargo_id' => '263947053'
         ],
         [
           'value' => 47,
           'parent_id' => 4,
-          'title' => 'Olot tumani'
+          'title' => 'Kogon tumani',
+          'fargo_id' => '263947055'
         ],
         [
           'value' => 48,
           'parent_id' => 4,
-          'title' => 'Buxoro tumani'
+          'title' => 'Qorako’l tumani',
+          'fargo_id' => '263947061'
         ],
         [
           'value' => 49,
           'parent_id' => 4,
-          'title' => 'Vobkent tumani'
+          'title' => 'Qorovulbozor tumani',
+          'fargo_id' => '263947063'
         ],
         [
           'value' => 50,
           'parent_id' => 4,
-          'title' => 'G’ijduvon tumani'
+          'title' => 'Peshku tumani',
+          'fargo_id' => '263947059'
         ],
         [
           'value' => 51,
           'parent_id' => 4,
-          'title' => 'Jondor tumani'
+          'title' => 'Romitan tumani',
+          'fargo_id' => '263947065'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 52,
-          'parent_id' => 4,
-          'title' => 'Kogon tumani'
+          'parent_id' => 5,
+          'title' => 'Oltiariq tumani',
+          'fargo_id' => '263947086'
         ],
         [
           'value' => 53,
-          'parent_id' => 4,
-          'title' => 'Jondor tumani'
+          'parent_id' => 5,
+          'title' => 'Bogʻdod tumani',
+          'fargo_id' => '263947073'
         ],
         [
           'value' => 54,
-          'parent_id' => 4,
-          'title' => 'Qorako’l tumani'
+          'parent_id' => 5,
+          'title' => 'Beshariq tumani',
+          'fargo_id' => '263947071'
         ],
         [
           'value' => 55,
-          'parent_id' => 4,
-          'title' => 'Qorovulbozor tumani'
+          'parent_id' => 5,
+          'title' => 'Buvayda tumani',
+          'fargo_id' => '263947075'
         ],
         [
           'value' => 56,
-          'parent_id' => 4,
-          'title' => 'Peshku tumani'
+          'parent_id' => 5,
+          'title' => 'Dangʻara tumani',
+          'fargo_id' => '503897289'
         ],
         [
           'value' => 57,
-          'parent_id' => 4,
-          'title' => 'Romitan tumani'
+          'parent_id' => 5,
+          'title' => 'Quva tumani',
+          'fargo_id' => '263947096'
         ],
         [
           'value' => 58,
-          'parent_id' => 4,
-          'title' => '  Buxoro shahri'
+          'parent_id' => 5,
+          'title' => 'Qoʻshtepa tumani',
+          'fargo_id' => '1383137605'
         ],
         [
           'value' => 59,
-          'parent_id' => 4,
-          'title' => 'Kogon shahri'
+          'parent_id' => 5,
+          'title' => 'Rishton tumani',
+          'fargo_id' => '263947098'
         ],
         [
           'value' => 60,
           'parent_id' => 5,
-          'title' => 'Oltiariq tumani'
+          'title' => 'Soʻx tumani',
+          'fargo_id' => '263947101'
         ],
         [
           'value' => 61,
           'parent_id' => 5,
-          'title' => 'Bagʻdod tumani'
+          'title' => 'Toshloq tumani',
+          'fargo_id' => '1226735408'
         ],
         [
           'value' => 62,
           'parent_id' => 5,
-          'title' => 'Beshariq tumani'
+          'title' => 'Oʻzbekiston tumani',
+          'fargo_id' => '263947083'
         ],
         [
           'value' => 63,
           'parent_id' => 5,
-          'title' => 'Buvayda tumani'
+          'title' => 'Uchkoʻprik tumani',
+          'fargo_id' => '263947108'
         ],
         [
           'value' => 64,
           'parent_id' => 5,
-          'title' => 'Dangʻara tumani'
+          'title' => 'Fargʻona tumani',
+          'fargo_id' => '263947079'
         ],
         [
           'value' => 65,
           'parent_id' => 5,
-          'title' => 'Quva tumani'
+          'title' => 'Yozyovon tumani',
+          'fargo_id' => '263947110'
         ],
         [
           'value' => 66,
           'parent_id' => 5,
-          'title' => 'Qoʻshtepa tumani'
+          'title' => 'Qoʻqon shahri',
+          'fargo_id' => '503895913'
         ],
         [
           'value' => 67,
           'parent_id' => 5,
-          'title' => 'Rishton tumani'
+          'title' => 'Marg’ilon shahri',
+          'fargo_id' => '1216487557'
         ],
         [
           'value' => 68,
           'parent_id' => 5,
-          'title' => 'Soʻx tumani'
+          'title' => 'Fargʻona shahri',
+          'fargo_id' => '263947079'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
-          'value' => 79,
-          'parent_id' => 5,
-          'title' => 'Toshloq tumani'
+          'value' => 69,
+          'parent_id' => 6,
+          'title' => 'Arnasoy tumani',
+          'fargo_id' => '263947112'
         ],
         [
           'value' => 70,
-          'parent_id' => 5,
-          'title' => 'Oʻzbekiston tumani'
+          'parent_id' => 6,
+          'title' => 'Baxmal tumani',
+          'fargo_id' => '263947115'
         ],
         [
           'value' => 71,
-          'parent_id' => 5,
-          'title' => 'Uchkoʻprik tumani'
+          'parent_id' => 6,
+          'title' => 'G`allaorol tumani',
+          'fargo_id' => '263947122'
         ],
         [
           'value' => 72,
-          'parent_id' => 5,
-          'title' => 'Fargʻona tumani'
+          'parent_id' => 6,
+          'title' => 'Do`stlik tumani',
+          'fargo_id' => '263947118'
         ],
         [
           'value' => 73,
-          'parent_id' => 5,
-          'title' => 'Yozyovon tumani'
+          'parent_id' => 6,
+          'title' => 'Zomin tumani',
+          'fargo_id' => '263947144'
         ],
         [
           'value' => 74,
-          'parent_id' => 5,
-          'title' => 'Qoʻqon shahri'
+          'parent_id' => 6,
+          'title' => 'Zarbdor tumani',
+          'fargo_id' => '263947138'
         ],
         [
           'value' => 75,
-          'parent_id' => 5,
-          'title' => 'Quvasoy shahri'
+          'parent_id' => 6,
+          'title' => 'Zafarobod tumani',
+          'fargo_id' => '263947135'
         ],
         [
           'value' => 76,
-          'parent_id' => 5,
-          'title' => 'Marg’ilon shahri'
+          'parent_id' => 6,
+          'title' => 'Paxtakor tumani',
+          'fargo_id' => '263947129'
         ],
         [
           'value' => 77,
-          'parent_id' => 5,
-          'title' => 'Fargʻona shahri'
+          'parent_id' => 6,
+          'title' => 'Forish tumani',
+          'fargo_id' => '263947120'
         ],
         [
           'value' => 78,
           'parent_id' => 6,
-          'title' => 'Arnasoy tumani'
+          'title' => 'Sharof Rashidov tumani',
+          'fargo_id' => '263947419'
         ],
         [
           'value' => 79,
           'parent_id' => 6,
-          'title' => 'Baxmal tumani'
+          'title' => 'Yangiobod tumani',
+          'fargo_id' => '263947133'
         ],
         [
           'value' => 80,
           'parent_id' => 6,
-          'title' => 'G`allaorol tumani'
+          'title' => 'Jizzax shahri',
+          'fargo_id' => '263947124'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 81,
-          'parent_id' => 6,
-          'title' => 'Do`stlik tumani'
+          'parent_id' => 7,
+          'title' => 'Kosonsoy tumani',
+          'fargo_id' => '263947336'
         ],
         [
           'value' => 82,
-          'parent_id' => 6,
-          'title' => 'Zomin tumani'
+          'parent_id' => 7,
+          'title' => 'Mingbuloq tumani',
+          'fargo_id' => '263947338'
         ],
         [
           'value' => 83,
-          'parent_id' => 6,
-          'title' => 'Zarbdor tumani'
+          'parent_id' => 7,
+          'title' => 'Namangan tumani',
+          'fargo_id' => '263947340'
         ],
         [
           'value' => 84,
-          'parent_id' => 6,
-          'title' => 'Zafarobod tumani'
+          'parent_id' => 7,
+          'title' => 'Norin tumani',
+          'fargo_id' => '263947343'
         ],
         [
           'value' => 85,
-          'parent_id' => 6,
-          'title' => 'Paxtakor tumani'
+          'parent_id' => 7,
+          'title' => 'Pop tumani',
+          'fargo_id' => '263947345'
         ],
         [
           'value' => 86,
-          'parent_id' => 6,
-          'title' => 'Forish tumani'
+          'parent_id' => 7,
+          'title' => 'To’raqo’rg’on tumani',
+          'fargo_id' => '263947349'
         ],
         [
           'value' => 87,
-          'parent_id' => 6,
-          'title' => 'Sharof Rashidov tumani'
+          'parent_id' => 7,
+          'title' => 'Uychi tumani',
+          'fargo_id' => '263947353'
         ],
         [
           'value' => 88,
-          'parent_id' => 6,
-          'title' => 'Yangiobod tumani'
+          'parent_id' => 7,
+          'title' => 'Chortoq tumani',
+          'fargo_id' => '263947331'
         ],
+
         [
           'value' => 89,
-          'parent_id' => 6,
-          'title' => 'Jizzax shahri'
+          'parent_id' => 7,
+          'title' => 'Chust tumani',
+          'fargo_id' => '263947333'
         ],
         [
           'value' => 90,
           'parent_id' => 7,
-          'title' => 'Kosonsoy tumani'
+          'title' => 'Yangiqo’rg’on tumani',
+          'fargo_id' => '263947355'
         ],
         [
           'value' => 91,
           'parent_id' => 7,
-          'title' => 'Mingbuloq tumani'
+          'title' => 'Namangan',
+          'fargo_id' => '263947340'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 92,
-          'parent_id' => 7,
-          'title' => 'Namangan tumani'
+          'parent_id' => 8,
+          'title' => 'Konimex tumani',
+          'fargo_id' => '263947360'
         ],
         [
           'value' => 93,
-          'parent_id' => 7,
-          'title' => 'Norin tumani'
+          'parent_id' => 8,
+          'title' => 'Karmana tumani',
+          'fargo_id' => '263947357'
         ],
         [
           'value' => 94,
-          'parent_id' => 7,
-          'title' => 'Pop tumani'
+          'parent_id' => 8,
+          'title' => 'Qiziltepa tumani',
+          'fargo_id' => '263947369'
         ],
         [
           'value' => 95,
-          'parent_id' => 7,
-          'title' => 'To’raqo’rg’on tumani'
+          'parent_id' => 8,
+          'title' => 'Navbahor tumani',
+          'fargo_id' => '501503052'
         ],
         [
           'value' => 96,
-          'parent_id' => 7,
-          'title' => 'Uychi tumani'
+          'parent_id' => 8,
+          'title' => 'Tomdi tumani',
+          'fargo_id' => '263947373'
         ],
         [
           'value' => 97,
-          'parent_id' => 7,
-          'title' => 'Chortoq tumani'
+          'parent_id' => 8,
+          'title' => 'Uchquduq tumani',
+          'fargo_id' => '263947376'
         ],
-
         [
           'value' => 98,
-          'parent_id' => 7,
-          'title' => 'Chust tumani'
+          'parent_id' => 8,
+          'title' => 'Xatirchi tumani',
+          'fargo_id' => '263947378'
         ],
         [
           'value' => 99,
-          'parent_id' => 7,
-          'title' => 'Yangiqo’rg’on tumani'
+          'parent_id' => 8,
+          'title' => 'Zarafshon',
+          'fargo_id' => '501057523'
         ],
         [
           'value' => 100,
-          'parent_id' => 7,
-          'title' => 'Namangan'
+          'parent_id' => 8,
+          'title' => 'Navoiy',
+          'fargo_id' => '501053511'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 101,
-          'parent_id' => 8,
-          'title' => 'Konimex tumani'
+          'parent_id' => 9,
+          'title' => 'G’uzor tumani',
+          'fargo_id' => '263947218'
         ],
         [
           'value' => 102,
-          'parent_id' => 8,
-          'title' => 'Karman tumani'
+          'parent_id' => 9,
+          'title' => 'Dehqonobod tumani',
+          'fargo_id' => '263947216'
         ],
         [
           'value' => 103,
-          'parent_id' => 8,
-          'title' => 'Qiziltepa tumani'
+          'parent_id' => 9,
+          'title' => 'Qamashi tumani',
+          'fargo_id' => '263947231'
         ],
         [
           'value' => 104,
-          'parent_id' => 8,
-          'title' => 'Navbahor tumani'
+          'parent_id' => 9,
+          'title' => 'Qarshi tumani',
+          'fargo_id' => '263947233'
         ],
         [
           'value' => 105,
-          'parent_id' => 8,
-          'title' => 'Tomdi tumani'
+          'parent_id' => 9,
+          'title' => 'Koson tumani',
+          'fargo_id' => '263947225'
         ],
         [
           'value' => 106,
-          'parent_id' => 8,
-          'title' => 'Uchquduq tumani'
+          'parent_id' => 9,
+          'title' => 'Kasbi tumani',
+          'fargo_id' => '263947220'
         ],
         [
           'value' => 107,
-          'parent_id' => 8,
-          'title' => 'Xatirchi tumani'
+          'parent_id' => 9,
+          'title' => 'Kitob tumani',
+          'fargo_id' => '263947223'
         ],
         [
           'value' => 108,
-          'parent_id' => 8,
-          'title' => 'Zarafshon'
+          'parent_id' => 9,
+          'title' => 'Mirishkor tumani',
+          'fargo_id' => '1383137604'
         ],
         [
           'value' => 109,
-          'parent_id' => 8,
-          'title' => 'Navoiy'
+          'parent_id' => 9,
+          'title' => 'Nishon tumani',
+          'fargo_id' => '263947229'
         ],
         [
           'value' => 110,
           'parent_id' => 9,
-          'title' => 'G’uzor tumani'
+          'title' => 'Shahrisabz tumani',
+          'fargo_id' => '263947235'
         ],
         [
           'value' => 111,
           'parent_id' => 9,
-          'title' => 'Dehqonobod tumani'
+          'title' => 'Chiroqchi tumani',
+          'fargo_id' => '263947214'
         ],
         [
           'value' => 112,
           'parent_id' => 9,
-          'title' => 'Qamashi tumani'
+          'title' => 'Yakkabog’ tumani',
+          'fargo_id' => '263947250'
         ],
         [
           'value' => 113,
           'parent_id' => 9,
-          'title' => 'Qarshi tumani'
+          'title' => 'Qarshi',
+          'fargo_id' => '263947233'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 114,
-          'parent_id' => 9,
-          'title' => 'Koson tumani'
+          'parent_id' => 10,
+          'title' => 'Amudaryo tumani',
+          'fargo_id' => '263947147'
         ],
         [
           'value' => 115,
-          'parent_id' => 9,
-          'title' => 'Kasbi tumani'
+          'parent_id' => 10,
+          'title' => 'Beruniy tumani',
+          'fargo_id' => '263947171'
         ],
         [
           'value' => 116,
-          'parent_id' => 9,
-          'title' => 'Kitob tumani'
+          'parent_id' => 10,
+          'title' => 'Qoraoʻzak tumani',
+          'fargo_id' => '263947202'
         ],
         [
           'value' => 117,
-          'parent_id' => 9,
-          'title' => 'Mirishkor tumani'
+          'parent_id' => 10,
+          'title' => 'Kegeyli tumani',
+          'fargo_id' => '263947188'
         ],
         [
           'value' => 118,
-          'parent_id' => 9,
-          'title' => 'Nishon tumani'
+          'parent_id' => 10,
+          'title' => 'Qoʻngʻirot tumani',
+          'fargo_id' => '263947200'
         ],
         [
           'value' => 119,
-          'parent_id' => 9,
-          'title' => 'Shahrisabz tumani'
+          'parent_id' => 10,
+          'title' => 'Qanlikoʻl tumani',
+          'fargo_id' => '263947197'
         ],
         [
           'value' => 120,
-          'parent_id' => 9,
-          'title' => 'Chiroqchi tumani'
+          'parent_id' => 10,
+          'title' => 'Moʻynoq tumani',
+          'fargo_id' => '263947190'
         ],
         [
           'value' => 121,
-          'parent_id' => 9,
-          'title' => 'Yakkabog’ tumani'
+          'parent_id' => 10,
+          'title' => 'Taxiatosh tumani',
+          'fargo_id' => '1383137607'
         ],
         [
           'value' => 122,
-          'parent_id' => 9,
-          'title' => 'Qarshi'
+          'parent_id' => 10,
+          'title' => 'Taxtakoʻpir tumani',
+          'fargo_id' => '263947208'
         ],
         [
           'value' => 123,
           'parent_id' => 10,
-          'title' => 'Amudaryo tumani'
+          'title' => 'Toʻrtkoʻl tumani',
+          'fargo_id' => '263947210'
         ],
         [
           'value' => 124,
           'parent_id' => 10,
-          'title' => 'Beruniy tumani'
+          'title' => 'Xoʻjayli tumani',
+          'fargo_id' => '263947212'
         ],
         [
           'value' => 125,
           'parent_id' => 10,
-          'title' => 'Qoraoʻzak tumani'
+          'title' => 'Chimboy tumani',
+          'fargo_id' => '263947174'
         ],
         [
           'value' => 126,
           'parent_id' => 10,
-          'title' => 'Kegeyli tumani'
+          'title' => 'Shumanay tumani',
+          'fargo_id' => '263947206'
         ],
         [
           'value' => 127,
           'parent_id' => 10,
-          'title' => 'Qoʻngʻirot tumani'
+          'title' => 'Ellikqala tumani',
+          'fargo_id' => '263947177'
         ],
         [
           'value' => 128,
           'parent_id' => 10,
-          'title' => 'Qanlikoʻl tumani'
+          'title' => 'Nukus',
+          'fargo_id' => '263947194'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 129,
-          'parent_id' => 10,
-          'title' => 'Moʻynoq tumani'
+          'parent_id' => 11,
+          'title' => 'Oqdaryo tumani',
+          'fargo_id' => '263947393'
         ],
         [
           'value' => 130,
-          'parent_id' => 10,
-          'title' => 'Taxiatosh tumani'
+          'parent_id' => 11,
+          'title' => 'Bulung’ur tumani',
+          'fargo_id' => '263947380'
         ],
         [
           'value' => 131,
-          'parent_id' => 10,
-          'title' => 'Taxtakoʻpir tumani'
+          'parent_id' => 11,
+          'title' => 'Jomboy tumani',
+          'fargo_id' => '263947385'
         ],
         [
           'value' => 132,
-          'parent_id' => 10,
-          'title' => 'Toʻrtkoʻl tumani'
+          'parent_id' => 11,
+          'title' => 'Ishtixon tumani',
+          'fargo_id' => '263947383'
         ],
         [
           'value' => 133,
-          'parent_id' => 10,
-          'title' => 'Xoʻjayli tumani'
+          'parent_id' => 11,
+          'title' => 'Kattaqoʻrgʻon tumani',
+          'fargo_id' => '263947387'
         ],
         [
           'value' => 134,
-          'parent_id' => 10,
-          'title' => 'Chimboy tumani'
+          'parent_id' => 11,
+          'title' => 'Qoʻshrabot tumani',
+          'fargo_id' => '263947401'
         ],
         [
           'value' => 135,
-          'parent_id' => 10,
-          'title' => 'Shumanay tumani'
+          'parent_id' => 11,
+          'title' => 'Narpay tumani',
+          'fargo_id' => '263947389'
         ],
         [
           'value' => 136,
-          'parent_id' => 10,
-          'title' => 'Ellikqala tumani'
+          'parent_id' => 11,
+          'title' => 'Nurobod tumani',
+          'fargo_id' => '263947391'
         ],
         [
           'value' => 137,
-          'parent_id' => 10,
-          'title' => 'Nukus'
+          'parent_id' => 11,
+          'title' => 'Payariq tumani',
+          'fargo_id' => '263947399'
         ],
         [
           'value' => 138,
           'parent_id' => 11,
-          'title' => 'Oqdaryo tumani'
+          'title' => 'Pastdargʻom tumani',
+          'fargo_id' => '263947395'
         ],
         [
           'value' => 139,
           'parent_id' => 11,
-          'title' => 'Bulung’ur tumani'
+          'title' => 'Paxtachi tumani',
+          'fargo_id' => '263947397'
         ],
         [
           'value' => 140,
           'parent_id' => 11,
-          'title' => 'Jomboy tumani'
+          'title' => 'Samarqand tumani',
+          'fargo_id' => '263947403'
         ],
         [
           'value' => 141,
           'parent_id' => 11,
-          'title' => 'Ishtixon tumani'
+          'title' => 'Toyloq tumani',
+          'fargo_id' => '263947405'
         ],
         [
           'value' => 142,
           'parent_id' => 11,
-          'title' => 'Kattaqoʻrgʻon tumani'
+          'title' => 'Urgut tumani',
+          'fargo_id' => '263947407'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 143,
-          'parent_id' => 11,
-          'title' => 'Qoʻshrabot tumani'
+          'parent_id' => 12,
+          'title' => 'Oqoltin tumani',
+          'fargo_id' => '263947415'
         ],
         [
           'value' => 144,
-          'parent_id' => 11,
-          'title' => 'Narpay tumani'
+          'parent_id' => 12,
+          'title' => 'Boyovut tumani',
+          'fargo_id' => '263947409'
         ],
         [
           'value' => 145,
-          'parent_id' => 11,
-          'title' => 'Nurobod tumani'
+          'parent_id' => 12,
+          'title' => 'Guliston tumani',
+          'fargo_id' => '263947411'
         ],
         [
           'value' => 146,
-          'parent_id' => 11,
-          'title' => 'Payariq tumani'
+          'parent_id' => 12,
+          'title' => 'Mirzaobod tumani',
+          'fargo_id' => '263947413'
         ],
         [
           'value' => 147,
-          'parent_id' => 11,
-          'title' => 'Pastdargʻom tumani'
+          'parent_id' => 12,
+          'title' => 'Sayxunobod tumani',
+          'fargo_id' => '263947417'
         ],
         [
           'value' => 148,
-          'parent_id' => 11,
-          'title' => 'Paxtachi tumani'
+          'parent_id' => 12,
+          'title' => 'Sardoba tumani',
+          'fargo_id' => '1124551016'
         ],
         [
           'value' => 149,
-          'parent_id' => 11,
-          'title' => 'Samarqand tumani'
+          'parent_id' => 12,
+          'title' => 'Sirdaryo tumani',
+          'fargo_id' => '263947426'
         ],
         [
           'value' => 150,
-          'parent_id' => 11,
-          'title' => 'Toyloq tumani'
+          'parent_id' => 12,
+          'title' => 'Xovos tumani',
+          'fargo_id' => '1124655691'
         ],
         [
           'value' => 151,
-          'parent_id' => 11,
-          'title' => 'Urgut tumani'
+          'parent_id' => 12,
+          'title' => 'Shirin',
+          'fargo_id' => '1124630236'
         ],
         [
           'value' => 152,
-          'parent_id' => 11,
-          'title' => 'Kattaqo’rg’on'
+          'parent_id' => 12,
+          'title' => 'Yangiyer',
+          'fargo_id' => '1124633996'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 153,
-          'parent_id' => 11,
-          'title' => 'Samarqand'
+          'parent_id' => 13,
+          'title' => 'Oltinsoy tumani',
+          'fargo_id' => '263947445'
         ],
         [
           'value' => 154,
-          'parent_id' => 12,
-          'title' => 'Oqoltin tumani'
+          'parent_id' => 13,
+          'title' => 'Angor tumani',
+          'fargo_id' => '263947430'
         ],
         [
           'value' => 155,
-          'parent_id' => 12,
-          'title' => 'Boyovut tumani'
+          'parent_id' => 13,
+          'title' => 'Boysun tumani',
+          'fargo_id' => '263947437'
         ],
         [
           'value' => 156,
-          'parent_id' => 12,
-          'title' => 'Guliston tumani'
+          'parent_id' => 13,
+          'title' => 'Bandihon tumani',
+          'fargo_id' => '263947433'
         ],
         [
           'value' => 157,
-          'parent_id' => 12,
-          'title' => 'Mirzaobod tumani'
+          'parent_id' => 13,
+          'title' => 'Denov tuman',
+          'fargo_id' => '263947439'
         ],
         [
           'value' => 158,
-          'parent_id' => 12,
-          'title' => 'Sayxunobod tumani'
+          'parent_id' => 13,
+          'title' => 'Jarqoʻrgʻon tumani',
+          'fargo_id' => '263947441'
         ],
         [
           'value' => 159,
-          'parent_id' => 12,
-          'title' => 'Sardoba tumani'
+          'parent_id' => 13,
+          'title' => 'Qiziriq tumani',
+          'fargo_id' => '263947448'
         ],
         [
           'value' => 160,
-          'parent_id' => 12,
-          'title' => 'Sirdaryo tumani'
+          'parent_id' => 13,
+          'title' => 'Qumqoʻrgʻon tumani',
+          'fargo_id' => '263947456'
         ],
         [
           'value' => 161,
-          'parent_id' => 12,
-          'title' => 'Xovos tumani'
+          'parent_id' => 13,
+          'title' => 'Muzrabot tumani',
+          'fargo_id' => '263947443'
         ],
         [
           'value' => 162,
-          'parent_id' => 12,
-          'title' => 'Guliston'
+          'parent_id' => 13,
+          'title' => 'Sariosiyo tumani',
+          'fargo_id' => '263947458'
         ],
         [
           'value' => 163,
-          'parent_id' => 12,
-          'title' => 'Shirin'
+          'parent_id' => 13,
+          'title' => 'Termiz tumani',
+          'fargo_id' => '263947464'
         ],
         [
           'value' => 164,
-          'parent_id' => 12,
-          'title' => 'Yangiyer'
+          'parent_id' => 13,
+          'title' => 'Uzun tumani',
+          'fargo_id' => '263947466'
         ],
+
         [
           'value' => 165,
           'parent_id' => 13,
-          'title' => 'Oltinsoy tumani'
+          'title' => 'Sherobod tumani',
+          'fargo_id' => '263947460'
         ],
+
         [
           'value' => 166,
           'parent_id' => 13,
-          'title' => 'Angor tumani'
+          'title' => 'Shoʻrchi tumani',
+          'fargo_id' => '263947462'
         ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [
           'value' => 167,
-          'parent_id' => 13,
-          'title' => 'Boysun tumani'
+          'parent_id' => 14,
+          'title' => 'Bogʻot tumani',
+          'fargo_id' => '263947253'
         ],
         [
           'value' => 168,
-          'parent_id' => 13,
-          'title' => 'Bandihon tumani'
+          'parent_id' => 14,
+          'title' => 'Gurlan tumani',
+          'fargo_id' => '263947258'
         ],
         [
           'value' => 169,
-          'parent_id' => 13,
-          'title' => 'Denov tuman'
+          'parent_id' => 14,
+          'title' => 'Qoʻshkoʻpir tumani',
+          'fargo_id' => '263947277'
         ],
         [
           'value' => 170,
-          'parent_id' => 13,
-          'title' => 'Jarqoʻrgʻon tumani'
+          'parent_id' => 14,
+          'title' => 'Urganch tumani',
+          'fargo_id' => '263947299'
         ],
         [
           'value' => 171,
-          'parent_id' => 13,
-          'title' => 'Qiziriq tumani'
+          'parent_id' => 14,
+          'title' => 'Hazorasp tumani',
+          'fargo_id' => '263947267'
         ],
         [
           'value' => 172,
-          'parent_id' => 13,
-          'title' => 'Qumqoʻrgʻon tumani'
+          'parent_id' => 14,
+          'title' => 'Xonqa tumani',
+          'fargo_id' => '263947319'
         ],
         [
           'value' => 173,
-          'parent_id' => 13,
-          'title' => 'Muzrabot tumani'
+          'parent_id' => 14,
+          'title' => 'Xiva tumani',
+          'fargo_id' => '263947311'
         ],
         [
           'value' => 174,
-          'parent_id' => 13,
-          'title' => 'Sariosiyo tumani'
+          'parent_id' => 14,
+          'title' => 'Shovot tumani',
+          'fargo_id' => '263947287'
         ],
         [
           'value' => 175,
-          'parent_id' => 13,
-          'title' => 'Termiz tumani'
+          'parent_id' => 14,
+          'title' => 'Yangiariq tumani',
+          'fargo_id' => '263947327'
         ],
         [
           'value' => 176,
-          'parent_id' => 13,
-          'title' => 'Uzun tumani'
-        ],
-
-        [
-          'value' => 177,
-          'parent_id' => 13,
-          'title' => 'Sherobod tumani'
-        ],
-
-        [
-          'value' => 178,
-          'parent_id' => 13,
-          'title' => 'Shoʻrchi tumani'
-        ],
-
-        [
-          'value' => 179,
-          'parent_id' => 13,
-          'title' => 'Termiz'
-        ],
-
-        [
-          'value' => 180,
           'parent_id' => 14,
-          'title' => 'Bogʻot tumani'
-        ],
-
-        [
-          'value' => 181,
-          'parent_id' => 14,
-          'title' => 'Gurlan tumani'
-        ],
-        [
-          'value' => 182,
-          'parent_id' => 14,
-          'title' => 'Qoʻshkoʻpir tumani'
-        ],
-        [
-          'value' => 183,
-          'parent_id' => 14,
-          'title' => 'Urganch tumani'
-        ],
-        [
-          'value' => 184,
-          'parent_id' => 14,
-          'title' => 'Xazorasp tumani'
-        ],
-        [
-          'value' => 185,
-          'parent_id' => 14,
-          'title' => 'Xonqa tumani'
-        ],
-        [
-          'value' => 186,
-          'parent_id' => 14,
-          'title' => 'Xiva tumani'
-        ],
-        [
-          'value' => 187,
-          'parent_id' => 14,
-          'title' => 'Shovot tumani'
-        ],
-        [
-          'value' => 188,
-          'parent_id' => 14,
-          'title' => 'Yangiariq tumani'
-        ],
-        [
-          'value' => 189,
-          'parent_id' => 14,
-          'title' => 'Yangibozor tumani'
-        ],
-        [
-          'value' => 190,
-          'parent_id' => 14,
-          'title' => 'Urganch'
+          'title' => 'Yangibozor tumani',
+          'fargo_id' => '263947329'
         ],
     ],
 

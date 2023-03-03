@@ -33,13 +33,14 @@ class Product extends Model
         'default_variation'
     ];
 
-    public function brand() {
-    	return $this->belongsTo('App\Models\Brand', 'brand_id', 'venkon_id');
+    public function brand()
+    {
+    	return $this->belongsTo('App\Models\Brand', 'brand_id', 'integration_id');
     }
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id', 'id', 'venkon_id');
+        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id', 'id', 'integration_id');
     }
 
     public function productVariations() {

@@ -20,7 +20,8 @@ class ProductVariation extends Model
     	'is_available',
         'slug',
         'venkon_id',
-        'is_active'
+        'is_active',
+        'integration_id'
     ];
 
     public function productVariationImages() {
@@ -41,12 +42,12 @@ class ProductVariation extends Model
     }
 
     public function color() {
-        return $this->belongsTo(Color::class, 'color_id', 'venkon_id');
+        return $this->belongsTo(Color::class, 'color_id', 'integration_id');
     }
 
     public function warehouses()
     {
-        return $this->belongsToMany(Warehouse::class, 'product_variation_warehouse', 'product_variation_id', 'warehouse_id', 'venkon_id', 'venkon_id');
+        return $this->belongsToMany(Warehouse::class, 'product_variation_warehouse', 'product_variation_id', 'warehouse_id', 'integration_id', 'integration_id')->withPivot('remainder');
     }
 
 }

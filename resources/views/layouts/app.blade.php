@@ -27,21 +27,36 @@
 	<!--end::Global Stylesheets Bundle-->
 
 	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script>
-        // CKEDITOR.config.toolbar = [
-        // 	{ name: 'document', items : [ 'Undo','Redo'] },
-        // ];
-        // 	{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Subscript','Superscript','Format' ] },
-        // CKEDITOR.config.filebrowserBrowseUrl = '/browse.php';
-        // CKEDITOR.config.extraPlugins = 'uploadimage';
-        CKEDITOR.config.filebrowserUploadUrl = "{{ route('upload-image', ['_token' => csrf_token()]) }}";
-        CKEDITOR.config.filebrowserUploadMethod = 'form';
-    </script>
+	<script>
+		// CKEDITOR.config.toolbar = [
+		// 	{ name: 'document', items : [ 'Undo','Redo'] },
+		// ];
+		// 	{ name: 'basicstyles', items : [ 'Bold','Italic','Underline','Subscript','Superscript','Format' ] },
+		// CKEDITOR.config.filebrowserBrowseUrl = '/browse.php';
+		// CKEDITOR.config.extraPlugins = 'uploadimage';
+		CKEDITOR.config.filebrowserUploadUrl = "{{ route('upload-image', ['_token' => csrf_token()]) }}";
+		CKEDITOR.config.filebrowserUploadMethod = 'form';
+	</script>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+	<div class="position-fixed w-100 h-100 d-none" style="z-index: 999;" id="preloader_for_1c">
+		<div class="preloader-modal d-flex align-items-center justify-content-center flex-column bg-dark position-absolute" style="width: 50%;height: 300px;z-index: 9999;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+			<h2 class="text-white">Данные загружается с 1с</h2>
+			<small class="text-white">Это займет примерно 2-5 минут</small>
+			<span id="circle1" class="svg-icon svg-icon-1 mt-5">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M14.5 20.7259C14.6 21.2259 14.2 21.826 13.7 21.926C13.2 22.026 12.6 22.0259 12.1 22.0259C9.5 22.0259 6.9 21.0259 5 19.1259C1.4 15.5259 1.09998 9.72592 4.29998 5.82592L5.70001 7.22595C3.30001 10.3259 3.59999 14.8259 6.39999 17.7259C8.19999 19.5259 10.8 20.426 13.4 19.926C13.9 19.826 14.4 20.2259 14.5 20.7259ZM18.4 16.8259L19.8 18.2259C22.9 14.3259 22.7 8.52593 19 4.92593C16.7 2.62593 13.5 1.62594 10.3 2.12594C9.79998 2.22594 9.4 2.72595 9.5 3.22595C9.6 3.72595 10.1 4.12594 10.6 4.02594C13.1 3.62594 15.7 4.42595 17.6 6.22595C20.5 9.22595 20.7 13.7259 18.4 16.8259Z" fill="currentColor"></path>
+					<path opacity="0.3" d="M2 3.62592H7C7.6 3.62592 8 4.02592 8 4.62592V9.62589L2 3.62592ZM16 14.4259V19.4259C16 20.0259 16.4 20.4259 17 20.4259H22L16 14.4259Z" fill="currentColor"></path>
+				</svg>
+			</span>
+		</div>
+		<div class="preloader-background w-100 h-100 position-fixed bg-dark" style="z-index: 999;opacity: .7;">
+
+		</div>
+	</div>
 	<!--begin::Main-->
 	<!--begin::Root-->
 	<div class="d-flex flex-column flex-root">
@@ -103,24 +118,92 @@
 								</div>
 							</div>
 
-
-							<div class="menu-item">
-								<a class="menu-link {{ Request::is('dashboard/orders/*') || Request::is('dashboard/orders') ? 'active' : '' }}" href="{{ route('orders.index') }}">
+							<div data-kt-menu-trigger="click" class="menu-item menu-accordion show {{ Request::is('dashboard/orders/*') || Request::is('dashboard/orders') ? 'here' : '' }}">
+								<span class="menu-link">
 									<span class="menu-icon">
-										<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
-										<span class="svg-icon ms-2 svg-icon-3 rotate-180">
+										<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
+										<span class="svg-icon svg-icon-2">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="currentColor" />
-												<path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="currentColor" />
+												<path d="M11.2929 2.70711C11.6834 2.31658 12.3166 2.31658 12.7071 2.70711L15.2929 5.29289C15.6834 5.68342 15.6834 6.31658 15.2929 6.70711L12.7071 9.29289C12.3166 9.68342 11.6834 9.68342 11.2929 9.29289L8.70711 6.70711C8.31658 6.31658 8.31658 5.68342 8.70711 5.29289L11.2929 2.70711Z" fill="currentColor" />
+												<path d="M11.2929 14.7071C11.6834 14.3166 12.3166 14.3166 12.7071 14.7071L15.2929 17.2929C15.6834 17.6834 15.6834 18.3166 15.2929 18.7071L12.7071 21.2929C12.3166 21.6834 11.6834 21.6834 11.2929 21.2929L8.70711 18.7071C8.31658 18.3166 8.31658 17.6834 8.70711 17.2929L11.2929 14.7071Z" fill="currentColor" />
+												<path opacity="0.3" d="M5.29289 8.70711C5.68342 8.31658 6.31658 8.31658 6.70711 8.70711L9.29289 11.2929C9.68342 11.6834 9.68342 12.3166 9.29289 12.7071L6.70711 15.2929C6.31658 15.6834 5.68342 15.6834 5.29289 15.2929L2.70711 12.7071C2.31658 12.3166 2.31658 11.6834 2.70711 11.2929L5.29289 8.70711Z" fill="currentColor" />
+												<path opacity="0.3" d="M17.2929 8.70711C17.6834 8.31658 18.3166 8.31658 18.7071 8.70711L21.2929 11.2929C21.6834 11.6834 21.6834 12.3166 21.2929 12.7071L18.7071 15.2929C18.3166 15.6834 17.6834 15.6834 17.2929 15.2929L14.7071 12.7071C14.3166 12.3166 14.3166 11.6834 14.7071 11.2929L17.2929 8.70711Z" fill="currentColor" />
 											</svg>
 										</span>
 										<!--end::Svg Icon-->
 									</span>
 									<span class="menu-title">Заказы</span>
-								</a>
+									<span class="menu-arrow"></span>
+								</span>
+								<div class="menu-sub menu-sub-accordion menu-active-bg">
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Все Заказы</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.new') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Новые заказы ({{ $orders_count['new'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.accepted') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Принятые заказы ({{ $orders_count['accepted'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.collected') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Готов к отправке ({{ $orders_count['collected'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.on_the_way') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">В доставке ({{ $orders_count['on_the_way'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.returned') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Возврат ({{ $orders_count['returned'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.done') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Доставлено ({{ $orders_count['done'] }})</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link" href="{{ route('orders.cancelled') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Отмененные заказы ({{ $orders_count['cancelled'] }})</span>
+										</a>
+									</div>
+								</div>
 							</div>
 
-							<div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ Request::is('dashboard/brands/*') || Request::is('dashboard/brands') || Request::is('dashboard/categories/*') || Request::is('dashboard/categories') || Request::is('dashboard/products/*') || Request::is('dashboard/products') || Request::is('dashboard/attributes/*') || Request::is('dashboard/attributes') ? 'here show' : '' }}">
+							<div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ Request::is('dashboard/brands/*') || Request::is('dashboard/brands') || Request::is('dashboard/categories/*') || Request::is('dashboard/categories') || Request::is('dashboard/products/*') || Request::is('dashboard/products') || Request::is('dashboard/attributes/*') || Request::is('dashboard/attributes') || Request::is('dashboard/discounts/*') || Request::is('dashboard/discounts') || Request::is('dashboard/remainders') ? 'here show' : '' }}">
 								<span class="menu-link">
 									<span class="menu-icon">
 										<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
@@ -160,6 +243,22 @@
 												<span class="bullet bullet-dot"></span>
 											</span>
 											<span class="menu-title">Продукты</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/discounts/*') || Request::is('dashboard/discounts') ? 'active' : '' }}" href="{{ route('discounts.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Скидки</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/remainders/*') || Request::is('dashboard/remainders') ? 'active' : '' }}" href="{{ route('remainders.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Остатки по складам</span>
 										</a>
 									</div>
 									<!-- <div class="menu-item">
@@ -236,10 +335,10 @@
 								</a>
 							</div> -->
 
-							<div class="menu-item">
-								<a class="menu-link {{ Request::is('dashboard/mailing/*') || Request::is('dashboard/mailing') ? 'active' : '' }}" href="{{ route('mailing.index') }}">
+							<div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ Request::is('dashboard/mailing/*') || Request::is('dashboard/mailing') || Request::is('dashboard/sms_mailing/*') || Request::is('dashboard/sms_mailing') ? 'here show' : '' }}">
+								<span class="menu-link">
 									<span class="menu-icon">
-										<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+										<!--begin::Svg Icon | path: icons/duotune/communication/com013.svg-->
 										<span class="svg-icon ms-2 svg-icon-3 rotate-180">
 											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 												<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="currentColor"></path>
@@ -248,8 +347,27 @@
 										</span>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-title">Почтовые отправления</span>
-								</a>
+									<span class="menu-title">Рассылки</span>
+									<span class="menu-arrow"></span>
+								</span>
+								<div class="menu-sub menu-sub-accordion menu-active-bg">
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/mailing/*') || Request::is('dashboard/mailing') ? 'active' : '' }}" href="{{ route('mailing.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">По Email</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/sms_mailing/*') || Request::is('dashboard/sms_mailing') ? 'active' : '' }}" href="{{ route('mailing.sms.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">По SMS</span>
+										</a>
+									</div>
+								</div>
 							</div>
 
 							<div class="menu-item">
@@ -324,6 +442,20 @@
 										</span>
 									</span>
 									<span class="menu-title">Контент-менеджеры</span>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a class="menu-link {{ Request::is('dashboard/logs/*') || Request::is('dashboard/logs') ? 'active' : '' }}" href="{{ route('logs.index') }}">
+									<span class="menu-icon">
+										<span class="svg-icon svg-icon-muted">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path opacity="0.3" d="M18 22C19.7 22 21 20.7 21 19C21 18.5 20.9 18.1 20.7 17.7L15.3 6.30005C15.1 5.90005 15 5.5 15 5C15 3.3 16.3 2 18 2H6C4.3 2 3 3.3 3 5C3 5.5 3.1 5.90005 3.3 6.30005L8.7 17.7C8.9 18.1 9 18.5 9 19C9 20.7 7.7 22 6 22H18Z" fill="currentColor" />
+												<path d="M18 2C19.7 2 21 3.3 21 5H9C9 3.3 7.7 2 6 2H18Z" fill="currentColor" />
+												<path d="M9 19C9 20.7 7.7 22 6 22C4.3 22 3 20.7 3 19H9Z" fill="currentColor" />
+											</svg>
+										</span>
+									</span>
+									<span class="menu-title">Логи</span>
 								</a>
 							</div>
 							@endif
@@ -422,12 +554,12 @@
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu separator-->
-										<div class="separator my-2"></div>
+										<!-- <div class="separator my-2"></div> -->
 										<!--end::Menu separator-->
 										<!--begin::Menu item-->
-										<div class="menu-item px-5">
+										<!-- <div class="menu-item px-5">
 											<a class="menu-link px-5">Профиль</a>
-										</div>
+										</div> -->
 										<!--end::Menu item-->
 										<!--begin::Menu separator-->
 										<div class="separator my-2"></div>
@@ -437,6 +569,7 @@
 											<a href="{{ route('profile.edit') }}" class="menu-link px-5">Настройки аккаунта</a>
 										</div>
 										<!--end::Menu item-->
+										<div class="separator my-2"></div>
 										<!--begin::Menu item-->
 										<div class="menu-item px-5">
 											<form action="{{ route('auth.logout') }}" method="post">
@@ -579,7 +712,7 @@
 	@endif
 	@if(session()->has('success') && session('success') == false)
 	<script>
-		$.notify("{{ session()->has('message') ? session('message') : 'Unknown error' }}", 'error');
+		$.notify("{{ session()->get('message') }}", 'error');
 	</script>
 	@endif
 	<!-- Include the Quill library -->

@@ -19,7 +19,7 @@ class UserController extends Controller
                         ->paginate(12);
 
         return view('app.users.index', compact('users'));
-        return response(['data' => $users], 200);
+        // return response(['data' => $users], 200);
     }
 
     /**
@@ -45,7 +45,7 @@ class UserController extends Controller
                         ->find($id);
 
         return view('app.users.show', compact('user'));
-        return response(['data' => $user], 200);
+        // return response(['data' => $user], 200);
     }
 
     public function show_orders($id)
@@ -80,7 +80,9 @@ class UserController extends Controller
 
         try {
             $user = User::find($id);
-            $user->orders()->delete();
+            foreach($user->orders as $order) {
+                $order->delete();
+            }
             $user->delete();
 
             DB::commit();

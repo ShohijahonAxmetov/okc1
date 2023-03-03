@@ -1,0 +1,7 @@
+// brands
+// Route::get('brands/all', [BrandController::class, 'all']);
+// Route::apiResource('/brands', BrandController::class);
+// Route::post('brands/{id}/delete-img', [BrandController::class, 'delete_img']);
+
+// comments
+// Route::apiResource('/comments', CommentController::class);

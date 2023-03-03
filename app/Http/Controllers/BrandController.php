@@ -18,17 +18,27 @@ class BrandController extends Controller
     public function index()
     {
         $brands = Brand::latest()
-                        ->with('products')
-                        ->paginate(12);
+                        ->with('products');
+        if(isset($_GET['search'])) {
+            $brands = $brands->where('id', $_GET['search'])
+                ->orWhere('title', 'like', '%'.$_GET['search'].'%');
+        }
+        $brands = $brands->paginate(12);
+
         $show_count = $brands->count();
         $all_brands_count = Brand::count();
         $languages = ['ru', 'uz'];
+
+        $search = $_GET['search'] ?? '';
+
+
 
         return view('app.brands.index', compact(
             'brands',
             'languages',
             'show_count',
-            'all_brands_count'
+            'all_brands_count',
+            'search'
         )); 
         // return response(['data' => $brands], 200);
     }
@@ -187,31 +197,31 @@ class BrandController extends Controller
 
     public function upload_from()
     {
-    	$url = 'http://213.230.65.189/Invema_Test/hs/invema_API/brands';
-    	$url_auth = ['Venkon', 'overlord'];
+    	// $url = 'http://213.230.65.189/Invema_Test/hs/invema_API/brands';
+    	// $url_auth = ['Venkon', 'overlord'];
     	
-    	$client = new \GuzzleHttp\Client();
-    	$res = $client->get($url, ['auth' =>  $url_auth]);
-    	$resp = (string) $res->getBody();
-    	$resp_toArray = json_decode($resp, true);
+    	// $client = new \GuzzleHttp\Client();
+    	// $res = $client->get($url, ['auth' =>  $url_auth]);
+    	// $resp = (string) $res->getBody();
+    	// $resp_toArray = json_decode($resp, true);
     	
-    	if($resp_toArray['success']) {
-    	    $brands = $resp_toArray['brands'];
+    	// if($resp_toArray['success']) {
+    	//     $brands = $resp_toArray['brands'];
     	    
-    	    foreach($brands as $item) {
-    	    	Brand::updateOrCreate([
-    	    	    'venkon_id' => $item['id']
-    	    	], [
-    		    'title' => $item['name'],
-    		    'link' => $item['link'],
-                'is_active' => 1
-    	    	]);
-    	    }
-    	} else {
-	    return response(['message' => 'Ошибка со стороны сервера'], 400);    
-    	}
+    	//     foreach($brands as $item) {
+    	//     	Brand::updateOrCreate([
+    	//     	    'venkon_id' => $item['id']
+    	//     	], [
+    	// 	    'title' => $item['name'],
+    	// 	    'link' => $item['link'],
+     //            'is_active' => 1
+    	//     	]);
+    	//     }
+    	// } else {
+	    //    return response(['message' => 'Ошибка со стороны сервера'], 400);    
+    	// }
     	
     	
-    	return response(['message' => 'Успешна загружен'], 200);
+    	// return response(['message' => 'Успешна загружен'], 200);
     }
 }

@@ -12,6 +12,10 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    protected $sms_username = 'beautyprof';
+    protected $sms_password = 'p5pkK46SGJb8';
+    protected $sms_basic_url = 'http://91.204.239.44/broker-api/send';
+
     public function login()
     {
         $credentials['username'] = preg_replace('/[^0-9]/', '', request('username'));
@@ -58,7 +62,9 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if($is_exist) {
-            return response(['message' => 'Polzovatel s takim nomerom telefona uje registrirovan'], 400);
+            return response([
+                'message' => 'Пользователь с таким номером регистрирован'
+            ], 400);
         }
 
         $code_storage_time = 60;
@@ -66,10 +72,6 @@ class AuthController extends Controller
         if(Cache::has($phone_number) && Cache::has($phone_number.'time')) {
             return response(['message' => 'Mojete sprosit kod cherez '.($code_storage_time - (time() - Cache::get($phone_number.'time'))).' sekund', 'second' => ($code_storage_time - (time() - Cache::get($phone_number.'time')))], 200);
         }
-
-        $sms_username = 'itunity';
-        $sms_password = 'cv23K6V5eP';
-        $sms_basic_url = 'http://91.204.239.44/broker-api/send';
 
         $code = mt_rand(100000, 999999);
 
@@ -81,20 +83,21 @@ class AuthController extends Controller
         Cache::put($phone_number.'count', 4, $code_storage_time);
 
         $sms_text = 'okc.uz'.PHP_EOL.'Tasdiqlash kodi: '.$code;
-        $response = Http::withBasicAuth($sms_username, $sms_password)->post($sms_basic_url, [
-            'messages' => [
-                [
-                    'recipient' => $phone_number,
-                    'message-id' => "1",
-                    'sms' => [
-                        'originator' => "3700",
-                        'content' => [
-                            'text' => $sms_text
+        $response = Http::withBasicAuth($this->sms_username, $this->sms_password)
+            ->post($this->sms_basic_url, [
+                'messages' => [
+                    [
+                        'recipient' => $phone_number,
+                        'message-id' => "1",
+                        'sms' => [
+                            'originator' => "3700",
+                            'content' => [
+                                'text' => $sms_text
+                            ],
                         ],
                     ],
-                ],
-            ]
-        ]);
+                ]
+            ]);
 
         if($response->body() == 'Request is received') {
             return response(['message' => 'Sms otpravlen', 'second' => 60], 200);
@@ -119,7 +122,7 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if($is_exist) {
-            return response(['message' => 'Polzovatel s takim nomerom telefona uje registrirovan'], 400);
+            return response(['message' => 'Пользователь с таким номером регистрирован'], 400);
         }
 
         if(!Cache::has($phone_number)) {
@@ -164,7 +167,7 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if($is_exist) {
-            return response(['message' => 'Polzovatel s takim nomerom telefona uje registrirovan'], 400);
+            return response(['message' => 'Пользователь с таким номером регистрирован'], 400);
         }
 
         if(!Cache::has($phone_number)) {
@@ -179,7 +182,8 @@ class AuthController extends Controller
                     'username' => $phone_number,
                     'phone_number' => $phone_number,
                     'password' => $data['password'],
-                    'name' => $data['name']
+                    'name' => $data['name'],
+                    'sex' => $data['sex'] ?? 'female'
                 ]);
 
                 $token = auth()->attempt([
@@ -218,7 +222,7 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if(!$is_exist) {
-            return response(['message' => 'Polzovatel ne registrirovan'], 400);
+            return response(['message' => 'Пользователь не регистрирован'], 400);
         }
 
         $code_storage_time = 60;
@@ -226,10 +230,6 @@ class AuthController extends Controller
         if(Cache::has($phone_number) && Cache::has($phone_number.'time')) {
             return response(['message' => 'Mojete sprosit kod cherez '.($code_storage_time - (time() - Cache::get($phone_number.'time'))).' sekund', 'second' => ($code_storage_time - (time() - Cache::get($phone_number.'time')))], 200);
         }
-
-        $sms_username = 'itunity';
-        $sms_password = 'cv23K6V5eP';
-        $sms_basic_url = 'http://91.204.239.44/broker-api/send';
 
         $code = mt_rand(100000, 999999);
 
@@ -241,7 +241,7 @@ class AuthController extends Controller
         Cache::put($phone_number.'count', 4, $code_storage_time);
 
         $sms_text = 'okc.uz'.PHP_EOL.'Tasdiqlash kodi: '.$code;
-        $response = Http::withBasicAuth($sms_username, $sms_password)->post($sms_basic_url, [
+        $response = Http::withBasicAuth($this->sms_username, $this->sms_password)->post($this->sms_basic_url, [
             'messages' => [
                 [
                     'recipient' => $phone_number,
@@ -278,7 +278,7 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if(!$is_exist) {
-            return response(['message' => 'Polzovatel ne registrirovan'], 400);
+            return response(['message' => 'Пользователь не регистрирован'], 400);
         }
 
         if(!Cache::has($phone_number)) {
@@ -322,7 +322,9 @@ class AuthController extends Controller
 
         $is_exist = User::where('username', $phone_number)->exists();
         if(!$is_exist) {
-            return response(['message' => 'Polzovatel s takim nomerom telefona uje registrirovan'], 400);
+            return response([
+                'message' => 'Пользователь с таким номером регистрирован'
+            ], 400);
         }
 
         if(!Cache::has($phone_number)) {

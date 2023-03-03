@@ -28,8 +28,10 @@ class CreateOrdersTable extends Migration
             $table->boolean('with_delivery');
             $table->enum('delivery_method', ['bts', 'delivery'])->nullable();
             $table->enum('payment_method', ['cash', 'online', 'card']);
-            // $table->enum('status', ['new', 'in_processing', 'on_the_way', 'sold', 'canceled'])->default('new');
-            $table->enum('status', ['new', 'collected', 'on_the_way', 'returned', 'done', 'cancelled'])->default('new');
+            $table->enum('payment_card', ['payme', 'click', 'zoodpay']);
+            $table->enum('status', ['new', 'collected', 'on_the_way', 'returned', 'done', 'cancelled', 'accepted'])->default('new');
+            $table->boolean('is_deleted')->default(0);
+            $table->boolean('is_payed')->default(0);
             $table->timestamps();
         });
     }

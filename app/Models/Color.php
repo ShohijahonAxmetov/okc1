@@ -13,7 +13,8 @@ class Color extends Model
         'venkon_id', 
         'title',
         'hex_code',
-        'is_active'
+        'is_active',
+        'integration_id'
     ];
 
     protected $casts = [
@@ -21,6 +22,6 @@ class Color extends Model
     ];
 
     public function productVariation() {
-        return $this->hasOne(ProductVariation::class, 'color_id', 'venkon_id');
+        return $this->hasOne(ProductVariation::class, 'color_id', 'integration_id');
     }
 }

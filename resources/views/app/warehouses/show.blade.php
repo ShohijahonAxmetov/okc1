@@ -30,9 +30,11 @@
             <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                 @foreach($warehouses as $warehouse)
                 <!--begin::Nav item-->
+                @if($warehouse->integration_id)
                 <li class="nav-item mt-2">
-                    <a href="{{ route('warehouses.show', ['id' => $warehouse->venkon_id]) }}" class="nav-link text-active-primary ms-0 me-10 py-5 {{ $warehouse->venkon_id == $id ? 'active' : '' }}">{{ $warehouse->title }}</a>
+                    <a href="{{ route('warehouses.show', ['id' => $warehouse->integration_id]) }}" class="nav-link text-active-primary ms-0 me-10 py-5 {{ $warehouse->integration_id == $id ? 'active' : '' }}">{{ $warehouse->title }}</a>
                 </li>
+                @endif
                 @endforeach
                 <!--end::Nav item-->
             </ul>

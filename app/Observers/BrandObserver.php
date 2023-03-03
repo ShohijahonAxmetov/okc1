@@ -68,7 +68,7 @@ class BrandObserver
     protected function result($post, $action)
     {
         return [
-            'admin_id' => auth()->user()->id,
+            'admin_id' => auth()->user()->id ?? 0,
             'model' => str_replace(
                 'Observer',
                 '',

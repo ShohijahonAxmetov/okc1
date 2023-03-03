@@ -61,7 +61,7 @@
 								<label class="form-label d-flex align-items-center justify-content-between">
 									Status
 									@switch($order->status)
-									@case('new')
+									@case('accepted')
 									<span class="badge fs-7 fw-bold text-uppercase rounded-circle d-flex" style="background-color: rgb(13,202,240);width: 20px;height:20px"></span>
 									@break
 									@case('collected')
@@ -76,20 +76,21 @@
 									@case('done')
 									<span class="badge fs-7 fw-bold text-uppercase rounded-circle d-flex" style="background-color: rgb(25,135,84);width: 20px;height:20px"></span>
 									@break
-									@case('cancelled')
-									<span class="badge fs-7 fw-bold text-uppercase rounded-circle d-flex" style="background-color: rgb(220,53,69);width: 20px;height:20px"></span>
-									@break
 									@endswitch
 								</label>
 								<!--end::Label-->
 								<!--begin::Select2-->
 								<select class="form-select mb-2 text-uppercase" data-hide-search="true" data-control="select2" data-control="" name="status" id="status">
-									<option value="new" {{ $order->status == 'new' ? 'selected' : '' }}>Новый</option>
-									<option value="collected" {{ $order->status == 'collected' ? 'selected' : '' }}>Собрано</option>
+									@if($order->status != 'cancelled')
+									<option value="accepted" {{ $order->status == 'accepted' ? 'selected' : '' }}>Принят</option>
+									<option value="collected" {{ $order->status == 'collected' ? 'selected' : '' }}>Собран</option>
 									<option value="on_the_way" {{ $order->status == 'on_the_way' ? 'selected' : '' }}>В пути</option>
-									<option value="returned" {{ $order->status == 'returned' ? 'selected' : '' }}>Вернулся</option>
-									<option value="done" {{ $order->status == 'done' ? 'selected' : '' }}>Успешно</option>
+									<option value="returned" {{ $order->status == 'returned' ? 'selected' : '' }}>Возврат</option>
+									<option value="done" {{ $order->status == 'done' ? 'selected' : '' }}>Успешно</option>			
+									@endif
+									@if($order->status == 'cancelled')						
 									<option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>Отменено</option>
+									@endif
 								</select>
 								<!--end::Select2-->
 							</div>
@@ -116,9 +117,9 @@
 								<!--end::Label-->
 								<!--begin::Select2-->
 								<select class="form-select mb-2" data-control="select2" data-hide-search="true" name="delivery_method" id="kt_ecommerce_edit_order_shipping">
-									<option value="" selected>Из офиса</option>
-									<option value="bts" {{ $order->delivery_method == 'bts' ? 'selected' : '' }}>BTS</option>
-									<option value="delivery" {{ $order->delivery_method == 'delivery' ? 'selected' : '' }}>Простая доставка</option>
+									<option value="" selected>Самовывоз</option>
+									<!-- <option value="bts" {{ $order->delivery_method == 'bts' ? 'selected' : '' }}>BTS</option> -->
+									<option value="delivery" {{ $order->delivery_method == 'delivery' ? 'selected' : '' }}>С доставкой</option>
 								</select>
 								<!--end::Select2-->
 							</div>
@@ -129,7 +130,7 @@
 								<label class="required form-label">Дата заказа</label>
 								<!--end::Label-->
 								<!--begin::Editor-->
-								<input id="kt_ecommerce_edit_order_date" disabled placeholder="Select a date" class="form-control mb-2" value="{{ date('Y-m-d', strtotime($order->created_at)) }}" />
+								<input id="kt_ecommerce_edit_order_date" disabled placeholder="Select a date" class="form-control mb-2" value="{{ date('H:i d-m-Y', strtotime($order->created_at)) }}" />
 								<!--end::Editor-->
 							</div>
 							<!--end::Input group-->
@@ -228,6 +229,7 @@
 				</div>
 			</div>
 			<!--end::Main column-->
+			<input type="hidden" name="payment_method" value="{{ $order->payment_method }}">
 		</form>
 		<!--end::Form-->
 	</div>

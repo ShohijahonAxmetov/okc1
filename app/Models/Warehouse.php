@@ -12,11 +12,14 @@ class Warehouse extends Model
     protected $fillable = [
         'title',
         'is_active',
-        'venkon_id'
+        'venkon_id',
+        'integration_id',
+        'is_store',
+        'for_fargo'
     ];
 
     public function productVariations()
     {
-        return $this->belongsToMany(ProductVariation::class, 'product_variation_warehouse', 'warehouse_id', 'product_variation_id', 'venkon_id', 'venkon_id')->withPivot('remainder');
+        return $this->belongsToMany(ProductVariation::class, 'product_variation_warehouse', 'warehouse_id', 'product_variation_id', 'integration_id', 'integration_id')->withPivot('remainder');
     }
 }

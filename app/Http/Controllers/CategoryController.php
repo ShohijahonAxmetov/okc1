@@ -18,21 +18,32 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()
-                                ->with('products', 'filters', 'children', 'parent')
-                                ->paginate(12);
+            ->with('products', 'filters', 'children', 'parent');
+
+        if(isset($_GET['search'])) {
+
+            // $search = substr(json_encode($_GET['search'], JSON_INVALID_UTF8_IGNORE), 1, -1);
+            // return response($search);
+
+            $categories = $categories->where('id', $_GET['search']);
+                // ->orWhere('title', 'like', '%'.'\u0414\u043b\u044f \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u043d\u043e\u0439 \u043a\u043e\u0436\u0438'.'%');
+        }
+        $categories = $categories->paginate(12);
 
         $show_count = $categories->count();
         $all_categories_count = Category::count();
 
         $languages = ['ru', 'uz'];
         $all_categories = Category::all();
+        $search = $_GET['search'] ?? '';
 
         return view('app.categories.index', compact(
             'categories',
             'languages',
             'all_categories',
             'show_count',
-            'all_categories_count'
+            'all_categories_count',
+            'search'
         ));
         // return response(['data' => $categories], 200);
     }
@@ -45,44 +56,44 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $validator = Validator::make($data, [
-            'title' => 'required|max:255',
-            'img' => 'max:1024|image|nullable',
-        ]);
-        if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
-        }
+        // $data = $request->all();
+        // $validator = Validator::make($data, [
+        //     'title' => 'required|max:255',
+        //     'img' => 'max:1024|image|nullable',
+        // ]);
+        // if($validator->fails()) {
+        //     return response(['message' => $validator->errors()], 400);
+        // }
 
-        DB::beginTransaction();
+        // DB::beginTransaction();
 
-        try {
-            if($request->hasFile('img')) {
-                $img = $request->file('img');
-                $img_name = Str::random(12).'.'.$img->extension();
-                $saved_img = $img->move(public_path('/upload/categories'), $img_name);
-                $data['img'] = $img_name;
-            }
-            $data['title'] = json_decode($data['title']);
-            $data['desc'] = json_decode($data['desc']);
-            $data['meta_keywords'] = json_decode($data['meta_keywords']);
-            $data['meta_desc'] = json_decode($data['meta_desc']);
-            $data['filters'] = json_decode($data['filters']);
+        // try {
+        //     if($request->hasFile('img')) {
+        //         $img = $request->file('img');
+        //         $img_name = Str::random(12).'.'.$img->extension();
+        //         $saved_img = $img->move(public_path('/upload/categories'), $img_name);
+        //         $data['img'] = $img_name;
+        //     }
+        //     $data['title'] = json_decode($data['title']);
+        //     $data['desc'] = json_decode($data['desc']);
+        //     $data['meta_keywords'] = json_decode($data['meta_keywords']);
+        //     $data['meta_desc'] = json_decode($data['meta_desc']);
+        //     $data['filters'] = json_decode($data['filters']);
 
-            $category = Category::create($data);
+        //     $category = Category::create($data);
 
-            if ($category && isset($data['filters'])) {
-                $category->filters()->sync($data['filters']);
-            }
+        //     if ($category && isset($data['filters'])) {
+        //         $category->filters()->sync($data['filters']);
+        //     }
 
-            DB::commit();
+        //     DB::commit();
 
-            return response(['message' => 'Успешно добавлен'], 200);
-        } catch (\Exception $e) {
-            DB::rollback();
-            throw($e);
-            return response(['message' => $e], 400);
-        }
+        //     return response(['message' => 'Успешно добавлен'], 200);
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     throw($e);
+        //     return response(['message' => $e], 400);
+        // }
     }
 
     /**
@@ -147,6 +158,10 @@ class CategoryController extends Controller
                 'uz' => $data['meta_desc_uz']
             ]));
             // $data['filters'] = json_decode($data['filters']);
+
+            if(!isset($data['position'])) {
+                $data['position'] = 1000;
+            }
 
             $category = Category::find($id)->update($data);
 

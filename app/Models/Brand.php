@@ -17,7 +17,8 @@ class Brand extends Model
     	'position',
     	'is_active',
         'link',
-        'venkon_id'
+        'venkon_id',
+        'integration_id'
     ];
 
     protected $casts = [
@@ -33,7 +34,7 @@ class Brand extends Model
     }
 
     public function products() {
-        return $this->hasMany('App\Models\Product', 'brand_id', 'venkon_id');
+        return $this->hasMany('App\Models\Product', 'brand_id', 'integration_id');
     }
 
     public function setTitleAttribute($value)

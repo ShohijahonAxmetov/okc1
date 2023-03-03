@@ -16,6 +16,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SpecialOfferClientController;
 use App\Http\Controllers\VenkonController;
 use App\Http\Controllers\WarehouseController;
+use App\Http\Controllers\FargoController;
+use App\Http\Controllers\ZoodpayController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -112,10 +114,13 @@ Route::get('/products/{slug}', [WebController::class, 'product']);
 Route::post('/get_products_by_id', [WebController::class, 'get_products_by_id']);
 Route::get('/products', [WebController::class, 'products']);
 Route::get('/search', [WebController::class, 'search']);
+Route::post('/get_warehouses', [WebController::class, 'get_warehouses']);
 Route::post('/application-store', [WebController::class, 'application_store']);
 Route::post('/special-offer-client', [WebController::class, 'special_offer_client']);
 
 Route::get('get_comments/{id}', [WebController::class, 'get_comments']);
+
+Route::get('/zoodpay/configuration', [ZoodpayController::class, 'configuration']);
 
 // for test
 Route::get('discounts', function() {
@@ -152,10 +157,6 @@ Route::prefix('admin')->group(function() {
 		// edited to
 		// Route::apiResource('/admins', AdminController::class);
 		// Route::post('admins/{id}/delete-img', [AdminController::class, 'delete_img']);
-		// brands
-		Route::get('brands/all', [BrandController::class, 'all']);
-		// Route::apiResource('/brands', BrandController::class);
-		Route::post('brands/{id}/delete-img', [BrandController::class, 'delete_img']);
 		// filters
 		Route::get('filters/all', [FilterController::class, 'all']);
 		Route::apiResource('/filters', FilterController::class);
@@ -182,9 +183,7 @@ Route::prefix('admin')->group(function() {
 		Route::post('users/{id}/delete-img', [UserController::class, 'delete_img']);
 		// discounts
 		Route::get('discounts/all', [DiscountController::class, 'all']);
-		Route::apiResource('/discounts', DiscountController::class);
-		// comments
-		Route::apiResource('/comments', CommentController::class);
+		// Route::apiResource('/discounts', DiscountController::class);
 		// applcations
 		// Route::apiResource('/applications', ApplicationController::class);
 		// special offer clients
@@ -212,9 +211,12 @@ Route::any('/handle/{paysys}',function($paysys){
 //redirect to payment system or payment form
 Route::any('/pay/{paysys}/{key}/{amount}',function($paysys, $key, $amount){
 	$model = Goodoneuz\PayUz\Services\PaymentService::convertKeyToModel($key);
-    $url = request('redirect_url','https://okc2.vercel.app/?alert=success'); // redirect url after payment completed
+    $url = request('redirect_url','https://okc.uz/?alert=success'); // redirect url after payment completed
     $pay_uz = new Goodoneuz\PayUz\PayUz;
     $pay_uz
     	->driver($paysys)
     	->redirect($model, $amount, 860, $url);
 });
+
+
+Route::get('get_delivery_prices', [FargoController::class, 'get_prices']);

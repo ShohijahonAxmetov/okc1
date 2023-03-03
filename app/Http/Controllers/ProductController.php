@@ -26,20 +26,29 @@ class ProductController extends Controller
         $products = Product::latest()
             ->with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages');
 
-        if(isset($_GET['brand']) && $_GET['brand'] != '') {
-            $products->where('brand_id', $_GET['brand']);
+        if (isset($_GET['search']) && $_GET['search'] != '') {
+            $products = $products->where('id', 'like', '%' . trim($_GET['search']) . '%')
+                ->orWhere('title', 'like', '%' . $_GET['search'] . '%')
+                ->orWhere(DB::raw('JSON_EXTRACT(LOWER(title), "$.ru")'), 'like', '%' . trim($_GET['search']) . '%');
         }
-        if(isset($_GET['is_active']) && $_GET['is_active'] != '') {
-            $products->where('is_active', $_GET['is_active']);
+        if (isset($_GET['brand']) && $_GET['brand'] != '') {
+            $products = $products->where('brand_id', $_GET['brand']);
         }
-        if(isset($_GET['search']) && $_GET['search'] != '') {
-            $products->where('title', 'like', '%'.trim($_GET['search']).'%')
-                ->orWhere('id', trim($_GET['search']));
+        if (isset($_GET['is_active']) && $_GET['is_active'] != '') {
+            $products = $products->where('is_active', $_GET['is_active']);
         }
-        $products = $products->paginate(12);
+        $all_products = $products->paginate(24);
+        $all_products_count = $products->count();
+        $active_products_count = $products->where('is_active', 1)
+            ->count();
+        $inactive_products_count = $all_products_count - $active_products_count;
+
+        $products = $all_products;
         $show_count = $products->count();
-        $all_products_count = Product::count();
+
         $brands = Brand::latest()
+            ->where('is_active', 1)
+            ->has('products', '>', 0)
             ->get();
 
         $search = $_GET['search'] ?? '';
@@ -53,7 +62,9 @@ class ProductController extends Controller
             'brand',
             'is_active',
             'all_products_count',
-            'show_count'
+            'show_count',
+            'active_products_count',
+            'inactive_products_count'
         ));
         // return response(['data' => $products], 200);
     }
@@ -323,7 +334,7 @@ class ProductController extends Controller
             }
 
             $is_first = 1;
-            foreach(json_decode($request->variations_data) as $variation) {
+            foreach (json_decode($request->variations_data) as $variation) {
                 ProductVariation::find($variation[4]->value)->update([
                     'product_code' => $variation[0]->value,
                     'price' => $variation[1]->value,
@@ -338,7 +349,7 @@ class ProductController extends Controller
             unset($is_first);
 
 
-            foreach(json_decode($request->dropzone_images) as $image) {
+            foreach (json_decode($request->dropzone_images) as $image) {
                 ProductVariationImage::create([
                     'product_variation_id' => $image->id,
                     'img' => $image->value
@@ -354,7 +365,7 @@ class ProductController extends Controller
         return response(['success' => true], 200);
 
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+        // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 
         $data = $request->all();
@@ -628,8 +639,8 @@ class ProductController extends Controller
         $prev_url = $_SERVER['HTTP_REFERER'];
         $url = parse_url($prev_url, PHP_URL_QUERY);
         parse_str($url, $get_pameters);
-        
-        if(!empty($get_pameters) && isset($get_pameters['page'])) {
+
+        if (!empty($get_pameters) && isset($get_pameters['page'])) {
             $page_number = $get_pameters['page'];
         } else {
             $page_number = null;

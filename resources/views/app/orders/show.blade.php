@@ -47,8 +47,27 @@
                 <!--end:::Tabs-->
                 <!--begin::Button-->
                 <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#delete_product">Delete product from Order</a> -->
-                <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Добавить товар в заказ</a>
-                <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="btn btn-light-primary btn-sm me-lg-n7">Изменить заказ</a>
+                <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Добавить товар в заказ</a> -->
+                @if($order->status == 'new')
+                    <form action="{{ route('orders.update', ['id' =>$order->id]) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="status" value="accepted">
+                        <input type="hidden" name="payment_method" value="{{ $order->payment_method }}">
+                        <input type="hidden" name="delivery_method" value="{{ $order->delivery_method }}">
+                        <input type="hidden" name="with_delivery" value="{{ $order->with_delivery }}">
+                        <button type="submit" class="btn btn-light-primary btn-sm me-lg-n7 bg-success text-white">Принять заказ</button>
+                    </form>
+                    <form action="{{ route('orders.update', ['id' =>$order->id]) }}" method="post">
+                        @csrf
+                        <input type="hidden" name="status" value="cancelled">
+                        <input type="hidden" name="payment_method" value="{{ $order->payment_method }}">
+                        <input type="hidden" name="delivery_method" value="{{ $order->delivery_method }}">
+                        <input type="hidden" name="with_delivery" value="{{ $order->with_delivery }}">
+                        <button type="submit" class="btn btn-light-primary btn-sm me-lg-n7 bg-danger text-white">Отменить заказ</button>
+                    </form>
+                @else
+                <a href="{{ route('orders.edit', ['id' => $order->id]) }}" class="btn btn-light-primary btn-sm me-lg-n7 bg-warning text-white">Изменить заказ</a>
+                @endif
                 <!--end::Button-->
             </div>
             <!--begin::Order summary-->
@@ -83,7 +102,7 @@
                                                 <!--end::Svg Icon-->Дата добавления
                                             </div>
                                         </td>
-                                        <td class="fw-bolder text-end">{{ date('H:i d/m/Y', strtotime($order->created_at)) }}</td>
+                                        <td class="fw-bolder text-end">{{ date('H:i d-m-Y', strtotime($order->created_at)) }}</td>
                                     </tr>
                                     <!--end::Date-->
                                     <!--begin::Payment method-->
@@ -101,8 +120,17 @@
                                                 <!--end::Svg Icon-->Метод оплаты
                                             </div>
                                         </td>
-                                        <td class="fw-bolder text-end text-capitalize">{{ $order->payment_method }}
-                                            <!-- <img src="/assets/media/svg/card-logos/visa.svg" class="w-50px ms-2" /> -->
+                                        <td class="fw-bolder text-end text-capitalize">
+                                            @if($order->payment_method == 'cash')
+                                            Наличкой
+                                            @else
+                                            Картой
+                                            @if($order->payment_card == 'payme')
+                                            (payme)
+                                            @elseif($order->payment_card == 'click')
+                                            (click)
+                                            @endif
+                                            @endif
                                         </td>
                                     </tr>
                                     <!--end::Payment method-->
@@ -122,9 +150,9 @@
                                         </td>
                                         <td class="fw-bolder text-end text-capitalize">
                                             @if($order->with_delivery == 0)
-                                              Забрать из шоу-рума
+                                            Самовывоз
                                             @else
-                                              С доставкой
+                                            С доставкой
                                             @endif
                                         </td>
                                     </tr>
@@ -174,13 +202,13 @@
                                                 <div class="symbol symbol-circle symbol-25px overflow-hidden me-3">
                                                     <a>
                                                         <div class="symbol-label">
-                                                            <img src="{{ isset($order->user->img) ? asset($order->user->img) : '/assets/media/default-user.jpg' }}" alt="Dan Wilson" class="w-100" />
+                                                            <img src="{{ isset($order->user->img) ? $order->user->img_url : '/assets/media/default-user.jpg' }}" alt="Dan Wilson" class="w-100" />
                                                         </div>
                                                     </a>
                                                 </div>
                                                 <!--end::Avatar-->
                                                 <!--begin::Name-->
-                                                <a class="text-gray-600 text-hover-primary">{{ isset($order->user) ? $order->user->name : 'Пользователь удален' }}</a>
+                                                <a class="text-gray-600 text-hover-primary">{{ $order->name ? $order->name : (isset($order->user) ? $order->user->name : 'Клиент удален') }}</a>
                                                 <!--end::Name-->
                                             </div>
                                         </td>
@@ -282,11 +310,13 @@
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
                                                 <th class="min-w-175px">Продукт</th>
-                                                <th class="min-w-100px text-end">ID</th>
+                                                @foreach($warehouses as $warehouse)
+                                                <th class="min-w-50px border-start {{ $loop->last ? 'border-end' : '' }}" style="vertical-align: bottom;text-align: center;"><span style="-ms-writing-mode: tb-rl;-webkit-writing-mode: vertical-rl;writing-mode: vertical-rl;transform: rotate(180deg);white-space: nowrap;">{{ $warehouse->title }}</span></th>
+                                                @endforeach
                                                 <th class="min-w-70px text-end">Количество</th>
                                                 <th class="min-w-100px text-end">Цена за единицу</th>
                                                 <th class="min-w-100px text-end">Итоговая</th>
-                                                <th class="min-w-100px text-end">Действия</th>
+                                                <!-- <th class="min-w-100px text-end">Действия</th> -->
                                             </tr>
                                         </thead>
                                         <!--end::Table head-->
@@ -300,21 +330,23 @@
                                                     <div class="d-flex align-items-center">
                                                         <!--begin::Thumbnail-->
                                                         <a href="{{ route('products.edit', ['product' => $product->product]) }}" class="symbol symbol-50px">
-                                                            <span class="symbol-label" style="background-image:url(/assets/media//stock/ecommerce/1.gif);"></span>
+                                                            <span class="symbol-label" style="background-image:url({{ isset($product->productVariationImages[0]) ? $product->productVariationImages[0]->min_img : '/assets/media/default.png' }});background-size:contain"></span>
                                                         </a>
                                                         <!--end::Thumbnail-->
                                                         <!--begin::Title-->
                                                         <div class="ms-5">
                                                             <a href="{{ route('products.edit', ['product' => $product->product]) }}" class="fw-bolder text-gray-600 text-hover-primary">{{ isset($product->product) ? $product->product->title['ru'] : 'Deleted product' }}</a>
-                                                            <div class="fs-7 text-muted">Delivery Date: {{ date('d/m/Y', strtotime($order->created_at)) }}</div>
+                                                            <div class="fs-7 text-muted">ID: {{ $product->integration_id }}</div>
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
                                                 </td>
                                                 <!--end::Product-->
-                                                <!--begin::SKU-->
-                                                <td class="text-end">{{ $product->venkon_id }}</td>
-                                                <!--end::SKU-->
+                                                @foreach($warehouses as $warehouse)
+                                                <td class="text-end border-start text-center {{ $loop->last ? 'border-end' : '' }}">
+                                                    <span class="fs-6 fw-bold">{{ $product->warehouses()->where('integration_id', $warehouse->integration_id)->first() ? $product->warehouses()->where('integration_id', $warehouse->integration_id)->first()->pivot->remainder : 0 }}</span>
+                                                </td>
+                                                @endforeach
                                                 <!--begin::Quantity-->
                                                 <td class="text-end">{{ isset($product->pivot) ? $product->pivot->count : '--' }}</td>
                                                 <!--end::Quantity-->
@@ -325,7 +357,7 @@
                                                 <td class="text-end">{{ isset($product->pivot) ? $product->pivot->count * $product->pivot->price : '--' }}</td>
                                                 <!--end::Total-->
                                                 <!--begin::Total-->
-                                                <td class="text-end">
+                                                <!-- <td class="text-end">
                                                     <form action="{{ route('orders.delete_product', ['id' => $product->id]) }}" method="post">
                                                         @csrf
                                                         <input type="hidden" name="order_id" value="{{ $order->id }}">
@@ -339,21 +371,37 @@
                                                             </span>
                                                         </button>
                                                     </form>
-                                                </td>
+                                                </td> -->
                                                 <!--end::Total-->
                                             </tr>
                                             @endforeach
-                                            <!-- <tr>
-                                                <td colspan="4" class="text-end">Subtotal</td>
-                                                <td class="text-end">$55.00</td>
+                                            @if($order->with_delivery)
+                                            <tr>
+                                                <td colspan="6" class="fs-5 text-dark text-end">Cумма доставки</td>
+                                                <td class="text-dark fs-5 fw-boldest text-end">
+                                                    @if($order->region == 1)
+                                                        20000 UZS
+                                                    @else
+                                                        30000 UZS
+                                                    @endif
+                                                </td>
                                             </tr>
+                                            @endif
                                             <tr>
-                                                <td colspan="4" class="text-end">Shipping Rate</td>
-                                                <td class="text-end">$5.00</td>
-                                            </tr> -->
-                                            <tr>
-                                                <td colspan="4" class="fs-3 text-dark text-end">Итоговая сумма</td>
-                                                <td class="text-dark fs-3 fw-boldest text-end">{{ $order->amount }} UZS</td>
+                                                <td colspan="6" class="fs-3 text-dark text-end">Итоговая сумма</td>
+                                                <td class="text-dark fs-3 fw-boldest text-end">
+                                                        @if($order->payment_method == 'cash' || $order->payment_method == 'cach')
+                                                        {{ $order->amount / 100 }} UZS
+                                                        @elseif($order->payment_method == 'online')
+                                                        @if($order->payment_card == 'payme')
+                                                        {{ $order->amount / 100 }} UZS
+                                                        @elseif($order->payment_card == 'click')
+                                                        {{ $order->amount }} UZS
+                                                        @elseif($order->payment_card == 'zoodpay')
+                                                        {{ $order->amount }} UZS
+                                                        @endif
+                                                    @endif
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <!--end::Table head-->
@@ -364,6 +412,105 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Product List-->
+                        @if(isset($order->zoodpayHistories[0]))
+                        <div class="card card-flush py-4 flex-row-fluid overflow-hidden">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Транзакции Zoodpay</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <div class="table-responsive">
+                                    <!--begin::Table-->
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                                        <!--begin::Table head-->
+                                        <thead>
+                                            <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+                                                <th class="min-w-300px">ID тракзакции</th>
+                                                <th class="min-w-100px ">Сумма</th>
+                                                <th class="min-w-100px">Статус</th>
+                                                <th class="min-w-100px text-end">Дата</th>
+                                            </tr>
+                                        </thead>
+                                        <!--end::Table head-->
+                                        <!--begin::Table body-->
+                                        <tbody class="fw-bold text-gray-600">
+                                            <!--begin::Products-->
+                                            @foreach($order->zoodpayHistories as $item)
+                                            <tr>
+                                                <!--begin::Quantity-->
+                                                <td class="text-start">{{ $item->transaction_id }}</td>
+                                                <!--end::Quantity-->
+                                                <!--begin::Price-->
+                                                <td class="text-start">{{ $item->amount }}</td>
+                                                <!--end::Price-->
+                                                <td class="text-start">{{ $item->status }}</td>
+                                                <td class="text-end">{{ $item->created_at }}</td>
+                                                <!--begin::Total-->
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <!--end::Table head-->
+                                    </table>
+                                    <!--end::Table-->
+                                </div>
+                            </div>
+                            <!--end::Card body-->
+                        </div>
+                        @endif
+
+                        @if(isset($order->fargoHistories[0]))
+                        <div class="card card-flush py-4 flex-row-fluid overflow-hidden">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Истории FARGO</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <div class="table-responsive">
+                                    <!--begin::Table-->
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+                                        <!--begin::Table head-->
+                                        <thead>
+                                            <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+                                                <th class="min-w-300px">Номер заказа Fargo</th>
+                                                <th class="min-w-100px ">Номер клиента Fargo</th>
+                                                <th class="min-w-100px">Статус</th>
+                                                <th class="min-w-100px text-end">Дата</th>
+                                            </tr>
+                                        </thead>
+                                        <!--end::Table head-->
+                                        <!--begin::Table body-->
+                                        <tbody class="fw-bold text-gray-600">
+                                            <!--begin::Products-->
+                                            @foreach($order->fargoHistories as $item)
+                                            <tr>
+                                                <!--begin::Quantity-->
+                                                <td class="text-start">{{ $item->order_number }}</td>
+                                                <!--end::Quantity-->
+                                                <!--begin::Price-->
+                                                <td class="text-start">{{ $item->customer_id }}</td>
+                                                <!--end::Price-->
+                                                <td class="text-start">{{ $item->ru_status }}</td>
+                                                <td class="text-end">{{ $item->created_at }}</td>
+                                                <!--begin::Total-->
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <!--end::Table head-->
+                                    </table>
+                                    <!--end::Table-->
+                                </div>
+                            </div>
+                            <!--end::Card body-->
+                        </div>
+                        @endif
                     </div>
                     <!--end::Orders-->
                 </div>
@@ -416,6 +563,9 @@
                                                     @case('collected')
                                                     <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(13,110,253);">{{ $order_item->status }}</span>
                                                     @break
+                                                    @case('accepted')
+                                                    <span class="badge fs-7 fw-bold text-uppercase bg-dark">{{ $order_item->status }}</span>
+                                                    @break
                                                     @case('on_the_way')
                                                     <span class="badge fs-7 fw-bold text-uppercase" style="background-color: rgb(225,193,7);">{{ $order_item->status }}</span>
                                                     @break
@@ -435,16 +585,16 @@
                                                 <!--begin::Customer Notified-->
                                                 <td>
                                                     @if(isset($order_item->productVariations))
-                                                      @foreach($order_item->productVariations as $product)
-                                                        @if(isset($product->product->title['ru']))
-                                                          <a href="{{ route('products.edit', ['product' => $product->product]) }}">{{ $product->product->title['ru'] }}</a>
-                                                        @else
-                                                          Продукт удален
-                                                        @endif
-                                                      <br>
-                                                      @endforeach
+                                                    @foreach($order_item->productVariations as $product)
+                                                    @if(isset($product->product->title['ru']))
+                                                    <a href="{{ route('products.edit', ['product' => $product->product]) }}">{{ $product->product->title['ru'] }}</a>
                                                     @else
-                                                      Продукт удален
+                                                    Продукт удален
+                                                    @endif
+                                                    <br>
+                                                    @endforeach
+                                                    @else
+                                                    Продукт удален
                                                     @endif
                                                 </td>
                                                 <!--end::Customer Notified-->
@@ -475,73 +625,47 @@
 
 <!-- modal for add products to order -->
 <!--begin::Modal - New Product-->
-<div class="modal fade" id="add_product" tabindex="-1" aria-hidden="true">
-    <!--begin::Modal dialog-->
+<!-- <div class="modal fade" tabindex="-1" id="add_product" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-650px">
-        <!--begin::Modal content-->
         <div class="modal-content">
-            <!--begin::Form-->
             <form class="form" action="{{ route('orders.add_product', ['id' => $order->id]) }}" method="post">
                 @csrf
-                <!--begin::Modal header-->
                 <div class="modal-header">
-                    <!--begin::Modal title-->
                     <h2 class="fw-bolder" data-kt-calendar="title">Добавить товар в заказ #{{ $order->id }}</h2>
-                    <!--end::Modal title-->
-                    <!--begin::Close-->
                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal">
-                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                         <span class="svg-icon svg-icon-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
                                 <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->
                     </div>
-                    <!--end::Close-->
                 </div>
-                <!--end::Modal header-->
-                <!--begin::Modal body-->
                 <div class="modal-body py-10 px-lg-17">
                     <div class="fv-row mb-9">
-                        <label for="exampleFormControlInput1" class="fs-6 fw-bold mb-2 required">Выбрать продукт</label>
-                        <select class="form-select" name="variation_id" data-control="select2" data-hide-search="false" required>
+                        <label for="exampleFormControlInput2" class="fs-6 fw-bold mb-2 required">Выбрать продукт</label>
+                        <select class="form-select" id="select2insidemodal" name="variation_id" data-control="select2" data-hide-search="false" required>
                             @foreach($products_variations as $product)
                             <option value="{{ $product->id }}">{{ $product->product->title['ru'] }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <!--begin::Input group-->
                     <div class="fv-row mb-9">
-                        <!--begin::Label-->
                         <label class="fs-6 fw-bold required mb-2">Количество продуктов</label>
-                        <!--end::Label-->
-                        <!--begin::Input-->
                         <input type="text" class="form-control form-control-solid" required name="count" />
-                        <!--end::Input-->
                     </div>
-                    <!--end::Input group-->
 
                 </div>
-                <!--end::Modal body-->
-                <!--begin::Modal footer-->
                 <div class="modal-footer flex-center">
-                    <!--begin::Button-->
                     <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Отмена</button>
-                    <!--end::Button-->
-                    <!--begin::Button-->
                     <button type="submit" class="btn btn-primary">
                         <span class="indicator-label">Сохранить</span>
                     </button>
-                    <!--end::Button-->
                 </div>
-                <!--end::Modal footer-->
             </form>
-            <!--end::Form-->
         </div>
     </div>
-</div>
+</div> -->
 <!--end::Modal - New Product-->
 
 @endsection
@@ -564,6 +688,12 @@
             }
         });
     }
+
+    $(document).ready(function() {
+        $("#select2insidemodal").select2({
+            dropdownParent: $("#add_product")
+        });
+    });
 </script>
 
 @endsection

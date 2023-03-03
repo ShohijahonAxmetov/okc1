@@ -9,7 +9,7 @@ return [
 
         'pay_assets_path'   => '/vendor/pay-uz',
         'control_panel' => [
-                'middleware' => 'auth'
+                'middleware' => 'web'
         ],
         'multi_transaction' => false,
 ];

@@ -300,6 +300,13 @@
                             <div class="row w-100">
                                 <div class="col-6">
                                     <div class="w-100 d-flex">
+                                        <p class="fw-bold me-3 mb-0">ID:</p><span>{{ $variation->integration_id }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="w-100 d-flex">
                                         <p class="fw-bold me-3 mb-0">Остаток:</p><span>{{ $variation->remainder }}</span>
                                     </div>
                                 </div>
@@ -343,7 +350,7 @@
                                         <select class="form-select" aria-label="" data-id="data_{{ $variation->id }}" name="color" data-control="select2" data-hide-search="true">
                                             <option value="">Выберите</option>
                                             @foreach($colors as $color)
-                                            <option value="{{ $color->venkon_id }}" {{ $variation->color_id == $color->venkon_id ? 'selected' : '' }}>{{ $color->title['ru'] }}</option>
+                                            <option value="{{ $color->integration_id }}" {{ $variation->color_id == $color->integration_id ? 'selected' : '' }}>{{ $color->title['ru'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -457,7 +464,7 @@
                                     <label for="brand" class="form-label required">Бренд</label>
                                     <select class="form-select mb-2" name="brand" id="brand" data-control="select2" data-hide-search="true" data-placeholder="Выберите вариант" id="kt_ecommerce_add_product_status_select">
                                         @foreach($brands as $brand)
-                                        <option value="{{ $brand->venkon_id }}" {{ $product->brand_id == $brand->venkon_id ? 'selected' : '' }}>{{ $brand->title }}</option>
+                                        <option value="{{ $brand->integration_id }}" {{ $product->brand_id == $brand->integration_id ? 'selected' : '' }}>{{ $brand->title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -468,7 +475,7 @@
                                     <label for="categories" class="required form-label">Категории</label>
                                     <select class="form-select categories" aria-label="" name="categories" id="categories" multiple>
                                         @foreach($categories as $category)
-                                        <option value="{{ $category->venkon_id }}" {{ in_array($category->venkon_id, $product->categories->pluck('venkon_id')->toArray()) ? 'selected' : '' }}>{{ $category->title['ru'] ?? null }}</option>
+                                        <option value="{{ $category->integration_id }}" {{ in_array($category->integration_id, $product->categories->pluck('integration_id')->toArray()) ? 'selected' : '' }}>{{ $category->title['ru'] ?? null }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -693,11 +700,7 @@
 
                 if (text.success) {
                     @if($page_number)
-                    let redirect_url = '/dashboard/products?page=' + {
-                        {
-                            $page_number
-                        }
-                    } + '&success=true';
+                    let redirect_url = '/dashboard/products?page=' + {{ $page_number }} + '&success=true';
                     @else
                     let redirect_url = '/dashboard/products?success=true';
                     @endif

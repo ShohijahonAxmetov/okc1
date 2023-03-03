@@ -25,15 +25,24 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bolder fs-3 mb-1">Продукты</span>
-            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_products_count }}</span>
+            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_products_count }} (активные: {{ $active_products_count ?? 0 }},неактивные: {{ $inactive_products_count ?? 0 }})</span>
         </h3>
         <div class="card-toolbar">
+            <button type="button" id="clear_btn" class="d-flex justify-content-center align-items-center btn rounded-circle me-2 p-0" style="width: 28px;height: 28px">
+                <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+                        <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="currentColor" />
+                        <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="currentColor" />
+                    </svg>
+                </span>
+            </button>
             <form action="{{ route('products.index') }}" class="d-flex align-items-center">
                 <div class="d-flex align-items-center position-relative my-1">
                     <select class="form-control form-select form-control-solid w-150px" name="brand" data-control="select2" data-hide-search="false">
                         <option value="">Выберите бренда</option>
                         @foreach($brands as $item)
-                          <option value="{{ $item->venkon_id }}" {{ $brand == $item->venkon_id ? 'selected' : '' }}>{{ $item->title }}</option>
+                        <option value="{{ $item->integration_id }}" {{ $brand == $item->integration_id ? 'selected' : '' }}>{{ $item->title }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -41,7 +50,7 @@
                     <select class="form-control form-select form-control-solid w-150px" name="is_active" data-control="select2" data-hide-search="true">
                         <option value="">Выберите статуса</option>
                         <option value="1" {{ $is_active == 1 ? 'selected' : '' }}>Активный</option>
-                        <option value="0" {{ $is_active == 0 ? 'selected' : '' }}>Неактивный</option>
+                        <option value="0" {{ $is_active === '0' ? 'selected' : '' }}>Неактивный</option>
                     </select>
                 </div>
                 <div class="d-flex align-items-center position-relative my-1 ms-4">
@@ -91,7 +100,7 @@
                                     <img src="{{ $product->productVariations->first() && $product->productVariations->first()->productVariationImages->first() ? asset($product->productVariations->first()->productVariationImages->first()->img) : '/assets/media/default.png' }}" class="" alt="" style="object-fit:cover">
                                 </div>
                                 <div class="d-flex justify-content-start flex-column">
-                                    <a href="#" class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $product->title['ru'] }}</a>
+                                    <a class="text-dark fw-bolder text-hover-primary mb-1 fs-6">{{ $product->title['ru'] }}</a>
                                 </div>
                             </div>
                         </td>
@@ -178,6 +187,19 @@
             }
         });
     }
+
+    document.getElementById('clear_btn').addEventListener('click', function() {
+        document.getElementsByClassName('select2-selection__rendered').forEach((element, index) => {
+            if (index == 0) {
+                element.innerText = 'Выберите бренд';
+            } else if (index == 1) {
+                element.innerText = 'Выберите статус';
+            }
+        });
+        document.querySelector("[name='is_active']").value = '';
+        document.querySelector("[name='brand']").value = '';
+        document.querySelector("[name='search']").value = '';
+    });
 </script>
 
 @endsection

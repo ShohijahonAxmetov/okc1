@@ -15,8 +15,13 @@ class DiscountController extends Controller
      */
     public function index()
     {
-        $discounts = Discount::latest()->paginate(24);
-        return response(['data' => $discounts], 200);
+        $discounts = Discount::latest()
+            ->paginate(24);
+
+        return view('app.discounts.index', compact(
+            'discounts'
+        ));
+        // return response(['data' => $discounts], 200);
     }
 
     /**
@@ -27,20 +32,20 @@ class DiscountController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
-        $validator = Validator::make($data, [
-            'discount_type' => 'required|in:order,brand,product,category',
-            'amount_type' => 'required|in:percent,fixed',
-            'discount' => 'required|max:255'
-        ]);
-        if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
-        }
-        
-        Discount::create($data);
+        // $validator = Validator::make($data, [
+        //     'discount_type' => 'required|in:order,brand,product,category',
+        //     'amount_type' => 'required|in:percent,fixed',
+        //     'discount' => 'required|max:255'
+        // ]);
+        // if ($validator->fails()) {
+        //     return response(['message' => $validator->errors()], 400);
+        // }
 
-        return response(['message' => 'Успешно добавлен', 'success' => true], 200);
+        // Discount::create($data);
+
+        // return response(['message' => 'Успешно добавлен', 'success' => true], 200);
     }
 
     /**
@@ -51,11 +56,11 @@ class DiscountController extends Controller
      */
     public function show($id)
     {
-        $discount = Discount::find($id);
-        if(!$discount) {
-            return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
-        }
-        return response(['data' => $discount], 200);
+        // $discount = Discount::find($id);
+        // if (!$discount) {
+        //     return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
+        // }
+        // return response(['data' => $discount], 200);
     }
 
     /**
@@ -67,24 +72,24 @@ class DiscountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
-        $validator = Validator::make($data, [
-            'discount_type' => 'required|in:order,brand,product,category',
-            'amount_type' => 'required|in:percent,fixed',
-            'discount' => 'required|max:255'
-        ]);
-        if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
-        }
-        
-        $discount = Discount::find($id);
-        if(!$discount) {
-            return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
-        }
-        $discount->update($data);
+        // $validator = Validator::make($data, [
+        //     'discount_type' => 'required|in:order,brand,product,category',
+        //     'amount_type' => 'required|in:percent,fixed',
+        //     'discount' => 'required|max:255'
+        // ]);
+        // if ($validator->fails()) {
+        //     return response(['message' => $validator->errors()], 400);
+        // }
 
-        return response(['message' => 'Успешно редактирован', 'success' => true], 200);
+        // $discount = Discount::find($id);
+        // if (!$discount) {
+        //     return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
+        // }
+        // $discount->update($data);
+
+        // return response(['message' => 'Успешно редактирован', 'success' => true], 200);
     }
 
     /**
@@ -95,16 +100,17 @@ class DiscountController extends Controller
      */
     public function destroy($id)
     {
-        $discount = Discount::find($id);
-        if(!$discount) {
-            return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
-        }
-        $discount->delete();
-        return response(['message' => 'Успешно удален', 'success' => true], 200);
+        // $discount = Discount::find($id);
+        // if (!$discount) {
+        //     return response(['message' => 'Takoy skidki ne sushestvuyet'], 400);
+        // }
+        // $discount->delete();
+        // return response(['message' => 'Успешно удален', 'success' => true], 200);
     }
 
-    public function all() {
-        $discounts = Discount::latest()->get();
-        return response(['data' => $discounts], 200);
+    public function all()
+    {
+        // $discounts = Discount::latest()->get();
+        // return response(['data' => $discounts], 200);
     }
 }

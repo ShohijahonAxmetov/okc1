@@ -203,7 +203,7 @@
                                 <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_ru" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="Описание">{{ $post->desc['ru'] ?? '' }}</textarea>
+                                <textarea name="desc_ru" class="form-control ckeditor form-control-solid" id="desc_ru" rows="4" placeholder="Описание">{{ $post->desc['ru'] ?? '' }}</textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -239,7 +239,7 @@
                                 <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_uz" class="form-control form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $post->desc['uz'] ?? '' }}</textarea>
+                                <textarea name="desc_uz" class="form-control ckeditor form-control-solid" id="desc_ru" rows="4" placeholder="description...">{{ $post->desc['uz'] ?? '' }}</textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -393,7 +393,7 @@
                                 <label class="fs-6 fw-bold mb-2">Описание</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <textarea name="desc_uz" class="form-control form-control-solid" rows="4" placeholder="description..."></textarea>
+                                <textarea name="desc_uz" class="form-control ckeditor form-control-solid" rows="4" placeholder="description..."></textarea>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->

@@ -11,6 +11,7 @@ class Discount extends Model
 
     protected $fillable = [
         'venkon_id',
+        'integration_id',
     	'discount_type',
     	'amount_type',
         'venkon_brand_id',
@@ -18,7 +19,9 @@ class Discount extends Model
         'venkon_product_id',
         'from_amount',
         'to_amount',
-        'discount'
+        'discount',
+        'is_active',
+        'integration_id'
     ];
 
     protected $casts = [
@@ -26,6 +29,6 @@ class Discount extends Model
     ];
 
     public function brand() {
-        return $this->belongsTo(Brand::class, 'venkon_id');
+        return $this->belongsTo(Brand::class, 'integration_id');
     }
 }

@@ -28,7 +28,8 @@ class User extends Authenticatable implements JWTSubject
         'postal_code',
         'username',
         'password',
-        'img'
+        'img',
+        'sex'
     ];
 
     /**
@@ -63,7 +64,7 @@ class User extends Authenticatable implements JWTSubject
     // ];
 
     public function orders() {
-        return $this->hasMany('App\Models\Order');
+        return $this->hasMany(Order::class);
     }
 
     public function comments() {

@@ -24,9 +24,11 @@ class Order extends Model
     	'with_delivery',
     	'delivery_method',
     	'payment_method',
+		'payment_card',
     	'status',
         'is_deleted',
-        'is_payed'
+        'is_payed',
+        'warehouse_id'
     ];
 
     public function productVariations()
@@ -35,6 +37,26 @@ class Order extends Model
     }
 
     public function user() {
-    	return $this->belongsTo('App\Models\User');
+    	return $this->belongsTo(User::class);
+    }
+
+    public function zoodpayTransaction()
+    {
+        return $this->hasOne(ZoodpayTransaction::class);
+    }
+
+    public function zoodpayHistories()
+    {
+        return $this->hasMany(ZoodpayHistory::class);
+    }
+
+    public function playmobileMessages()
+    {
+        return $this->hasMany(PlaymobileMessage::class);
+    }
+
+    public function fargoHistories()
+    {
+        return $this->hasMany(FargoHistory::class, 'reference_id');
     }
 }

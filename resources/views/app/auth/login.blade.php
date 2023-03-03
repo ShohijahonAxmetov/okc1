@@ -1,143 +1,274 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/media/okc-shortcut.png" />
+    <title>Добро пожаловать в OKC</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+      @font-face {
+        font-family: "Optima Cyr";
+        src: url("/optima-cyr.woff") format("woff");
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        border: 0;
+      }
+      *,
+      :after,
+      :before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      :active,
+      :focus {
+        outline: none;
+      }
+      a:active,
+      a:focus {
+        outline: none;
+      }
+      aside,
+      footer,
+      header,
+      nav {
+        display: block;
+      }
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        font-size: 100%;
+        line-height: 1;
+        font-size: 14px;
+        -ms-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      button,
+      input,
+      textarea {
+        font-family: inherit;
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      button {
+        cursor: pointer;
+      }
+      button::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+      }
+      a,
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      ul li {
+        list-style: none;
+      }
+      img {
+        vertical-align: top;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: 400;
+      }
+      .main {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .left {
+        background: url(assets/media/img.jpg) center no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+      }
+      .left:after {
+        background: linear-gradient(
+            180deg,
+            rgba(72, 117, 123, 0) 59.91%,
+            rgba(72, 117, 123, 0.88) 100%
+          ),
+          url(image.png);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      .content {
+        padding-bottom: 56px;
+        position: relative;
+        z-index: 9;
+      }
+      .title {
+        font-family: "Optima Cyr";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 26px;
+      }
+      .img {
+        text-align: center;
+      }
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .wrapper {
+        border: 1px solid rgba(31, 117, 168, 0.46);
+        border-radius: 4px;
+        padding: 32px 40px;
+      }
+      .suptitle {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        color: #111111;
+        margin-bottom: 40px;
+      }
+      .label {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        color: #111111;
+      }
+      input {
+        border: 1px solid #b7d3f9;
+        border-radius: 500px;
+        padding: 12px 16px;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #828282;
+      }
+      .input__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .btn {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: #ffffff;
+        background: #f3628d;
+        border-radius: 38px;
+        display: block;
+        width: 100%;
+        padding: 13px 0;
+      }
+      @media screen and (max-width: 992px) {
+        .title {
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 1rem;
+        }
+        .pic {
+          width: 120px;
+          height: auto;
+          object-fit: contain;
+        }
+        .main {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .left {
+          padding: 32px 1rem;
+        }
+        .content {
+          padding-bottom: 0;
+        }
+        .wrapper {
+          padding: 1rem;
+          border: none;
+        }
+        .suptitle {
+          font-size: 20px;
+          line-height: 120%;
+        }
+        .label {
+          font-size: 1rem;
+          line-height: 120%;
+        }
+        .left::after {
+          background: linear-gradient(
+              0deg,
+              rgba(72, 117, 123, 0.64),
+              rgba(72, 117, 123, 0.64)
+            ),
+            url(image.png);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main">
+      <div class="left">
+        <div class="content">
+          <h1 class="title">Добро пожаловать в панель администратора</h1>
+          <div class="img">
+            <img src="assets/media/brand.svg" alt="" class="pic" />
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="wrapper">
+          <h4 class="suptitle">Вход в систему</h4>
+          <form action="{{ route('auth.login') }}" method="post">
+          	@csrf
+            <div class="input__wrapper">
+              <label for="username" class="label">Имя пользователя</label>
+              <input type="text" name="username" id="username" required />
+            </div>
+            <div class="input__wrapper">
+              <label for="password" class="label">Пароль</label>
+              <input type="password" name="password" id="password" required />
+            </div>
+            <button class="btn">Войти</button>
+          </form>
+        </div>
+      </div>
+    </main>
 
-<html lang="ru">
-	<!--begin::Head-->
-	<head><base href="../../../">
-		<title>OKC- LOGIN</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="assets/media/okc-shortcut.png" />
-		<!--begin::Fonts-->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		<!--end::Fonts-->
-		<!--begin::Global Stylesheets Bundle(used by all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		<!--end::Global Stylesheets Bundle-->
-	</head>
-	<!--end::Head-->
-	<!--begin::Body-->
-	<body id="kt_body" class="bg-body">
-		<!--begin::Main-->
-		<!--begin::Root-->
-		<div class="d-flex flex-column flex-root">
-			<!--begin::Authentication - Sign-in -->
-			<div class="d-flex flex-column flex-lg-row flex-column-fluid">
-				<!--begin::Aside-->
-				<div class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative" style="background-color: #F2C98A">
-					<!--begin::Wrapper-->
-					<div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
-						<!--begin::Content-->
-						<div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
-							<!--begin::Logo-->
-							<a href="../../demo1/dist/index.html" class="py-9 mb-5">
-								<img alt="Logo" src="assets/media/logo.svg" class="h-60px" />
-							</a>
-							<!--end::Logo-->
-							<!--begin::Title-->
-							<h1 class="fw-bolder fs-2qx pb-5 pb-md-10" style="color: #986923;">Welcome to Dashboard</h1>
-							<!--end::Title-->
-							<!--begin::Description-->
-							<!-- <p class="fw-bold fs-2" style="color: #986923;">Discover Amazing Metronic
-							<br />with great build tools</p> -->
-							<!--end::Description-->
-						</div>
-						<!--end::Content-->
-						<!--begin::Illustration-->
-						<div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px" style="background-image: url(assets/media/illustrations/sketchy-1/13.png"></div>
-						<!--end::Illustration-->
-					</div>
-					<!--end::Wrapper-->
-				</div>
-				<!--end::Aside-->
-				<!--begin::Body-->
-				<div class="d-flex flex-column flex-lg-row-fluid py-10">
-					<!--begin::Content-->
-					<div class="d-flex flex-center flex-column flex-column-fluid">
-						<!--begin::Wrapper-->
-						<div class="w-lg-500px p-10 p-lg-15 mx-auto">
-							<!--begin::Form-->
-							<form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="{{ route('auth.login') }}" method="post">
-                                @csrf
-								<!--begin::Heading-->
-								<div class="text-center mb-10">
-									<!--begin::Title-->
-									<h1 class="text-dark mb-3">Sign In to OKC Dashboard</h1>
-									<!--end::Title-->
-								</div>
-								<!--begin::Heading-->
-								<!--begin::Input group-->
-								<div class="fv-row mb-10">
-									<!--begin::Label-->
-									<label class="form-label fs-6 fw-bolder text-dark">Email</label>
-									<!--end::Label-->
-									<!--begin::Input-->
-									<input class="form-control form-control-lg form-control-solid" required type="text" name="username" autocomplete="off" />
-									<!--end::Input-->
-								</div>
-								<!--end::Input group-->
-								<!--begin::Input group-->
-								<div class="fv-row mb-10">
-									<!--begin::Wrapper-->
-									<div class="d-flex flex-stack mb-2">
-										<!--begin::Label-->
-										<label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
-										<!--end::Label-->
-										<!--begin::Link-->
-										<!-- <a href="../../demo1/dist/authentication/layouts/aside/password-reset.html" class="link-primary fs-6 fw-bolder">Forgot Password ?</a> -->
-										<!--end::Link-->
-									</div>
-									<!--end::Wrapper-->
-									<!--begin::Input-->
-									<input class="form-control form-control-lg form-control-solid" required type="password" name="password" autocomplete="off" />
-									<!--end::Input-->
-								</div>
-								<!--end::Input group-->
-								<!--begin::Actions-->
-								<div class="text-center">
-									<!--begin::Submit button-->
-									<button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-										<span class="indicator-label">Continue</span>
-									</button>
-									<!--end::Submit button-->
-								</div>
-								<!--end::Actions-->
-							</form>
-							<!--end::Form-->
-						</div>
-						<!--end::Wrapper-->
-					</div>
-					<!--end::Content-->
-				</div>
-				<!--end::Body-->
-			</div>
-			<!--end::Authentication - Sign-in-->
-		</div>
-		<!--end::Root-->
-		<!--end::Main-->
-		<!--begin::Javascript-->
-		<script>var hostUrl = "assets/";</script>
-		<!--begin::Global Javascript Bundle(used by all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
-		<!--end::Global Javascript Bundle-->
-
-		<!--begin::Page Custom Javascript(used by this page)-->
-		<!-- notyf -->
-		<script type="text/javascript" src="{{ asset('app/notify.js') }}"></script>
-		@if(isset($_GET['success']) && $_GET['success'] == 'true' || session('success') && session('success') == true)
-		<script>
-			$.notify("Success!", 'success');
-		</script>
-		@elseif(session()->has('success') && session('success') == false)
-		<script>
-			$.notify("Error! Username or password incorrect", 'error');
-		</script>
-		@endif
-		<!-- <script src="assets/js/custom/authentication/sign-in/general.js"></script> -->
-		<!--end::Page Custom Javascript-->
-
-		<!--end::Javascript-->
-	</body>
-	<!--end::Body-->
+    <script type="text/javascript" src="{{ asset('app/notify.js') }}"></script>
+	@if(isset($_GET['success']) && $_GET['success'] == 'true' || session('success') && session('success') == true)
+	<script>
+		$.notify("Success!", 'success');
+	</script>
+	@elseif(session()->has('success') && session('success') == false)
+	<script>
+		$.notify("Error! Username or password incorrect", 'error');
+	</script>
+	@endif
+  </body>
 </html>

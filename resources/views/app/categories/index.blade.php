@@ -27,17 +27,29 @@
             <span class="card-label fw-bolder fs-3 mb-1">Категории</span>
             <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_categories_count }}</span>
         </h3>
-        <!-- <div class="card-toolbar">
-            <a href="#" class="btn btn-sm btn-light-primary">
-                <span class="svg-icon svg-icon-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor"></rect>
-                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
+        <div class="card-toolbar">
+            <button type="button" id="clear_btn" class="d-flex justify-content-center align-items-center btn rounded-circle me-2 p-0" style="width: 28px;height: 28px">
+                <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+                        <rect x="7" y="15.3137" width="12" height="2" rx="1" transform="rotate(-45 7 15.3137)" fill="currentColor" />
+                        <rect x="8.41422" y="7" width="12" height="2" rx="1" transform="rotate(45 8.41422 7)" fill="currentColor" />
                     </svg>
                 </span>
-                New Item
-            </a>
-        </div> -->
+            </button>
+            <form action="{{ route('categories.index') }}" class="d-flex align-items-center">
+                <div class="d-flex align-items-center position-relative my-1 ms-4">
+                    <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
+                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                    <input type="text" name="search" class="form-control form-control-solid w-250px ps-14" placeholder="Поиск категории" value="{{ $search }}">
+                </div>
+                <button class="btn btn-success ms-2" style="height: min-content;">Поиск</button>
+            </form>
+        </div>
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -53,7 +65,8 @@
                         <th class="min-w-325px">Название</th>
                         <th class="min-w-125px">Родительская категория</th>
                         <th class="min-w-150px">Статус</th>
-                        <th class="min-w-200px text-end rounded-end">Действия</th>
+                        <th class="min-w-150px">Позиция</th>
+                        <th class="min-w-75px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -83,6 +96,9 @@
                             @else
                             <span class="badge badge-light-danger fs-7 fw-bold">Неактивный</span>
                             @endif
+                        </td>
+                        <td>
+                            <a class="text-dark text-hover-primary d-block mb-1 fs-6">{{ isset($category->position) ? $category->position : '--' }}</a>
                         </td>
                         <td class="text-end">
                             <!-- <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
@@ -124,6 +140,7 @@
     </div>
     <!--begin::Body-->
 </div>
+{{ $categories->links() }}
 
 
 @foreach($categories as $category)
@@ -269,6 +286,16 @@
                         </div>
                     </div>
 
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-6">
+                        <!--begin::Label-->
+                        <label class="fs-6 required fw-bold mb-2">Позиция</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="position" value="{{ $category->position ?? '' }}" />
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
 
                     <!--begin::Input group-->
                     <div class="fv-row mb-9">
@@ -320,5 +347,15 @@
 </div>
 <!--end::Modal - New Product-->
 @endforeach
+
+@endsection
+
+@section('scripts')
+
+<script>
+    document.getElementById('clear_btn').addEventListener('click', function() {
+        document.querySelector("[name='search']").value = '';
+    });
+</script>
 
 @endsection

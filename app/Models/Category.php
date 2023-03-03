@@ -18,7 +18,9 @@ class Category extends Model
     	'meta_keywords',
     	'meta_desc',
         'venkon_id',
-        'is_active'
+        'is_active',
+        'position',
+        'integration_id'
     ];
 
     protected $casts = [
@@ -43,17 +45,17 @@ class Category extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id', 'venkon_id', 'id');
+        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id', 'integration_id', 'id');
     }
 
     public function parent()
     {
-        return $this->hasOne(self::class, 'venkon_id', 'parent_id');
+        return $this->hasOne(self::class, 'integration_id', 'parent_id');
     }
     
     public function children()
     {
-        return $this->hasMany(self::class, 'parent_id', 'venkon_id');
+        return $this->hasMany(self::class, 'parent_id', 'integration_id');
     }
 
     public function getParentsAttribute()
