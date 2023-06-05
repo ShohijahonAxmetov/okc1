@@ -582,8 +582,11 @@ class VenkonController extends Controller
         }
         DB::beginTransaction();
         try {
-            $data = Product::where('vendor_code', $request->vendor_code)->first();
-            if (is_null($data)) {
+            $data = Product::where('vendor_code', $request->vendor_code)
+                ->where('vendor_code', '!=', '')
+                ->first();
+
+            if (!$data) {
                 $data = new Product;
             }
             $data->title = json_decode($this->withLang($request->title));
@@ -611,7 +614,6 @@ class VenkonController extends Controller
             $color = Color::where('integration_id', $request->color_id)->first();
             if (!$color) {
                 $color_result = '';
-                // return response(['success' => false, 'message' => 'Color with this id does not exist. Firstly add color!'], 400);
             } else {
                 $color_result = $color->title['ru'];
             }
@@ -808,10 +810,15 @@ class VenkonController extends Controller
 
     public function upload_datas()
     {
-        $base_url = 'http://213.230.65.189/UT_NewClean/hs/invema_API';
-        $old_base_url = 'http://213.230.65.189/invema/hs/invema_API';
+        $new_ip_address = '94.232.24.102';
+        $old_ip_address = '213.230.65.189';
 
-        // upload brands from venkom
+        $base_url = 'http://' . $new_ip_address . '/UT_NewClean/hs/invema_API';
+        $old_base_url = 'http://' . $new_ip_address . '/invema/hs/invema_API';
+
+        /*
+         * upload brands from venkom
+         */
         $url = $base_url.'/brands';
         $url_auth = ['Venkon', 'overlord'];
 
@@ -819,7 +826,6 @@ class VenkonController extends Controller
         $res = $client->get($url, ['auth' =>  $url_auth]);
         $resp = (string) $res->getBody();
         $resp_toArray = json_decode($resp, true);
-
         if ($resp_toArray['success']) {
             $brands = $resp_toArray['brands'];
 
@@ -839,7 +845,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload categories from venkom
+        /*
+         * upload categories from venkom
+         */
         $url = $base_url.'/categories';
 
         $client = new \GuzzleHttp\Client();
@@ -866,7 +874,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload colors from venkom
+        /*
+         * upload colors from venkom
+         */
         $url = $base_url.'/colors';
 
         $client = new \GuzzleHttp\Client();
@@ -893,7 +903,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload products from venkom
+        /*
+         * upload products from venkom
+         */
         $url = $base_url.'/products';
         $url_auth = ['Venkon', 'overlord'];
 
@@ -901,6 +913,7 @@ class VenkonController extends Controller
         $res = $client->get($url, ['auth' =>  $url_auth]);
         $resp = (string) $res->getBody();
         $resp_toArray = json_decode($resp, true);
+        // return response($resp_toArray);
 
         if ($resp_toArray['success']) {
             $products = $resp_toArray['products'];
@@ -1003,7 +1016,7 @@ class VenkonController extends Controller
                             ]);
                         }
                     }
-
+ 
                     DB::table('category_product')->updateOrInsert([
                         'product_id' => $productVariation->product_id,
                         'category_id' => $item['category_id']
@@ -1019,7 +1032,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload discount from venkom
+        /*
+         * upload discount from venkom
+         */
         $url = $base_url.'/discount';
         $url_auth = ['Venkon', 'overlord'];
 
@@ -1181,7 +1196,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload warehouses from venkom
+        /*
+         * upload warehouses from venkom
+         */
         $url = $base_url.'/warehouses';
 
         $client = new \GuzzleHttp\Client();
@@ -1207,7 +1224,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
-        // upload warehouses and warehouses products
+        /*
+         * upload warehouses and warehouses products
+         */
         $url = $base_url.'/remainder';
 
         $client = new \GuzzleHttp\Client();
@@ -1234,8 +1253,9 @@ class VenkonController extends Controller
             ], 400);
         }
 
+
         return back()->with([
-            'message' => 'Successfully uploaded!',
+            'message' => 'Успешно загружен!',
             'success' => true
         ]);
     }

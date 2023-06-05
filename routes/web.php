@@ -22,6 +22,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LogController;
 use App\Http\Controllers\ZoodpayController;
 
+$new_ip_address = '94.232.24.102';
+$old_ip_address = '213.230.65.189';
 
 Route::get('test', [VenkonController::class, 'warehouses_put']);
 // Route::get('/fix_category_product', function() {
@@ -63,17 +65,9 @@ Route::post('/fargo/history', [\App\Http\Controllers\FargoController::class, 'we
 
 // Route::get('/order_to_venkom', [WebController::class, 'order_to_venkom']);
 
-// Route::get('/bass', function () {
-//     $client = new GuzzleHttp\Client();
-//     $res = $client->get('http://213.230.65.189/invema/hs/invema_API/remainder', ['auth' =>  ['Venkon', 'overlord']]);
-//     $resp = (string) $res->getBody();
-//     return response()->json(json_decode($resp, true), $res->getStatusCode());
-//     // return view('welcome');
-// });
-
-Route::get('/bassnew', function () {
+Route::get('/bassnew', function () use ($new_ip_address) {
     $client = new GuzzleHttp\Client();
-    $res = $client->get('http://213.230.65.189/UT_NewClean/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
+    $res = $client->get('http://' . $new_ip_address . '/UT_NewClean/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
     $resp = (string) $res->getBody();
     return response()->json(json_decode($resp, true), $res->getStatusCode());
     // return view('welcome');
@@ -213,52 +207,52 @@ Route::post('/upload_from_dropzone', [\App\Http\Controllers\ProductController::c
 
 
 // venkon api
-Route::group(['prefix' => 'venkon'], function () {
-    Route::get('brands', function () {
+Route::group(['prefix' => 'venkon'], function () use ($new_ip_address) {
+    Route::get('brands', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/brands', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/brands', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('categories', function () {
+    Route::get('categories', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/categories', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('colors', function () {
+    Route::get('colors', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/colors', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/colors', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('products', function () {
+    Route::get('products', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('warehouses', function () {
+    Route::get('warehouses', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/warehouses', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/warehouses', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('discount', function () {
+    Route::get('discount', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/discount', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/discount', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 
-    Route::get('remainder', function () {
+    Route::get('remainder', function () use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
-        $res = $client->get('http://213.230.65.189/Invema_Test/hs/invema_API/remainder', ['auth' =>  ['Venkon', 'overlord']]);
+        $res = $client->get('http://' . $new_ip_address . '/Invema_Test/hs/invema_API/remainder', ['auth' =>  ['Venkon', 'overlord']]);
         $resp = (string) $res->getBody();
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });

@@ -481,7 +481,10 @@ class OrderController extends Controller
 
     public function order_to_venkom(Order $order) // Order $order
     {
-        $base_url = 'http://213.230.65.189/UT_NewClean/hs/invema_API';
+        $new_ip_address = '94.232.24.102'; // 06.03.2023
+        $old_ip_address = '213.230.65.189';
+
+        $base_url = 'http://' . $new_ip_address . '/UT_NewClean/hs/invema_API';
         $login = 'Venkon';
         $password = 'overlord';
 
