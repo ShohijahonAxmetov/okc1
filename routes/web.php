@@ -1,26 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DiscountController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\VenkonController;
-use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\WebController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MailingController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LogController;
-use App\Http\Controllers\ZoodpayController;
+use App\Http\Controllers\{
+    PageController,
+    DiscountController,
+    DashboardController,
+    OrderController,
+    BrandController,
+    CategoryController,
+    ProductController,
+    ApplicationController,
+    BannerController,
+    CommentController,
+    VenkonController,
+    AdminAuthController,
+    WebController,
+    PostController,
+    UserController,
+    WarehouseController,
+    AdminController,
+    MailingController,
+    ProfileController,
+    LogController,
+    ZoodpayController,
+};
 
 $new_ip_address = '94.232.24.102';
 $old_ip_address = '213.230.65.189';
@@ -196,6 +199,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     // logs
     Route::get('logs', [LogController::class, 'index'])->name('logs.index');
     Route::post('logs/destroy/{id}', [LogController::class, 'destroy'])->name('logs.destroy');
+
+    // PAGES
+    Route::prefix('pages')->group(function() {
+        Route::get('about', [PageController::class, 'about'])->name('about');
+        Route::get('contacts', [PageController::class, 'contacts'])->name('contacts');
+        Route::get('delivery', [PageController::class, 'delivery'])->name('delivery');
+
+        Route::post('{id}/update', [PageController::class, 'update'])->name('pages.update');
+    });
 });
 
 

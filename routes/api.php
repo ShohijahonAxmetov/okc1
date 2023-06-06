@@ -1,23 +1,26 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\FilterController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductVariationImageController;
-use App\Http\Controllers\AttributeController;
-use App\Http\Controllers\WebController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\DiscountController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\SpecialOfferClientController;
-use App\Http\Controllers\VenkonController;
-use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\FargoController;
-use App\Http\Controllers\ZoodpayController;
+use App\Http\Controllers\{
+	web\PageController,
+	AuthController,
+	AdminAuthController,
+	AdminController,
+	BrandController,
+	FilterController,
+	CategoryController,
+	ProductController,
+	ProductVariationImageController,
+	AttributeController,
+	WebController,
+	UserController,
+	DiscountController,
+	CommentController,
+	SpecialOfferClientController,
+	VenkonController,
+	WarehouseController,
+	FargoController,
+	ZoodpayController,
+};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +120,9 @@ Route::get('/search', [WebController::class, 'search']);
 Route::post('/get_warehouses', [WebController::class, 'get_warehouses']);
 Route::post('/application-store', [WebController::class, 'application_store']);
 Route::post('/special-offer-client', [WebController::class, 'special_offer_client']);
+
+// NEW ROUTES(06.06.23)
+Route::get('pages', [PageController::class, 'get']);
 
 Route::get('get_comments/{id}', [WebController::class, 'get_comments']);
 
