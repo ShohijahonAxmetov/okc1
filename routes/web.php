@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
+    ReviewController,
     PageController,
     DiscountController,
     DashboardController,
@@ -208,6 +209,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
         Route::post('{id}/update', [PageController::class, 'update'])->name('pages.update');
     });
+
+    // REVIEWS
+    Route::resource('reviews', ReviewController::class);
 });
 
 

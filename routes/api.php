@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
 	web\PageController,
+	web\ReviewController,
 	AuthController,
 	AdminAuthController,
 	AdminController,
@@ -123,6 +124,7 @@ Route::post('/special-offer-client', [WebController::class, 'special_offer_clien
 
 // NEW ROUTES(06.06.23)
 Route::get('pages', [PageController::class, 'get']);
+Route::get('reviews', [ReviewController::class, 'get']);
 
 Route::get('get_comments/{id}', [WebController::class, 'get_comments']);
 
