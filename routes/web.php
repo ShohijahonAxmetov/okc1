@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
+    AddressInfoController,
+    InfoController,
     ReviewController,
     PageController,
     DiscountController,
@@ -212,6 +214,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
     // REVIEWS
     Route::resource('reviews', ReviewController::class);
+
+    // INFOS
+    Route::resource('infos', InfoController::class);    
+    Route::resource('addresses', AddressInfoController::class);
 });
 
 
