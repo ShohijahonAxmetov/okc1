@@ -129,7 +129,7 @@
 
                                                 <div>
                                                     <!--begin::Editor-->
-                                                    <div id="editor" class="desc" name="desc_ru" style="height: 200px;">{!! old('desc_ru') ?? $product->desc['ru'] ?? '' !!}</div>
+                                                    <textarea name="desc_ru" class="ckeditor desc" id="editor1" cols="30" rows="10" style="height: 200px;">{!! old('desc_ru') ?? $product->desc['ru'] ?? '' !!}</textarea>
                                                     <!--end::Editor-->
                                                 </div>
 
@@ -139,7 +139,7 @@
 
                                                 <div>
                                                     <!--begin::Editor-->
-                                                    <div id="editor2" class="desc" name="how_to_use_ru" style="height: 200px;">{!! old('how_to_use_ru') ?? $product->how_to_use['ru'] ?? '' !!}</div>
+                                                    <textarea name="how_to_use_ru" class="ckeditor desc" id="editor2" cols="30" rows="10" style="height: 200px;">{!! old('how_to_use_ru') ?? $product->how_to_use['ru'] ?? '' !!}</textarea>
                                                     <!--end::Editor-->
                                                 </div>
 
@@ -226,7 +226,7 @@
 
                                                 <div>
                                                     <!--begin::Editor-->
-                                                    <div id="editor1" class="desc" name="desc_uz" style="height: 200px;">{!! old('desc_uz') ?? $product->desc['uz'] ?? '' !!}</div>
+                                                    <textarea name="desc_uz" class="ckeditor desc" id="editor3" style="height: 200px;" cols="30" rows="10">{!! old('desc_uz') ?? $product->desc['uz'] ?? '' !!}</textarea>
                                                     <!--end::Editor-->
                                                 </div>
 
@@ -236,7 +236,7 @@
 
                                                 <div>
                                                     <!--begin::Editor-->
-                                                    <div id="editor21" class="desc" name="how_to_use_uz" style="height: 200px;">{!! old('how_to_use_uz') ?? $product->how_to_use['uz'] ?? '' !!}</div>
+                                                    <textarea name="how_to_use_uz" class="ckeditor desc" id="editor4" style="height: 200px;" cols="30" rows="10">{!! old('how_to_use_uz') ?? $product->how_to_use['uz'] ?? '' !!}</textarea>
                                                     <!--end::Editor-->
                                                 </div>
 
@@ -502,39 +502,6 @@
 @section('scripts')
 
 <script>
-    var quill = new Quill('#editor', {
-        theme: 'snow',
-        // modules: {
-        //     toolbar: [
-
-        //     ]
-        // }
-    });
-    var quill = new Quill('#editor2', {
-        theme: 'snow',
-        // modules: {
-        //     toolbar: [
-
-        //     ]
-        // }
-    });
-
-    var quill = new Quill('#editor1', {
-        theme: 'snow',
-        // modules: {
-        //     toolbar: [
-
-        //     ]
-        // }
-    });
-    var quill = new Quill('#editor21', {
-        theme: 'snow',
-        // modules: {
-        //     toolbar: [
-
-        //     ]
-        // }
-    });
 
     @if(isset($product->productVariations[0]))
     @foreach($product->productVariations as $variation)
@@ -625,10 +592,14 @@
         }
 
         let title_uz = document.querySelector('[name="title_uz"]').value;
-        let desc_ru = document.querySelector('[name="desc_ru"]').textContent;
-        let desc_uz = document.querySelector('[name="desc_uz"]').textContent;
-        let how_to_use_ru = document.querySelector('[name="how_to_use_ru"]').textContent;
-        let how_to_use_uz = document.querySelector('[name="how_to_use_uz"]').textContent;
+        // let desc_ru = document.querySelector('[name="desc_ru"]').textContent;
+        // let desc_uz = document.querySelector('[name="desc_uz"]').textContent;
+        // let how_to_use_ru = document.querySelector('[name="how_to_use_ru"]').value;
+        // let how_to_use_uz = document.querySelector('[name="how_to_use_uz"]').textContent;
+        let desc_ru = CKEDITOR.instances.editor1.getData();
+        let desc_uz = CKEDITOR.instances.editor3.getData();
+        let how_to_use_ru = CKEDITOR.instances.editor2.getData();
+        let how_to_use_uz = CKEDITOR.instances.editor4.getData();
         let meta_keywords_ru = document.querySelector('[name="meta_keywords_ru"]').value;
         let meta_keywords_uz = document.querySelector('[name="meta_keywords_uz"]').value;
         let is_popular = document.querySelector('[name="is_popular"]').value;
@@ -690,6 +661,8 @@
         params.set('categories', categories);
         params.set('dropzone_images', JSON.stringify(dropzone_images));
         params.set('variations_data', JSON.stringify(variations_data));
+
+        console.log(how_to_use_ru);
 
         fetch('/dashboard/products/' + {{ $product -> id }} + '/update?_token=' + csrf, {
             method: 'POST',

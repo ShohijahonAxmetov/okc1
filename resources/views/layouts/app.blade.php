@@ -50,7 +50,7 @@
 		// CKEDITOR.config.filebrowserBrowseUrl = '/browse.php';
 		// CKEDITOR.config.extraPlugins = 'uploadimage';
 		CKEDITOR.config.filebrowserUploadUrl = "{{ route('upload-image', ['_token' => csrf_token()]) }}";
-		CKEDITOR.config.filebrowserUploadMethod = 'form';
+		CKEDITOR.config.filebrowserUploadMethod = 'post';
 	</script>
 </head>
 <!--end::Head-->
