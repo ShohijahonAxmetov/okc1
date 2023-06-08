@@ -18,6 +18,7 @@ class Info extends Model
         'telegram',
         'instagram',
         'youtube',
+        'email',
         'phone_number',
         'dop_phone_number',
     ];

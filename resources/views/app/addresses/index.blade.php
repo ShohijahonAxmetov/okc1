@@ -51,6 +51,7 @@
                     <tr class="fw-bolder text-muted bg-light">
                         <th class="ps-4 min-w-75px rounded-start">ID</th>
                         <th class="min-w-325px">Адрес</th>
+                        <th class="min-w-325px">Номер телефона</th>
                         <th class="min-w-125px text-end rounded-end pe-2">Действия</th>
                     </tr>
                 </thead>
@@ -64,6 +65,9 @@
                         </td>
                         <td>
                             <p>{!! $address->address['ru'] ?? '--' !!}</p>
+                        </td>
+                        <td>
+                            <p>{!! $address->phone_number ?? '--' !!}</p>
                         </td>
                         <td class="text-end">
                             <div class="d-flex justify-content-end">
@@ -158,7 +162,7 @@
                                 <label class="fs-6 required fw-bold mb-2">Адрес</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="" name="address_ru" value="{{ $address->address['ru'] ?? '' }}" />
+                                <input type="text" required class="form-control form-control-solid" placeholder="" name="address_ru" value="{{ $address->address['ru'] ?? '' }}" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -186,7 +190,18 @@
                         <label class="fs-6 fw-bold mb-2">Карта (iframe)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <textarea name="iframe" class="form-control form-control-solid" id="iframe" rows="4" placeholder="<iframe>">{{ $address->iframe ?? '' }}</textarea>
+                        <textarea name="iframe" required class="form-control form-control-solid" id="iframe" rows="4" placeholder="<iframe>">{{ $address->iframe ?? '' }}</textarea>
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-6">
+                        <!--begin::Label-->
+                        <label class="fs-6 fw-bold mb-2">Номер телефона</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="phone_number" value="{{ $address->phone_number ?? '' }}" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
@@ -269,7 +284,7 @@
                                 <label class="fs-6 required fw-bold mb-2">Адрес</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="" name="address_ru" value="" />
+                                <input type="text" required class="form-control form-control-solid" placeholder="" name="address_ru" value="" />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -280,7 +295,7 @@
                             <!--begin::Input group-->
                             <div class="fv-row mb-6">
                                 <!--begin::Label-->
-                                <label class="fs-6 required fw-bold mb-2">Адрес</label>
+                                <label class="fs-6 fw-bold mb-2">Адрес</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control form-control-solid" placeholder="" name="address_uz" value="" />
@@ -297,7 +312,18 @@
                         <label class="fs-6 fw-bold mb-2">Карта (iframe)</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <textarea name="iframe" class="form-control form-control-solid" id="iframe" rows="4" placeholder="<iframe>"></textarea>
+                        <textarea name="iframe" required class="form-control form-control-solid" id="iframe" rows="4" placeholder="<iframe>"></textarea>
+                        <!--end::Input-->
+                    </div>
+                    <!--end::Input group-->
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-6">
+                        <!--begin::Label-->
+                        <label class="fs-6 fw-bold mb-2">Номер телефона</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="text" class="form-control form-control-solid" placeholder="" name="phone_number" value="" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

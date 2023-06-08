@@ -107,6 +107,7 @@ class InfoController extends Controller
             'youtube' => $data['youtube'],
             'phone_number' => $data['phone_number'],
             'dop_phone_number' => $data['dop_phone_number'],
+            'email' => $data['email'],
         ]);
 
         return back()->with([

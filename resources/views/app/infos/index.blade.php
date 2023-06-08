@@ -140,6 +140,14 @@
             </div>
             <div class="fv-row mb-6">
                 <!--begin::Label-->
+                <label class="fs-6 fw-bold mb-2">Email</label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <input type="text" class="form-control form-control-solid" placeholder="" name="email" value="{{$data->email ? $data->email : ''}}" />
+                <!--end::Input-->
+            </div>
+            <div class="fv-row mb-6">
+                <!--begin::Label-->
                 <label class="fs-6 fw-bold mb-2">Номер телефона</label>
                 <!--end::Label-->
                 <!--begin::Input-->

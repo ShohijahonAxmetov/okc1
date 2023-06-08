@@ -12,6 +12,7 @@ class AddressInfo extends Model
     protected $fillable = [
         'address',
         'iframe',
+        'phone_number',
     ];
 
     protected $casts = [
