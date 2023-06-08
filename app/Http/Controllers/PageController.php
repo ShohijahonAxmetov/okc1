@@ -63,9 +63,9 @@ class PageController extends Controller
         DB::beginTransaction();
         try {
             $data['video'] = null;
-            if($request->hasFile('video')) {
+            if($request->video) {
                 $video = $request->file('video');
-                $video_name = Str::random(12).'.'.$video->extension();
+                $video_name = Str::random(12).'.'.$video->getClientOriginalExtension();
                 $saved_img = $video->move(public_path('/upload/pages'), $video_name);
                 $data['video'] = $video_name;
             }
