@@ -182,6 +182,12 @@ class VenkonController extends Controller
                     [$product['id']],
                     ['remainder' => $product['remainder']]
                 );
+
+
+                $variation = ProductVariation::where('integration_id', $product['id'])
+                                    ->first();
+                $total_remainder = $variation->warehouses->sum('pivot.remainder');
+                $variation->update(['remainder' => $total_remainder]);
             }
         }
 
@@ -584,13 +590,14 @@ class VenkonController extends Controller
         try {
             $data = Product::where('vendor_code', $request->vendor_code)
                 ->where('vendor_code', '!=', '')
+                ->where('vendor_code', '!=', 0)
                 ->first();
 
             if (!$data) {
                 $data = new Product;
             }
             $data->title = json_decode($this->withLang($request->title));
-            $data->vendor_code = $request->vendor_code;
+            $data->vendor_code = $request->vendor_code == 0 ? '' : $request->vendor_code;
             $data->brand_id = $request->brand_id;
             $data->is_active = false;
             $data->save();
@@ -669,7 +676,7 @@ class VenkonController extends Controller
                     $product = new Product;
                 }
                 $product->title = json_decode($this->withLang($request->title));
-                $product->vendor_code = $request->vendor_code;
+                $product->vendor_code = $request->vendor_code == 0 ? '' : $request->vendor_code;
                 $product->brand_id = $request->brand_id;
                 $product->is_active = false;
                 $product->save();
@@ -917,7 +924,7 @@ class VenkonController extends Controller
 
         if ($resp_toArray['success']) {
             $products = $resp_toArray['products'];
-
+            // return response($products);
             foreach ($products as $item) {
                 $productVariation = ProductVariation::where('integration_id', $item['integration_id'])
                     ->first();

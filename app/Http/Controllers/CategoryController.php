@@ -25,7 +25,10 @@ class CategoryController extends Controller
             // $search = substr(json_encode($_GET['search'], JSON_INVALID_UTF8_IGNORE), 1, -1);
             // return response($search);
 
-            $categories = $categories->where('id', $_GET['search']);
+            $categories = $categories->where(function($q) {
+                $q->where('id', '%'.$_GET['search'].'%')
+                    ->orWhere('slug', 'like', '%'.$_GET['search'].'%');
+            });
                 // ->orWhere('title', 'like', '%'.'\u0414\u043b\u044f \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u043d\u043e\u0439 \u043a\u043e\u0436\u0438'.'%');
         }
         $categories = $categories->paginate(12);
@@ -45,7 +48,6 @@ class CategoryController extends Controller
             'all_categories_count',
             'search'
         ));
-        // return response(['data' => $categories], 200);
     }
 
     /**

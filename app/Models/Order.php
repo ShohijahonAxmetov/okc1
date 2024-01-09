@@ -36,7 +36,8 @@ class Order extends Model
         return $this->belongsToMany(ProductVariation::class)->withPivot('count', 'price', 'discount_price', 'brand_discount');
     }
 
-    public function user() {
+    public function user()
+    {
     	return $this->belongsTo(User::class);
     }
 

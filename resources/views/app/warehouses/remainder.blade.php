@@ -91,7 +91,9 @@
 
                     @php
                     foreach($warehouses as $warehouse) {
-                    $total += $variation->warehouses()->where('integration_id', $warehouse->integration_id)->first()->pivot->remainder;
+                        if($variation->warehouses()->where('integration_id', $warehouse->integration_id)->first()) {
+                            $total += $variation->warehouses()->where('integration_id', $warehouse->integration_id)->first()->pivot->remainder;
+                        }
                     }
                     @endphp
                     <tr class="{{ $total < 20 && $total >= 5 ? 'bg-warning' : '' }} {{ $total < 5 ? 'bg-danger' : '' }}">
@@ -109,7 +111,7 @@
                         </td>
                         @foreach($warehouses as $warehouse)
                         <td class="text-end border-start text-center">
-                            <span class="fs-6 fw-bold">{{ $variation->warehouses()->where('integration_id', $warehouse->integration_id)->first()->pivot->remainder }}</span>
+                            <span class="fs-6 fw-bold">{{ $variation->warehouses()->where('integration_id', $warehouse->integration_id)->first() ? $variation->warehouses()->where('integration_id', $warehouse->integration_id)->first()->pivot->remainder : 0 }}</span>
                         </td>
                         @endforeach
                     </tr>

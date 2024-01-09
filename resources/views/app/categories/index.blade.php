@@ -313,7 +313,7 @@
                         <select class="form-select" aria-label="" name="parent_id" data-control="select2" data-hide-search="true">
                             <option value="">Выберите из списка</option>
                             @foreach($all_categories as $item)
-                            <option value="{{ $item->id }}" {{ $category->parent_id == $item->id ? 'selected' : '' }}>{{ $item->title['ru'] }}</option>
+                            <option value="{{ $item->integration_id }}" {{ $category->parent_id == $item->integration_id ? 'selected' : '' }}>{{ $item->title['ru'] }}</option>
                             @endforeach
                         </select>
                     </div>
