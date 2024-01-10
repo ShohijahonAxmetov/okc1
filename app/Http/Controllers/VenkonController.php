@@ -817,7 +817,8 @@ class VenkonController extends Controller
 
     public function upload_datas()
     {
-        $new_ip_address = '94.232.24.102';
+        // $new_ip_address = '94.232.24.102';
+        $new_ip_address = env('C_IP');
         $old_ip_address = '213.230.65.189';
 
         $base_url = 'http://' . $new_ip_address . '/UT_NewClean/hs/invema_API';

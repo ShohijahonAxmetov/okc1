@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 // routes for test venkon API
 
 Route::prefix('for_test')->group(function() {
-    $new_ip_address = '94.232.24.102'; //06.03.2023
+    // $new_ip_address = '94.232.24.102'; //06.03.2023
+    $new_ip_address = '213.230.65.189';
 
     Route::get('brands', function() use ($new_ip_address) {
         $client = new GuzzleHttp\Client();
