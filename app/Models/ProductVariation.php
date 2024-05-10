@@ -24,6 +24,36 @@ class ProductVariation extends Model
         'integration_id'
     ];
 
+    protected $appends = [
+        'discount_price'
+    ];
+
+    public function getDiscountPriceAttribute()
+    {
+        $discountPrice = null;
+        $discount = Discount::where('is_active', 1)
+            ->where('discount_type', 'product')
+            ->where(function ($query) {
+                $query->where('venkon_product_id', [])
+                    ->orWhere('venkon_product_id', 'like', '%'.$this->integration_id.'%');
+            })
+            ->latest()
+            ->first();
+
+        if ($discount) {
+            switch ($discount->amount_type) {
+                case 'percent':
+                    $discountPrice = $this->price * (100 - $discount->discount) / 100;
+                    break;
+
+                case 'fixed':
+                    $discountPrice = $this->price - $discount->discount > 999 ? $this->price - $discount->discount : 1000;
+                    break;
+            }
+        }
+
+        return ceil($discountPrice);
+    }
     public function productVariationImages() {
         return $this->hasMany('App\Models\ProductVariationImage');
     }
@@ -49,5 +79,4 @@ class ProductVariation extends Model
     {
         return $this->belongsToMany(Warehouse::class, 'product_variation_warehouse', 'product_variation_id', 'warehouse_id', 'integration_id', 'integration_id')->withPivot('remainder');
     }
-
 }

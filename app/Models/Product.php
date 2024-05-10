@@ -19,14 +19,20 @@ class Product extends Model
         'is_popular',
         'vendor_code',
         'rating',
-        'number_of_ratings'
+        'number_of_ratings',
+
+        'meta_title',
+        'meta_desc',
     ];
 
     protected $casts = [
     	'title' => 'array',
     	'desc' => 'array',
     	'meta_keywords' => 'array',
-        'how_to_use' => 'array'
+        'how_to_use' => 'array',
+        
+        'meta_title' => 'array',
+        'meta_desc' => 'array',
     ];
 
     protected $appends = [

@@ -70,7 +70,10 @@ class AuthController extends Controller
         $code_storage_time = 60;
 
         if(Cache::has($phone_number) && Cache::has($phone_number.'time')) {
-            return response(['message' => 'Mojete sprosit kod cherez '.($code_storage_time - (time() - Cache::get($phone_number.'time'))).' sekund', 'second' => ($code_storage_time - (time() - Cache::get($phone_number.'time')))], 200);
+            return response([
+                'message' => 'Можете спросить код через '.($code_storage_time - (time() - Cache::get($phone_number.'time'))).' секунд',
+                'second' => ($code_storage_time - (time() - Cache::get($phone_number.'time')))
+            ], 400);
         }
 
         $code = mt_rand(100000, 999999);
@@ -99,10 +102,10 @@ class AuthController extends Controller
                 ]
             ]);
 
-        if($response->body() == 'Request is received') {
-            return response(['message' => 'Sms otpravlen', 'second' => 60], 200);
+        if($response->status() == 200) {
+            return response(['message' => 'SMS отправлен', 'second' => 60]);
         } else {
-            return response(['message' => 'Oshibka pri otpravke sms'], 400);
+            return response(['message' => 'Ошибка при отправке SMS, попробуйте позже'], 400);
         }
 
     }
@@ -157,7 +160,8 @@ class AuthController extends Controller
             'phone_number' => 'required',
             'code' => 'required',
             'name' => 'required|max:255',
-            'password' => 'required|confirmed|min:8'
+            'password' => 'required|confirmed|min:8',
+            // 'email' => 'required|email|max:255',
         ]);
         if($validator->fails()) {
             return response(['message' => $validator->errors()], 400);

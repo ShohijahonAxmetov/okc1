@@ -281,6 +281,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
+        // dd($data);
 
         $validator = Validator::make($data, [
             'brand' => 'required',
@@ -311,6 +312,15 @@ class ProductController extends Controller
                 'uz' => $request->meta_keywords_uz
             ];
 
+            $data['meta_title'] = [
+                'ru' => $request->input('meta_title_ru'),
+                'uz' => $request->input('meta_title_uz')
+            ];
+            $data['meta_desc'] = [
+                'ru' => $request->input('meta_desc_ru'),
+                'uz' => $request->input('meta_desc_uz')
+            ];
+
 
             $product = Product::find($id)->update([
                 'brand_id' => $request->brand,
@@ -319,7 +329,10 @@ class ProductController extends Controller
                 'how_to_use' => $data['how_to_use'],
                 'meta_keywords' => $data['meta_keywords'],
                 'is_popular' => $request->is_popular,
-                'is_active' => $request->status
+                'is_active' => $request->status,
+
+                'meta_title' => $data['meta_title'],
+                'meta_desc' => $data['meta_desc'],
             ]);
 
             $product_categories = explode(',', $data['categories']);

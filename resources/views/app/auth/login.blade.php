@@ -235,7 +235,7 @@
     <main class="main">
       <div class="left">
         <div class="content">
-          <h1 class="title">Добро пожаловать в панель администратора</h1>
+          <h1 class="title">Добро пожаловать в панель управления</h1>
           <div class="img">
             <img src="assets/media/brand.svg" alt="" class="pic" />
           </div>

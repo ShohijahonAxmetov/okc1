@@ -93,6 +93,7 @@ Route::group(['prefix' => 'zoodpay'], function () {
 
 Route::get('/', [AdminAuthController::class, 'login_form'])->name('login');
 Route::post('/login', [AdminAuthController::class, 'login'])->name('auth.login');
+Route::get('/login', function() {return abort(404);});
 Route::post('/logout', [AdminAuthController::class, 'logout'])->name('auth.logout');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () {

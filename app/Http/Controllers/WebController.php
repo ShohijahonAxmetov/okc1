@@ -29,16 +29,19 @@ class WebController extends Controller
 {
     public function search(Request $request)
     {
-        $search = $request->search;
-        if (!$search) {
-            return response(null);
-        }
-        $products = Product::where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $search . '%')
-            ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%')
-            ->where('is_active', 1)
+        if ($request->input('search') !== null && $request->input('search') != '') return response(null);
+
+        $products = Product::where('is_active', 1)
+            ->where(function ($q) use ($request) {
+                $q->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $request->input('search') . '%')
+                    ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($request->input('search')) . '%');
+            })
+        // $products = Product::where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $request->input('search') . '%')
+        //     ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($request->input('search')) . '%')
             ->latest()
             ->take(20)
             ->get();
+
         return response($products);
     }
 
@@ -133,6 +136,10 @@ class WebController extends Controller
 
     public function order(Request $request)
     {
+        return response([
+            'message' => 'Введутся технические работы, можете позвонить и заказать!',
+            'success' => false
+        ], 400);
         // esli vibran zabrat i magazina, to doljen i vibiratsya magazin
         if($request->with_delivery == 0) {
             $validator = Validator::make($request->all(), [
@@ -352,7 +359,9 @@ class WebController extends Controller
 
     public function popular_products()
     {
-        $popular_products = Product::whereHas('productVariations')
+        $popular_products = Product::whereHas('productVariations', function ($q) {
+            $q->where('remainder', '>', 10);
+        })
             ->where('is_popular', 1)
             ->where('is_active', 1)
             ->with('brand')
@@ -365,7 +374,9 @@ class WebController extends Controller
 
     public function new_products()
     {
-        $new_products = Product::whereHas('productVariations')
+        $new_products = Product::whereHas('productVariations', function ($q) {
+            $q->where('remainder', '>', 10);
+        })
             ->where('is_active', 1)
             ->latest()
             ->with('brand', 'categories', 'productVariations')
@@ -447,7 +458,9 @@ class WebController extends Controller
         $categories = Category::where('is_active', 1)
             ->latest()
             ->doesntHave('parent')
-            ->with('children')
+            ->with('children', function ($q) {
+            	$q->where('is_active', 1);
+            })
             ->with('products', 'products.productVariations')
             ->get();
             
@@ -459,7 +472,9 @@ class WebController extends Controller
         $categories = Category::where('is_active', 1)
             ->orderBy('position')
             ->has('parent', '<', 1)
-            ->with('children')
+            ->with('children', function ($q) {
+            	$q->where('is_active', 1);
+            })
             ->get();
 
         return response([
@@ -507,6 +522,7 @@ class WebController extends Controller
                         ->whereBetween('product_variations.price', [$start_price, $end_price]);
                 })
                 ->where('product_variations.is_active', 1)
+                ->where('product_variations.remainder', '>', 10)
                 ->latest()
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
@@ -533,6 +549,7 @@ class WebController extends Controller
                 })
                 ->orderBy('products.is_popular', 'desc')
                 ->where('product_variations.is_active', 1)
+                ->where('product_variations.remainder', '>', 10)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -555,6 +572,7 @@ class WebController extends Controller
                 })
                 ->orderBy('product_variations.price', 'desc')
                 ->where('product_variations.is_active', 1)
+                ->where('product_variations.remainder', '>', 10)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -577,6 +595,7 @@ class WebController extends Controller
                 })
                 ->orderBy('product_variations.price')
                 ->where('product_variations.is_active', 1)
+                ->where('product_variations.remainder', '>', 10)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -599,6 +618,7 @@ class WebController extends Controller
                 })
                 ->latest()
                 ->where('product_variations.is_active', 1)
+                ->where('product_variations.remainder', '>', 10)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -621,7 +641,7 @@ class WebController extends Controller
             ->with('productVariationImages', 'product', 'product.brand', 'product.categories')
             ->first();
 
-        if (!$product) return response(['message' => 'Takogo produkta ne sushestvuyet', 'success' => false], 404);
+        if (!$product || $product->remainder < 10) return response(['message' => 'Продукт не найден', 'success' => false], 404);
         // vse variacii producks
         $variations = ProductVariation::where('slug', $slug)->with('productVariationImages')
             ->first()
@@ -751,7 +771,6 @@ class WebController extends Controller
     {
 
         $products = [];
-        // dd(json_decode($request->ids));
         foreach (json_decode($request->ids) as $id) {
             $product = ProductVariation::where('id', $id)->with('productVariationImages', 'product', 'product.brand', 'attributeOptions.attribute')->first();
             if (!isset($product)) return response(['message' => 'Takogo produkta ne sushestvuyet', 'success' => false], 404);
@@ -805,123 +824,92 @@ class WebController extends Controller
         $end_price = isset($request->end_price) ? $request->end_price : ProductVariation::max('price');
         $start_price = isset($request->start_price) ? $request->start_price : ProductVariation::min('price');
         // v1.1
-        $search = isset($request->search) ? $request->search : '';
+        $search = $request->input('search') ?? '';
 
-        if (!isset($request->sort)) {
-            $products = Product::whereIn('brand_id', $brand)
-                ->join('product_variations', function ($join) use ($start_price, $end_price) {
-                    $join->on('products.id', '=', 'product_variations.product_id')
-                        ->where('product_variations.is_default', 1)
-                        ->whereBetween('product_variations.price', [$start_price, $end_price]);
-                })
-                ->latest()
-                ->select('products.*')
-                // ->whereIn('brand_id', $brand)
-                ->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $search . '%')
-                ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%')
-                ->where('products.is_active', 1)
-                ->with('brand', 'categories')
-                ->paginate(12);
+        if ($request->input('sort') !== null && in_array($request->input('sort'), ['popular', 'expensive', 'cheap', 'new'])) {
 
-            return response([
-                'data' => $products,
-                'start_price' => $start_price,
-                'end_price' => $end_price
-            ], 200);
-        }
-
-        $sort_type = $request->sort;
-        if ($sort_type == 'popular') {
             $products = Product::join('product_variations', function ($join) use ($start_price, $end_price) {
                 $join->on('products.id', '=', 'product_variations.product_id')
                     ->where('product_variations.is_default', 1)
+                    ->where('product_variations.remainder', '>', 10)
                     ->whereBetween('product_variations.price', [$start_price, $end_price]);
-                })
-                ->orderBy('products.is_popular', 'desc')
-                ->select('products.*')
-                ->where('products.is_active', 1);
+            });
 
+            switch ($request->input('sort')) {
+                case 'popular':
+                    $products = $products->orderBy('products.is_popular', 'desc')
+                        ->select('products.*')
+                        ->where('products.is_active', 1)
+                        ->whereIn('brand_id', $brand)
+                        ->where('is_popular', 1);
+                    break;
+
+                case 'expensive':
+                    $products = $products->orderBy('product_variations.price', 'desc')
+                        ->select('products.*')
+                        ->whereIn('brand_id', $brand)
+                        ->where('products.is_active', 1);
+                    break;
+
+                case 'cheap':
+                    $products = $products->orderBy('product_variations.price')
+                        ->select('products.*')
+                        ->whereIn('brand_id', $brand)
+                        ->where('products.is_active', 1);
+                    break;
+
+                case 'new':
+                    $products = $products->latest()
+                        ->select('products.*')
+                        ->whereIn('brand_id', $brand)
+                        ->where('products.is_active', 1);
+                    break;
+                
+                default:
+                    return response([
+                        'message' => 'Несуществующее значение сортировки',
+                        'success' => false
+                    ], 400);
+            }
+        }
+
+        if (in_array($request->input('sort'), ['popular', 'new', 'expensive', 'cheap'])) {
             if($search != '') {
                 $products = $products->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $search . '%')
                     ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%');
             }
 
-            $products = $products->whereIn('brand_id', $brand)
-                ->where('is_popular', 1)
-                ->with('brand')
+            $products = $products->with('brand')
                 ->paginate(12);
-                
 
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
                 'end_price' => $end_price
-            ], 200);
-            
-        } else if ($sort_type == 'expensive') {
-            $products = Product::join('product_variations', function ($join) use ($start_price, $end_price) {
-                $join->on('products.id', '=', 'product_variations.product_id')
-                    ->where('product_variations.is_default', 1)
-                    ->whereBetween('product_variations.price', [$start_price, $end_price]);
-            })
-                ->orderBy('product_variations.price', 'desc')
-                ->select('products.*')
-                ->whereIn('brand_id', $brand)
-                ->where('products.is_active', 1)
-                ->with('brand')
-                ->paginate(12);
-            return response([
-                'data' => $products,
-                'start_price' => $start_price,
-                'end_price' => $end_price
-            ], 200);
-        } else if ($sort_type == 'cheap') {
-            $products = Product::join('product_variations', function ($join) use ($start_price, $end_price) {
-                $join->on('products.id', '=', 'product_variations.product_id')
-                    ->where('product_variations.is_default', 1)
-                    ->whereBetween('product_variations.price', [$start_price, $end_price]);
-            })
-                ->orderBy('product_variations.price')
-                ->select('products.*')
-                ->whereIn('brand_id', $brand)
-                ->where('products.is_active', 1)
-                ->with('brand')
-                ->paginate(12);
-            return response([
-                'data' => $products,
-                'start_price' => $start_price,
-                'end_price' => $end_price
-            ], 200);
-        } else if ($sort_type == 'new') {
-            $products = Product::join('product_variations', function ($join) use ($start_price, $end_price) {
-                    $join->on('products.id', '=', 'product_variations.product_id')
-                        ->where('product_variations.is_default', 1)
-                        ->whereBetween('product_variations.price', [$start_price, $end_price]);
-                })
-                ->latest()
-                ->select('products.*')
-                ->where('products.is_active', 1);
-
-            if($search != '') {
-                $products = $products->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $search . '%')
-                    ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%');
-            }
-
-            $products = $products->whereIn('brand_id', $brand)
-                ->with('brand')
-                ->paginate(12);
-                
-            return response([
-                'data' => $products,
-                'start_price' => $start_price,
-                'end_price' => $end_price
-            ], 200);
-        } else {
-            return response([
-                'message' => 'Nesushestvuyushoe znachenie sortirovki',
-                'success' => false
-            ], 400);
+            ]);
         }
+
+        $products = Product::whereIn('brand_id', $brand)
+            ->join('product_variations', function ($join) use ($start_price, $end_price) {
+                $join->on('products.id', '=', 'product_variations.product_id')
+                    ->where('product_variations.is_default', 1)
+                    ->where('product_variations.remainder', '>', 10)
+                    ->whereBetween('product_variations.price', [$start_price, $end_price]);
+            })
+            ->latest()
+            ->select('products.*')
+            // ->whereIn('brand_id', $brand)
+            ->where(DB::raw('JSON_EXTRACT(LOWER(title), "$.uz")'), 'like', '%' . $search . '%')
+            ->orWhere(DB::raw("LOWER(JSON_UNQUOTE(JSON_EXTRACT(`title`, '$.\"ru\"')))"), 'like', '%' . mb_strtolower($search) . '%')
+            ->where('products.is_active', 1)
+            ->with('brand', 'categories')
+            ->paginate(12);
+
+        return response([
+            'data' => $products,
+            'start_price' => $start_price,
+            'end_price' => $end_price
+        ]);
     }
 
     public function store_to_allin()
@@ -1061,20 +1049,7 @@ class WebController extends Controller
                 $req
             );
 
-        // dd($res->body());
-
         return $res;
-
-        // if($res['success'] != true) {
-        //     return [
-        //         'success' => false,
-        //         'message' => $res['error']
-        //     ];
-        // }
-
-        // return [
-        //     'success' => true
-        // ];
     }
 
     public function get_warehouses(Request $request)

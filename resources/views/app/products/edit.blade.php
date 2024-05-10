@@ -150,6 +150,22 @@
                                                 <!--begin::Input group-->
                                                 <div>
                                                     <!--begin::Label-->
+                                                    <label class="form-label">Meta заголовок</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Editor-->
+                                                    <input name="meta_title_ru" class="form-control mb-2" value="{{ old('meta_title_ru') ?? $product->meta_title['ru'] ?? '' }}" />
+                                                    <!--end::Editor-->
+                                                </div>
+                                                <div>
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Meta описание</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Editor-->
+                                                    <textarea name="meta_desc_ru" rows="6" class="form-control mb-2">{{ old('meta_desc_ru') ?? $product->meta_desc['ru'] ?? '' }}</textarea>
+                                                    <!--end::Editor-->
+                                                </div>
+                                                <div>
+                                                    <!--begin::Label-->
                                                     <label class="form-label">Meta Tag Keywords</label>
                                                     <!--end::Label-->
                                                     <!--begin::Editor-->
@@ -246,6 +262,22 @@
                                                 <!--begin::Meta options-->
                                                 <!--begin::Input group-->
                                                 <div>
+                                                    <div>
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Meta заголовок</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Editor-->
+                                                    <input name="meta_title_uz" class="form-control mb-2" value="{{ old('meta_title_uz') ?? $product->meta_title['uz'] ?? '' }}" />
+                                                    <!--end::Editor-->
+                                                </div>
+                                                <div>
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Meta описание</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Editor-->
+                                                    <textarea name="meta_desc_uz" rows="6" class="form-control mb-2">{{ old('meta_desc_uz') ?? $product->meta_desc['uz'] ?? '' }}</textarea>
+                                                    <!--end::Editor-->
+                                                </div>
                                                     <!--begin::Label-->
                                                     <label class="form-label">Meta Tag Keywords</label>
                                                     <!--end::Label-->
@@ -606,6 +638,11 @@
         let status = document.querySelector('[name="status"]').value;
         let brand = document.querySelector('[name="brand"]').value;
 
+        let meta_title_ru = document.querySelector('[name="meta_title_ru"]').value;
+        let meta_title_uz = document.querySelector('[name="meta_title_uz"]').value;
+        let meta_desc_ru = document.querySelector('[name="meta_desc_ru"]').value;
+        let meta_desc_uz = document.querySelector('[name="meta_desc_uz"]').value;
+
         var checked_dropzone = document.querySelectorAll('[name="dropzone_images"]');
         var dropzone_images = [...checked_dropzone].map(option => {
             var object = new Object();
@@ -661,6 +698,11 @@
         params.set('categories', categories);
         params.set('dropzone_images', JSON.stringify(dropzone_images));
         params.set('variations_data', JSON.stringify(variations_data));
+
+        params.set('meta_title_ru', meta_title_ru);
+        params.set('meta_title_uz', meta_title_uz);
+        params.set('meta_desc_ru', meta_desc_ru);
+        params.set('meta_desc_uz', meta_desc_uz);
 
         console.log(how_to_use_ru);
 
