@@ -101,7 +101,8 @@ Route::middleware('auth')->group(function() {
     Route::post('comment-store', [WebController::class, 'comment_store']);
 });
 
-Route::post('/order', [WebController::class, 'order']);
+//Route::post('/order', [WebController::class, 'order']);
+Route::post('/order', [\App\Http\Controllers\web\OrderController::class, 'store']);
 // for web page
 Route::get('/banners', [WebController::class, 'banners']);
 Route::get('/popular_products', [WebController::class, 'popular_products']);

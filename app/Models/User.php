@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\bots\loyalty_card\TelegramUser;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -69,6 +70,11 @@ class User extends Authenticatable implements JWTSubject
 
     public function comments() {
         return $this->hasMany(Comment::class);
+    }
+
+    public function telegramUser()
+    {
+        return $this->hasOne(TelegramUser::class);
     }
 
     public function getJWTIdentifier()

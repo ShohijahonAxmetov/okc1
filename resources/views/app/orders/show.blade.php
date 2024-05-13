@@ -379,11 +379,12 @@
                                             <tr>
                                                 <td colspan="6" class="fs-5 text-dark text-end">Cумма доставки</td>
                                                 <td class="text-dark fs-5 fw-boldest text-end">
-                                                    @if($order->region == 1)
-                                                        20000 UZS
-                                                    @else
-                                                        30000 UZS
-                                                    @endif
+                                                    {{$order->delivery_price ?? '-'}}
+{{--                                                    @if($order->region == 1)--}}
+{{--                                                        20000 UZS--}}
+{{--                                                    @else--}}
+{{--                                                        30000 UZS--}}
+{{--                                                    @endif--}}
                                                 </td>
                                             </tr>
                                             @endif

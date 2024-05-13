@@ -28,7 +28,10 @@ class Order extends Model
     	'status',
         'is_deleted',
         'is_payed',
-        'warehouse_id'
+        'warehouse_id',
+
+        'delivery_type',
+        'delivery_price',
     ];
 
     public function productVariations()

@@ -24,14 +24,11 @@ class FargoController extends Controller
 
         $body = $res->json();
 
-        if($body['status'] == 'success') {
-            $this->token = $body['data']['id_token'];
-        } else {
-            return response()->with([
-                'success' => false,
-                'message' => 'Server error'
-            ], 400);
-        }
+        if($body['status'] == 'success') $this->token = $body['data']['id_token'];
+        else return response()->with([
+            'success' => false,
+            'message' => 'Server error'
+        ], 400);
     }
 
     public function get_prices()
@@ -45,9 +42,9 @@ class FargoController extends Controller
         $res = Http::withHeaders([
             'Authorization' => 'Bearer '.$this->token
         ])->get($this->base_url.'/v2/customer/packages/prices/starting_from', [
-            'from_latitude' => '41.33708107030719',
+            'from_latitude' => '41.33708107030719', // Tashkent
             'from_longitude' => '69.28459868877579',
-            'to_latitude' => '39.65888231424179',
+            'to_latitude' => '39.65888231424179', // Samarqand
             'to_longitude' => '66.97565051290078',
             'dimensions.weight' => 1,
             'dimensions.unit' => 'METRIC',
@@ -91,19 +88,13 @@ class FargoController extends Controller
         $body = $res->json();
 
         if($body['status'] == 'success') {
-            
             foreach($body['data']['list'] as $item) {
-                if($item['courier_type']['type'] == 'CITY') {
-                    $city_base_price = $item['price']['base'];
-                }
+                if($item['courier_type']['type'] == 'CITY') $city_base_price = $item['price']['base'];
             }
-
-        } else {
-            return response([
-                'success' => false,
-                'message' => 'Server error'
-            ], 400);
-        }
+        } else return response([
+            'success' => false,
+            'message' => 'Server error'
+        ], 400);
 
         return compact(
             'city_base_price',
@@ -145,9 +136,8 @@ class FargoController extends Controller
 
             $req['recipient_data']['neighborhood']['id'] =  config('app.DISTRICTS')[$order->district - 1]['fargo_id'];
             $req['recipient_data']['neighborhood']['name'] =  config('app.DISTRICTS')[$order->district - 1]['title'];
-        } else {
-            $req['recipient_data']['city']['id'] = config('app.DISTRICTS')[$order->district - 1]['fargo_id'];
-        }
+        } else $req['recipient_data']['city']['id'] = config('app.DISTRICTS')[$order->district - 1]['fargo_id'];
+
         $req['recipient_data']['country']['id'] = '234';
         $req['recipient_data']['phone'] = $order->phone_number;
         $req['recipient_data']['landmark'] = $order->address;
@@ -179,25 +169,19 @@ class FargoController extends Controller
         $req['piece_count'] = $this->get_products_count($order);
 
         // otpravka zaprosa
-        $res = Http::withHeaders([
-            'Authorization' => 'Bearer '.$this->token
-        ])->post($this->base_url.'/v2/customer/order', $req);
+        $res = Http::withHeaders(['Authorization' => 'Bearer '.$this->token])
+            ->post($this->base_url.'/v2/customer/order', $req);
 
         $body = $res->json();
 
-        if($body['status'] == 'success') {
-            
-            return response([
-                'success' => true,
-                'message' => 'Добавлен в список Fargo'
-            ], 200);
-
-        } else {
-            return response([
-                'success' => false,
-                'message' => 'Server error'
-            ], 400);
-        }
+        if($body['status'] == 'success') return response([
+            'success' => true,
+            'message' => 'Добавлен в список Fargo'
+        ], 200);
+        else return response([
+            'success' => false,
+            'message' => 'Server error'
+        ], 400);
     }
 
     public function get_products_count(Order $order)

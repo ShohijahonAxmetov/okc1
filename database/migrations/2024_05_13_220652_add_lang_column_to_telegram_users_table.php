@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSexColumnInUsersTable extends Migration
+class AddLangColumnToTelegramUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddSexColumnInUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('sex', ['male', 'female'])->nullable();
+        Schema::table('telegram_users', function (Blueprint $table) {
+            $table->integer('lang')->default(1)->comment('1-ru,2-uz');
         });
     }
 
@@ -25,8 +25,8 @@ class AddSexColumnInUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('sex');
+        Schema::table('telegram_users', function (Blueprint $table) {
+            $table->dropColumn('lang');
         });
     }
 }

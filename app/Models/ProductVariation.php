@@ -28,13 +28,14 @@ class ProductVariation extends Model
         'discount_price'
     ];
 
-    public function getDiscountPriceAttribute()
+    public function getDiscountPriceAttribute(): ?float
     {
         $discountPrice = null;
         $discount = Discount::where('is_active', 1)
             ->where('discount_type', 'product')
             ->where(function ($query) {
-                $query->where('venkon_product_id', [])
+//                $query->where('venkon_product_id', [])
+                $query->where('venkon_product_id', '[]')
                     ->orWhere('venkon_product_id', 'like', '%'.$this->integration_id.'%');
             })
             ->latest()
@@ -52,7 +53,7 @@ class ProductVariation extends Model
             }
         }
 
-        return ceil($discountPrice);
+        return $discountPrice ? ceil($discountPrice) : $discountPrice;
     }
     public function productVariationImages() {
         return $this->hasMany('App\Models\ProductVariationImage');
