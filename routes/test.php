@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // routes for test venkon API
+Route::get('express24', [\App\Http\Controllers\Express24Controller::class, 'categories  ']);
 
 Route::prefix('for_test')->group(function() {
     // $new_ip_address = '94.232.24.102'; //06.03.2023

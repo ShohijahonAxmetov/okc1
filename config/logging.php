@@ -54,6 +54,12 @@ return [
             'ignore_exceptions' => false,
         ],
 
+        'express24' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/express24.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

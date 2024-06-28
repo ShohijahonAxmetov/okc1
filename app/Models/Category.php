@@ -20,7 +20,9 @@ class Category extends Model
         'venkon_id',
         'is_active',
         'position',
-        'integration_id'
+        'integration_id',
+        
+        'express24_id',
     ];
 
     protected $casts = [

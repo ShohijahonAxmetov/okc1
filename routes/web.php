@@ -280,3 +280,6 @@ Route::group(['prefix' => 'venkon'], function () use ($new_ip_address) {
         return response()->json(json_decode($resp, true), $res->getStatusCode());
     });
 });
+
+Route::get('rss/catalog', [\App\Http\Controllers\RssController::class, 'catalog']);
+Route::get('express24/catalog', [\App\Http\Controllers\Express24Controller::class, 'categories']);

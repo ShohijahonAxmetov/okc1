@@ -16,7 +16,8 @@ class ProductVariationImage extends Model
 
     protected $appends = [
         'min_img',
-        'md_img'
+        'md_img',
+        'real_img',
     ];
 
     public function getMinImgAttribute()
@@ -37,9 +38,20 @@ class ProductVariationImage extends Model
         return null;
     }
 
+    public function getRealImgAttribute() {
+        if (isset($this->img)) {
+            $exploded = explode('/', $this->img);
+            $imploded = implode('/', array_slice($exploded, 3));
+
+            $result = 'https://admin.okc.uz/'.$imploded;
+        } else $result = $this->img;
+
+        return $result;
+    } 
+
     public function getImgAttribute($value) {
         return isset($value) ? url('/upload/products').'/'.$value : null;
-    }
+    }   
 
     public function productVariation() {
     	return $this->belongsTo('App\Models\ProductVariation');

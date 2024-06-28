@@ -233,3 +233,7 @@ Route::any('/pay/{paysys}/{key}/{amount}',function($paysys, $key, $amount){
 
 
 Route::get('get_delivery_prices', [FargoController::class, 'get_prices']);
+
+Route::group(['prefix' => 'loyalty'], function () {
+    Route::post('order', [\App\Http\Controllers\LoyaltyController::class, 'order']);
+});

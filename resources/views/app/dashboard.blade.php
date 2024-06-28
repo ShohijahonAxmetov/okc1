@@ -117,7 +117,7 @@
                                         </div>
                                         @else
                                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="{{ $client->name }}">
-                                            <span class="symbol-label bg-warning text-inverse-warning fw-bolder">{{ $client->name[0] }}</span>
+                                            <span class="symbol-label bg-warning text-inverse-warning fw-bolder">{{ $client->name[0] ?? '-' }}</span>
                                         </div>
                                         @endif
                                         @endforeach
