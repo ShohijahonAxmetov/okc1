@@ -944,7 +944,7 @@ class VenkonController extends Controller
                     // $product->title = $product->title;
                     $product->vendor_code = $item['vendor_code'];
                     $product->brand_id = $item['brand_id'];
-                    $product->is_active = false;
+                    $product->is_active = false;                    
                     $product->save();
 
                     DB::table('category_product')->updateOrInsert([
@@ -963,6 +963,9 @@ class VenkonController extends Controller
                     $sub_data->integration_id = $item['integration_id'];
                     $sub_data->color_id = $item['color_id'];
                     $sub_data->price = $item['price'];
+
+                    $sub_data->spic_id = $item['spicID'];
+                    $sub_data->package_code = $item['package_code'];
 
                     if (isset($item['remainders'][0])) {
                         foreach ($item['remainders'] as $remainder) {
@@ -995,6 +998,9 @@ class VenkonController extends Controller
                 } else {
                     $productVariation->color_id = $item['color_id'];
                     $productVariation->price = $item['price'];
+
+                    $productVariation->spic_id = $item['spicID'];
+                    $productVariation->package_code = $item['package_code'];
                     // $productVariation->integration_id = $item['integration_id'];
 
                     if (isset($item['remainders'][0])) {

@@ -21,7 +21,10 @@ class ProductVariation extends Model
         'slug',
         'venkon_id',
         'is_active',
-        'integration_id'
+        'integration_id',
+
+        'spic_id',
+        'package_code',
     ];
 
     protected $appends = [

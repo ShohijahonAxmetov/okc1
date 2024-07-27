@@ -26,6 +26,7 @@ use App\Http\Controllers\{
     ProfileController,
     LogController,
     ZoodpayController,
+    Express24Controller,
 };
 
 $new_ip_address = '94.232.24.102';
@@ -219,6 +220,18 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     // INFOS
     Route::resource('infos', InfoController::class);    
     Route::resource('addresses', AddressInfoController::class);
+
+    Route::prefix('integrations')->group(function () {
+        Route::get('express24', [Express24Controller::class, 'index'])->name('integrations.express24.index');
+        Route::get('express24/categories', [Express24Controller::class, 'toCategoriesPage'])->name('integrations.express24.categories');
+        Route::post('express24/categories', [Express24Controller::class, 'updateCategory'])->name('integrations.express24.categories.update');
+
+        Route::get('express24/branches', [Express24Controller::class, 'toBranchesPage'])->name('integrations.express24.branches');
+        Route::post('express24/branches', [Express24Controller::class, 'updateBranch'])->name('integrations.express24.branches.update');
+
+        Route::get('express24/products', [Express24Controller::class, 'toProductsPage'])->name('integrations.express24.products');
+        Route::post('express24/products', [Express24Controller::class, 'updateProduct'])->name('integrations.express24.products.update');
+    });
 });
 
 

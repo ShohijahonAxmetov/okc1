@@ -2,13 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Traits\Express24;
+use App\Models\Warehouse;
+use App\Models\ProductVariation;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class Express24Controller extends Controller
 {
+	use Express24 {
+		updateCategory as traitUpdateCategory;
+		updateBranch as traitUpdateBranch;
+		getProducts as traitGetProducts;
+		updateProduct as traitUpdateProduct;
+	}
+
 	protected $token = null;
 	protected $baseUrl = null;
 
@@ -20,16 +32,17 @@ class Express24Controller extends Controller
 
     public function categories()
     {
-    	$successSentCategoryIds = $this->getCategories();
+    	// dd(array_column($this->getAllCategories(1, 1, 1), 'externalID'));
+    	$successSentCategoryIds = $this->getSuccessfullySentCategoryIds();
 
         $successSentSubCategoryIds = $this->getSubCategories($successSentCategoryIds);
         
-        dd($this->getProducts($successSentSubCategoryIds));
-
+        dd($this->getProducts(array_column($this->getAllCategories(1, 1, 1), 'externalID')));
+		
     	return $successSentSubCategoryIds;
     }
 
-    public function getCategories(): array
+    public function getSuccessfullySentCategoryIds(): array
     {
     	$allMainCategories = Category::where([
     		['is_active', 1],
@@ -81,8 +94,6 @@ class Express24Controller extends Controller
     	})
     		->get();
 
-//		dd($categories[0]->parent->express24_id);
-
         $successSentCategoryIds = array();
 
         Log::channel('express24')->info('------------- SYNC SUB CATEGORIES AT '.date('Y-m-d H:i').'--------------');
@@ -120,8 +131,162 @@ class Express24Controller extends Controller
         return $successSentCategoryIds;
     }
 
-    public function getProducts(array $categories)
+    public function getProducts(array $categoriesIds)
     {
+    	// $subCategories = Category::where(function ($query) {
+    	// 	$query->whereNotNull('parent_id')
+    	// 		->whereNotNull('express24_id');
+    	// })
+    	// 	->get();
+dd($categoriesIds);
+		$productsIds = DB::table('category_product')
+			->whereIn('category_id', $categoriesIds)
+			->get();
+			// ->pluck('product_id')
+			// ->toArray();
 
+			dd($productsIds);
+
+		$productVariations = ProductVariation::where(function ($query) use ($productsIds) {
+			$query->whereNotNull('spic_id')
+				->whereNotNull('package_code')
+				->where('package_code', '!=', 0)
+				->whereIn('product_id', $productsIds)
+				->where('remainder', '>', 10)
+				->where('is_active', 1);
+		})
+			->get();
+
+			dd($productVariations);
+
+		foreach ($productVariations as $productVariation) {
+			$res = $this->sendProduct2Express($productVariation);
+
+			dd($res);
+		}
+    }
+
+    function sendProduct2Express(ProductVariation $productVariation): array
+    {
+    	// $this->updateCategoryIfNotActive($productVariation);
+    	$data = [
+    		'externalID' => $productVariation->integration_id,
+    		'name' => $productVariation->product->title['ru'],
+    		'description' => $productVariation->product->desc['ru'] ?? '-',
+    		'price' => $productVariation->price,
+    		'categoryID' => $productVariation->product->categories[0]->express24_id,
+    		'fiscalization' => [
+    			'spicID' => $productVariation->spic_id,
+    			'packageCode' => preg_replace("/[^0-9]/", "", $productVariation->package_code),
+    		],
+    		'vat' => 12,
+		];
+
+		// put images
+		$counter = 0;
+		foreach ($productVariation->productVariationImages as $img) {
+			if ($counter === 0) $data['images'][$counter] = [
+				'url' => $img->real_img,
+				'isPreview' => true
+			];
+			else $data['images'][$counter] = [
+				'url' => $img->real_img,
+				'isPreview' => false
+			];
+
+			$counter ++;
+		}
+		unset($counter);
+
+		// put branches
+		$warehouses = Warehouse::where(function ($query) {
+			$query->whereNotNull('integration_id')
+				->where('is_store', 1)
+				->where('is_active', 1);
+		})
+			->get();
+
+		$counter = 0;
+		foreach ($warehouses as $warehouse) {
+			$data['attachedBranches'][$counter] = [
+				'id' => intval($warehouse->integration_id),
+				'externalID' => intval($warehouse->integration_id),
+				'isActive' => true,
+				'isAvailable' => true,
+				'qty' => $productVariation->remainder
+			];
+
+			$counter ++;
+		}
+		unset($counter);
+
+		$res = Http::withToken($this->token)
+            ->post($this->baseUrl.'/products', $data);
+
+        return $res->json();
+    }
+
+    // function updateCategoryIfNotActive(ProductVariation $productVariation)
+    // {
+    // 	Http::withToken($this->token)
+    //         ->patch($this->baseUrl.'/categories/'.$productVariation->product->categories[0]->express24_id, [
+    //         	'isActive' => true
+    //         ]);
+    // }
+
+    public function index()
+    {
+    	return view('app.integrations.express24.index');
+    }
+
+    // GET
+    public function toCategoriesPage(Request $request)
+    {
+    	if ($request->input('id') !== null) $categories = $this->getSubs($request->input('id'));
+    	else $categories = $this->getAllCategories();
+
+    	return view('app.integrations.express24.categories.index', compact('categories'));
+    }
+
+    public function toBranchesPage()
+    {
+    	$branches = $this->getBranches();
+
+    	return view('app.integrations.express24.branches.index', compact('branches'));
+    }
+
+    public function toProductsPage(Request $request)
+    {
+    	$products = $this->traitGetProducts($request->input('id'));
+
+    	return view('app.integrations.express24.products.index', compact('products'));
+    }
+
+    // OTHER
+    public function updateCategory(Request $request)
+    {
+    	$res = $this->traitUpdateCategory($request);
+
+    	if ($res) return redirect()->route('integrations.express24.categories')->with([
+			'success' => $res
+		]);
+    }
+
+    public function updateBranch(Request $request)
+    {
+    	$res = $this->traitUpdateBranch($request);
+
+    	if ($res) return redirect()->route('integrations.express24.branches')->with([
+			'success' => $res
+		]);
+    }
+
+    public function updateProduct(Request $request)
+    {
+    	$res = $this->traitUpdateProduct($request);
+
+    	return redirect()->route('integrations.express24.products', ['id' => json_decode($request->input('info'))->subCategoryID])->with([
+			'success' => $res
+		]);
     }
 }
