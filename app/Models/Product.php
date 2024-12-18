@@ -36,8 +36,14 @@ class Product extends Model
     ];
 
     protected $appends = [
-        'default_variation'
+        'default_variation',
+        'remainder'
     ];
+
+    public function getRemainderAttribute()
+    {
+        return $this->getDefaultVariationAttribute()->remainder ?? 0;
+    }
 
     public function brand()
     {

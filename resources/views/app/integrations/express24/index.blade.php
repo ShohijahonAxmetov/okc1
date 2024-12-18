@@ -26,6 +26,7 @@
         <div class="list-group">
             <a href="{{route('integrations.express24.categories')}}" class="list-group-item list-group-item-action fs-3">Категории</a>
             <a href="{{route('integrations.express24.branches')}}" class="list-group-item list-group-item-action fs-3">Филиалы</a>
+            <a href="{{route('integrations.express24.config')}}" class="list-group-item list-group-item-action fs-3">Настройки</a>
         </div>
     </div>
     <!--begin::Body-->

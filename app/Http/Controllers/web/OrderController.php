@@ -24,10 +24,10 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
-        return response([
-            'message' => 'Введутся технические работы, можете позвонить и заказать!',
-            'success' => false
-        ], 400);
+        // return response([
+        //     'message' => 'Введутся технические работы, можете позвонить и заказать!',
+        //     'success' => false
+        // ], 400);
         // esli vibran zabrat iz magazina, to doljen i vibiratsya magazin
         if($request->with_delivery == 0) {
             $validator = Validator::make($request->all(), [
@@ -58,13 +58,15 @@ class OrderController extends Controller
             'with_delivery' => 'required',
             'payment_method' => 'required|in:cash,online,card',
             'payment_card' => 'nullable|in:payme,click,zoodpay',
-            'delivery_type' => [Rule::requiredIf($data['with_delivery']), 'integer', 'in:1,2'], //1-fargo,2-yandex
+            // 'delivery_type' => [Rule::requiredIf($data['with_delivery']), 'integer', 'in:1,2'], //1-fargo,2-yandex
+            'delivery_type' => [Rule::requiredIf(function () use ($data) {
+                if ($data['with_delivery']) return in_array($data['delivery_type'], [1,2]);
+                else return 0;
+            })], //1-fargo,2-yandex
         ]);
         if ($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
         }
-
-//        dd(1);
 
         // podgotovka dannix dlya zapisi
         $data['product_variations'] = json_decode($data['product_variations'], true);
@@ -214,7 +216,7 @@ class OrderController extends Controller
                 $product_id = ProductVariation::find($item['id']);
 
                 $record = DB::table('product_variation_warehouse')->where('product_variation_id', $product_id->integration_id)
-                    ->where('warehouse_id', $warehouse->id)
+                    ->where('warehouse_id', $warehouse->integration_id)
                     ->where('remainder', '>=', $item['count'])
                     ->first();
 

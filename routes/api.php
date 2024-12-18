@@ -24,19 +24,11 @@ use App\Http\Controllers\{
 	FargoController,
 	ZoodpayController,
 };
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+
 Route::middleware(['venkon_auth'])->group(function () {
 	Route::prefix('brands')->group(function () {
 		Route::post('', [VenkonController::class, 'brands_create']);
@@ -218,11 +210,33 @@ Route::middleware('admin_check')->get('test',function() {
 
 //handle requests from payment system
 Route::any('/handle/{paysys}',function($paysys){
+	\Log::info(['/handle/{paysys}']);
     (new Goodoneuz\PayUz\PayUz)->driver($paysys)->handle();
 });
 
 //redirect to payment system or payment form
 Route::any('/pay/{paysys}/{key}/{amount}',function($paysys, $key, $amount){
+
+	$items = [];
+	foreach (Order::find($key)->productVariations as $productVariation) {
+		$packageCode = str_replace(' ', '', $productVariation->package_code);
+		$items[] = [
+			"title" => $productVariation->product->title['ru'],
+            "price" => $productVariation->pivot->discount_price ? $productVariation->pivot->discount_price*100 : $productVariation->pivot->price*100, //цена за единицу товара, сумма указана в тийинах
+            "count" => $productVariation->pivot->count,
+            "code" => $productVariation->spic_id ?? '0',
+            "vat_percent" => 12,
+            "package_code" => preg_replace('/[^0-9]/', '', $packageCode)
+		];
+	}
+
+	$details = [
+		"receipt_type" => 0, //тип фискального чека
+        "items" => $items
+	];
+
+	\Cache::put('payment_details_'.$key, $details, 3600);
+
 	$model = Goodoneuz\PayUz\Services\PaymentService::convertKeyToModel($key);
     $url = request('redirect_url','https://okc.uz/?alert=success'); // redirect url after payment completed
     $pay_uz = new Goodoneuz\PayUz\PayUz;

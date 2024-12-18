@@ -79,7 +79,7 @@ class RssController extends Controller
     			'enabled' => 1,
     			'sku' => '1'.preg_replace('/\D/', '', $value->integration_id),
     			'name' => $value->product->title['ru'] ?? '-',
-    			'price' => $value->price,
+    			'price' => $value->price * 1.1,
     			'picture' => isset($value->productVariationImages[0]) ? $value->productVariationImages[0]->realImg : null,
     			'description' => $value->product->desc['ru'] ?? '-',
     			'brand' => $value->product->brand->title ?? '-',

@@ -25,6 +25,8 @@ class ProductVariation extends Model
 
         'spic_id',
         'package_code',
+        
+        'express24_id',
     ];
 
     protected $appends = [

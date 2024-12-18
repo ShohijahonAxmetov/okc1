@@ -12,5 +12,6 @@ class ExpressConfig extends Model
     protected $fillable = [
     	'price_up',
     	'vat',
+    	'products_min_count',
     ];
 }

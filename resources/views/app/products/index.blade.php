@@ -1,5 +1,25 @@
 @extends('layouts.app')
 
+@php
+$remainderRouteParams = [];
+$remainderRouteParams = request()->sort == 'remainder-asc' ? ['sort' => 'remainder-desc'] : ['sort' => 'remainder-asc'];
+if ($search != '') $remainderRouteParams['search'] = $search;
+if ($brand != '') $remainderRouteParams['brand'] = $brand;
+if ($is_active != '') $remainderRouteParams['is_active'] = $is_active;
+
+$idRouteParams = [];
+$idRouteParams = request()->sort == 'asc' ? ['sort' => 'desc'] : ['sort' => 'asc'];
+if ($search != '') $idRouteParams['search'] = $search;
+if ($brand != '') $idRouteParams['brand'] = $brand;
+if ($is_active != '') $idRouteParams['is_active'] = $is_active;
+
+$nameRouteParams = [];
+$nameRouteParams = request()->sort == 'title-asc' ? ['sort' => 'title-desc'] : ['sort' => 'title-asc'];
+if ($search != '') $nameRouteParams['search'] = $search;
+if ($brand != '') $nameRouteParams['brand'] = $brand;
+if ($is_active != '') $nameRouteParams['is_active'] = $is_active;
+@endphp
+
 @section('title', 'ПРОДУКТЫ')
 
 @section('breadcrumb')
@@ -25,7 +45,7 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bolder fs-3 mb-1">Продукты</span>
-            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_products_count }} (активные: {{ $active_products_count ?? 0 }},неактивные: {{ $inactive_products_count ?? 0 }})</span>
+            <span class="text-muted mt-1 fw-bold fs-7">Показаны {{ $show_count }} из {{ $all_products_count }}<br>Активные: {{ $active_products_count ?? 0 }}, Неактивные: {{ $inactive_products_count ?? 0 }}</span>
         </h3>
         <div class="card-toolbar">
             <button type="button" id="clear_btn" class="d-flex justify-content-center align-items-center btn rounded-circle me-2 p-0" style="width: 28px;height: 28px">
@@ -38,6 +58,9 @@
                 </span>
             </button>
             <form action="{{ route('products.index') }}" class="d-flex align-items-center">
+                @if(request()->sort)
+                <input type="hidden" name="sort" value="{{request()->sort}}">
+                @endif
                 <div class="d-flex align-items-center position-relative my-1">
                     <select class="form-control form-select form-control-solid w-150px" name="brand" data-control="select2" data-hide-search="false">
                         <option value="">Выберите бренда</option>
@@ -62,7 +85,8 @@
                     </span>
                     <input type="text" name="search" class="form-control form-control-solid w-250px ps-14" placeholder="Поиск продукта" value="{{ $search }}">
                 </div>
-                <button class="btn btn-success ms-2" style="height: min-content;">Поиск</button>
+                <button class="btn btn-primary ms-2" style="height: min-content;">Поиск</button>
+                <a href="{{route('products.to_excel')}}" class="btn btn-success ms-2" style="height: min-content;"><svg xmlns="http://www.w3.org/2000/svg" style="height: 20px;fill: #ffffff;" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM155.7 250.2L192 302.1l36.3-51.9c7.6-10.9 22.6-13.5 33.4-5.9s13.5 22.6 5.9 33.4L221.3 344l46.4 66.2c7.6 10.9 5 25.8-5.9 33.4s-25.8 5-33.4-5.9L192 385.8l-36.3 51.9c-7.6 10.9-22.6 13.5-33.4 5.9s-13.5-22.6-5.9-33.4L162.7 344l-46.4-66.2c-7.6-10.9-5-25.8 5.9-33.4s25.8-5 33.4 5.9z"/></svg></a>
             </form>
 
         </div>
@@ -77,10 +101,10 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted bg-light">
-                        <th class="ps-4 min-w-125px rounded-start">ID</th>
-                        <th class="ps-4 min-w-325px">Продукт</th>
+                        <th class="ps-4 min-w-125px rounded-start"><a href="{{route('products.index', $idRouteParams)}}">ID <svg xmlns="http://www.w3.org/2000/svg" style="fill: #009ef7;width: 14px;" viewBox="0 0 576 512"><path d="M450.7 38c8.3 6 13.3 15.7 13.3 26l0 96 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-48 0-48 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l16 0 0-51.6-5.9 2c-16.8 5.6-34.9-3.5-40.5-20.2s3.5-34.9 20.2-40.5l48-16c9.8-3.3 20.5-1.6 28.8 4.4zM160 32c9 0 17.5 3.8 23.6 10.4l88 96c11.9 13 11.1 33.3-2 45.2s-33.3 11.1-45.2-2L192 146.3 192 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-301.7L95.6 181.6c-11.9 13-32.2 13.9-45.2 2s-13.9-32.2-2-45.2l88-96C142.5 35.8 151 32 160 32zM445.7 364.9A32 32 0 1 0 418.3 307a32 32 0 1 0 27.4 57.9zm-40.7 54.9C369.6 408.4 344 375.2 344 336c0-48.6 39.4-88 88-88s88 39.4 88 88c0 23.5-7.5 46.3-21.5 65.2L449.7 467c-10.5 14.2-30.6 17.2-44.8 6.7s-17.2-30.6-6.7-44.8l6.8-9.2z"/></svg></a></th>
+                        <th class="ps-4 min-w-325px"><a href="{{route('products.index', $nameRouteParams)}}">Продукт <svg xmlns="http://www.w3.org/2000/svg" style="fill: #009ef7;width: 14px;" viewBox="0 0 576 512"><path d="M183.6 42.4C177.5 35.8 169 32 160 32s-17.5 3.8-23.6 10.4l-88 96c-11.9 13-11.1 33.3 2 45.2s33.3 11.1 45.2-2L128 146.3 128 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-301.7 32.4 35.4c11.9 13 32.2 13.9 45.2 2s13.9-32.2 2-45.2l-88-96zM320 64c0 17.7 14.3 32 32 32l50.7 0-73.4 73.4c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l128 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-50.7 0 73.4-73.4c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L352 32c-17.7 0-32 14.3-32 32zm96 192c-12.1 0-23.2 6.8-28.6 17.7l-64 128-16 32c-7.9 15.8-1.5 35 14.3 42.9s35 1.5 42.9-14.3l7.2-14.3 88.4 0 7.2 14.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9l-16-32-64-128C439.2 262.8 428.1 256 416 256zM395.8 400L416 359.6 436.2 400l-40.4 0z"/></svg></a></th>
                         <th class="min-w-125px">Бренд</th>
-                        <th class="min-w-125px">Остаток</th>
+                        <th class="min-w-125px"><a href="{{route('products.index', $remainderRouteParams)}}">Остаток <svg xmlns="http://www.w3.org/2000/svg" style="fill: #009ef7;width: 14px;" viewBox="0 0 576 512"><path d="M450.7 38c8.3 6 13.3 15.7 13.3 26l0 96 16 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-48 0-48 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l16 0 0-51.6-5.9 2c-16.8 5.6-34.9-3.5-40.5-20.2s3.5-34.9 20.2-40.5l48-16c9.8-3.3 20.5-1.6 28.8 4.4zM160 32c9 0 17.5 3.8 23.6 10.4l88 96c11.9 13 11.1 33.3-2 45.2s-33.3 11.1-45.2-2L192 146.3 192 448c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-301.7L95.6 181.6c-11.9 13-32.2 13.9-45.2 2s-13.9-32.2-2-45.2l88-96C142.5 35.8 151 32 160 32zM445.7 364.9A32 32 0 1 0 418.3 307a32 32 0 1 0 27.4 57.9zm-40.7 54.9C369.6 408.4 344 375.2 344 336c0-48.6 39.4-88 88-88s88 39.4 88 88c0 23.5-7.5 46.3-21.5 65.2L449.7 467c-10.5 14.2-30.6 17.2-44.8 6.7s-17.2-30.6-6.7-44.8l6.8-9.2z"/></svg></a></th>
                         <th class="min-w-150px">Статус</th>
                         <th class="min-w-150px text-end rounded-end pe-2">Действия</th>
                     </tr>

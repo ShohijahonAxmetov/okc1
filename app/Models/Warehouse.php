@@ -15,7 +15,9 @@ class Warehouse extends Model
         'venkon_id',
         'integration_id',
         'is_store',
-        'for_fargo'
+        'for_fargo',
+        
+        'express24_id',
     ];
 
     public function productVariations()

@@ -57,6 +57,14 @@ class Kernel extends ConsoleKernel
 
         $schedule->call('App\Http\Controllers\RssController@catalog')
             ->hourly();
+
+        $schedule->call('App\Http\Controllers\Express24Controller@categories')
+            ->hourly();
+
+        $schedule->command('sitemap:generate')->daily();
+
+        $schedule->call('App\Http\Controllers\VenkonController@upload_datas')
+            ->daily();
     }
 
     /**

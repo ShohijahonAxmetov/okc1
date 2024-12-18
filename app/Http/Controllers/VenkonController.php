@@ -17,17 +17,15 @@ use App\Models\Discount;
 use App\Models\Attribute;
 use App\Models\AttributeOption;
 use App\Models\LogOneC;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class VenkonController extends Controller
 {
     public function discounts_create(Request $request)
     {
-        LogOneC::create([
-            'model' => 'discount',
-            'action' => 'create',
-            'response_from_1c' => json_encode($request->all())
-        ]);
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'discount_type' => 'required|in:order,brand,product,category',
             'amount_type' => 'required|in:percent,fixed',
@@ -86,11 +84,8 @@ class VenkonController extends Controller
 
     public function discounts_put(Request $request, $id)
     {
-        LogOneC::create([
-            'model' => 'discount',
-            'action' => 'update',
-            'response_from_1c' => json_encode($request->all())
-        ]);
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'discount_type' => 'required|in:order,brand,product,category',
             'amount_type' => 'required|in:percent,fixed',
@@ -136,11 +131,8 @@ class VenkonController extends Controller
 
     public function discounts_delete($id)
     {
-        LogOneC::create([
-            'model' => 'discount',
-            'action' => 'delete',
-            'response_from_1c' => $id
-        ]);
+        $this->toLog($id, __FUNCTION__);
+
         if ($discount = Discount::where('integration_id', $id)->first()) {
             $discount->update([
                 'is_active' => false
@@ -159,6 +151,8 @@ class VenkonController extends Controller
 
     public function update_products_count(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'remainders' => 'required',
             'remainders.*.id' => 'required',
@@ -198,6 +192,8 @@ class VenkonController extends Controller
 
     public function warehouses_create(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             // 'id' => 'required|max:255|unique:warehouses,venkon_id',
             'integration_id' => 'required|max:255',
@@ -247,6 +243,8 @@ class VenkonController extends Controller
 
     public function warehouses_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             // 'integration_id' => 'required|max:255',
@@ -277,6 +275,8 @@ class VenkonController extends Controller
 
     public function warehouses_delete(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         if ($warehouse = Warehouse::where('integration_id', $id)) {
             $data = $warehouse->update([
                 'is_active' => false
@@ -295,6 +295,8 @@ class VenkonController extends Controller
 
     public function brands_create(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             // 'id' => 'required|max:255|unique:brands,venkon_id',
             'integration_id' => 'required|max:255|unique:brands,integration_id',
@@ -321,6 +323,8 @@ class VenkonController extends Controller
 
     public function brands_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'link' => 'max:255',
@@ -344,6 +348,8 @@ class VenkonController extends Controller
 
     public function brands_delete($id)
     {
+        $this->toLog($id, __FUNCTION__);
+
         Brand::where('integration_id', $id)
             ->first()
             ->update([
@@ -357,6 +363,8 @@ class VenkonController extends Controller
 
     public function categories_create(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'integration_id' => 'required|max:255',
             'title' => 'required|max:255',
@@ -412,6 +420,8 @@ class VenkonController extends Controller
 
     public function categories_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'parent_category_id' => 'required|max:255',
@@ -444,6 +454,8 @@ class VenkonController extends Controller
 
     public function categories_delete(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         if ($category = Category::where('integration_id', $id)->first()) {
             $data = $category->update([
                 'is_active' => false
@@ -462,6 +474,8 @@ class VenkonController extends Controller
 
     public function colors_create(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             // 'id' => 'required|max:255|unique:colors,venkon_id',
             'integration_id' => 'required|max:255|unique:colors,integration_id',
@@ -518,6 +532,8 @@ class VenkonController extends Controller
 
     public function colors_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'hex_code' => 'required|max:20',
@@ -550,6 +566,8 @@ class VenkonController extends Controller
 
     public function colors_delete(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         if ($color = Color::where('integration_id', $id)) {
             $data = $color->update([
                 'is_active' => false
@@ -568,6 +586,8 @@ class VenkonController extends Controller
 
     public function products_create(Request $request)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'vendor_code' => 'required|max:255',
@@ -618,6 +638,8 @@ class VenkonController extends Controller
             $sub_data->price = $request->price;
             $sub_data->discount_price = null;
             $sub_data->remainder = $request->remainder;
+            $sub_data->spic_id = $request->spicID;
+            $sub_data->package_code = $request->package_code;
             $color = Color::where('integration_id', $request->color_id)->first();
             if (!$color) {
                 $color_result = '';
@@ -643,6 +665,8 @@ class VenkonController extends Controller
 
     public function products_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'vendor_code' => 'required|max:255',
@@ -698,6 +722,8 @@ class VenkonController extends Controller
                 $sub_data->color_id = $request->color_id;
                 $sub_data->price = $request->price;
                 $sub_data->remainder = $request->remainder;
+                $sub_data->spic_id = $request->spicID;
+                $sub_data->package_code = $request->package_code;
 
                 // if (isset($request->remainders[0])) {
                 //     $summa = 0;
@@ -726,6 +752,8 @@ class VenkonController extends Controller
                 $productVariation->color_id = $request->color_id;
                 $productVariation->price = $request->price;
                 $productVariation->remainder = $request->remainder;
+                $productVariation->spic_id = $request->spicID;
+                $productVariation->package_code = $request->package_code;
 
                 // if (isset($request->remainders[0])) {
                 //     $summa = 0;
@@ -774,6 +802,8 @@ class VenkonController extends Controller
 
     public function products_delete(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         if ($product = ProductVariation::where('integration_id', $id)->first()) {
             $data = $product->update([
                 'is_active' => false
@@ -792,6 +822,8 @@ class VenkonController extends Controller
 
     public function orders_put(Request $request, $id)
     {
+        $this->toLog($request->all(), __FUNCTION__);
+
         $validator = Validator::make($request->all(), [
             'status' => 'required|in:collected,on_the_way,returned,done,cancelled,accepted'
         ]);
@@ -817,9 +849,7 @@ class VenkonController extends Controller
 
     public function upload_datas()
     {
-        // $new_ip_address = '94.232.24.102';
         $new_ip_address = env('C_IP');
-        $old_ip_address = '213.230.65.189';
 
         $base_url = 'http://' . $new_ip_address . '/UT_NewClean/hs/invema_API';
         $old_base_url = 'http://' . $new_ip_address . '/invema/hs/invema_API';
@@ -834,6 +864,7 @@ class VenkonController extends Controller
         $res = $client->get($url, ['auth' =>  $url_auth]);
         $resp = (string) $res->getBody();
         $resp_toArray = json_decode($resp, true);
+        // return $resp;
         if ($resp_toArray['success']) {
             $brands = $resp_toArray['brands'];
 
@@ -853,6 +884,8 @@ class VenkonController extends Controller
             ], 400);
         }
 
+        $this->toLog(['upload brands - success'], __FUNCTION__);
+
         /*
          * upload categories from venkom
          */
@@ -865,6 +898,12 @@ class VenkonController extends Controller
 
         if ($resp_toArray['success']) {
             $categories = $resp_toArray['categories'];
+
+            $categoryIds = array_map(function ($category) {
+                return $category['integration_id'];
+            }, $categories);
+
+            $this->deleteNotExistCategories($categoryIds);
 
             foreach ($categories as $item) {
                 Category::updateOrCreate([
@@ -881,6 +920,8 @@ class VenkonController extends Controller
                 'message' => 'Ошибка со стороны сервера'
             ], 400);
         }
+
+        $this->toLog(['upload categories - success'], __FUNCTION__);
 
         /*
          * upload colors from venkom
@@ -910,6 +951,8 @@ class VenkonController extends Controller
                 'message' => 'Ошибка со стороны сервера'
             ], 400);
         }
+
+        $this->toLog(['upload colors - success'], __FUNCTION__);
 
         /*
          * upload products from venkom
@@ -1045,6 +1088,8 @@ class VenkonController extends Controller
                 'message' => 'Ошибка со стороны сервера'
             ], 400);
         }
+
+        $this->toLog(['upload products - success'], __FUNCTION__);
 
         /*
          * upload discount from venkom
@@ -1210,6 +1255,8 @@ class VenkonController extends Controller
             ], 400);
         }
 
+        $this->toLog(['upload discounts - success'], __FUNCTION__);
+
         /*
          * upload warehouses from venkom
          */
@@ -1237,6 +1284,8 @@ class VenkonController extends Controller
                 'message' => 'Ошибка со стороны сервера'
             ], 400);
         }
+
+        $this->toLog(['upload warehouses - success'], __FUNCTION__);
 
         /*
          * upload warehouses and warehouses products
@@ -1267,10 +1316,37 @@ class VenkonController extends Controller
             ], 400);
         }
 
+        $this->toLog(['upload all - success'], __FUNCTION__);
+
 
         return back()->with([
             'message' => 'Успешно загружен!',
             'success' => true
         ]);
+    }
+
+    function deleteNotExistCategories(array $existCategoryIds)
+    {
+        $categories = Category::whereNotIn('integration_id', $existCategoryIds)
+            ->get();
+
+        foreach($categories as $category) {
+            if ($category) {
+                foreach($category->children as $child) {
+                    $child->delete();
+                }
+            }
+
+            $category->delete();
+        }
+    }
+
+    function toLog(array $data, string $functionName): void
+    {
+        $data['function_name'] = $functionName;
+
+        Log::channel('1c')->info('-------------------begin----------------');
+        Log::channel('1c')->info($data);
+        Log::channel('1c')->info('-------------------end----------------');
     }
 }

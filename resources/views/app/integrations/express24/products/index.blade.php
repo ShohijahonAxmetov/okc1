@@ -43,6 +43,7 @@
                         <th class="min-w-125px">Цена</th>
                         <th class="min-w-150px">Статус</th>
                         <th class="min-w-150px">VAT</th>
+                        <th class="min-w-150px">Внешний ID</th>
                         <th class="min-w-75px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
@@ -73,6 +74,9 @@
                         </td>
                         <td>
                             <a class="text-dark text-hover-primary d-block mb-1 fs-6">{{$product['vat']}}</a>
+                        </td>
+                        <td>
+                            <a class="text-dark text-hover-primary d-block mb-1 fs-6">{{$product['externalID']}}</a>
                         </td>
                         <td class="text-end">
                             <a class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#edit_product{{ $product['id'] }}">

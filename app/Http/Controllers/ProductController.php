@@ -2,29 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use Rap2hpoutre\FastExcel\FastExcel;
+
 use App\Models\Brand;
 use App\Models\Category;
-use Illuminate\Support\Facades\DB;
-use Image;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Product;
 use App\Models\ProductVariation;
 use App\Models\ProductVariationImage;
 use App\Models\Color;
 
+use Illuminate\Support\Facades\DB;
+use Image;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function toExcel()
     {
-        $products = Product::latest()
-            ->with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages');
+        $products = ProductVariation::latest()
+            ->where(function ($query) {
+                $query->whereNotNull('integration_id')
+                    ->where('is_active', 1)
+                    ->where('remainder', '>', 10)
+                    ->where('is_available', 1);
+            })
+            ->whereHas('product', function ($query) {
+                $query->where('is_active', 1);
+            })
+            ->get();
+
+        $formattedProducts = [];
+        foreach($products as $product) {
+            $formattedProducts[] = [
+                'Категория' => $product->product->categories->where('is_active', 1)->first()->title['ru'] ?? '-',
+                'Название' => $product->product->title['ru'],
+                'Идентификатор' => $product->id,
+                'Описание' => $product->product->desc['ru'],
+                'Короткое описание' => $product->product->desc['ru'],
+                'Цена' => $product->price,
+                'Фото' => $product->productVariationImages->first()->img ?? 'https://okc.uz/',
+                'Популярный товар' => $product->product->is_popular ? 'Да' : 'Нет',
+                'В наличии' => 'Да',
+                'Количество' => $product->remainder,
+                'Единицы измерения' => 'штук',
+                'Ссылка' => 'https://okc.uz/products/'.$product->slug,
+            ];
+        }
+
+        return (new FastExcel($formattedProducts))->download('products_list_'.date('Y-m-d').'.xlsx');
+    }
+    public function index(Request $request)
+    {
+        $products = Product::with('categories', 'brand');
 
         if (isset($_GET['search']) && $_GET['search'] != '') {
             $products = $products->where('id', 'like', '%' . trim($_GET['search']) . '%')
@@ -35,11 +66,44 @@ class ProductController extends Controller
             $products = $products->where('brand_id', $_GET['brand']);
         }
         if (isset($_GET['is_active']) && $_GET['is_active'] != '') {
-            $products = $products->where('is_active', $_GET['is_active']);
+            $products = $products->where('products.is_active', $_GET['is_active']);
         }
+
+        if ($request->input('sort') !== null) {
+            switch ($request->input('sort')) {
+                case 'remainder-desc':
+                    $products = $products->join('product_variations', 'products.id', '=', 'product_variations.product_id')
+                        ->orderByRaw('CONVERT(product_variations.remainder, SIGNED) desc')
+                        ->select('products.*');
+                    break;
+
+                case 'remainder-asc':
+                    $products = $products->join('product_variations', 'products.id', '=', 'product_variations.product_id')
+                        ->orderByRaw('CONVERT(product_variations.remainder, SIGNED) asc')
+                        ->select('products.*');
+                    break;
+                
+                case 'title-desc':
+                    $products = $products->orderBy('title', 'desc');
+                    break;
+
+                case 'title-asc':
+                    $products = $products->orderBy('title', 'asc');
+                    break;
+
+                case 'desc':
+                    $products = $products->orderBy('id', 'desc');
+                    break;
+
+                case 'asc':
+                    $products = $products->orderBy('id', 'asc');
+                    break;
+            }
+        }
+
         $all_products = $products->paginate(24);
         $all_products_count = $products->count();
-        $active_products_count = $products->where('is_active', 1)
+        $active_products_count = $products->where('products.is_active', 1)
             ->count();
         $inactive_products_count = $all_products_count - $active_products_count;
 
@@ -69,12 +133,6 @@ class ProductController extends Controller
         // return response(['data' => $products], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $data = $request->all();
@@ -159,25 +217,12 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $product = Product::with('categories', 'brand', 'productVariations', 'productVariations.productVariationImages', 'productVariations.attributeOptions')->find($id);
         return response(['data' => $product], 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     // public function update(Request $request, $id)
     // {
     //     $data = $request->all();
@@ -479,12 +524,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         DB::beginTransaction();

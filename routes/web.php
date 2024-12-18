@@ -30,55 +30,14 @@ use App\Http\Controllers\{
 };
 
 $new_ip_address = '94.232.24.102';
-$old_ip_address = '213.230.65.189';
 
-Route::get('test', [VenkonController::class, 'warehouses_put']);
-// Route::get('/fix_category_product', function() {
-//     $category_product = DB::table('category_product')->get();
-//     // dd($category_product);
-//     foreach($category_product as $item) {
-//         $category = App\Models\Category::where('venkon_id', $item->category_id)
-//             ->first();
-//         if($category) {
-//             DB::table('category_product')
-//                 ->where('category_id', $item->category_id)
-//                 // ->first()
-//                 ->update([
-//                     'category_id' => $category->integration_id
-//                 ]);
-//         }
-//         // dd(strlen($item->category_id));
-//         // $integration_id = $item->integration_id;
-//     }
-// });
+Route::get('ter', [VenkonController::class, 'upload_datas'])->name('upload_datas');
 
-// Route::get('/fix_category_parent', function() {
-//     $categories = DB::table('categories')->get();
-//     // dd($categories);
-//     foreach($categories as $item) {
-//         $category = App\Models\Category::where('venkon_id', $item->parent_id)
-//             ->first();
-//         if($category) {
-//             DB::table('categories')
-//                 ->where('venkon_id', $item->venkon_id)
-//                 ->update([
-//                     'parent_id' => $category->integration_id
-//                 ]);
-//         }
-//     }
-// });
+Route::get('regherherhe', [Express24Controller::class, 'updateTest']);
 
 Route::post('/fargo/history', [\App\Http\Controllers\FargoController::class, 'webhook']);
 
 // Route::get('/order_to_venkom', [WebController::class, 'order_to_venkom']);
-
-Route::get('/bassnew', function () use ($new_ip_address) {
-    $client = new GuzzleHttp\Client();
-    $res = $client->get('http://' . $new_ip_address . '/UT_NewClean/hs/invema_API/products', ['auth' =>  ['Venkon', 'overlord']]);
-    $resp = (string) $res->getBody();
-    return response()->json(json_decode($resp, true), $res->getStatusCode());
-    // return view('welcome');
-});
 
 // zoodpay
 Route::group(['prefix' => 'zoodpay'], function () {
@@ -87,10 +46,6 @@ Route::group(['prefix' => 'zoodpay'], function () {
     Route::post('/ipn', [ZoodpayController::class, 'ipn']);
     Route::get('/res', [ZoodpayController::class, 'res']);
 });
-
-// Route::post('test', function() {
-//     return response(123);
-// });
 
 Route::get('/', [AdminAuthController::class, 'login_form'])->name('login');
 Route::post('/login', [AdminAuthController::class, 'login'])->name('auth.login');
@@ -129,6 +84,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
     Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::post('products/{id}/update', [ProductController::class, 'update'])->name('products.update');
     Route::post('products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+    Route::get('products/to-excel', [ProductController::class, 'toExcel'])->name('products.to_excel');
 
     // applications
     Route::get('applications', [ApplicationController::class, 'index'])->name('applications.index');
@@ -231,6 +187,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
         Route::get('express24/products', [Express24Controller::class, 'toProductsPage'])->name('integrations.express24.products');
         Route::post('express24/products', [Express24Controller::class, 'updateProduct'])->name('integrations.express24.products.update');
+
+        Route::get('express24/config', [Express24Controller::class, 'toConfigPage'])->name('integrations.express24.config');
+        Route::post('express24/config', [Express24Controller::class, 'updateConfig'])->name('integrations.express24.config.update');
     });
 });
 

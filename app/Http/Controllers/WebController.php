@@ -485,7 +485,7 @@ class WebController extends Controller
     public function category($slug)
     {
         $category = Category::where('slug', $slug)->with('children')->first();
-        $brothers = optional($category->parent)->children();
+        $brothers = optional(optional($category)->parent)->children();
         if (!isset($brothers)) return response(['data' => $category, 'brothers' => []], 200);
         // collection editing
         $brothers = $brothers->with('children')->get()->where('slug', '!=', $slug)->values();
@@ -496,14 +496,14 @@ class WebController extends Controller
     {
         isset($request->brand) ? $brand = $request->brand : $brand = Brand::pluck('integration_id')->toArray();
         $end_price = isset($request->end_price) ? $request->end_price : Category::where('slug', $slug)
-            ->first()
+            ->firstOrFail()
             ->products()
             ->where('is_default', 1)
             ->join('product_variations', 'products.id', '=', 'product_variations.product_id')
             ->select('product_variations.price')
             ->max('price');
         $start_price = isset($request->start_price) ? $request->start_price : Category::where('slug', $slug)
-            ->first()
+            ->firstOrFail()
             ->products()
             ->where('is_default', 1)
             ->join('product_variations', 'products.id', '=', 'product_variations.product_id')
@@ -1070,9 +1070,13 @@ class WebController extends Controller
                 $product_id = ProductVariation::find($item['product_id']);
 
                 $record = DB::table('product_variation_warehouse')->where('product_variation_id', $product_id->integration_id)
-                    ->where('warehouse_id', $warehouse->id)
+                    ->where('warehouse_id', $warehouse->integration_id)
                     ->where('remainder', '>=', $item['count'])
                     ->first();
+
+                // dd($record);
+
+                // dd($product_id->integration_id, $warehouse->id, $item['count']);
 
                 if($record) {
                     $records_count ++;
