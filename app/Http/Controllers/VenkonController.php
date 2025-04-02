@@ -884,6 +884,8 @@ class VenkonController extends Controller
             ], 400);
         }
 
+        // return 1;
+
         $this->toLog(['upload brands - success'], __FUNCTION__);
 
         /*
@@ -923,6 +925,8 @@ class VenkonController extends Controller
 
         $this->toLog(['upload categories - success'], __FUNCTION__);
 
+        // return 1;
+
         /*
          * upload colors from venkom
          */
@@ -953,6 +957,8 @@ class VenkonController extends Controller
         }
 
         $this->toLog(['upload colors - success'], __FUNCTION__);
+
+        // return 3;
 
         /*
          * upload products from venkom
@@ -1090,6 +1096,8 @@ class VenkonController extends Controller
         }
 
         $this->toLog(['upload products - success'], __FUNCTION__);
+
+        // return 4;
 
         /*
          * upload discount from venkom
@@ -1257,6 +1265,8 @@ class VenkonController extends Controller
 
         $this->toLog(['upload discounts - success'], __FUNCTION__);
 
+        // return 5;
+
         /*
          * upload warehouses from venkom
          */
@@ -1286,6 +1296,8 @@ class VenkonController extends Controller
         }
 
         $this->toLog(['upload warehouses - success'], __FUNCTION__);
+
+        // return 6;
 
         /*
          * upload warehouses and warehouses products
@@ -1318,11 +1330,11 @@ class VenkonController extends Controller
 
         $this->toLog(['upload all - success'], __FUNCTION__);
 
-
-        return back()->with([
-            'message' => 'Успешно загружен!',
-            'success' => true
-        ]);
+        return 'Data has been successfully uploaded from 1c';
+        // return back()->with([
+        //     'message' => 'Успешно загружен!',
+        //     'success' => true
+        // ]);
     }
 
     function deleteNotExistCategories(array $existCategoryIds)

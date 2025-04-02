@@ -210,7 +210,7 @@ class Express24Controller extends Controller
     		'name' => $productVariation->product->title['ru'],
     		'description' => $productVariation->product->desc['ru'] ?? '-',
     		'price' => $productVariation->price + (($expressConfig->price_up/100)*$productVariation->price),
-    		'categoryID' => $productVariation->product->categories->whereNotNull('express24_id')->last()->express24_id,
+    		'categoryID' => $productVariation->product->categories->whereNotNull('express24_id')->last()?->express24_id,
     		'fiscalization' => [
     			'spicID' => $productVariation->spic_id,
     			'packageCode' => preg_replace("/[^0-9]/", "", $productVariation->package_code),

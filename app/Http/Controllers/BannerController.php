@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Image;
+use DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -36,25 +38,28 @@ class BannerController extends Controller
 
         $validator = Validator::make($data, [
             'link' => 'required|max:255',
-            'img' => 'image|required|max:2048',
+            'img' => 'image|required|max:2048|mimes:jpeg,jpg,png',
             'is_active' => 'boolean|required'
         ]);
         if($validator->fails()) {
-            return back()->with([
-                'success' =>false,
-                'message' => $validator->errors()->messages()['img'][0]
-            ], 400);
+            return back()->with(['message' => $validator->errors()->first(), 'success' => false]);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
-            $img_name = Str::random(12).'.'.$img->extension();
+            // $img_name = Str::random(12).'.'.$img->extension();
+            $img_name = Str::random(12).'.webp';
             $saved_img = $img->move(public_path('/upload/banners'), $img_name);
+
+            Image::make($saved_img)
+                ->encode('webp')
+                ->save(public_path() . '/upload/banners/' . $img_name, 60);
+
             $data['img'] = $img_name;
         }
         Banner::create($data);
 
         return back()->with(['message' => 'Успешно добавлен', 'success' => true], 200);
-        return response(['message' => 'Успешно добавлен'], 200);
+        // return response(['message' => 'Успешно добавлен'], 200);
     }
 
     /**
@@ -82,11 +87,12 @@ class BannerController extends Controller
 
         $validator = Validator::make($data, [
             'link' => 'required|max:255',
-            'img' => 'image|nullable|max:2048',
+            'img' => 'image|nullable|max:2048|mimes:jpeg,jpg,png',
             'is_active' => 'boolean|required'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with(['message' => $validator->errors()->first(), 'success' => false]);
+            // return response(['message' => $validator->errors()], 400);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
@@ -113,6 +119,9 @@ class BannerController extends Controller
             return back()->with(['message' => 'Net takogo bannera', 'success' => false]);
             // return response(['message' => 'Net takogo kommentariya'], 400);
         }
+
+        $imgName = DB::table('banners')->where('id', $id)->first()->img;
+        unlink(public_path().'/upload/banners/'.$imgName);
         $banner->delete();
         return back()->with(['message' => 'Successfully deleted', 'success' => true]);
         // return response(['message' => 'Успешно удален'], 200);

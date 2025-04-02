@@ -174,14 +174,21 @@ class ProductController extends Controller
 
                 if ($request->hasFile($item['for_image'])) {
                     foreach ($request->file($item['for_image']) as $img) {
-                        $img_name = Str::random(12) . '.' . $img->extension();
+                        // $img_name = Str::random(12) . '.' . $img->extension();
+                        $img_name = Str::random(12) . '.webp';
                         $saved_img = $img->move(public_path('/upload/products'), $img_name);
-                        Image::make($saved_img)->resize(200, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save(public_path() . '/upload/products/200/' . $img_name, 60);
-                        Image::make($saved_img)->resize(600, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save(public_path() . '/upload/products/600/' . $img_name, 80);
+                        Image::make($saved_img)
+                            ->resize(200, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })
+                            ->encode('webp')
+                            ->save(public_path() . '/upload/products/200/' . $img_name, 60);
+                        Image::make($saved_img)
+                            ->resize(600, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })
+                            ->encode('webp')
+                            ->save(public_path() . '/upload/products/600/' . $img_name, 70);
                         $data['product_variation_id'] = $product_variation->id;
                         $data['img'] = $img_name;
 
@@ -478,14 +485,21 @@ class ProductController extends Controller
 
                 if ($request->hasFile($item['for_image'])) {
                     foreach ($request->file($item['for_image']) as $img) {
-                        $img_name = Str::random(12) . '.' . $img->extension();
+                        // $img_name = Str::random(12) . '.' . $img->extension();
+                        $img_name = Str::random(12) . '.webp';
                         $saved_img = $img->move(public_path('/upload/products'), $img_name);
-                        Image::make($saved_img)->resize(200, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save(public_path() . '/upload/products/200/' . $img_name, 60);
-                        Image::make($saved_img)->resize(600, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        })->save(public_path() . '/upload/products/600/' . $img_name, 80);
+                        Image::make($saved_img)
+                            ->resize(200, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })
+                            ->encode('webp')
+                            ->save(public_path() . '/upload/products/200/' . $img_name, 60);
+                        Image::make($saved_img)
+                            ->resize(600, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })
+                            ->encode('webp')
+                            ->save(public_path() . '/upload/products/600/' . $img_name, 70);
                         $data['product_variation_id'] = $product_variation->id;
                         $data['img'] = $img_name;
 
@@ -720,14 +734,21 @@ class ProductController extends Controller
     {
         $img = $request->file('file');
 
-        $img_name = Str::random(12) . '.' . $img->extension();
+        // $img_name = Str::random(12) . '.' . $img->extension();
+        $img_name = Str::random(12) . '.webp';
         $saved_img = $img->move(public_path('/upload/products'), $img_name);
-        Image::make($saved_img)->resize(200, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path() . '/upload/products/200/' . $img_name, 60);
-        Image::make($saved_img)->resize(600, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path() . '/upload/products/600/' . $img_name, 80);
+        Image::make($saved_img)
+            ->resize(200, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->encode('webp')
+            ->save(public_path() . '/upload/products/200/' . $img_name, 60);
+        Image::make($saved_img)
+            ->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->encode('webp')
+            ->save(public_path() . '/upload/products/600/' . $img_name, 70);
 
         return response(['file_name' => $img_name, 'variation_id' => $request->variation_id], 200);
     }

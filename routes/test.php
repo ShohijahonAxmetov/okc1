@@ -62,3 +62,5 @@ Route::prefix('for_test')->group(function() {
 
 
 Route::get('test/loyalty', [\App\Http\Controllers\TestController::class, 'loyalty']);
+
+// Route::get('img2webp-test', [\App\Http\Controllers\TestController::class, 'img2webp']);

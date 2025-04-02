@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\Sms;
+use App\Services\Sms\Eskiz;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -26,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->bind(Sms::class, Eskiz::class);
+
         Paginator::useBootstrap();
 
         if(Schema::hasTable('orders')) {

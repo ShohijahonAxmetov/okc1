@@ -15,7 +15,8 @@ class Banner extends Model
     	'is_active'
     ];
 
-    public function getImgAttribute($value) {
+    public function getImgAttribute($value)
+    {
     	return isset($value) ? url('/upload/banners').'/'.$value : null;
     }
 }

@@ -27,6 +27,8 @@ use App\Http\Controllers\ZoodpayController;
 
 class WebController extends Controller
 {
+    protected int $minProductRemainderForShow = 10;
+
     public function search(Request $request)
     {
         if ($request->input('search') !== null && $request->input('search') != '') return response(null);
@@ -360,7 +362,7 @@ class WebController extends Controller
     public function popular_products()
     {
         $popular_products = Product::whereHas('productVariations', function ($q) {
-            $q->where('remainder', '>', 10);
+            $q->where('remainder', '>', $this->minProductRemainderForShow);
         })
             ->where('is_popular', 1)
             ->where('is_active', 1)
@@ -375,7 +377,7 @@ class WebController extends Controller
     public function new_products()
     {
         $new_products = Product::whereHas('productVariations', function ($q) {
-            $q->where('remainder', '>', 10);
+            $q->where('remainder', '>', $this->minProductRemainderForShow);
         })
             ->where('is_active', 1)
             ->latest()
@@ -407,7 +409,7 @@ class WebController extends Controller
         $post = Post::where('slug', $slug)
             ->first();
 
-        $post->increment('views_count');
+        if($post) $post->increment('views_count');
 
         $other_posts = Post::latest()
             ->get()
@@ -437,7 +439,10 @@ class WebController extends Controller
         $brands = Brand::where('is_active', 1)
             ->has('products', '>', 0)
             ->whereHas('products', function($q) {
-                $q->where('is_active', 1);
+                $q->where('is_active', 1)
+                    ->whereHas('productVariations', function ($qi) {
+                        $qi->where('remainder', '>', $this->minProductRemainderForShow);
+                    });
             })
             ->latest()
             ->get();
@@ -522,7 +527,7 @@ class WebController extends Controller
                         ->whereBetween('product_variations.price', [$start_price, $end_price]);
                 })
                 ->where('product_variations.is_active', 1)
-                ->where('product_variations.remainder', '>', 10)
+                ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                 ->latest()
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
@@ -549,7 +554,7 @@ class WebController extends Controller
                 })
                 ->orderBy('products.is_popular', 'desc')
                 ->where('product_variations.is_active', 1)
-                ->where('product_variations.remainder', '>', 10)
+                ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -572,7 +577,7 @@ class WebController extends Controller
                 })
                 ->orderBy('product_variations.price', 'desc')
                 ->where('product_variations.is_active', 1)
-                ->where('product_variations.remainder', '>', 10)
+                ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -595,7 +600,7 @@ class WebController extends Controller
                 })
                 ->orderBy('product_variations.price')
                 ->where('product_variations.is_active', 1)
-                ->where('product_variations.remainder', '>', 10)
+                ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -618,7 +623,7 @@ class WebController extends Controller
                 })
                 ->latest()
                 ->where('product_variations.is_active', 1)
-                ->where('product_variations.remainder', '>', 10)
+                ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                 ->select('products.*')
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
@@ -641,7 +646,7 @@ class WebController extends Controller
             ->with('productVariationImages', 'product', 'product.brand', 'product.categories')
             ->first();
 
-        if (!$product || $product->remainder < 10) return response(['message' => 'Продукт не найден', 'success' => false], 404);
+        if (!$product || $product->remainder < $this->minProductRemainderForShow) return response(['message' => 'Продукт не найден', 'success' => false], 404);
         // vse variacii producks
         $variations = ProductVariation::where('slug', $slug)->with('productVariationImages')
             ->first()
@@ -831,7 +836,7 @@ class WebController extends Controller
             $products = Product::join('product_variations', function ($join) use ($start_price, $end_price) {
                 $join->on('products.id', '=', 'product_variations.product_id')
                     ->where('product_variations.is_default', 1)
-                    ->where('product_variations.remainder', '>', 10)
+                    ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                     ->whereBetween('product_variations.price', [$start_price, $end_price]);
             });
 
@@ -893,7 +898,7 @@ class WebController extends Controller
             ->join('product_variations', function ($join) use ($start_price, $end_price) {
                 $join->on('products.id', '=', 'product_variations.product_id')
                     ->where('product_variations.is_default', 1)
-                    ->where('product_variations.remainder', '>', 10)
+                    ->where('product_variations.remainder', '>', $this->minProductRemainderForShow)
                     ->whereBetween('product_variations.price', [$start_price, $end_price]);
             })
             ->latest()

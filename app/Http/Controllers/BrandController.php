@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Image;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -55,7 +56,7 @@ class BrandController extends Controller
 
         $validator = Validator::make($data, [
             'title' => 'required|max:255',
-            'img' => 'image|nullable|max:2048',
+            'img' => 'image|nullable|max:2048|mimes:jpeg,jpg,png',
             'position' => 'integer|nullable'
         ]);
         if($validator->fails()) {
@@ -64,8 +65,15 @@ class BrandController extends Controller
 
         if($request->hasFile('img')) {
             $img = $request->file('img');
-            $img_name = Str::random(12).'.'.$img->extension();
+            // $img_name = Str::random(12).'.'.$img->extension();
+
+            $img_name = Str::random(12).'.webp';
             $saved_img = $img->move(public_path('/upload/brands'), $img_name);
+
+            Image::make($saved_img)
+                ->encode('webp')
+                ->save(public_path() . '/upload/brands/' . $img_name, 60);
+
             $data['img'] = $img_name;
         }
         $data['desc'] = json_decode($data['desc']);
@@ -104,17 +112,25 @@ class BrandController extends Controller
 
         $validator = Validator::make($data, [
             'title' => 'required|max:255',
-            'img' => 'image|nullable|max:2048',
+            'img' => 'image|nullable|max:2048|mimes:jpeg,jpg,png',
             'position' => 'integer|nullable'
         ]);
         if($validator->fails()) {
-            return response(['message' => $validator->errors()], 400);
+            return back()->with(['message' => $validator->errors()->first(), 'success' => false]);
+            // return response(['message' => $validator->errors()], 400);
         }
 
         if($request->hasFile('img')) {
             $img = $request->file('img');
-            $img_name = Str::random(12).'.'.$img->extension();
+            // $img_name = Str::random(12).'.'.$img->extension();
+
+            $img_name = Str::random(12).'.webp';
             $saved_img = $img->move(public_path('/upload/brands'), $img_name);
+
+            Image::make($saved_img)
+                ->encode('webp')
+                ->save(public_path() . '/upload/brands/' . $img_name, 60);
+
             $data['img'] = $img_name;
         }
         isset($data['desc']) ? $data['desc'] = json_decode($data['desc']) : $data['desc'] = null;

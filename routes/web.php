@@ -27,11 +27,12 @@ use App\Http\Controllers\{
     LogController,
     ZoodpayController,
     Express24Controller,
+    TelegramBotController,
 };
 
 $new_ip_address = '94.232.24.102';
 
-Route::get('ter', [VenkonController::class, 'upload_datas'])->name('upload_datas');
+// Route::get('ter', [VenkonController::class, 'upload_datas'])->name('upload_datas');
 
 Route::get('regherherhe', [Express24Controller::class, 'updateTest']);
 
@@ -190,6 +191,15 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
 
         Route::get('express24/config', [Express24Controller::class, 'toConfigPage'])->name('integrations.express24.config');
         Route::post('express24/config', [Express24Controller::class, 'updateConfig'])->name('integrations.express24.config.update');
+
+        Route::get('bot', [TelegramBotController::class, 'index'])->name('integrations.bot.index');
+        Route::get('messages', [TelegramBotController::class, 'messages'])->name('integrations.bot.messages');
+        Route::get('messages/create', [TelegramBotController::class, 'messageCreate'])->name('integrations.bot.messages.create');
+        Route::get('messages/{message}', [TelegramBotController::class, 'message'])->name('integrations.bot.message');
+        Route::post('messages/{message}/send', [TelegramBotController::class, 'realSend'])->name('integrations.bot.message.send');
+        Route::post('messages', [TelegramBotController::class, 'sendMessage'])->name('integrations.bot.messages_send');
+        Route::get('users', [TelegramBotController::class, 'users'])->name('integrations.bot.users');
+        Route::get('feedback', [TelegramBotController::class, 'feedback'])->name('integrations.bot.feedback');
     });
 });
 

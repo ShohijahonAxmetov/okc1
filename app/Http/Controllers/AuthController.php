@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Sms;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -12,15 +13,17 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    protected $sms_username = 'beautyprof';
-    protected $sms_password = 'p5pkK46SGJb8';
-    protected $sms_basic_url = 'http://91.204.239.44/broker-api/send';
+    protected Sms $sms;
+
+    public function __construct(Sms $sms)
+    {
+        $this->sms = $sms;
+    }
 
     public function login()
     {
         $credentials['username'] = preg_replace('/[^0-9]/', '', request('username'));
         $credentials['password'] = request('password');
-        // $credentials = request(['username', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['message' => 'Nevernie dannie'], 400);
@@ -85,27 +88,15 @@ class AuthController extends Controller
         // popitki
         Cache::put($phone_number.'count', 4, $code_storage_time);
 
-        $sms_text = 'okc.uz'.PHP_EOL.'Tasdiqlash kodi: '.$code;
-        $response = Http::withBasicAuth($this->sms_username, $this->sms_password)
-            ->post($this->sms_basic_url, [
-                'messages' => [
-                    [
-                        'recipient' => $phone_number,
-                        'message-id' => "1",
-                        'sms' => [
-                            'originator' => "3700",
-                            'content' => [
-                                'text' => $sms_text
-                            ],
-                        ],
-                    ],
-                ]
-            ]);
+        // $sms_text = 'okc.uz'.PHP_EOL.'Tasdiqlash kodi: '.$code;
+        $sms_text = 'Kod podtverzhdeniya dlya registratsii na sayte okc.uz: '.$code.' / okc.uz saytida ro\'yxatdan o\'tish uchun tasdiqlash kodi: '.$code;
 
-        if($response->status() == 200) {
-            return response(['message' => 'SMS отправлен', 'second' => 60]);
+        $response = $this->sms->sendMessage($phone_number, $sms_text);
+
+        if($response) {
+            return response(['message' => 'Sms otpravlen', 'second' => 60], 200);
         } else {
-            return response(['message' => 'Ошибка при отправке SMS, попробуйте позже'], 400);
+            return response(['message' => 'Oshibka pri otpravke sms'], 400);
         }
 
     }
@@ -244,23 +235,11 @@ class AuthController extends Controller
         // popitki
         Cache::put($phone_number.'count', 4, $code_storage_time);
 
-        $sms_text = 'okc.uz'.PHP_EOL.'Tasdiqlash kodi: '.$code;
-        $response = Http::withBasicAuth($this->sms_username, $this->sms_password)->post($this->sms_basic_url, [
-            'messages' => [
-                [
-                    'recipient' => $phone_number,
-                    'message-id' => "1",
-                    'sms' => [
-                        'originator' => "3700",
-                        'content' => [
-                            'text' => $sms_text
-                        ],
-                    ],
-                ],
-            ]
-        ]);
+        $sms_text = 'Kod podtverzhdeniya dlya registratsii na sayte okc.uz: '.$code.' / okc.uz saytida ro\'yxatdan o\'tish uchun tasdiqlash kodi: '.$code;
 
-        if($response->body() == 'Request is received') {
+        $response = $this->sms->sendMessage($phone_number, $sms_text);
+
+        if($response) {
             return response(['message' => 'Sms otpravlen', 'second' => 60], 200);
         } else {
             return response(['message' => 'Oshibka pri otpravke sms'], 400);

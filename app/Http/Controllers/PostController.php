@@ -40,24 +40,33 @@ class PostController extends Controller
 
         $validator = Validator::make($data, [
             'title_ru' => 'required',
-            'img' => 'image|nullable|max:2048'
+            'img' => 'image|nullable|max:2048|mimes:jpeg,jpg,png'
         ]);
         if($validator->fails()) {
             return back()->with([
                 'success' => false,
-                'message' => $validator->errors()
+                'message' => $validator->errors()->first()
             ]);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
-            $img_name = Str::random(12).'.'.$img->extension();
+            // $img_name = Str::random(12).'.'.$img->extension();
+            $img_name = Str::random(12).'.webp';
             $saved_img = $img->move(public_path('/upload/posts'), $img_name);
-            Image::make($saved_img)->resize(200, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path().'/upload/posts/200/'.$img_name, 60);
-            Image::make($saved_img)->resize(600, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path().'/upload/posts/600/'.$img_name, 80);
+
+            Image::make($saved_img)
+                ->resize(200, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->encode('webp')
+                ->save(public_path().'/upload/posts/200/'.$img_name, 60);
+            Image::make($saved_img)
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->encode('webp')
+                ->save(public_path().'/upload/posts/600/'.$img_name, 80);
+
             $data['img'] = $img_name;
         }
         // $data['title'] = json_decode($data['title']);
@@ -105,24 +114,33 @@ class PostController extends Controller
 
         $validator = Validator::make($data, [
             'title_ru' => 'required|max:255',
-            'img' => 'image|nullable|max:2048'
+            'img' => 'image|nullable|max:2048|mimes:jpeg,jpg,png'
         ]);
         if($validator->fails()) {
             return back()->with([
                 'success' => false,
-                'message' => $validator->errors()
+                'message' => $validator->errors()->first()
             ]);
         }
         if($request->hasFile('img')) {
             $img = $request->file('img');
-            $img_name = Str::random(12).'.'.$img->extension();
+            // $img_name = Str::random(12).'.'.$img->extension();
+            $img_name = Str::random(12).'.webp';
             $saved_img = $img->move(public_path('/upload/posts'), $img_name);
-            Image::make($saved_img)->resize(200, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path().'/upload/posts/200/'.$img_name, 60);
-            Image::make($saved_img)->resize(600, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save(public_path().'/upload/posts/600/'.$img_name, 80);
+
+            Image::make($saved_img)
+                ->resize(200, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->encode('webp')
+                ->save(public_path().'/upload/posts/200/'.$img_name, 60);
+            Image::make($saved_img)
+                ->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })
+                ->encode('webp')
+                ->save(public_path().'/upload/posts/600/'.$img_name, 80);
+                
             $data['img'] = $img_name;
         }
 
