@@ -28,6 +28,7 @@ use App\Http\Controllers\{
     ZoodpayController,
     Express24Controller,
     TelegramBotController,
+    Yandex\YandexMarketController,
 };
 
 $new_ip_address = '94.232.24.102';
@@ -200,6 +201,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
         Route::post('messages', [TelegramBotController::class, 'sendMessage'])->name('integrations.bot.messages_send');
         Route::get('users', [TelegramBotController::class, 'users'])->name('integrations.bot.users');
         Route::get('feedback', [TelegramBotController::class, 'feedback'])->name('integrations.bot.feedback');
+
+        // ------------------------------------------------------------------------------------------------
+
+        Route::prefix('yandex_market')->name('integrations.yandex_market.')->group(function () {
+            Route::get('/', [YandexMarketController::class, 'index'])->name('index');
+            Route::get('categories', [YandexMarketController::class, 'categories'])->name('categories');
+            Route::get('branches', [YandexMarketController::class, 'branches'])->name('branches');
+            Route::get('config', [YandexMarketController::class, 'config'])->name('config');
+            Route::post('pin_category', [YandexMarketController::class, 'pinCategory'])->name('pin_category');
+        });
     });
 });
 

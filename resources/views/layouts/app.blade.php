@@ -530,20 +530,28 @@
 									<span class="menu-arrow"></span>
 								</span>
 								<div class="menu-sub menu-sub-accordion menu-active-bg">
-									<div class="menu-item">
+									<!-- <div class="menu-item">
 										<a class="menu-link {{ Request::is('dashboard/integrations/express24') ? 'active' : '' }}" href="{{ route('integrations.express24.index') }}">
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
 											<span class="menu-title">Express24</span>
 										</a>
-									</div>
+									</div> -->
 									<div class="menu-item">
 										<a class="menu-link {{ Request::is('dashboard/integrations/bot') ? 'active' : '' }}" href="{{ route('integrations.bot.index') }}">
 											<span class="menu-bullet">
 												<span class="bullet bullet-dot"></span>
 											</span>
 											<span class="menu-title">Бот "Карта лояльности"</span>
+										</a>
+									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/integrations/yandex_market') ? 'active' : '' }}" href="{{ route('integrations.yandex_market.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Yandex Маркет</span>
 										</a>
 									</div>
 								</div>

@@ -390,6 +390,18 @@
                             </div>
                             <div class="row w-100">
                                 <div class="col-12">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Slug</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="slug" class="form-control mb-2" placeholder="slug" value="{{ $variation->slug }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-12">
                                     <!--begin::Dropzone-->
                                     <div class="dropzone" id="dropzone_{{ $variation->id }}">
                                         <!--begin::Message-->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryProductCollection;
 use Illuminate\Support\Facades\Http;
 use Hash;
 use DB;
@@ -533,11 +534,19 @@ class WebController extends Controller
                 ->whereIn('brand_id', $brand)
                 ->with('brand')
                 ->paginate(12);
+                
             return response([
                 'data' => $products,
                 'start_price' => $start_price,
                 'end_price' => $end_price
-            ], 200);
+            ]);
+
+            $products = Product::whereHas('categories', function ($q) use ($slug) {
+                $q->where('slug', $slug);
+            })
+                ->get();
+
+            return new CategoryProductCollection($products);
         }
 
         $sort_type = $request->sort;
@@ -706,7 +715,9 @@ class WebController extends Controller
         if ($data_exists) {
             $similar_products = Category::whereHas('products.productVariations', function ($query) use ($slug) {
                 $query->where('slug', $slug);
-            })->first()->products()->where('is_active', 1)->with('productVariations', 'productVariations.productVariationImages')->take(8)->get()->except($product->product->id);
+            })->first()->products()->where('is_active', 1)->whereHas('productVariations', function ($q) {
+                $q->where('remainder', '>', $this->minProductRemainderForShow);
+            })->with('productVariations', 'productVariations.productVariationImages')->take(8)->get()->except($product->product->id);
         } else {
             $similar_products = null;
         }

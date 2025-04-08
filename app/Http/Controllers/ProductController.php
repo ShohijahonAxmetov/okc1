@@ -400,15 +400,17 @@ class ProductController extends Controller
 
             $is_first = 1;
             foreach (json_decode($request->variations_data) as $variation) {
-                ProductVariation::find($variation[4]->value)->update([
+                ProductVariation::find($variation[5]->value)->update([
                     'product_code' => $variation[0]->value,
                     'price' => $variation[1]->value,
                     'is_active' => $variation[2]->value,
                     'color_id' => $variation[3]->value,
-                    'is_default' => $is_first
+                    'is_default' => $is_first,
+
+                    'slug' => Str::slug($variation[4]->value),
                 ]);
 
-                ProductVariation::find($variation[4]->value)->productVariationImages()->delete();
+                ProductVariation::find($variation[5]->value)->productVariationImages()->delete();
                 $is_first = 0;
             }
             unset($is_first);
