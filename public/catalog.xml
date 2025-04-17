@@ -1,4 +1,4 @@
-<yml_catalog date="2025-04-09T04:00:00+05:00">
+<yml_catalog date="2025-04-17T11:00:00+05:00">
     <shop>
         <name>OKC (Original Korean Cosmetics)</name>
         <company>BEAUTY PROF</company>
@@ -109,9 +109,53 @@
                                                             <category id="100000000158" parentId="100000000047">Хайлайтеры</category>
                                     </categories>
         <offers>
+                        <offer id="10000000711">
+                <name>Кушон для лица CLIO KILL COVER MESH GLOW CUSHION 3 LINEN SPF50+ PA++++</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Увлажняющий кушон для эффекта Glass Skin CLIO Kill Cover Mesh Glow Cushion SPF50+ PA++++ 3 Linen&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Увлажняющий кушон для эффекта Glass Skin CLIO Kill Cover Mesh Glow Cushion SPF50+ PA++++&amp;nbsp;обладает лёгким невесомым покрытием с низкой перекрывающей способностью, отлично выравнивает тон и избавляет от тусклости. Кушон с высокой стойкостью хорошо держится в течение дня, не пересушивает, не скатывается и не окисляется.&amp;nbsp;В комплекте идёт сменный блок.&lt;br /&gt;
+&lt;br /&gt;
+Средство обеспечивает дополнительное уходовое действие, избавляет от сухости и шелушения. Способствует нормализации гидролипидного баланса и оказывает пролонгированное увлажнение. Высокий фактор защиты от ультрафиолета замедляет процессы старения, блокирует синтез меланина и нейтрализует агрессивное воздействие внешних факторов.&lt;br /&gt;
+&lt;br /&gt;
+Уникальная кастомная форма спонжа позволяет легко&amp;nbsp;и удобно распределять тон по коже, уделяя особое внимание таким труднодоступным областям, как крылья носа и зона вокруг глаз.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Вода ромашки&amp;nbsp;&lt;/strong&gt;идеально подходит для ухода за чувствительной и раздраженной кожей, успокаивает, снимает покраснения и раздражение, смягчает, повышает тонус кожи.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Д-пантенол&lt;/strong&gt;&amp;nbsp;ускоряет заживление, успокаивает и снимает раздражение, увлажняет и предотвращает сухость.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;8 видов гиалуроновой кислоты&lt;/strong&gt;&amp;nbsp;имеют разный молекулярный размер, за счёт чего работают в глубоких и поверхностных слоях кожи:&amp;nbsp;устраняют сухость и чувство стянутости, поддерживают эластичность и упругость, образуют влагоудерживающий барьер.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аденозин&amp;nbsp;&lt;/strong&gt;&amp;mdash; мощный антивозрастной актив, стимулирует выработку коллагена, повышает упругость и плотность, подтягивает и разглаживает, замедляет старение.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;способствует разглаживанию морщин, тонизирует, ускоряет заживление, устраняет шелушение, приводит в норму липидный баланс.&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/r3ESvsVJGtB1.webp</picture>
+                <price>363000</price>
+                <sku>10000000711</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000732">
+                <name>Тушь для ресниц CLIO KILL LASH SUPERPROOF MASCARA 01 LONG CURLING</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Суперстойкая удлиняющая тушь для ресниц CLIO Kill Lash Superproof Mascara 01 Long Curling&lt;/h2&gt;
+
+&lt;p&gt;Суперстойкая подкручивающая тушь для ресниц&amp;nbsp;CLIO Kill Lash Superproof Mascara&amp;nbsp;придаёт выраженный объём, хорошо прокрашивает каждую ресничку и разделяет их. Отличается высокой стойкостью, не размазывается и не осыпается в течение дня, не создаёт эффекта панды. Дарит ресницам&amp;nbsp;глубокий чёрный цвет и пленительный изгиб, делает их густыми и подкрученными.&amp;nbsp;&lt;br /&gt;
+&lt;br /&gt;
+Тушь на гелевой основе не утяжеляет и не склеивает реснички, легко наслаивается, что позволяет создать как лёгкий естественный образ, так и более яркий. Специальная кисточка позволяет удобно прокрашивать маленькие реснички в уголках глаз, без образования комочков.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/B0FSm0Fag2uX.webp</picture>
+                <price>187000</price>
+                <sku>10000000732</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
                         <offer id="10000001097">
                 <name>Крем OLLEE SPF для комбинированный и сухой кожи 50 мл SPF50+ PA++</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>7</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;SPF Крем: для нормальной и склонной к сухости кожи&lt;/h2&gt;
 
@@ -138,7 +182,7 @@
             </offer>
                         <offer id="10000000856">
                 <name>MISSHA SPEEDY SOLUTION FACE UP PATCH</name>
-                <quantityStock>31</quantityStock>
+                <quantityStock>27</quantityStock>
                 <brand>MISSHA</brand>
                 <description>&lt;h2&gt;Лифтинг патч для лица MISSHA SPEEDY SOLUTION FACE UP PATCH&lt;/h2&gt;
 
@@ -146,6 +190,230 @@
                 <picture>https://admin.okc.uz/upload/products/LAmf9Cc6vVWi.webp</picture>
                 <price>34100</price>
                 <sku>10000000856</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000712">
+                <name>Бесцветная фиксирующая пудра CLIO STAY PERFECT FINISH PACT</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Бесцветная фиксирующая пудра CLIO STAY PERFECT FINISH PACT&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Бесцветная фиксирующая пудра CLIO Stay Perfect Finish Pact&lt;/em&gt;&lt;/strong&gt;&amp;nbsp;контролирует избыток кожного себума и надежно фиксирует макияж.&lt;br /&gt;
+&lt;br /&gt;
+С помощью бесцветной пудры Вы надежно зафиксируете макияж и будете выглядеть привлекательной в течении всего дня.&lt;br /&gt;
+&lt;br /&gt;
+Основные преимущества пудры:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;надежно фиксирует макияж от смазывания и стекания&lt;/li&gt;
+	&lt;li&gt;контролирует выделение кожного сала&lt;/li&gt;
+	&lt;li&gt;прозрачное нанесение без белого налета&lt;/li&gt;
+	&lt;li&gt;мягко наносится, корректирует неровности и расширенные поры&lt;/li&gt;
+	&lt;li&gt;мягкая, бархатная пуховка из микрофибры в комплекте позволит без труда поправить макияж в любое время и в любом месте без комков&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ваше лицо выглядит свежим, как будто Вы только что нанесли макияж!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;&lt;strong&gt;Подходит для всех типов кожи, в особенности комбинированной и жирной.&amp;nbsp;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/RKIhcGdboaWt.webp</picture>
+                <price>231000</price>
+                <sku>10000000712</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000427">
+                <name>Палетка для глаз CLIO PRO EYE PALETTE AIR (LUXURY KOSHORT) 11 SHOPPING CHEESE</name>
+                <quantityStock>8</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Палетка теней лимитированная коллекция Clio Pro Eye Palette Air Luxury Koshort Special Edition 11 Shopping Cheese&lt;/h2&gt;
+
+&lt;p&gt;Pro Eye Palette Air &amp;mdash; специальное издание, с волшебным сердечком, встроенным в палетку. Эта палетка предлагает разнообразные цветовые комбинации, идеально подходящие для повседневного макияжа глаз. Включает 12 носибельных, привлекающих внимание оттенков с глиттером, сиянием и матовым финишем. Тени хорошо держатся и наносятся на кожу гладко, без липкости.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Преимущества:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Специальное издание с встроенным волшебным сердечком.&lt;/li&gt;
+	&lt;li&gt;Универсальная палетка с 12 оттенками для создания как ярких, так и деликатных образов.&lt;/li&gt;
+	&lt;li&gt;Легкое нанесение и равномерное покрытие без липкости.&lt;/li&gt;
+	&lt;li&gt;Идеально подходит для ежедневных макияжей.&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/yVw9F4w6wQnx.webp</picture>
+                <price>286000</price>
+                <sku>10000000427</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000607">
+                <name>Тушь для ресниц CLIO KILL LASH SUPERPROOF MASCARA 010 SHARP CURL</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2&gt;CLIO KILL LASH SUPERPROOF MASCARA 010 SHARP CURL - Ультра-объемная тушь для ресниц&lt;/h2&gt;
+
+&lt;p&gt;Clio Kill Lash Super proof Mascara SHARP CURL- создает эффект накладных ресниц без накладных ресниц. Высокотехнологичная, гибкая формула сохраняет ваши ресницы подкрученными в течение всего дня, не осыпаясь. Легкое нанесение без комочков. Оптимизированная кисть в форме песочных часов захватывает и удлиняет каждую труднодоступную ресничку. Эта устойчивая к размазыванию формула держится весь день, но легко удаляется, когда вам это нужно. Просто смойте тушь теплой водой. Не содержит парабенов, сульфатов, этанола, минеральных масел, силикона и искусственных отдушек.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/gEL76mJUBiTF.webp</picture>
+                <price>192500</price>
+                <sku>10000000607</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000733">
+                <name>Тушь для ресниц CLIO KILL LASH SUPERPROOF MASCARA 02 VOLUME CURLING</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Суперстойкая подкручивающая тушь для ресниц CLIO Kill Lash Superproof Mascara 02 Volume Curling&lt;/h2&gt;
+
+&lt;p&gt;Суперстойкая подкручивающая тушь для ресниц&amp;nbsp;CLIO Kill Lash Superproof Mascara&amp;nbsp;придаёт выраженный объём, хорошо прокрашивает каждую ресничку и разделяет их. Отличается высокой стойкостью, не размазывается и не осыпается в течение дня, не создаёт эффекта панды. Дарит ресницам&amp;nbsp;глубокий чёрный цвет и пленительный изгиб, делает их густыми и подкрученными.&amp;nbsp;&lt;br /&gt;
+&lt;br /&gt;
+Тушь на гелевой основе не утяжеляет и не склеивает реснички, легко наслаивается, что позволяет создать как лёгкий естественный образ, так и более яркий. Специальная кисточка позволяет удобно прокрашивать маленькие реснички в уголках глаз, без образования комочков.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/alPij2ZUMVXt.webp</picture>
+                <price>187000</price>
+                <sku>10000000733</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000677">
+                <name>Карандаш для бровей CLIO SHARP SO SIMPLE BROW PENCIL 03 NEUTRAL BROWN</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Автоматический карандаш для бровей CLIO SHARP SO SIMPLE BROW PENCIL 03 NEUTRAL BROWN&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Автоматический карандаш CLIO со скошенным кончиком особой формы и мягкой щеточкой помогает легко нарисовать тонкие волоски и заполнить форму брови. Бархатная текстура дарит гладкое нанесение, естественный результат и стойкость на весь день.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/P5pHXEuJ6ucL.webp</picture>
+                <price>121000</price>
+                <sku>10000000677</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000875">
+                <name>Хайлайтер CLIO PRISM HIGHLIGHTER 02 FAIRY PINK</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;p&gt;Шиммерный хайлайтер для сияния кожи&amp;nbsp;CLIO Prism Highlighter&amp;nbsp;с шелковистой текстурой дарит естественное свечение, подчёркивает контуры лица и придаёт ему выразительности. Продукт легко наносится и равномерно распределяется по коже, не осыпается и не скатывается в течение дня.&lt;br /&gt;
+&lt;br /&gt;
+Хайлайтер можно наслаивать для более насыщенного и яркого сияния. Особая технология производства создаёт гелево-пудровую консистенцию и обеспечивает красивое влажное мерцание.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Дополнительные уходовые компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Сквалан&amp;nbsp;&lt;/strong&gt;защищает кожу от потери влаги, регулирует кожное дыхание, тормозит раннее увядание кожи, снижает негативное воздействие внешних факторов.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт ирландского мха&amp;nbsp;&lt;/strong&gt;&amp;mdash;&amp;nbsp;это вид красных морских водорослей, который оказывает противовоспалительный и противоотёчный эффект, снижает потерю влаги и насыщает минералами.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;защищает от негативного воздействия внешних факторов, предупреждает окисление ненасыщенных липидов. Наполняет витаминами. Способен проникнуть в глубокие слои кожи, где гидролизуется в витамин Е.&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/eKC2POSS2PdP.webp</picture>
+                <price>253000</price>
+                <sku>10000000875</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000725">
+                <name>Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BLACK 001 BLACK</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2&gt;Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BLACK 001 BLACK&lt;/h2&gt;
+
+&lt;p&gt;Подводка-фломастер для глаз CLIO с ультрастойкой формулой помогает рисовать точные линии насыщенного цвета и создавать аккуратные стрелки. Линии не размазываются и сохраняют четкость и выразительный оттенок в течение всего дня. Удобный формат фломастера позволяет даже новичкам наносить безупречный макияж глаз.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/lLB7QYvVpRCP.webp</picture>
+                <price>121000</price>
+                <sku>10000000725</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000726">
+                <name>Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BROWN 002 BROWN</name>
+                <quantityStock>8</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BROWN 002 BROWN&lt;/h2&gt;
+
+&lt;p&gt;CLIO SUPERPROOF PEN LINER KILL BROWN #02 BROWN Эта водостойкая, ультратонкая жидкая подводка для глаз создает четкие линии. Сверхтонкая кисточка позволяет с легкостью создать тонкую, но яркую подводку для глаз. Со специальным покрытием, устойчивым к воде и маслу, не размазывается. Ручка имеет резервуар для хранения чернил и герметичный колпачок, предотвращает стирание линии и создает стойкую подводку для глаз.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/NcmwYoR3ynfL.webp</picture>
+                <price>121000</price>
+                <sku>10000000726</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000728">
+                <name>Тушь-ремувер (средство для снятия туши с ресниц) CLIO KILL LASH MASCARA REMOVER</name>
+                <quantityStock>4</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CLIO Kill Lash Mascara Remover&lt;/strong&gt; &amp;mdash; это эффективное средство для снятия туши, разработанное для бережного удаления даже самой стойкой и водостойкой косметики с ресниц.​&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ключевые особенности:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;
+	&lt;p&gt;&lt;strong&gt;Эффективное очищение:&lt;/strong&gt; Высокое содержание масел в составе позволяет быстро растворять многослойный макияж, оставляя ресницы чистыми и свежими без необходимости интенсивного трения. ​&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;&lt;strong&gt;Уникальная изогнутая щеточка:&lt;/strong&gt; Специально разработанная изогнутая кисточка обеспечивает равномерное нанесение средства на каждую ресницу, включая труднодоступные зоны, такие как внутренние и нижние ресницы, для тщательного очищения.&amp;nbsp;&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;&lt;strong&gt;Простота использования:&lt;/strong&gt; Достаточно нанести средство на ресницы, подождать несколько секунд и аккуратно удалить макияж с помощью ватного диска или салфетки, без необходимости интенсивного трения. ​&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;&lt;strong&gt;Бережное воздействие:&lt;/strong&gt; Формула, обогащенная натуральными компонентами, такими как масло авокадо, пантенол и гидролизованный кератин, питает и защищает ресницы во время очищения, предотвращая их ломкость и выпадение.&amp;nbsp;&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;CLIO Kill Lash Mascara Remover&lt;/strong&gt; подходит для ежедневного использования и обеспечивает комфортное удаление макияжа без раздражения, сохраняя здоровье и красоту ваших ресниц.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/5dqPqhi9J9oe.webp</picture>
+                <price>154000</price>
+                <sku>10000000728</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000727">
+                <name>Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BROWN 003 CACAO BROWN</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Подводка для глаз CLIO SUPERPROOF PEN LINER KILL BROWN 003 CACAO BROWN&lt;/h2&gt;
+
+&lt;p&gt;Подводка-фломастер для глаз CLIO с ультрастойкой формулой помогает рисовать точные линии насыщенного цвета и создавать аккуратные стрелки. Линии не размазываются и сохраняют четкость и выразительный оттенок в течение всего дня. Удобный формат фломастера позволяет даже новичкам наносить безупречный макияж глаз.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/8Ryx9pXFr8cR.webp</picture>
+                <price>121000</price>
+                <sku>10000000727</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000758">
+                <name>Хайлайтер CLIO PRISM HIGHLIGHTER 01 GOLD SHEER</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Шиммерный хайлайтер для сияния кожи CLIO Prism Highlighter 01 Gold Sheer&lt;/h2&gt;
+
+&lt;p&gt;Шиммерный хайлайтер для сияния кожи&amp;nbsp;CLIO Prism Highlighter&amp;nbsp;с шелковистой текстурой дарит естественное свечение, подчёркивает контуры лица и придаёт ему выразительности. Продукт легко наносится и равномерно распределяется по коже, не осыпается и не скатывается в течение дня.&lt;br /&gt;
+&lt;br /&gt;
+Хайлайтер можно наслаивать для более насыщенного и яркого сияния. Особая технология производства создаёт гелево-пудровую консистенцию и обеспечивает красивое влажное мерцание.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Дополнительные уходовые компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Сквалан&amp;nbsp;&lt;/strong&gt;защищает кожу от потери влаги, регулирует кожное дыхание, тормозит раннее увядание кожи, снижает негативное воздействие внешних факторов.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт ирландского мха&amp;nbsp;&lt;/strong&gt;&amp;mdash;&amp;nbsp;это вид красных морских водорослей, который оказывает противовоспалительный и противоотёчный эффект, снижает потерю влаги и насыщает минералами.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;защищает от негативного воздействия внешних факторов, предупреждает окисление ненасыщенных липидов. Наполняет витаминами. Способен проникнуть в глубокие слои кожи, где гидролизуется в витамин Е.&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/OoW0L2tlED93.webp</picture>
+                <price>253000</price>
+                <sku>10000000758</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000982">
+                <name>Альгинантная маска Cryo Rubber with Firming Collagen</name>
+                <quantityStock>10</quantityStock>
+                <brand>DR. JART+</brand>
+                <description>&lt;p&gt;Подтягивающая моделирующая маска для упругости кожи Dr.Jart Cryo Rubber Mask With Firming Collagen даёт мгновенный охлаждающий эффект и оказывает действие лифтинга, укрепляет тургор, подтягивает овал лица, повышает эластичность кожи и способствует разглаживанию кожных заломов. Двухступенчатая система включает в себя высококонцентрированную сыворотку и маску для разглаживания кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/8LNdQj82pmUJ.webp</picture>
+                <price>143000</price>
+                <sku>10000000982</sku>
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
@@ -162,7 +430,7 @@
             </offer>
                         <offer id="10000001010">
                 <name>OLLEE Крем лифтинг для кожи вокруг глаз 40мл</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;Крем для кожи вокруг глаз&lt;/h2&gt;
 
@@ -201,6 +469,251 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
+                        <offer id="10000000588">
+                <name>Кушон для лица CLIO  KILL COVER SKIN FIXER CUSHION 19C LIGHT SPF50+ PA+++</name>
+                <quantityStock>6</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Кушон для лица CLIO &amp;nbsp;KILL COVER SKIN FIXER CUSHION 19C LIGHT SPF50+ PA+++&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Тональный кушон CLIO придает коже ровный, гладкий вид и маскирует несовершенства и расширенные поры.&lt;br /&gt;
+Средство с фиксирующим эффектом выравнивает тон и создает невесомое, но при этом очень стойкое шелковистое покрытие с матовым финишем.&lt;br /&gt;
+Кушон также помогает защитить кожу от солнца благодаря солнцезащитным факторам SPF 50+ и PA+++.&lt;br /&gt;
+&lt;br /&gt;
+В комплекте идёт рефил.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/jQ6LAGlQsRQO.webp</picture>
+                <price>363000</price>
+                <sku>10000000588</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000659">
+                <name>Консилер CLIO KILL COVER FOUNWEAR CONCEALER 2 LINGERIE</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Консилер CLIO KILL COVER FOUNWEAR CONCEALER 2 LINGERIE&lt;/h2&gt;
+
+&lt;p&gt;Нежный консилер CLIO обеспечивает легкое, комфортное и стойкое покрытие и маскирует несовершенства кожи. Средство легко растушевывается, отлично скрывает проблемные зоны лица или темные круги под глазами и помогает создать безупречный макияж.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/3HzfC726Wkhv.webp</picture>
+                <price>137500</price>
+                <sku>10000000659</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000658">
+                <name>Палетка теней CLIO SHADE &amp; SHADOW PALETTE 03 SCOOP OF SHADE</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Палетка теней CLIO SHADE &amp;amp; SHADOW PALETTE 03 SCOOP OF SHADE&lt;/h2&gt;
+
+&lt;p&gt;Палетка теней CLIO включает насыщенные оттенки 3 видов: матовые, мерцающие и с глиттером.&lt;br /&gt;
+&lt;br /&gt;
+Набор содержит 12 теней в нежных розовых, бежевых и коричневых тонах.&lt;br /&gt;
+Оттенки идеально сочетаются друг с другом и позволяют создать гармоничный и выразительный макияж глаз.&lt;br /&gt;
+Некоторые оттенки можно использовать как румяна и хайлайтер.&lt;br /&gt;
+&lt;br /&gt;
+В палетку входят оттенки Cream&amp;amp;Cream, Tasting Spoon, Sweet Velvet, Ice Cherry, Strawberry Bomb, Frozen Delight, Unicorn Crush, Maple Walnut, Waffle Cone, Macadamia Nut, Cookie Crumble, Toffee Fudge.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/18DSbEvViMCj.webp</picture>
+                <price>297000</price>
+                <sku>10000000658</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000644">
+                <name>База под макияж CLIO WAKE UP PRIMER TONE UP</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Тонирующий праймер CLIO WAKE UP PRIMER TONE UP&lt;/h2&gt;
+
+&lt;p&gt;Праймер CLIO с мягким розовым оттенком корректирует и улучшает тон кожи, подготавливая её к нанесению косметики.&lt;br /&gt;
+Средство также выравнивает текстуру кожи, придавая ей гладкость и создавая идеальную основу под макияж.&lt;br /&gt;
+Формула также обеспечивает защиту кожи от солнца.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/6NXRMrtTOFbI.webp</picture>
+                <price>242000</price>
+                <sku>10000000644</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000636">
+                <name>База под макияж CLIO WAKE UP PRIMER BLUR</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Блюр-праймер для макияжа CLIO Wake Up Primer Blur&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Блюр-праймер&amp;nbsp;CLIO Wake Up Primer Blur продлевает стойкость макияжа и надёжную фиксацию тонального средства, не скатывается и защищает от образования шелушений. Средство заполняет все неровности на коже, разглаживает микрорельеф и визуально сужает расширенные поры. Обеспечивает равномерное покрытие тона и хорошо скрывает несовершенства.&lt;br /&gt;
+&lt;br /&gt;
+Нежная текстура бежевого цвета легко распределяется по коже, делая её гладкой и шелковистой. PHA-кислота в составе выполняет функцию деликатного пилинга, растворяет загрязнения в порах и мягко отшелушивает.&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Сквалан&amp;nbsp;&lt;/strong&gt;защищает кожу от потери влаги, регулирует кожное дыхание, тормозит раннее увядание кожи, снижает негативное воздействие внешних факторов.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Глюконолактон&amp;nbsp;&lt;/strong&gt;улучшает тон и микрорельеф кожи, оказывает фотопротекторное воздействие, обладает противовоспалительным эффектом.&amp;nbsp;Нежно отшелушивает роговой слой, выравнивает и разглаживает, освежает цвет лица, стимулирует обновление.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;защищает от негативного воздействия внешних факторов, предупреждает окисление ненасыщенных липидов. Наполняет витаминами. Способен проникнуть в глубокие слои кожи, где гидролизуется в витамин Е.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/Wt971cTNAHEe.webp</picture>
+                <price>242000</price>
+                <sku>10000000636</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000620">
+                <name>База под макияж CLIO WAKE UP PRIMER MOISTURE</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Увлажняющий праймер&amp;nbsp;CLIO WAKE UP PRIMER MOISTURE&lt;/h2&gt;
+
+&lt;p&gt;Лёгкий праймер CLIO с кремовой текстурой тает на коже, глубоко увлажняя её и подготавливая к нанесению макияжа.Продукт действует как увлажняющий крем, насыщая кожу влагой и уменьшая сухость.Кожа становится более гладкой, мягкой, сияющей &amp;ndash; и макияж лучше ложится на кожу и держится дольше.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/ZEZGM4CROpTS.webp</picture>
+                <price>242000</price>
+                <sku>10000000620</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000678">
+                <name>Кушон для лица CLIO KILL COVER MESH GLOW CUSHION 2 LINGERIE SPF50+ PA++++</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Увлажняющий кушон для эффекта Glass Skin CLIO Kill Cover Mesh Glow Cushion SPF50+ PA++++ 2 Lingerie&lt;/h2&gt;
+
+&lt;p&gt;Увлажняющий кушон для эффекта Glass Skin CLIO Kill Cover Mesh Glow Cushion SPF50+ PA++++&amp;nbsp;обладает лёгким невесомым покрытием с низкой перекрывающей способностью, отлично выравнивает тон и избавляет от тусклости. Кушон с высокой стойкостью хорошо держится в течение дня, не пересушивает, не скатывается и не окисляется.&amp;nbsp;В комплекте идёт сменный блок.&lt;br /&gt;
+&lt;br /&gt;
+Средство обеспечивает дополнительное уходовое действие, избавляет от сухости и шелушения. Способствует нормализации гидролипидного баланса и оказывает пролонгированное увлажнение. Высокий фактор защиты от ультрафиолета замедляет процессы старения, блокирует синтез меланина и нейтрализует агрессивное воздействие внешних факторов.&lt;br /&gt;
+&lt;br /&gt;
+Уникальная кастомная форма спонжа позволяет легко&amp;nbsp;и удобно распределять тон по коже, уделяя особое внимание таким труднодоступным областям, как крылья носа и зона вокруг глаз.&amp;nbsp;&lt;br /&gt;
+&lt;br /&gt;
+Продукт представлен в 3 оттенках:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;2 Lingerie (светлый беж с розовым подтоном);&lt;/li&gt;
+	&lt;li&gt;3 Linen (натуральный беж с желтоватым подтоном);&lt;/li&gt;
+	&lt;li&gt;4 Ginger (смуглый беж с натуральным подтоном)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Вода ромашки&amp;nbsp;&lt;/strong&gt;идеально подходит для ухода за чувствительной и раздраженной кожей, успокаивает, снимает покраснения и раздражение, смягчает, повышает тонус кожи.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Д-пантенол&lt;/strong&gt;&amp;nbsp;ускоряет заживление, успокаивает и снимает раздражение, увлажняет и предотвращает сухость.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;8 видов гиалуроновой кислоты&lt;/strong&gt;&amp;nbsp;имеют разный молекулярный размер, за счёт чего работают в глубоких и поверхностных слоях кожи:&amp;nbsp;устраняют сухость и чувство стянутости, поддерживают эластичность и упругость, образуют влагоудерживающий барьер.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аденозин&amp;nbsp;&lt;/strong&gt;&amp;mdash; мощный антивозрастной актив, стимулирует выработку коллагена, повышает упругость и плотность, подтягивает и разглаживает, замедляет старение.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;способствует разглаживанию морщин, тонизирует, ускоряет заживление, устраняет шелушение, приводит в норму липидный баланс.&lt;/li&gt;
+&lt;/ul&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/uZ0FK7DKZzt2.webp</picture>
+                <price>363000</price>
+                <sku>10000000678</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000675">
+                <name>Карандаш для бровей CLIO SHARP SO SIMPLE BROW PENCIL 02 ASH BROWN</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Карандаш для бровей CLIO SHARP SO SIMPLE BROW PENCIL 02 ASH BROWN&lt;/h2&gt;
+
+&lt;p&gt;Автоматический карандаш CLIO со скошенным кончиком особой формы и мягкой щеточкой помогает легко нарисовать тонкие волоски и заполнить форму брови. Бархатная текстура дарит гладкое нанесение, естественный результат и стойкость на весь день.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/98Ut66zAwDKQ.webp</picture>
+                <price>121000</price>
+                <sku>10000000675</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000674">
+                <name>Консилер CLIO KILL COVER FOUNWEAR CONCEALER 3 LINEN</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Консилер CLIO KILL COVER FOUNWEAR CONCEALER 3 LINEN&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Нежный консилер CLIO обеспечивает легкое, комфортное и стойкое покрытие и маскирует несовершенства кожи. Средство легко растушевывается, отлично скрывает проблемные зоны лица или темные круги под глазами и помогает создать безупречный макияж.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/RFLKJyl3bDsa.webp</picture>
+                <price>137500</price>
+                <sku>10000000674</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000600">
+                <name>Кушон для лица CLIO KILL COVER HIGH GLOW CUSHION 2 LINGERIE SPF50+ PA+++</name>
+                <quantityStock>8</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Стойкий кушон с влажным сияющим финишем CLIO Kill Cover High Glow Cushion SPF50+ PA+++ 2 Lingerie&lt;/h2&gt;
+
+&lt;p&gt;Стойкий кушон&amp;nbsp;CLIO Kill Cover High Glow Cushion SPF50+ PA+++&amp;nbsp;образует тонкое гладкое покрытие, которое выравнивает тон и придаёт коже естественное сияние, сглаживает рельеф и маскирует несовершенства.&lt;br /&gt;
+&lt;br /&gt;
+Продукт ложится невесомой вуалью, увлажняет, придаёт эффект Glass Skin, стойко держится до 72 часов. Особая структура средства позволяет удерживать влагу в коже и отражать свет, тем самым создавая блюр-эффект.&lt;br /&gt;
+&lt;br /&gt;
+Не скатывается, не западает в поры и морщины. Спонж в форме персика подходит для аккуратного нанесения в труднодоступных зонах, например, вокруг глаз и на крыльях носа. Обеспечивает дополнительную защиту от солнца благодаря физическим и химическим УФ-фильтрам в составе.&lt;br /&gt;
+&lt;br /&gt;
+Объём:&amp;nbsp;14 г + рефил&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Ниацинамид&amp;nbsp;(витамин B3)&amp;nbsp;&lt;/strong&gt;выравнивает общий тон, улучшает цвет лица,&amp;nbsp;стимулирует выработку коллагена,&amp;nbsp;осветляет, замедляет транспортировку меланина в эпидермис, укрепляет гидролипидную мантию, предотвращает образование пигментации.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт коллагена&amp;nbsp;&lt;/strong&gt;смягчает кожу, улучшает микрорельеф, обеспечивает продолжительное увлажнение.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аденозин&amp;nbsp;&lt;/strong&gt;стимулирует выработку коллагена, уменьшает глубину морщин и препятствует их появлению, поддерживает упругость и молодость кожи.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Гидролизованная гиалуроновая кислота&lt;/strong&gt;&amp;nbsp;имеет низкую молекулярную массу, проникая глубоко в роговой слой. Увлажняет, удерживает молекулы воды в эпидермисе, поддерживает гидролипидную мантию.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/5RaXOMJoZNAp.webp</picture>
+                <price>396000</price>
+                <sku>10000000600</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000610">
+                <name>Кушон для лица CLIO KILL COVER HIGH GLOW FOUNDATION 2 LINGERIE</name>
+                <quantityStock>10</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Стойкий кушон для лица CLIO KILL COVER HIGH GLOW FOUNDATION 2 LINGERIE&lt;/h2&gt;
+
+&lt;p&gt;Очередной бестселлер от Clio &amp;ndash; кушон с эффектом влажного, здорового сияния, тонким, стойким и естественным покрытием. Кушон отлично маскирует все недостатки, выравнивает тон, не скатывается и не окисляется, не западает в поры и морщины, делая кожу идеально гладкой и сияющей. Особая структура средства позволяет удерживать влагу в коже и отражать свет, тем самым создавая блюр-эффект. Продукт обладает высокой стойкостью, сохраняя макияж до 72 часов, спокойно наслаивается без риска получить эффект маски на лице.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Специально разработанная пуховка-спонж премиум класса Rubycell персиковой формы с закругленными краями позволяет легко и удобно наносить тональное средство.&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Благодаря своему составу кушон походит для всех типов кожи в том числе, для чувствительной и проблемной.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/45NSzRFxfaoQ.webp</picture>
+                <price>396000</price>
+                <sku>10000000610</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000585">
+                <name>Кушон для лица CLIO KILL COVER SKIN FIXER CUSHION 21N LINEN SPF50+ PA+++</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Стойкий фиксирующий кушон с матовым финишем CLIO Kill Cover Skin Fixer Cushion SPF50+ PA+++ 21N Linen&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Стойкий фиксирующий кушон&amp;nbsp;CLIO Kill Cover Skin Fixer Cushion SPF50+ PA+++&amp;nbsp;с матовым финишем&amp;nbsp;делает кожу гладкой и бархатистой. Невесомо ложится на лицо, не создавая эффекта маски, хорошо скрывает все несовершенства и расширенные поры, обладает блюр-эффектом. Хорошо держится в течение всего дня и не провоцирует образование шелушений, не скатывается и не окисляется. В комплекте идёт сменный блок.&lt;br /&gt;
+&lt;br /&gt;
+Кушон с высоким показателем SPF надёжно защищает от агрессивного воздействия ультрафиолета, подавляет выработку меланина и предупреждает появление пигментации.&lt;br /&gt;
+&lt;br /&gt;
+Особая технология 4 Blur Powder создаёт гладкое шелковистое покрытие, подстраиваясь под тон кожи. Регулирует работу сальных желёз и абсорбирует излишки себума, матирует и оставляет пудровый финиш.&lt;br /&gt;
+&lt;br /&gt;
+Спонж в форме шестиугольника обеспечивает лёгкое и удобное распределение тона по лицу. Позволяет нанести средство в таких труднодоступных областях, как крылья носа и зона вокруг глаз.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Ниацинамид&lt;/strong&gt;&amp;nbsp;способствует укреплению гидролипидного барьера, нормализует&amp;nbsp;жирность, мягко осветляет, повышает синтез&amp;nbsp;коллагена.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Токоферол&amp;nbsp;&lt;/strong&gt;способствует разглаживанию морщин, тонизирует, ускоряет заживление, устраняет шелушение, приводит в норму липидный баланс.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аденозин&amp;nbsp;&lt;/strong&gt;&amp;mdash; мощный антивозрастной актив, стимулирует выработку коллагена, повышает упругость и плотность, подтягивает и разглаживает, замедляет старение.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/9MZUExYVnG2o.webp</picture>
+                <price>363000</price>
+                <sku>10000000585</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
                         <offer id="10000001425">
                 <name>INSF GREEN TEA BALANCING LOTION</name>
                 <quantityStock>5</quantityStock>
@@ -214,7 +727,7 @@
             </offer>
                         <offer id="10000001595">
                 <name>MISSHA 3-STEP NUTRITION MASK</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>MISSHA</brand>
                 <description>Керамиды - это липиды, которые находятся в мембране клеток и удерживают их вместе. Они встречаются во многих слоях кожи и создают защитный барьер, помогая предотвратить инфекции, сохранить оптимальный уровень влаги, таким образом уберегая от обезвоживания кожи. С возрастом уровень керамидов снижается. Чрезмерное принятие солнечных ванн так же может уменьшить количество керамидов в клетках, вследствие чего она становится сухой и морщины образуются гораздо быстрее. Очень важно заново наполнить кожу керамидами, чтобы она была увлажненной и эластичной.</description>
                 <picture>https://admin.okc.uz/upload/products/5vir1jNqmtxc.webp</picture>
@@ -223,9 +736,20 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
+                        <offer id="10000001596">
+                <name>MISSHA 3-STEP LIFTING MASK</name>
+                <quantityStock>17</quantityStock>
+                <brand>MISSHA</brand>
+                <description>3step Lifting Mask от корейского бренда Missha инновационная лифтинговая маска для лица, которая оказывает сразу 3 ухаживающих действия. Сперва вы наносите на кожный покров специальную эссенцию, далее непосредственно тканевую маску, а в завершении процедуры увлажняющий крем. Результат не заставит себя долго ждать, поэтому уже после первого применения вы заметите, что кожа стала более упругой, а личико приобрело свежий вид.Главный активный компонет 3step Lifting Mask коллаген, который способствует активной гидратации эпидермиса, разглаживает неглубокие мимические морщины, повышает эластичность кожного покрова и замедляет процессы старения. Содержащийся в составе средства экстракт корня женьшеня обладает регенерирующим и тонизирующим свойствами, улучшает микроциркуляцию крови, интенсивно питает и укрепляет эпидермис.Возраст: 18+</description>
+                <picture>https://admin.okc.uz/upload/products/WaYkxeTwjsjG.webp</picture>
+                <price>34100</price>
+                <sku>10000001596</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
                         <offer id="10000001598">
                 <name>MISSHA 3-STEP WHITENING MASK</name>
-                <quantityStock>32</quantityStock>
+                <quantityStock>26</quantityStock>
                 <brand>MISSHA</brand>
                 <description>Отбеливающая маска. Благодаря идеальному сочетанию средств в одной упаковке, Вы сможете быстро и без труда привести кожу в порядок в любое время. Следует использовать если: - под воздействием уф лучей тон кожи стал темнее желаемого - кожа нуждается в отбеливании - начинают появляться пигментные пятна. Витамин С осветляет кожу, борется с пигментацией и выравнивает тон. ШАГ 1: Мягкий пилингующий эффект. ШАГ 2: Эссенция наполняет клетки кожи полезными микроэлементами. ШАГ 3: Маска отбеливает кожу.</description>
                 <picture>https://admin.okc.uz/upload/products/1IraZnxbI8cJ.webp</picture>
@@ -312,6 +836,103 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
+                        <offer id="10000000746">
+                <name>Палетка теней универсальная CLIO SHADE &amp; SHADOW PALETTE 01 SHADOW GALLERY</name>
+                <quantityStock>4</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Палетка теней CLIO SHADE &amp;amp; SHADOW PALETTE 01 SHADOW GALLERY&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Палетка теней CLIO включает насыщенные оттенки 3 видов: матовые, мерцающие и с глиттером.&lt;br /&gt;
+&lt;br /&gt;
+Набор содержит 12 теней в бежевых и коричневых тонах, идеальных для нюдового и нейтрального макияжа.&lt;br /&gt;
+Оттенки идеально сочетаются друг с другом и позволяют создать гармоничный и выразительный макияж глаз.&lt;br /&gt;
+&lt;br /&gt;
+В палетку входят оттенки Another Side, Around Beige, One More Thing, Moonlike, Autumn Lane, Unnamed, Shallow Wood, Minimal Chic, No Words, Blending Ash, Mild Taupe, Shade Gray.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/xQdHY753Gc5n.webp</picture>
+                <price>286000</price>
+                <sku>10000000746</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000617">
+                <name>Мини-кушон для лица CLIO KILL COVER MESH GLOW CUSHION MINI 2 LINGERIE SPF50+ PA++++</name>
+                <quantityStock>9</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Тональный кушон в мини-формате CLIO KILL COVER MESH GLOW CUSHION MINI 2 LINGERIE SPF50+ PA++++&lt;/h2&gt;
+
+&lt;p&gt;Тональный кушон CLIO в мини-формате создает невесомое, но стойкое покрытие, помогая замаскировать несовершенства и добиться эффекта ровной, сияющей, увлажненной кожи.&lt;br /&gt;
+Средство содержит увлажняющие ингредиенты для ухода за кожей: гидролат ромашки, 8 типов гиалуроновой кислоты и пантенол. Кушон выравнивает тон и дарит коже длительное сияние на весь день.&lt;br /&gt;
+Спонж удобной формы позволяет равномерно и аккуратно нанести продукт на все участки лица.&lt;br /&gt;
+Легко носить с собой и брать в путешествия.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/WT0WWpYweRV0.webp</picture>
+                <price>198000</price>
+                <sku>10000000617</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000753">
+                <name>Палетка для глаз CLIO PRO EYE PALETTE AIR (UNPLUGGED BOY COLLABO) 14 FOREVER MAUVE</name>
+                <quantityStock>4</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Палетка для глаз CLIO PRO EYE PALETTE AIR (UNPLUGGED BOY COLLABO) 14 FOREVER MAUVE&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Палитра теней для век CLIO Pro Eye Palette Air 014 Forever Mauve (Unplugged Boy Collabo)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;
+	&lt;p&gt;Универсальные оттенки: от базовых до выразительных.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Подбор цветов с учетом вашего цветотипа.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Разнообразные текстуры: матовые, мерцающие и сияющие.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Легкая формула для комфортного нанесения и создания стильных образов.&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Оттенок 014 Forever Mauve&lt;/strong&gt; &amp;ndash; изысканный бархатистый винный тон, идеально подходящий для холодных зимних цветотипов.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/d1jV1fZpiNN9.webp</picture>
+                <price>280500</price>
+                <sku>10000000753</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
+                        <offer id="10000000752">
+                <name>Палетка теней для глаз CLIO PRO EYE PALETTE AIR (UNPLUGGED BOY COLLABO) 13 DANCING SMOKY</name>
+                <quantityStock>4</quantityStock>
+                <brand>CLIO</brand>
+                <description>&lt;h2&gt;Палетка теней для глаз CLIO PRO EYE PALETTE AIR (UNPLUGGED BOY COLLABO) 13 DANCING SMOKY&lt;/h2&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Палитра теней для век &lt;strong&gt;CLIO Pro Eye Palette Air 013 Dancing Smoky (Unplugged Boy Collabo)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;
+	&lt;p&gt;Универсальные оттенки: от базовых до акцентных.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Подбор цветов с учетом индивидуальных предпочтений.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Разнообразные текстуры: матовые, мерцающие и сияющие.&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Легкая формула для комфортного нанесения и создания различных образов.&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Оттенок 013 Dancing Smoky&lt;/strong&gt; &amp;ndash; стильная дань эстетике Y2K с элегантным дымчато-серым подтоном.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/QdJbg0KulyZg.webp</picture>
+                <price>280500</price>
+                <sku>10000000752</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000035</categoryId>
+            </offer>
                         <offer id="10000000531">
                 <name>SILKY LASTING LIP PENCIL APPLE BURNT [RD04] , 0.3g</name>
                 <quantityStock>5</quantityStock>
@@ -353,19 +974,6 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
-                        <offer id="10000001316">
-                <name>JNN-II &#039;COMPLETE BB CREAM   , 50g</name>
-                <quantityStock>7</quantityStock>
-                <brand>JUNGNANI</brand>
-                <description>&lt;h2&gt;BB крем JNN-II &amp;#39;COMPLETE BB CREAM&amp;nbsp;&lt;/h2&gt;
-
-&lt;p&gt;Создает &amp;laquo;невидимое&amp;raquo; покрытие (эффект чистой кожи), при этом обладает прекрасной маскирующей способностью &amp;ndash; выравнивает тон, скрывает недостатки. Придает коже мягкость и шелковистость, не подчеркивая шелушения. Ниацинамид (витамин В) помогает заметно уменьшить расширенные поры, борется с мелкими морщинами и тусклостью кожи, восстанавливает защитный барьер кожи. Крем содержит большое количество полезных ингредиентов: натуральное масло макадамии, растительные экстракты центеллы и камелии, экстракт морских водорослей, морской коллаген и гиалуроновую кислоту. Благодаря этому оказывает интенсивное увлажнение, придает коже упругость и эластичность, уменьшает пигментные пятна.&amp;nbsp;&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/B7pdxHjokyNd.webp</picture>
-                <price>111100</price>
-                <sku>10000001316</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
                         <offer id="10000000164">
                 <name>COLLAGEN SOLUTION INTENSIVE LOTION , 300ml</name>
                 <quantityStock>1</quantityStock>
@@ -401,7 +1009,7 @@
             </offer>
                         <offer id="10000000152">
                 <name>HEMP SEED SOLUTION CALMING PEELING GEL , 100ml</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Успокаивающий отшелушивающий гель с маслом семян конопли выравнивает рельеф, устраняет черные точки и освежает цвет лица.Масло семян конопли препятствует потере влаги с поверхности кожи, восстанавливает липидный барьер и разглаживает морщины.Экстракты цветов и растений (босвелии, розмарина, герани, шалфея и календулы) нормализуют выработку кожного сала, устраняют повреждения, тонизируют кожу и возвращают здоровый, сияющий вид.Отшелушивающий гель подойдет для чувствительной кожи.</description>
                 <picture>https://admin.okc.uz/upload/products/Bb9gxOv9vthK.webp</picture>
@@ -412,7 +1020,7 @@
             </offer>
                         <offer id="10000000179">
                 <name>ЛОСЬОН ДЛЯ ЛИЦА NEXTBEAU HYALURONIC SOLUTION MOIST LOTION , 300ml</name>
-                <quantityStock>11</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Увлажняющий лосьон с гиалуроновой кислотой мгновенно увлажняет кожу и сохраняет влагу внутри для защиты от сухости в течение дня, не оставляя липкости.Гиалуроновая кислота образует на коже неосязаемый защитный слой, который препятствует испарению влаги и освежает.Экстракты цветов и растений (чабрец, персик, акация, магнолия, лилия) тонизируют эпидермис, улучшают цвет лица, обеспечивают антиоксидантную защиту, оберегают от преждевременного старения.Лосьон подходит для любого типа кожи, для более интенсивного увлажнения, поверх лосьона нанесите увлажняющий крем из этой же линейки.</description>
                 <picture>https://admin.okc.uz/upload/products/pqp0uZaMklFH.webp</picture>
@@ -445,7 +1053,7 @@
             </offer>
                         <offer id="10000001397">
                 <name>WISH PLANNER CERA TONER</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Успокаивающий тонер с керамидами глубоко увлажняет и эффективно успокаивает кожу. Керамиды укрепляют гидролипидный баланс, удерживают влагу в тканях на длительный период, защищают от вредных факторов окружающей среды и неблагоприятных погодных условий. Для всех типов кожи, особенно рекомендуется для чувствительной.</description>
                 <picture>https://admin.okc.uz/upload/products/DRPBQQKBsIPU.webp</picture>
@@ -456,7 +1064,7 @@
             </offer>
                         <offer id="10000001398">
                 <name>WISH PLANNER CICA PEELING GEL</name>
-                <quantityStock>39</quantityStock>
+                <quantityStock>32</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Отшелушивающий пилинг-гель с центеллой азиатской омолаживает кожу, уменьшая признаки старения и глубоко увлажняет. Специальная формула с экстрактом центеллы азиатской позаботится об удалении ороговевших клеток эпидермиса, а значит, ускорит процесс образования новых. Пилинг выровняет тон кожи, а также сделает поры менее заметными. Для всех типов кожи, особенно рекомендуется для чувствительной.</description>
                 <picture>https://admin.okc.uz/upload/products/wnqljUsmpQNn.webp</picture>
@@ -478,53 +1086,12 @@
             </offer>
                         <offer id="10000001400">
                 <name>WISH PLANNER CICA TONER</name>
-                <quantityStock>12</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Восстанавливающий тонер с центеллой азиатской возвращает коже естественный уровень увлажненности, регенерирует и успокаивает.</description>
                 <picture>https://admin.okc.uz/upload/products/QWiaeoLUqxEI.webp</picture>
                 <price>107800</price>
                 <sku>10000001400</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
-                        <offer id="10000001402">
-                <name>WISH PLANNER CERA CREAM</name>
-                <quantityStock>35</quantityStock>
-                <brand>NEXTBEAU</brand>
-                <description>Успокаивающий крем с керамидами глубоко увлажняет и эффективно успокаивает кожу. Керамиды укрепляют гидролипидный баланс, удерживают влагу в тканях на длительный период, защищают от вредных факторов окружающей среды и неблагоприятных погодных условий. Для всех типов кожи, особенно рекомендуется для чувствительной.</description>
-                <picture>https://admin.okc.uz/upload/products/WMErzYR9mlp5.webp</picture>
-                <price>100100</price>
-                <sku>10000001402</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
-                        <offer id="10000001965">
-                <name>LEBELAGE ALOE MOISTURE PURITY 100% SOOTHING GEL</name>
-                <quantityStock>6</quantityStock>
-                <brand>LEBELAGE</brand>
-                <description>&lt;p&gt;Lebelage Aloe Moisture Purity 100% Soothing Gel.&amp;nbsp;Увлажняющий успокаивающий гель с экстрактом алоэ&amp;nbsp;Гель с алоэ обладает увлажняющим, охлаждающим и освежающим действием.&amp;nbsp;Экстракт алоэ&amp;nbsp;восстанавливает поврежденную кожу, обладает сильным антиоксидантным действием, замедляет процессы старения.&amp;nbsp;Гель можно наносить на кожу после солнечных ванн, во время солнечных ожогов, после укусов насекомых, после косметических процедур, в любой момент когда кожа нуждается в устранении стянутости, сухости, дискомфорта.Гель подходит для чувствительной, поврежденной и проблемной кожи.Применение:&amp;nbsp;наносите на кожу лица и тела легкими массажными движениями.Объем:&amp;nbsp;100 мл&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/sMqJfDlMhj0M.webp</picture>
-                <price>48400</price>
-                <sku>10000001965</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
-                        <offer id="10000001966">
-                <name>LEBELAGE COLLAGEN MOISTURE PURITY 100% SOOTHING GEL</name>
-                <quantityStock>8</quantityStock>
-                <brand>LEBELAGE</brand>
-                <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;h2&gt;Гель для ухода LEBELAGE COLLAGEN MOISTURE PURITY 100% SOOTHING GEL&lt;/h2&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;Lebelage Collagen Moisture Purity 100% Soothing Gel &amp;ndash; это многофункциональный гель который обеспечит коже бережный уход. Его действующие компоненты проникают в каждую клеточку и работают на клеточном уровне: глубоко питают и увлажняют, разглаживают, стимулируют синтез коллагена, восстанавливают кожу. Гидролизованный коллаген интенсивно наполняет кожу, делает ее эластичной и упругой и не дает ей деформироваться. Коллагеновые волокна поддерживают кожу изнутри, придают ей свежесть и гладкость, именно поэтому коллаген для лица очень важен для сохранения молодости кожи. Коллаген способен впитывать и держать влагу в подкожной прослойке, что обеспечивает коже постоянную увлажненность. Благодаря лёгкой текстуре гель мгновенно впитывается, не оставляя ощущения липкости и плёнки. Для всех типов кожи.&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/IVy24yladPX1.webp</picture>
-                <price>48400</price>
-                <sku>10000001966</sku>
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
@@ -576,7 +1143,7 @@
             </offer>
                         <offer id="10000002060">
                 <name>SEEKNIQUE Identity Shea Hand Balm ENFJ Type</name>
-                <quantityStock>21</quantityStock>
+                <quantityStock>19</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm ENFJ Type&lt;/h2&gt;
 
@@ -691,7 +1258,7 @@
             </offer>
                         <offer id="10000002065">
                 <name>SEEKNIQUE Identity Shea Hand Balm ESFJ Type</name>
-                <quantityStock>34</quantityStock>
+                <quantityStock>32</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm&amp;nbsp;ESFJ Type&lt;/h2&gt;
 
@@ -737,7 +1304,7 @@
             </offer>
                         <offer id="10000002068">
                 <name>SEEKNIQUE Identity Shea Hand Balm ESTP  Type</name>
-                <quantityStock>21</quantityStock>
+                <quantityStock>19</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm ESTP Type&lt;/h2&gt;
 
@@ -806,7 +1373,7 @@
             </offer>
                         <offer id="10000002073">
                 <name>SEEKNIQUE Identity Shea Hand Balm ENTP Type</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm ENTP Type&lt;/h2&gt;
 
@@ -898,25 +1465,6 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
-                        <offer id="10000002093">
-                <name>Dr.Different VITAACNAL TX Night Cream</name>
-                <quantityStock>49</quantityStock>
-                <brand>Dr.DIFFERENT</brand>
-                <description>&lt;h2&gt;Ночной крем для лица Dr.Different VITAACNAL TX Night Cream&lt;/h2&gt;
-
-&lt;p&gt;Dr. Different Vita Acnal TX Night Cream 20g &amp;ndash; это высокоэффективный ночной крем для лица, который разработан специально для борьбы с проблемной кожей. Он содержит уникальную формулу, которая обеспечивает комплексный уход за кожей, устраняя воспаления, сужая поры, улучшая текстуру и тон лица.&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Состав продукта:&amp;nbsp;&lt;/strong&gt;включает в себя мощные активные ингредиенты, которые действуют на кожу многомерно. Среди них:&lt;br /&gt;
-- Ниацинамид &amp;ndash; уменьшает воспаления, улучшает цвет лица, уменьшает размер пор и увеличивает упругость кожи.&lt;br /&gt;
-- Экстракт листьев чайного дерева &amp;ndash; обладает мощными антибактериальными свойствами, помогая бороться с акне и другими проблемами кожи.&lt;br /&gt;
-- Экстракт корня солодки &amp;ndash; успокаивает раздражения, снижает воспаления и имеет выраженный антиоксидантный эффект.&lt;br /&gt;
-- Аденозин &amp;ndash; повышает упругость кожи, уменьшает морщины и другие признаки старения.&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/5tXjRRtnxkwB.webp</picture>
-                <price>382800</price>
-                <sku>10000002093</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
                         <offer id="10000002095">
                 <name>Dr.Different Cica Metal Cream</name>
                 <quantityStock>27</quantityStock>
@@ -1002,7 +1550,7 @@
             </offer>
                         <offer id="10000002102">
                 <name>Dr.Different Calming &amp; Moisture MASK (5EA)</name>
-                <quantityStock>37</quantityStock>
+                <quantityStock>35</quantityStock>
                 <brand>Dr.DIFFERENT</brand>
                 <description>&lt;h2&gt;Маска для лица Dr.Different Calming &amp;amp; Moisture MASK&lt;/h2&gt;
 
@@ -1027,7 +1575,7 @@
             </offer>
                         <offer id="10000000526">
                 <name>MISSHA M Perfect Cover BB Cream SPF42/PA+++ (20ML) [NO.23]</name>
-                <quantityStock>15</quantityStock>
+                <quantityStock>14</quantityStock>
                 <brand>MISSHA</brand>
                 <description>&lt;h2&gt;BB крем MISSHA M Perfect Cover BB Cream SPF42/PA+++ (20ML) [NO.23]&lt;/h2&gt;
 
@@ -1041,7 +1589,7 @@
             </offer>
                         <offer id="10000002023">
                 <name>SEEKNIQUE SPOT CONTROL CREAM</name>
-                <quantityStock>77</quantityStock>
+                <quantityStock>76</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;&lt;strong&gt;SEEKNIQUE КРЕМ ДЛЯ КОНТРОЛЯ ЗА ПЯТНАМИ&lt;/strong&gt;&lt;/h2&gt;
 
@@ -1058,7 +1606,7 @@
             </offer>
                         <offer id="10000002110">
                 <name>NEXTBEAU ALOE SOLUTION SOOTHING &amp; WATERY SHEET MASK</name>
-                <quantityStock>75</quantityStock>
+                <quantityStock>72</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;h2&gt;Тканевая маска NEXTBEAU ALOE SOLUTION SOOTHING &amp;amp; WATERY SHEET MASK&lt;/h2&gt;
 
@@ -1124,7 +1672,7 @@
             </offer>
                         <offer id="10000002124">
                 <name>MANYO GALAC NIACIN ESSENCE MASK</name>
-                <quantityStock>42</quantityStock>
+                <quantityStock>40</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Маска с ниацинамидом MANYO GALAC NIACIN ESSENCE MASK&lt;/h2&gt;
 
@@ -1201,7 +1749,7 @@
             </offer>
                         <offer id="10000002128">
                 <name>NEXTBEAU HEMP SEED SOLUTION CALMING &amp; RELIEF SHEET MASK</name>
-                <quantityStock>24</quantityStock>
+                <quantityStock>19</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;p&gt;&lt;strong&gt;Nextbeau Hemp Seed Solution Sheet Mask Calming And Relief.&amp;nbsp;Тканевая маска с маслом семян конопли&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
 
@@ -1213,31 +1761,6 @@
                 <picture>https://admin.okc.uz/upload/products/evYM3Rt8rvJw.webp</picture>
                 <price>13200</price>
                 <sku>10000002128</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
-                        <offer id="10000002130">
-                <name>NEXTBEAU COLLAGEN SOLUTION INTENSIVE &amp; FIRMING SHEET MASK</name>
-                <quantityStock>5</quantityStock>
-                <brand>NEXTBEAU</brand>
-                <description>&lt;h2&gt;Тканевая маска NEXTBEAU COLLAGEN SOLUTION INTENSIVE &amp;amp; FIRMING SHEET MASK&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Nextbeau Collagen Solution Sheet Mask Intensive And Firming.&amp;nbsp;Омолаживающая тканевая маска с коллагеном&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;Омолаживающая тканевая маска с гидролизованным коллагеном мгновенно подтягивает и увлажняет кожу, разглаживает, эффективно уменьшает морщины.&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Гидролизованный коллаген&lt;/strong&gt;&amp;nbsp;уплотняет эпидермис, повышает эластичность и упругость, оказывает лифтинг эффект.&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Для всех типов кожи.&lt;/em&gt;&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/64A5p4u0mYxR.webp</picture>
-                <price>13200</price>
-                <sku>10000002130</sku>
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
@@ -1258,7 +1781,7 @@
             </offer>
                         <offer id="10000002135">
                 <name>Ночная крем-маска COSRX Ultimate Nourishing Rice Spa Overnight Mask</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>13</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Ночная маска для лица COSRX Ultimate Nourishing Rice Spa Overnight Mask&lt;/h2&gt;
 
@@ -1282,7 +1805,7 @@
             </offer>
                         <offer id="10000002136">
                 <name>Пенка для умывания с низким COSRX Low pH Good Morning Gel Cleanser 150ml (HP&amp;C)</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Гель для умывания с BHA-кислотой и низким pH&amp;nbsp;&lt;strong&gt;COSRX Low pH Good Morning Gel Cleanser&lt;/strong&gt;:&lt;/h2&gt;
 
@@ -1321,7 +1844,7 @@
             </offer>
                         <offer id="10000002138">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ COSRX Aloe Soothing Sun Cream SPF50 PA+++</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Солнцезащитный крем COSRX Aloe Soothing Sun Cream SPF50 PA+++&lt;/h2&gt;
 
@@ -1336,7 +1859,7 @@
             </offer>
                         <offer id="10000002140">
                 <name>Эссенция с муцином улитки COSRX Advanced Snail 96 Mucin Power Essence</name>
-                <quantityStock>12</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Эссенция COSRX Advanced Snail 96 Mucin Power Essence&lt;/h2&gt;
 
@@ -1380,7 +1903,7 @@
             </offer>
                         <offer id="10000002150">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Rose</name>
-                <quantityStock>55</quantityStock>
+                <quantityStock>52</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Rose&lt;/h2&gt;
 
@@ -1393,7 +1916,7 @@
             </offer>
                         <offer id="10000002151">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Lemon</name>
-                <quantityStock>42</quantityStock>
+                <quantityStock>40</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Lemon&lt;/h2&gt;
 
@@ -1406,7 +1929,7 @@
             </offer>
                         <offer id="10000002152">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Avocado</name>
-                <quantityStock>76</quantityStock>
+                <quantityStock>73</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Avocado&lt;/h2&gt;
 
@@ -1419,7 +1942,7 @@
             </offer>
                         <offer id="10000002153">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Acaiberry</name>
-                <quantityStock>76</quantityStock>
+                <quantityStock>74</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Acaiberry&lt;/h2&gt;
 
@@ -1432,7 +1955,7 @@
             </offer>
                         <offer id="10000002154">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Strawberry</name>
-                <quantityStock>77</quantityStock>
+                <quantityStock>75</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Strawberry&lt;/h2&gt;
 
@@ -1445,7 +1968,7 @@
             </offer>
                         <offer id="10000002155">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Rice</name>
-                <quantityStock>32</quantityStock>
+                <quantityStock>29</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Rice&lt;/h2&gt;
 
@@ -1460,7 +1983,7 @@
             </offer>
                         <offer id="10000002156">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter</name>
-                <quantityStock>54</quantityStock>
+                <quantityStock>51</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маскаHOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter&lt;/h2&gt;
 
@@ -1473,7 +1996,7 @@
             </offer>
                         <offer id="10000002157">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Charcoal</name>
-                <quantityStock>45</quantityStock>
+                <quantityStock>43</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Charcoal&lt;/h2&gt;
 
@@ -1488,7 +2011,7 @@
             </offer>
                         <offer id="10000002158">
                 <name>HOLIKA HOLIKA Tea tree Juicy Mask Sheet</name>
-                <quantityStock>73</quantityStock>
+                <quantityStock>72</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Tea tree Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1503,7 +2026,7 @@
             </offer>
                         <offer id="10000002159">
                 <name>HOLIKA HOLIKA Mango Juicy Mask Sheet</name>
-                <quantityStock>54</quantityStock>
+                <quantityStock>53</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Mango Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1521,7 +2044,7 @@
             </offer>
                         <offer id="10000002160">
                 <name>Тканевая маска для лица с томатом HOLIKA HOLIKA Tomato Juicy Mask Sheet</name>
-                <quantityStock>88</quantityStock>
+                <quantityStock>87</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Tomato Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1548,7 +2071,7 @@
             </offer>
                         <offer id="10000002164">
                 <name>Nextbeau Aloe vera Solution Soothing Sunscreen</name>
-                <quantityStock>10</quantityStock>
+                <quantityStock>5</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;h2&gt;Солнцезащитный крем Nextbeau Aloe vera Solution Soothing Sunscreen&lt;/h2&gt;
 
@@ -1571,7 +2094,7 @@
             </offer>
                         <offer id="10000002167">
                 <name>Nextbeau Wish Planner Cera Sunscreen</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>7</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;h2&gt;Солнцезащитный крем Nextbeau Wish Planner Cera Sunscreen&lt;/h2&gt;
 
@@ -1588,7 +2111,7 @@
             </offer>
                         <offer id="10000002173">
                 <name>MISSHA SUPER AQUA ULTRA HYALRON CLEANSING WATER WIPES</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>3</quantityStock>
                 <brand>MISSHA</brand>
                 <description>&lt;h2&gt;САЛФЕТКИ ДЛЯ УМЫВАНИЯ И СНЯТИЯ МАКИЯЖА MISSHA SUPER AQUA ULTRA HYALRON CLEANSING WATER WIPES&lt;/h2&gt;
 
@@ -1630,7 +2153,7 @@
             </offer>
                         <offer id="10000002184">
                 <name>OLLEE Matte Skin Perfector # 1</name>
-                <quantityStock>14</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;BB-крем OLLEE Matte Skin Perfector # 1&lt;/h2&gt;
 
@@ -1643,7 +2166,7 @@
             </offer>
                         <offer id="10000002185">
                 <name>OLLEE Matte Skin Perfector # 2</name>
-                <quantityStock>12</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;BB-крем матирующий OLLEE Matte Skin Perfector # 2&lt;/h2&gt;
 
@@ -1713,7 +2236,7 @@
             </offer>
                         <offer id="10000002187">
                 <name>Тонер-мист OLLEE Toner-Mist Moisturizing</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;Тонер-мист OLLEE Toner-Mist Moisturizing&lt;/h2&gt;
 
@@ -1742,7 +2265,7 @@
             </offer>
                         <offer id="10000002189">
                 <name>Пенка для умывания с лавандой OLLEE Cleansing Foam Lavender</name>
-                <quantityStock>8</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;p&gt;Пенка для умывания OLLEE Cleansing Foam Lavender&lt;br /&gt;
 &lt;br /&gt;
@@ -1771,7 +2294,7 @@
             </offer>
                         <offer id="10000002191">
                 <name>ТОНЕР ДЛЯ ЛИЦА CELIMAX THE REAL NONI MOISTURE BALANCING TONER 150ML</name>
-                <quantityStock>11</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Восстанавливающий тонер с экстрактом нони Celimax The Real Noni Moisture Balancing Toner&lt;/h2&gt;
 
@@ -1834,7 +2357,7 @@
             </offer>
                         <offer id="10000002194">
                 <name>УВЛАЖНЯЮЩИЙ КРЕМ ДЛЯ ЛИЦА CELIMAX THE REAL CICA SOOTHING CREAM 50ML</name>
-                <quantityStock>3</quantityStock>
+                <quantityStock>13</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Лёгкий безмасляный крем с экстрактом центеллы Celimax The Real Cica Soothing Cream&lt;/h2&gt;
 
@@ -1864,7 +2387,7 @@
             </offer>
                         <offer id="10000002195">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ ДЛЯ ЖИРНОЙ КОЖИ CELIMAX OIL CONTROL LIGHT SUNSCREEN 40ML SPF 50+ PA++++</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Себорегулирующий лёгкий солнцезащитный крем Celimax Oil Control Light Sunscreen SPF50+PA++++&lt;/h2&gt;
 
@@ -1905,7 +2428,7 @@
             </offer>
                         <offer id="10000002196">
                 <name>ТОНИРУЮЩИЙ СОЛНЦЕЗАЩИТНЫЙ КРЕМ CELIMAX HEART PINK TONE UP SUN CREAM 40ML SPF 50+ PA++++</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Выравнивающий солнцезащитный крем для сияния кожи Celimax Heart Pink Tone Up Sun Cream SPF50+ PA++++&lt;/h2&gt;
 
@@ -1941,7 +2464,7 @@
             </offer>
                         <offer id="10000002197">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ С КОМПЛЕКСОМ ЦЕРАМИДОВ CELIMAX DUAL BARRIER WATERY SUN CREAM 40ML SPF 50+</name>
-                <quantityStock>10</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Солнцезащитный крем с комплексом церамидов Celimax Dual Barrier Watery Sun Cream SPF50+PA++++&lt;/h2&gt;
 
@@ -1972,7 +2495,7 @@
             </offer>
                         <offer id="10000002198">
                 <name>УСПОКАИВАЮЩАЯ СЫВОРОТКА С ЦЕНТОЛЛОЙ CELIMAX THE REAL CICA NIACINAMIDE AC CALMING SERUM 40ML</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Успокаивающая сыворотка с центеллой и 5% ниацинамида Celimax Cica Niacinamide AC Calming Serum&lt;/h2&gt;
 
@@ -2145,7 +2668,7 @@
             </offer>
                         <offer id="10000002202">
                 <name>КРЕМ ДЛЯ ЛИЦА COSRX HYALURONIC ACID INTENSIVE CREAM</name>
-                <quantityStock>10</quantityStock>
+                <quantityStock>14</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Интенсивно увлажняющий крем с гиалуроновой кислотой COSRX Hyaluronic Acid Intensive Cream&lt;/h2&gt;
 
@@ -2180,7 +2703,7 @@
             </offer>
                         <offer id="10000002203">
                 <name>ЭССЕНЦИЯ ДЛЯ ЛИЦА COSRX ADVANCED SNAIL RADIANCE DUEAL ESSENCE</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Высокоактивная эссенция для лица с 96% муцина улитки&amp;nbsp;COSRX Advanced Snail 96 Mucin Power Essence&lt;/h2&gt;
 
@@ -2286,7 +2809,7 @@
             </offer>
                         <offer id="10000002206">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА COSRX REFRESH AHA BHA VITAMINC BOOSTER SERUM</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h1&gt;Освежающая сыворотка для лица с кислотами и витамином С&amp;nbsp;COSRX REFRESH AHA BHA VITAMINC BOOSTER SERUM&lt;/h1&gt;
 
@@ -2421,7 +2944,7 @@
             </offer>
                         <offer id="10000002210">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА DR.JART+ CICAPAIR INTENSIVE SOOTHING REPAIR SERUM(30ML)-Y CARTON Y BARCODE-GB-BC</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>DR. JART+</brand>
                 <description>&lt;h2&gt;Сыворотка Dr.Jart Cicapair Intensive Soothing Repair Интенсивная успокаивающая 30мл&lt;/h2&gt;
 
@@ -2481,19 +3004,6 @@
                 <enabled>1</enabled>
                 <categoryId>100000000127</categoryId>
             </offer>
-                        <offer id="10000002214">
-                <name>ПЕНКА ДЛЯ УМЫВАНИЯ DR.JART+ CICAPAIR FOAMING CLEANSER(100ML)-GB-BB</name>
-                <quantityStock>3</quantityStock>
-                <brand>DR. JART+</brand>
-                <description>&lt;h2&gt;Энзимная пенка Dr.Jart Cicapair Enzyme Увлажняющий 100мл&lt;/h2&gt;
-
-&lt;p&gt;Энзимная пенка для лица Dr.Jart Cicapair Enzyme Cleansing Foam. Мягкое пенящееся очищающее средство деликатно удаляет загрязнения, одновременно успокаивая и увлажняя чувствительную кожу. Средство подойдёт для чувствительной кожи, склонной к куперозу, воспалениям, покраснениям. Пенка оказывает очищающее, успокаивающее, противовоспалительное, регенерирующее и ранозаживляющее действия. Эфективно борется с куперозом, воспалениями, сыпью и покраснениями. Пенка благодаря энзимам пенка нежно отшелушивает ороговевший слой, не повреждая липидный барьер кожи. Как результат использования &amp;mdash; пенка улучшает состояние воспаленной и раздраженной кожи. Оздоравливает ее, повышает стрессоустойчивость. Выравнивает тон, придает лицу красивый, яркий равномерный цвет. Увлажняет и питает кожу даже в процессе очищения. Состав: Water, Myristic Acid, Stearic Acid, Potassium Hydroxide, Propylene Glycol, Glycerin, Potassium Cocoyl Glycinate, Cocamide Dea, Lauric Acid, Decyl Glucoside, Sodium Lauroyl Glutamate, Portulaca Oleracea Extract, Citrus Grandis (Grapefruit) Peel Extract, Piper Methysticum Leaf/Root/Stem Extract, Aloe Barbadensis Leaf Extract, Althaea Rosea Flower Extract, Lavandula Angustifolia (Lavender) Oil, Sodium Hyaluronate, Hydrogenated Lecithin, Sorbitan Olivate, Polyquaternium-7, Tocopheryl Acetate, Disodi&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/bJLu3g6YvkFK.webp</picture>
-                <price>253000</price>
-                <sku>10000002214</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000011</categoryId>
-            </offer>
                         <offer id="10000002215">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ EVERY SUN DAY MILD SUN</name>
                 <quantityStock>9</quantityStock>
@@ -2526,7 +3036,7 @@
             </offer>
                         <offer id="10000002217">
                 <name>ТОНЕР ДЛЯ ЛИЦА ANUA HEARTLEAF 77% SOOTHING TONER 250ML</name>
-                <quantityStock>3</quantityStock>
+                <quantityStock>2</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;Балансирующий тоник на основе хауттюйнии Anua Heartleaf 77% Soothing Toner 250 мл&lt;/h2&gt;
 
@@ -2556,7 +3066,7 @@
             </offer>
                         <offer id="10000002218">
                 <name>УСПОКАИВАЮЩАЯ СЫВОРОТКА ДЛЯ ЛИЦА ANUA HEARTLEAF 80% SOOTHING AMPOULE 30ML</name>
-                <quantityStock>95</quantityStock>
+                <quantityStock>94</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;Успокаивающая ампула на основе хауттюйнии Anua Heartleaf 80% Moisture Soothing Ampoule&lt;/h2&gt;
 
@@ -2583,7 +3093,7 @@
             </offer>
                         <offer id="10000002219">
                 <name>УСПОКАИВАЮЩИЙ КРЕМ ДЛЯ ЛИЦА ANUA HEARTLEAF 70% SOOTHING CREAM 100ML</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;УСПОКАИВАЮЩИЙ КРЕМ ДЛЯ ЛИЦА ANUA HEARTLEAF 70% SOOTHING CREAM 100ML&lt;/h2&gt;
 
@@ -2654,7 +3164,7 @@
             </offer>
                         <offer id="10000002222">
                 <name>ГИДРОФИЛЬНОЕ МАСЛО ДЛЯ ЛИЦА ANUA HEARTLEAF PORE CONTROL CLEANSING OIL 200ML</name>
-                <quantityStock>20</quantityStock>
+                <quantityStock>18</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;Гидрофильное масло для глубокого очищения пор Anua Heartleaf Pore Control Cleansing Oil 200 мл&lt;/h2&gt;
 
@@ -2681,7 +3191,7 @@
             </offer>
                         <offer id="10000002223">
                 <name>УВЛАЖНЯЮЩИЙ ТОНЕР ДЛЯ ЛИЦА ANUA BIRCH MOISTURE BOOSTING TONER 250ML</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;Увлажняющий тоник-бустер с берёзовым соком Anua Birch 70% Boosting Toner Moisture&lt;/h2&gt;
 
@@ -2796,7 +3306,7 @@
             </offer>
                         <offer id="10000002227">
                 <name>УВЛАЖНЯЮЩИЙ КРЕМ ДЛЯ ЛИЦА ANUA PEACH 77% NIACIN ENRICHED CREAM 50ML</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>3</quantityStock>
                 <brand>ANUA</brand>
                 <description>&lt;h2&gt;УВЛАЖНЯЮЩИЙ КРЕМ ДЛЯ ЛИЦА ANUA PEACH 77% NIACIN ENRICHED CREAM 50ML&lt;/h2&gt;
 
@@ -2813,7 +3323,7 @@
             </offer>
                         <offer id="10000002228">
                 <name>ЭССЕНЦИЯ ДЛЯ ЛИЦА GALACTOMY NIACIN ESSENCE</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Ферментированная бустер-эссенция для осветления кожи Manyo Galactomy Niacin Essence&lt;/h2&gt;
 
@@ -3008,7 +3518,7 @@
             </offer>
                         <offer id="10000002232">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА MANYO BIFIDA BIOME CONCENTRATE SERUM</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Концентрированная сыворотка с бифидобактериями для сияния кожи Manyo Bifida Biome Concentrate Serum&lt;/h2&gt;
 
@@ -3050,7 +3560,7 @@
             </offer>
                         <offer id="10000002233">
                 <name>ТОНЕР ДЛЯ ЛИЦА MANYO BIFIDA CICA HERB TONER</name>
-                <quantityStock>3</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Успокаивающий тоник для чувствительной кожи Manyo Bifida Cica Herb Toner&lt;/h2&gt;
 
@@ -3119,7 +3629,7 @@
             </offer>
                         <offer id="10000002235">
                 <name>ПЕНКА ДЛЯ УМЫВАНИЯ MANYO DEEP PORE CLEANSING SODA FOAM</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Пенка с содой для глубокого очищения пор Manyo Deep Pore Cleansing Soda Foam&lt;/h2&gt;
 
@@ -3221,7 +3731,7 @@
             </offer>
                         <offer id="10000002239">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND JUICY LASTING TINT 23 NUCADAMIA</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Стойкий глянцевый тинт для губ rom&amp;amp;nd Juicy Lasting Tint 23 Nucadamia&lt;/h2&gt;
 
@@ -3321,7 +3831,7 @@
             </offer>
                         <offer id="10000002243">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 05 ROSE SPLASH</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Глянцевый тинт с эффектом стеклянных губ Rom&amp;amp;Nd Glasting Water Tint 05 Rose Splash&lt;/h2&gt;
 
@@ -3346,7 +3856,7 @@
             </offer>
                         <offer id="10000002244">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 08 ROSE STREAM</name>
-                <quantityStock>16</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -3373,7 +3883,7 @@
             </offer>
                         <offer id="10000002245">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 14 MAUVE MOON</name>
-                <quantityStock>10</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Глянцевый тинт с эффектом стеклянных губ Rom&amp;amp;Nd Glasting Water Tint 14 Mauve Moon&lt;/h2&gt;
 
@@ -3456,7 +3966,7 @@
             </offer>
                         <offer id="10000002250">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 01 POMELOCO</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Матовый тинт для губ rom&amp;amp;nd Blur Fudge Tint 01 Pomeloco&lt;/h2&gt;
 
@@ -3508,7 +4018,7 @@
             </offer>
                         <offer id="10000002252">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 06 MAUVISH</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>18</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Матовый тинт для губ rom&amp;amp;nd Blur Fudge Tint 06 Mauvish&lt;/h2&gt;
 
@@ -3564,7 +4074,7 @@
             </offer>
                         <offer id="10000002254">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 12 WARMING UP</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;ТИНТ ДЛЯ ГУБ ROM&amp;amp;ND BLUR FUDGE TINT 12 WARMING UP&lt;/h2&gt;
 
@@ -3644,7 +4154,7 @@
             </offer>
                         <offer id="10000002257">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING MELTING BALM 02 LOVEY PINK</name>
-                <quantityStock>27</quantityStock>
+                <quantityStock>26</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Тающий оттеночный бальзам для губ rom&amp;amp;nd Glasting Melting Balm 02 Lovey Pink&lt;/h2&gt;
 
@@ -3696,7 +4206,7 @@
             </offer>
                         <offer id="10000002259">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING MELTING BALM 04 HIPPIE BERRY</name>
-                <quantityStock>22</quantityStock>
+                <quantityStock>21</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Тающий оттеночный бальзам для губ rom&amp;amp;nd Glasting Melting Balm 04 Hippie Berry&lt;/h2&gt;
 
@@ -3748,7 +4258,7 @@
             </offer>
                         <offer id="10000002261">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING MELTING BALM 06 KAYA FIG</name>
-                <quantityStock>26</quantityStock>
+                <quantityStock>23</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Тающий оттеночный бальзам для губ rom&amp;amp;nd Glasting Melting Balm 06 Kaya Fig&lt;/h2&gt;
 
@@ -3774,7 +4284,7 @@
             </offer>
                         <offer id="10000002262">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING MELTING BALM 07 MAUVE WHIP</name>
-                <quantityStock>21</quantityStock>
+                <quantityStock>20</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;amp;ND GLASTING MELTING BALM 07 MAUVE WHIP&lt;/h2&gt;
 
@@ -3904,7 +4414,7 @@
             </offer>
                         <offer id="10000002267">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING COLOR GLOSS 04 GRAPY WAY</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Стойкий блеск для эффекта стеклянных губ rom&amp;amp;nd Glasting Color Gloss 04 Grapy Way&lt;/h2&gt;
 
@@ -4130,7 +4640,7 @@
             </offer>
                         <offer id="10000002276">
                 <name>КРЕМ ДЛЯ ЛИЦА ROUNDLAB 1025 DOKDO CREAM 80ml</name>
-                <quantityStock>31</quantityStock>
+                <quantityStock>30</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Увлажняющий крем с церамидами и морской водой Round Lab 1025 Dokdo Cream&lt;/h2&gt;
 
@@ -4159,37 +4669,6 @@
                 <sku>10000002276</sku>
                 <enabled>1</enabled>
                 <categoryId>100000000115</categoryId>
-            </offer>
-                        <offer id="10000002277">
-                <name>ГИДРОФИЛЬНОЕ МАСЛО ROUNDLAB 1025 DOKDO CLEANSING OIL 200ML</name>
-                <quantityStock>1</quantityStock>
-                <brand>ROUND LAB</brand>
-                <description>&lt;h2&gt;Лёгкое гидрофильное масло с морской водой Round Lab 1025 Dokdo Cleansing Oil&lt;/h2&gt;
-
-&lt;p&gt;Гидрофильное масло&amp;nbsp;Round Lab&amp;nbsp;1025 Dokdo Cleansing Oil&amp;nbsp;снимает макияж и солнцезащитные средства, очищает поры, насыщает влагой и препятствует сухости, смягчает и успокаивает.&lt;br /&gt;
-&lt;br /&gt;
-Продукт&amp;nbsp;удаляет из пор загрязнения, ороговевшие клетки и себум,&amp;nbsp;способствует растворению сальных нитей и предотвращает появление чёрных точек.&lt;br /&gt;
-&lt;br /&gt;
-Лёгкая масляная текстура приятно тает на коже, превращаясь в нежное молочко при соприкосновении с водой. Имеет аромат бергамота и шалфея.&lt;br /&gt;
-&lt;br /&gt;
-Формула содержит&amp;nbsp;&lt;strong&gt;глубинную морскую воду&lt;/strong&gt;, насыщенную ценными минералами, кальцием и магнием, благодаря очистке с помощью&amp;nbsp;особых мембранных фильтров. Морская вода улучшает микроциркуляцию, повышает локальный иммунитет, оказывает антивозрастное действие.&amp;nbsp;&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Дополнительные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;Церамиды&lt;/strong&gt;&amp;nbsp;встраиваются в естественный липидный слой, укрепляя его, повышают барьерные функции и предотвращают сухость.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Масло пенника лугового&lt;/strong&gt;&amp;nbsp;содержит ценные жирные кислоты, оказывает антиоксидантное действие, смягчает и разглаживает, не оставляет липкости.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Масло авокадо&lt;/strong&gt;&amp;nbsp;питает, восстанавливает, снимает воспаление, смягчает и повышает эластичность.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Масло виноградной косточки&lt;/strong&gt;&amp;nbsp;смягчает и питает, обеспечивает антиоксидантную защиту и&amp;nbsp;замедляет возрастные изменения, содержит витамины и полифенолы.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Масло макадамии&lt;/strong&gt;&amp;nbsp;питает, предотвращает преждевременное старение, насыщает витаминами и жирными кислотами, кондиционирует.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/OLLceNs3mS5S.webp</picture>
-                <price>247500</price>
-                <sku>10000002277</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000014</categoryId>
             </offer>
                         <offer id="10000002278">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB 1025 DOKDO AMPULE 45G</name>
@@ -4222,7 +4701,7 @@
             </offer>
                         <offer id="10000002279">
                 <name>ОЧИЩАЮЩИЙ БАЛЬЗАМ ДЛЯ ЛИЦА ROUNDLAB 1025 DOKDO CLEANSING BALM 100ML</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>7</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Очищающий бальзам для снятия макияжа с морской водой Round Lab 1025 Dokdo Cleansing Balm&lt;/h2&gt;
 
@@ -4252,7 +4731,7 @@
             </offer>
                         <offer id="10000002280">
                 <name>МОЛОЧКО ДЛЯ УМЫВАНИЯ ROUNDLAB 1025 DOKDO CLEANSING MILK 200ML</name>
-                <quantityStock>4</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Нежное молочко для снятия макияжа с морской водой Round Lab 1025 Dokdo Cleansing Milk&lt;/h2&gt;
 
@@ -4281,7 +4760,7 @@
             </offer>
                         <offer id="10000002281">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB BIRCH JUICE MOISTURIZING SERUM 50ML</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Увлажняющая сыворотка с берёзовым соком Round Lab Birch Juice Moisturizing Serum&lt;/h2&gt;
 
@@ -4309,7 +4788,7 @@
             </offer>
                         <offer id="10000002283">
                 <name>УВЛАЖНЯЮЩИЙ ГЕЛЬ ДЛЯ ЛИЦА ROUNDLAB BIRCH JUICE MOISTURIZING SOOTHING GEL 150ML</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Охлаждающий гель с берёзовым соком Round Lab Birch Juice Moisturizing Soothing Gel Cool&lt;/h2&gt;
 
@@ -4337,9 +4816,51 @@
                 <enabled>1</enabled>
                 <categoryId>100000000125</categoryId>
             </offer>
+                        <offer id="10000002284">
+                <name>ТОНИРУЮЩИЙ СОЛНЦЕЗАЩИТНЫЙ КРЕМ ROUNDLAB BIRCH JUICE MOISTURIZING TONE UP SUNSCREEN 50ML</name>
+                <quantityStock>7</quantityStock>
+                <brand>ROUND LAB</brand>
+                <description>&lt;h2&gt;Тонирующий солнцезащитный крем Round Lab Birch Juice Moisturizing Tone-Up Sunscreen SPF50+ PA++++&lt;/h2&gt;
+
+&lt;p&gt;Солнцезащитный крем&amp;nbsp;Round Lab&amp;nbsp;Birch Juice Moisturizing Tone-Up Sunscreen SPF50+ PA++++&amp;nbsp;подстраивается под тон кожи и защищает от ультрафиолета, предотвращая фотостарение, появление&amp;nbsp;пигментации и солнечных ожогов.&lt;br /&gt;
+&lt;br /&gt;
+Средство с молочной текстурой лосьона образует тонкое и гладкое покрытие, которое выравнивает тон, слегка маскирует покраснение и уменьшает видимость расширенных пор.&lt;br /&gt;
+&lt;br /&gt;
+Крем увлажняет, предотвращает сухость и шелушение, дарит естественное сияние, насыщает кожу антиоксидантами и помогает бороться с оксидативным стрессом, вызванном ультрафиолетом.&lt;br /&gt;
+&lt;br /&gt;
+Содержит гипоаллергенный физический фильтр,&lt;strong&gt;&amp;nbsp;диоксид титана&lt;/strong&gt;, а также фотостабильные химические УФ-фильтры нового поколения, которые не требуют обновления в условиях города до 8 часов:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Uvinul A Plus&lt;/strong&gt;&amp;nbsp;(Diethylamino Hydroxybenzoyl Hexyl Benzoate) защищает от UVA-излучения.&lt;/li&gt;
+	&lt;li&gt;Uvinul T 150&amp;nbsp;(Ethylhexyl Triazone) защищает от лучей спектра UVB.&lt;/li&gt;
+	&lt;li&gt;
+	&lt;p&gt;Iscotrizinol/Uvasorb HEB&amp;nbsp;(Diethylhexyl Butamido Triazone) &amp;mdash; супер-фотостабильный фильтр широкого спектра действия, защищает от UVA и UVB-лучей, теряет около 10% своих свойств через 25 часов.&lt;br /&gt;
+	&amp;nbsp;&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Основные действующие компоненты&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;Берёзовый сок&lt;/strong&gt;&amp;nbsp;содержит витамины, фруктозу, сахарозу и органические кислоты. Насыщает полезными минералами,&amp;nbsp;тонизирует, уменьшает выраженность возрастных изменений, нормализует функцию сальных желёз.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Глицерил глюкозид&amp;nbsp;&lt;/strong&gt;является производным глицерина и глюкозы, улучшает работу аквапоринов &amp;mdash; белков, создающих каналы, которые позволяют коже поглощать влагу. Глицерил глюкозид устраняет сухость и удерживает влагу в клетках.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аскорбиновая кислота&lt;/strong&gt;&amp;nbsp;&amp;mdash; форма витамина&amp;nbsp;C, оказывает мощное антиоксидантное действие, сохраняя упругость и молодость кожи, а также способствует осветлению и выравниванию тона.&amp;nbsp;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Масло сосны&lt;/strong&gt;&amp;nbsp;оказывает антиоксидантное и противовоспалительное действие.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Масло цветков ромашки&lt;/strong&gt;&amp;nbsp;снимает раздражение и воспаление,&amp;nbsp;смягчает, обладает антиоксидантной активностью.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Аллантоин&amp;nbsp;&lt;/strong&gt;&amp;mdash; антиоксидант, замедляет старение клеток, снижает реактивность, стимулирует регенерацию.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт портулака&lt;/strong&gt;&amp;nbsp;ускоряет регенерацию и способствует заживлению, сужает поры и уменьшает выработку себума.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/LyIKIMIpEE3J.webp</picture>
+                <price>242000</price>
+                <sku>10000002284</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000075</categoryId>
+            </offer>
                         <offer id="10000002285">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ ROUNDLAB BIRCH JUICE MILD-UP SUNSCREEN 50ML</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Санскрин с берёзовым соком Round Lab Birch Juice Moisturizing Mild-Up Sunscreen SPF50+ PA++++&lt;/h2&gt;
 
@@ -4370,7 +4891,7 @@
             </offer>
                         <offer id="10000002286">
                 <name>СТИК СОЛНЦЕЗАЩИТНЫЙ ДЛЯ ЛИЦА ROUNDLAB BIRCH JUICE MOISTURIZING SUN STICK 19G</name>
-                <quantityStock>14</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Солнцезащитный стик с березовым соком Round Lab Birch Juice Moisturizing Sun Stick SPF50+ PA++++&lt;/h2&gt;
 
@@ -4448,7 +4969,7 @@
             </offer>
                         <offer id="10000002288">
                 <name>ОЧИЩАЮЩИЕ ПЭДЫ ДЛЯ ЛИЦА ROUNDLAB BIRCH JUICE CLEANSING PAD 60EA</name>
-                <quantityStock>4</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Очищающие пэды для снятия макияжа Round Lab Birch Juice Moisturizing Cleansing Pad&lt;/h2&gt;
 
@@ -4475,7 +4996,7 @@
             </offer>
                         <offer id="10000002289">
                 <name>КРЕМ ДЛЯ ЛИЦА ROUNDLAB MUGWORT CALMING CREAM 80ML</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>19</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Лёгкий успокаивающий крем с полынью Round Lab Mugwort Calming Cream 80 мл&lt;/h2&gt;
 
@@ -4567,7 +5088,7 @@
             </offer>
                         <offer id="10000002293">
                 <name>ТКАНЕВАЯ МАСКА ДЛЯ ЛИЦА ROUNDLAB MUGWORT CALMING MASK 25ML (10EA)</name>
-                <quantityStock>8</quantityStock>
+                <quantityStock>26</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Успокаивающая тканевая маска с полынью Round Lab Mugwort Calming Sheet Mask&lt;/h2&gt;
 
@@ -4595,7 +5116,7 @@
             </offer>
                         <offer id="10000002294">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB SOYBEAN PANTHENOL AMPOULE 50ML</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Барьерная ампула с чёрной соей и пантенолом Round Lab Soybean Panthenol Ampoule&lt;/h2&gt;
 
@@ -4628,7 +5149,7 @@
             </offer>
                         <offer id="10000002295">
                 <name>КРЕМ ДЛЯ ЛИЦА ROUNDLAB SOYBEAN PANTHENOL CREAM 80ML</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Барьерный крем с чёрной соей и пантенолом Round Lab Soybean Panthenol Cream 80ml&lt;/h2&gt;
 
@@ -4661,7 +5182,7 @@
             </offer>
                         <offer id="10000002296">
                 <name>КРЕМ ДЛЯ ЛИЦА PINE ROUNDLAB CALMING CICA CREAM 50ML</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Крем с экстрактами сосны и центеллы для проблемной кожи Round Lab Pine Calming Cica Cream&lt;/h2&gt;
 
@@ -4695,7 +5216,7 @@
             </offer>
                         <offer id="10000002297">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB PINE CALMING CICA AMPOULE 30ML</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>26</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Ампула с экстрактами сосны и центеллы для проблемной кожи Round Lab Pine Calming Cica Ampoule&lt;/h2&gt;
 
@@ -4729,7 +5250,7 @@
             </offer>
                         <offer id="10000002298">
                 <name>ТОНЕР ДЛЯ ЛИЦА ROUNDLAB PINE CALMING CICA TONER 250ML</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Тоник с экстрактами сосны и центеллы для проблемной кожи Round Lab Pine Calming Cica Toner&lt;/h2&gt;
 
@@ -4823,7 +5344,7 @@
             </offer>
                         <offer id="10000002303">
                 <name>КРЕМ ДЛЯ ЛИЦА С ПЕПТИДАМИ MEDI-PEEL PEPTIDE-TOX BOR-CREAM</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Лифтинг-крем с пептидным комплексом Medi-Peel Peptid-Tox Bor-Cream&lt;/h2&gt;
 
@@ -4856,7 +5377,7 @@
             </offer>
                         <offer id="10000002304">
                 <name>ПАТЧИ ДЛЯ ГЛАЗ MEDI-PEEL HYALURON CICA PEPTIDE 9 AMPOULE EYE PATCH</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -4887,7 +5408,7 @@
             </offer>
                         <offer id="10000002305">
                 <name>ЛИПОСОМНЫЙ ВИТАМИННЫЙ ЛОСЬОН ДЛЯ ТЕЛА MEDI-PEEL VITAMIN RX BODY LOTION</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Липосомный витаминный лосьон для тела Medi-Peel Vitamin Dr.Body Lotion&lt;/h2&gt;
 
@@ -4922,7 +5443,7 @@
             </offer>
                         <offer id="10000002306">
                 <name>КРЕМ ДЛЯ ЛИЦА MEDI-PEEL POWER AQUA CREAM</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>18</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Лифтинг-крем с пептидными капсулами Medi-Peel Power Aqua Cream&lt;/h2&gt;
 
@@ -4987,7 +5508,7 @@
             </offer>
                         <offer id="10000002308">
                 <name>ТОНЕР ДЛЯ ЛИЦА MEDI-PEEL HYAL KOMBUCHA TEA-TOX TONER</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>5</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Двухфазный тонер с 70% комбучи и церамидами Medi-Peel Hyal Kombucha Tea-Tox Toner&lt;/h2&gt;
 
@@ -5024,7 +5545,7 @@
             </offer>
                         <offer id="10000002309">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА MEDI-PEEL HYAL KOMBUCHA TEA-TOX AMPOULE</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>5</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Восстанавливающая ампула с 70% комбучи и церамидами Medi-Peel Hyal Kombucha Tea-Tox Ampoule&lt;/h2&gt;
 
@@ -5058,9 +5579,43 @@
                 <enabled>1</enabled>
                 <categoryId>100000000121</categoryId>
             </offer>
+                        <offer id="10000002310">
+                <name>СЫВОРОТКА ДЛЯ ЛИЦА MEDI-PEEL PEPTIDE 9 VOLUME LIFTING ALL IN ONE PODO AMPOULE PRO</name>
+                <quantityStock>20</quantityStock>
+                <brand>MEDI-PEEL</brand>
+                <description>&lt;h2&gt;Винная сыворотка с лифтинг-эффектом MEDIPEEL Peptide 9 Volume Lifting All In One Podo Ampoule Pro&lt;/h2&gt;
+
+&lt;p&gt;Сыворотка с лифтинг-эффектом&amp;nbsp;MEDIPEEL&amp;nbsp;Peptide 9 Volume Lifting All In One Podo Ampoule Pro&amp;nbsp;&amp;mdash; омолаживающее двухфазное средство, которое придаёт здоровое сияние, разглаживает кожу, повышает упругость и эластичность, защищает от потери влаги.&lt;br /&gt;
+&lt;br /&gt;
+Продукт уменьшает выраженность морщин, подтягивает и укрепляет ткани, нормализует гидролипидный баланс, не оставляет жирности. Сразу после нанесения придаёт естественный блеск, устраняет сухость и смягчает огрубевшие участки. Защищает от пагубного воздействия свободных радикалов, замедляет старение клеток.&lt;br /&gt;
+&lt;br /&gt;
+Содержит&amp;nbsp;&lt;strong&gt;комплекс 9 пептидов&lt;/strong&gt;&amp;nbsp;(Hexapeptide-9, Acetyl Tetrapeptide-3, Nonapeptide-1, Acetyl Hexapeptide-8, Copper Tripeptide-1, Tripeptide-1, Palmitoyl Tetrapeptide-7, Palmitoyl Tripeptide-1, Palmitoyl Pentapeptide-4), имеющий накопительный антивозрастной эффект: пептиды стимулируют активность клеток фибробластов, запускают выработку коллагена, эластина и гиалуроновой кислоты, расслабляют лицевые мышцы и предотвращают мимические морщины.&lt;br /&gt;
+&lt;br /&gt;
+Основные действующие компоненты:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Экстракт вина&amp;nbsp;интенсивно увлажняет,&amp;nbsp;уменьшает признаки возрастных изменений, делает кожу упругой и эластичной, оказывает комплексное омолаживающее действие.&lt;/li&gt;
+	&lt;li&gt;&amp;nbsp;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Волюфилин&amp;nbsp;&lt;/strong&gt;(Anemarrhena Asphodeloides Root Extract) &amp;mdash; вещество, экстрагированное из анемаррены. Увеличивает плотность и объём тканей, оказывая эффект, схожий с липофилингом, уплотняя кожу и снижая видимость морщин.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Ресвератрол&amp;nbsp;&lt;/strong&gt;&amp;mdash; мощнейший антиоксидант, содержащийся&amp;nbsp;в кожуре винограда и других фруктов, в какао и в орехах. Ресвератрол борется со свободными радикалами, улучшает защитные функции кожи, продлевает молодость клеток, предотвращает преждевременное появление морщин.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Эктоин&amp;nbsp;&lt;/strong&gt;&amp;mdash; органическая аминокислота, эффективно защищает от воздействия внешних факторов и УФ-лучей, обладает противовоспалительным действием. Успокаивает и смягчает кожу, уменьшает покраснение.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт баклажана&lt;/strong&gt;&amp;nbsp;обеспечивает антиоксидантную защиту, оказывает противовоспалительное и антимикробное действие.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт куркумы&amp;nbsp;&lt;/strong&gt;хорошо заживляет,&amp;nbsp;обладает противовоспалительным и антисептическим действием, регулирует выработку кожного сала.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт листьев и цветков дерева ним&amp;nbsp;&lt;/strong&gt;заживляет,&amp;nbsp;обладает противовоспалительным и антисептическим действием, делает кожу гладкой и шелковистой, регулирует выработку кожного сала.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Экстракт водорослей&lt;/strong&gt;&amp;nbsp;(Corallina Officinalis Extract) уменьшает&amp;nbsp;отёчность, повышает продукцию коллагена, тонизирует и придает эластичность, ускоряет заживление и борется с оксидативным стрессом.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Масла жожоба, моринги и пенника лугового&lt;/strong&gt;&amp;nbsp;содержат ценные жирные кислоты,&amp;nbsp;витамины A и E. Оказывают антиоксидантное действие, смягчают и разглаживают,&amp;nbsp;&amp;nbsp;борются с сухостью и шелушением,&amp;nbsp;питают.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Подходит для нормальной, комбинированной и сухой кожи.&lt;/p&gt;</description>
+                <picture>https://admin.okc.uz/upload/products/TlUqXGc10xye.webp</picture>
+                <price>187000</price>
+                <sku>10000002310</sku>
+                <enabled>1</enabled>
+                <categoryId>100000000121</categoryId>
+            </offer>
                         <offer id="10000002311">
                 <name>ПИЛИНГ ГЕЛЬ ДЛЯ ЛИЦА MEDI PEEL RED LACTO COLLAGEN KONJAC PEELING GEL</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;ПИЛИНГ ГЕЛЬ ДЛЯ ЛИЦА RED LACTO COLLAGEN KONJAC PEELING GEL&lt;/h2&gt;
 
@@ -5103,7 +5658,7 @@
             </offer>
                         <offer id="10000002313">
                 <name>МАСКА ДЛЯ ОБЪЕМА ВОЛОС MASIL 8 SECONDS SALON HAIR MASK 200ML</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Маска для быстрого восстановления волос&amp;nbsp;Masil&amp;nbsp;8 Seconds Salon Hair Mask&lt;/h2&gt;
 
@@ -5136,7 +5691,7 @@
             </offer>
                         <offer id="10000002314">
                 <name>МАСКА ДЛЯ ОБЪЕМА И ВОССТАНОВЛЕНИЯ ВОЛОС MASIL 8 SECONDS LIQUID HAIR MASK 100ML</name>
-                <quantityStock>11</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;МАСКА ДЛЯ ОБЪЕМА И ВОССТАНОВЛЕНИЯ ВОЛОС 8 SECONDS LIQUID HAIR MASK 100ML&lt;/h2&gt;
 
@@ -5178,44 +5733,9 @@
                 <enabled>1</enabled>
                 <categoryId>100000000010</categoryId>
             </offer>
-                        <offer id="10000002316">
-                <name>ШАМПУНЬ ДЛЯ ВОЛОС MASIL 3 SALON HAIR CMC SHAMPOO 300ML</name>
-                <quantityStock>1</quantityStock>
-                <brand>MASIL</brand>
-                <description>&lt;h2&gt;ШАМПУНЬ ДЛЯ ВОЛОС 3 SALON HAIR CMC SHAMPOO 300ML&lt;/h2&gt;
-
-&lt;p&gt;Восстанавливающий профессиональный шампунь с керамидами Masil 3 Salon Hair CMC Shampoo бережно очищает волосы от любых загрязнений, не вызывает раздражения и зуда, способствует разглаживанию волос и предотвращает ломкость.&lt;/p&gt;
-
-&lt;p&gt;Средство устраняет сухие участки и ухаживает за поврежденными волосами, делает их гладкими и послушными, насыщает полезными компонентами.&lt;/p&gt;
-
-&lt;p&gt;Шампунь отшелушивает ороговевший слой и содержит компоненты, которые ухаживают за кожей головы: стимулируют регенерацию клеток, укрепляют корни волос, защищают от преждевременного выпадения и появления перхоти.&lt;/p&gt;
-
-&lt;p&gt;После применения шампуня волосы становятся сильными, шелковистыми и приобретают здоровый блеск. Средство дарит ощущение чистоты и свежести и возвращает волосам мягкость, гладкость и придает им ухоженный вид, освежает и приятно охлаждает кожу головы.&lt;/p&gt;
-
-&lt;p&gt;Шампунь отлично пенится, легко устраняет все виды загрязнений, излишков семума и укладочных средств, при этом средство не нарушает кислотно-щелочной баланс и не провоцирует появление сухости, перхоти, предотвращет спутывание волос.&lt;/p&gt;
-
-&lt;p&gt;Основные действующие компоненты:&lt;/p&gt;
-
-&lt;p&gt;Керамиды &amp;ndash; наполняет пряди жизненной силой и делает их более прочными, восстанавливает поврежденные участки, придает волосам блеск и шелковистость.&lt;/p&gt;
-
-&lt;p&gt;Коллаген &amp;ndash; оказывает увлажняющее, заживляющее, укрепляющее действие.&lt;/p&gt;
-
-&lt;p&gt;Аллантоин &amp;ndash; смягчает, интенсивно увлажняет кожу, способствует нормализации выработки кожного сала, обладает противовоспалительными свойствами, успокаивает раздраженную кожу.&lt;/p&gt;
-
-&lt;p&gt;Салициловая кислота &amp;ndash; отшелушивает ороговевшие частички кожи и убирает излишние выделения кожного себума, благодаря чему происходит скорое обновление эпидермиса. Легко проникает в сальные пробки и растворяет их, уничтожая бактерии и очищая кожу.&lt;/p&gt;
-
-&lt;p&gt;Ментол &amp;ndash; улучшает кровообращение и питание луковиц волос, тем самым стимулируя рост волос, а также снижает активность сальных желез.&lt;/p&gt;
-
-&lt;p&gt;Подходит для сухих и поврежденных волос и для кожи головы, склонной к жирности&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/qmIOMDuEU9b8.webp</picture>
-                <price>143000</price>
-                <sku>10000002316</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000101</categoryId>
-            </offer>
                         <offer id="10000002317">
                 <name>ТОНИРУЮЩИЙ ШАМПУНЬ ДЛЯ ВОЛОС MASIL 5 SALON NO YELLOW SHAMPOO 300ML</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;ТОНИРУЮЩИЙ ШАМПУНЬ ДЛЯ ВОЛОС 5 SALON NO YELLOW SHAMPOO 300ML&lt;/h2&gt;
 
@@ -5239,38 +5759,6 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
                 <picture>https://admin.okc.uz/upload/products/fMYp8FTw5WVI.webp</picture>
                 <price>143000</price>
                 <sku>10000002317</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000101</categoryId>
-            </offer>
-                        <offer id="10000002318">
-                <name>ШАМПУНЬ ДЛЯ ВОЛОС MASIL 5 PROBIOTICS SCALP SCALING SHAMPOO 300M</name>
-                <quantityStock>3</quantityStock>
-                <brand>MASIL</brand>
-                <description>&lt;h2&gt;Глубокоочищающий шампунь с пробиотиками Masil 5 Probiotics Scalp Scaling Shampoo &amp;mdash; 300 мл&lt;/h2&gt;
-
-&lt;p&gt;Глубокоочищающий шампунь с пробиотиками&amp;nbsp;&lt;strong&gt;Masil&amp;nbsp;5 Probiotics&amp;nbsp;Scalp Scaling Shampoo&lt;/strong&gt;&amp;nbsp;тщательно удаляет все виды загрязнений, отшелушивает ороговевшие клетки и нормализует работу сальных желёз. Восстанавливает оптимальный водно-липидный баланс, предупреждает появление перхоти и уменьшает жирность кожи.&amp;nbsp;&lt;br /&gt;
-&lt;br /&gt;
-Шампунь эффективно очищает, улучшает микроциркуляцию и усиливает приток питательных веществ к корням. Усиливает защитный слой, снимает неприятные ощущения и зуд, успокаивает раздраженную кожу. Укрепляет волосяные луковицы, ускоряет рост волос, предупреждает ломкость и выпадение.&lt;br /&gt;
-&lt;br /&gt;
-Шампунь приятно освежает кожу и легко смывается водой, не оставляя сухости..&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Основные действующие ингредиенты:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&amp;nbsp;&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Ферменты лактобактерий&amp;nbsp;&lt;/strong&gt;укрепляют волосы, поддерживают защитный слой, делают их более устойчивыми к внешним раздражителям, придают гладкость и прочность.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Polyquaternium-10&amp;nbsp;&lt;/strong&gt;&amp;mdash; полимер, укрепляющий защитную оболочку волоса. Снимает&amp;nbsp;электризацию, упрощает процессы расчесывания и укладки, придает объем.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Пантенол (витамин B5)&lt;/strong&gt;&amp;nbsp;глубоко увлажняет, ускоряет процессы заживления, устраняет сухость и ломкость.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;BHA (салициловая&amp;nbsp;кислота)&amp;nbsp;&lt;/strong&gt;мягко отшелушивает ороговевший слой, эффективно удаляет загрязнения.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Derma Clera&amp;trade;&lt;/strong&gt;;(экстракт цинанхума, вода, бутилен гликоль) &amp;mdash; успокаивающий комплекс, повышающий&amp;nbsp;барьерные функции эпидермиса: он борется с воспалением кожи головы, смягчает,&amp;nbsp;стимулирует заживление.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Ментол&lt;/strong&gt;&amp;nbsp;оказывает охлаждающее действие, устраняет неприятные ощущения и зуд.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Экстракты мяты и мелиссы&amp;nbsp;&lt;/strong&gt;расслабляют и освежают кожу головы, препятствуют появлению перхоти.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Подходит для всех типов волос.&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/SnBVKLsr7DIc.webp</picture>
-                <price>143000</price>
-                <sku>10000002318</sku>
                 <enabled>1</enabled>
                 <categoryId>100000000101</categoryId>
             </offer>
@@ -5308,7 +5796,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002321">
                 <name>БАЛЬЗАМ ДЛЯ ВОЛОС MASIL 10 PROBIOTICS APLLE VINEGAR TREATMENT 300ML</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Бальзам от перхоти с яблочным уксусом Masil 10 Probiotics Apple Vinegar Treatment&lt;/h2&gt;
 
@@ -5374,7 +5862,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002324">
                 <name>ГЕЛЬ ДЛЯ ДУША MASIL NEW 7 CERAMIDE PERFUME SHOWER GEL 300ML (CHERRY BLOSSOM)</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>4</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Питательный парфюмированный гель для душа с церамидами Masil 7 Ceramide Perfume Shower Gel Cherry Blossom&lt;/h2&gt;
 
@@ -5556,7 +6044,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002330">
                 <name>МАСЛО ДЛЯ ВОЛОС MASIL 6 SALON LACTOBACILLUS HAIR PERFUME OIL(MOISTURE)</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Увлажняющее парфюмированное масло для волос Masil 6 Salon Lactobacillus Hair Parfume Oil Moisture&lt;/h2&gt;
 
@@ -5658,7 +6146,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002333">
                 <name>ТОНИК ДЛЯ КОЖИ ГОЛОВЫ И ВОЛОС MASIL 11 SALON SCALP CARE AMPOULE TONIC</name>
-                <quantityStock>10</quantityStock>
+                <quantityStock>9</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Освежающий ампульный тоник для кожи головы Masil 11 Salon Scalp Care Ampoule Tonic&lt;/h2&gt;
 
@@ -5704,7 +6192,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002337">
                 <name>OLLEE SPF крем для комбинированной и жирной кожи 50 мл SPF50+PA++</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>3</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;SPF Крем: для комбинированной и склонной к жирности кожи&lt;/h2&gt;
 

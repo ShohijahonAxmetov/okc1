@@ -210,6 +210,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
             Route::get('branches', [YandexMarketController::class, 'branches'])->name('branches');
             Route::get('config', [YandexMarketController::class, 'config'])->name('config');
             Route::post('pin_category', [YandexMarketController::class, 'pinCategory'])->name('pin_category');
+            Route::get('products', [YandexMarketController::class, 'products'])->name('products');
+            Route::post('product_characteristics', [YandexMarketController::class, 'productCharacteristics'])->name('product_characteristics');
         });
     });
 });

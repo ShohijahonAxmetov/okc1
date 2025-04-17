@@ -16,7 +16,7 @@ class CreateCategoryMarketCategoryTable extends Migration
         Schema::create('category_market_category', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->cascadeOnDelete();
-            $table->bigInteger('market_Category_id');
+            $table->bigInteger('market_category_id');
             $table->timestamps();
         });
     }

@@ -149,7 +149,7 @@ class OrderController extends Controller
             }
 
             // send message to telegram group with bot
-//            $this->sendMessageToTelegram($data, $order);
+           $this->sendMessageToTelegram($data, $order);
 
             // send data to 1c
             $res = $this->order_to_venkom($order);
