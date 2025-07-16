@@ -23,12 +23,28 @@ class MarketCategory extends Model
 
     public function integrationParent()
     {
-        return $this->belongsTo(self::class, 'integration_id', 'parent_integration_id');
+        return $this->belongsTo(self::class, 'parent_integration_id', 'integration_id');
     }
 
     public function children()
     {
         return $this->hasMany(self::class, 'parent_integration_id', 'integration_id');
+    }
+
+    public function getHierarchyAttribute()
+    {
+        $name = $this->name;
+        if ($this->integrationParent) $name = $this->getHierarchyTitle($name, $this->integrationParent);
+
+        return $name;
+    }
+
+    function getHierarchyTitle(string $name, \App\Models\Yandex\MarketCategory $parent)
+    {
+        $name = $parent->name.' -> '.$name;
+
+        if ($parent->integrationParent) $this->getHierarchyTitle($name, $parent->integrationParent);
+        return $name;
     }
 
     public function getCategoryAttribute()

@@ -65,6 +65,28 @@ class Kernel extends ConsoleKernel
 
         $schedule->call('App\Http\Controllers\VenkonController@upload_datas')
             ->daily();
+
+        // FOR YANDEX MARKET
+        // send product's ru data
+        $schedule->call('App\Http\Controllers\Yandex\YandexMarketController@sendProducts2Market')
+            ->dailyAt('03:00');
+
+        // send product's uz data
+        $schedule->call('App\Http\Controllers\Yandex\YandexMarketController@sendUzProducts2Market')
+            ->dailyAt('03:30');
+
+        // send remainders
+        $schedule->call('App\Http\Controllers\Yandex\YandexMarketController@sendRemainds2Market')
+            ->dailyAt('04:00');
+
+        // get categories
+        $schedule->call('App\Http\Controllers\Yandex\YandexMarketController@getCategories')
+            ->dailyAt('04:30');
+
+        // FOR YANDEX DELIVERY
+        // get orders statuses
+        $schedule->call('App\Http\Controllers\Yandex\YandexDeliveryController@getClaimsInfo')
+            ->everyMinute();
     }
 
     /**

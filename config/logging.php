@@ -60,6 +60,12 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
+        'test' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/test.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
         'sms' => [
             'driver' => 'single',
             'path' => storage_path('logs/sms.log'),
@@ -69,6 +75,12 @@ return [
         '1c' => [
             'driver' => 'single',
             'path' => storage_path('logs/1c.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
+        'market' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/yandex_market.log'),
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 

@@ -400,6 +400,122 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr class="w-100">
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Длина (см)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="length" class="form-control mb-2" placeholder="Длина (см)" value="{{ $variation->length }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Ширина (см)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="width" class="form-control mb-2" placeholder="Ширина (см)" value="{{ $variation->width }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Высота (см)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="height" class="form-control mb-2" placeholder="Высота (см)" value="{{ $variation->height }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Вес (брутто)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="weight" class="form-control mb-2" placeholder="Вес (брутто)" value="{{ $variation->weight }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="w-100">
+                            <div class="row w-100">
+                                <div class="col-4">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Срок годности (дни)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="expiration_date" class="form-control mb-2" placeholder="Срок годности" value="{{ $variation->expiration_date }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Комментарий к сроку годности</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="expiration_date_comment" class="form-control mb-2" placeholder="Комментарии к сроку годности" value="{{ $variation->expiration_date_comment }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-4">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Срок службы (дни)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="service_life" class="form-control mb-2" placeholder="Срок службы" value="{{ $variation->service_life }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Комментарий к сроку службы</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="service_life_comment" class="form-control mb-2" placeholder="Комментарий к сроку службы" value="{{ $variation->service_life_comment }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-4">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Гарантийный срок (дни)</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="warranty_period" class="form-control mb-2" placeholder="Гарантийный срок" value="{{ $variation->warranty_period }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mb-6 w-100">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Комментарий к гарантийному сроку</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" data-id="data_{{ $variation->id }}" name="warranty_period_comment" class="form-control mb-2" placeholder="Комментарий к гарантийному сроку" value="{{ $variation->warranty_period_comment }}">
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="w-100">
+
                             <div class="row w-100">
                                 <div class="col-12">
                                     <!--begin::Dropzone-->
@@ -537,6 +653,44 @@
                 <!--begin::Body-->
             </div>
 
+            <!-- Yandex categories -->
+            <div class="card mb-5 mb-xl-8">
+                <!--begin::Body-->
+                <div class="card-body py-3">
+
+                    <div class="card card-flush h-lg-100">
+                        <!--begin::Header-->
+                        <div class="card-header pt-5 px-0">
+                            <!--begin::Title-->
+                            <h3 class="card-title align-items-start w-100 mb-10">
+                                <span class="card-label fw-bolder text-dark">Категория товара в ЯндексМаркете</span>
+                            </h3>
+
+                            <div class="w-100">
+                                <div class="mb-6">
+                                    <label for="yandex_category" class="form-label">Категории</label>
+                                    <select class="form-select mb-2" name="yandex_category" id="yandex_category" data-control="select2" data-hide-search="false" data-placeholder="Выберите вариант">
+                                        <option value=""></option>
+                                        @foreach($yandexCategories as $yandexCategory)
+                                        <option value="{{ $yandexCategory->integration_id }}" {{$product->productVariations[0]->yandex_category_id == $yandexCategory->integration_id ? 'selected' : ''}}>{{ $yandexCategory->hierarchy }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Body-->
+                        <div class="card-body pt-0 px-0">
+
+                        </div>
+                        <!--end::Body-->
+                    </div>
+
+                </div>
+                <!--begin::Body-->
+            </div>
+
         </div>
     </div>
 </form>
@@ -647,6 +801,7 @@
         let meta_keywords_ru = document.querySelector('[name="meta_keywords_ru"]').value;
         let meta_keywords_uz = document.querySelector('[name="meta_keywords_uz"]').value;
         let is_popular = document.querySelector('[name="is_popular"]').value;
+        let yandex_category = document.querySelector('[name="yandex_category"]').value;
         let status = document.querySelector('[name="status"]').value;
         let brand = document.querySelector('[name="brand"]').value;
 
@@ -705,6 +860,7 @@
         params.set('meta_keywords_ru', meta_keywords_ru);
         params.set('meta_keywords_uz', meta_keywords_uz);
         params.set('is_popular', is_popular);
+        params.set('yandex_category', yandex_category);
         params.set('status', status);
         params.set('brand', brand);
         params.set('categories', categories);

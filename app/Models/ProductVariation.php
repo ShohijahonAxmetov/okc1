@@ -27,6 +27,20 @@ class ProductVariation extends Model
         'package_code',
         
         'express24_id',
+        
+        'height',
+        'length',
+        'width',
+        'weight',
+        
+        'expiration_date',
+        'expiration_date_comment',
+        'service_life',
+        'service_life_comment',
+        'warranty_period',
+        'warranty_period_comment',
+        
+        'yandex_category_id',
     ];
 
     protected $appends = [

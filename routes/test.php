@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Route::get('yandex-market-test', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'sendProducts2Market']);
+// Route::get('yandex-market-dfjhdfjdfj', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'getCategories']);
+Route::get('yandex-market-test-remainders', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'sendRemainds2Market']);
+// Route::get('translate-test', [\App\Http\Controllers\TestController::class, 'translate']);
+Route::get('delivery-journal', [\App\Http\Controllers\Yandex\YandexDeliveryController::class, 'getClaimsInfo']);
+Route::get('yatext', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'getProductsInfo']);
 
 Route::get('express24', [\App\Http\Controllers\Express24Controller::class, 'categories']);
 // routes for test venkon API
@@ -62,5 +68,6 @@ Route::prefix('for_test')->group(function() {
 
 
 Route::get('test/loyalty', [\App\Http\Controllers\TestController::class, 'loyalty']);
+Route::get('test/delivery', [\App\Http\Controllers\TestController::class, 'delivery']);
 
 // Route::get('img2webp-test', [\App\Http\Controllers\TestController::class, 'img2webp']);

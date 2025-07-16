@@ -24,8 +24,9 @@
     <!--begin::Body-->
     <div class="card-body py-3">
         <div class="list-group">
-            <a href="{{route('integrations.yandex_market.categories')}}" class="list-group-item list-group-item-action fs-3">Категории</a>
-            <a href="#" class="list-group-item list-group-item-action fs-3">Теги</a>
+            <a href="{{route('integrations.yandex_delivery.orders')}}" class="list-group-item list-group-item-action fs-3">Заказы</a>
+            <a href="{{route('integrations.yandex_delivery.loading_points')}}" class="list-group-item list-group-item-action fs-3">Пункты погрузки</a>
+            <!-- <a href="#" class="list-group-item list-group-item-action fs-3">Теги</a> -->
             <!-- <a href="{{route('integrations.yandex_market.branches')}}" class="list-group-item list-group-item-action fs-3">Филиалы</a> -->
             <!-- <a href="{{route('integrations.yandex_market.config')}}" class="list-group-item list-group-item-action fs-3">Настройки</a> -->
         </div>

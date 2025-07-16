@@ -1,0 +1,257 @@
+@extends('layouts.app')
+
+@section('title', 'ЗАКАЗЫ')
+
+@section('breadcrumb')
+
+@include('app.components.breadcrumb', [
+'items' => [
+[
+'title' => 'Главная',
+'route' => 'dashboard'
+],
+[
+'title' => 'Заказы'
+]
+]
+])
+
+@endsection
+
+@section('content')
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=5a063b97-1242-44c9-827b-dadab1a2b1ad&lang=ru_RU" type="text/javascript"></script>
+<style>
+#a_map {
+    width: 100%;
+    height: 300px;
+}
+
+
+.loader {
+  width: 32px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side,#fff 90%,#0000);
+  background: 
+    var(--_g) 0%   50%,
+    var(--_g) 50%  50%,
+    var(--_g) 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+</style>
+
+<div class="card mb-5 mb-xl-8">
+    <!--begin::Header-->
+    <div class="card-header border-0 pt-5 d-flex">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bolder fs-3 mb-1">Создание заказа</span>
+            <span class="text-muted mt-1 fw-bold fs-7">Всего</span>
+        </h3>
+        <div>
+            <a href="{{route('integrations.yandex_delivery.orders')}}" class="btn btn-danger">Отменить</a>
+        </div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body py-5">
+        <form class="form" action="{{ route('integrations.yandex_delivery.orders.store') }}" method="post">
+            @csrf
+            <!--begin::Modal body-->
+            <div class="pt-5">
+
+                <!--begin::Input group-->
+                <div class="fv-row mb-9">
+                    <label for="order_id" class="fs-6 fw-bold mb-2">Заказ</label>
+                    <select class="form-select" aria-label="order_id" name="order_id">
+                        <option value=""></option>
+                        @foreach($orders as $order)
+                        <option value="{{$order->id}}">ID: {{$order->id}}, {{$order->name}}, {{$order->phone_number}}, {{date('d-m-Y H:i', strtotime($order->created_at))}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <!--end::Input group-->
+
+
+                <div id="a_map" class="mb-3"></div>
+
+                <!--begin::Input group-->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fv-row mb-6">
+                            <!--begin::Label-->
+                            <label class="fs-6 required fw-bold mb-2">Точка отправления (Широта)</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" id="a_lat_input" class="form-control form-control-solid" placeholder="" name="a_lat" value="" required />
+                            <!--end::Input-->
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fv-row mb-6">
+                            <!--begin::Label-->
+                            <label class="fs-6 required fw-bold mb-2">Точка отправления (Долгота)</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" id="a_lon_input" class="form-control form-control-solid" placeholder="" name="a_lon" value="" required />
+                            <!--end::Input-->
+                        </div>
+                    </div>
+                </div>
+                <!--end::Input group-->
+
+                <!--begin::Input group-->
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fv-row mb-6">
+                            <!--begin::Label-->
+                            <label class="fs-6 required fw-bold mb-2">Точка назначения (Широта)</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" id="b_lat_input" class="form-control form-control-solid" placeholder="" name="b_lat" value="" required />
+                            <!--end::Input-->
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fv-row mb-6">
+                            <!--begin::Label-->
+                            <label class="fs-6 required fw-bold mb-2">Точка назначения (Долгота)</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="text" id="b_lon_input" class="form-control form-control-solid" placeholder="" name="b_lon" value="" required />
+                            <!--end::Input-->
+                        </div>
+                    </div>
+                </div>
+                <!--end::Input group-->
+
+                <div class="row mb-6">
+                    <div class="col-9">
+                        <!--begin::Label-->
+                        <label class="fs-6 fw-bold mb-2 required">Предварительная сумма</label>
+                        <!--end::Label-->
+                        <!--begin::Input-->
+                        <input type="text" class="form-control form-control-solid" id="preliminary_amount" required placeholder="" name="preliminary_amount" value="" />
+                        <!--end::Input-->
+                    </div>
+                    <!--begin::Modal footer-->
+                    <div class="col-3 align-content-end">
+                        <!--begin::Button-->
+                        <button type="button" id="check_price" class="btn btn-success w-100">
+                            Рассчитать
+                        </button>
+                        <!--end::Button-->
+                    </div>
+                    <span class="small" id="small_txt"></span>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-end">
+                <!--begin::Button-->
+                <button type="submit" class="btn btn-primary">
+                    <span class="indicator-label">Сохранить</span>
+                </button>
+                <!--end::Button-->
+            </div>
+        </form>
+    </div>
+    <!--begin::Body-->
+</div>
+
+@endsection
+
+@section('scripts')
+
+<script>
+    ymaps.ready(init);
+
+    function init() {
+        const map = new ymaps.Map("a_map", {
+            center: [41.311455248270185, 69.27955834412408],
+            zoom: 15
+        });
+
+        let points = [];
+        let placemarks = [];
+        let line;
+
+        map.events.add('click', function (e) {
+            if (points.length >= 2) {
+                // Очистка: сбрасываем
+                points = [];
+                placemarks.forEach(pm => map.geoObjects.remove(pm));
+                placemarks = [];
+                if (line) {
+                    map.geoObjects.remove(line);
+                    line = null;
+                }
+            }
+
+            const coords = e.get('coords');
+            points.push(coords);
+            console.log(points[0], points.length);
+
+            const placemark = new ymaps.Placemark(coords, {
+                balloonContent: `Точка ${points.length}`
+            }, {
+                preset: 'islands#blueDotIcon'
+            });
+
+            placemarks.push(placemark);
+            map.geoObjects.add(placemark);
+
+            if (points.length >= 2) {
+                let bLat = document.getElementById('b_lat_input').value = points[1][0];
+                let bLon = document.getElementById('b_lon_input').value = points[1][1];
+            } else {
+                let aLat = document.getElementById('a_lat_input').value = points[0][0];
+                let aLon = document.getElementById('a_lon_input').value = points[0][1];
+            }
+        });
+    }
+
+
+    let checkPriceBtn = document.getElementById('check_price');
+
+    checkPriceBtn.addEventListener('click', (event) => {
+        event.target.innerHTML = '<span class="loader d-inline-block"></span>';
+
+        fetch('https://admin.okc.uz/api/for/check_price', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                a_lat: document.getElementById('a_lat_input').value,
+                a_lon: document.getElementById('a_lon_input').value,
+                b_lat: document.getElementById('b_lat_input').value,
+                b_lon: document.getElementById('b_lon_input').value
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Ответ от API:', data);
+
+            document.getElementById('preliminary_amount').value = data.price;
+
+            let res2show = {
+                'price_in': data.currency_rules.code,
+                'taxi_class': data.requirements.taxi_class,
+                'distance_meters': data.distance_meters
+            };
+            document.getElementById('small_txt').textContent = JSON.stringify(res2show);
+            event.target.innerHTML = 'Рассчитать';
+        })
+        .catch(error => event.target.innerHTML = 'Рассчитать');
+
+    });
+</script>
+
+@endsection

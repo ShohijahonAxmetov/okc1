@@ -7,28 +7,43 @@ use Illuminate\Support\Facades\Http;
 use Hash;
 use DB;
 use Image;
+use Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
-use App\Models\Order;
-use App\Models\Banner;
-use App\Models\Product;
-use App\Models\ProductVariation;
-use App\Models\Post;
-use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Application;
-use App\Models\Warehouse;
-use App\Models\SpecialOfferClient;
-use App\Http\Controllers\FargoController;
-use App\Http\Controllers\ZoodpayController;
+
+use App\Models\{
+    Order,
+    Banner,
+    Product,
+    ProductVariation,
+    Post,
+    Comment,
+    Brand,
+    Category,
+    Application,
+    Warehouse,
+    SpecialOfferClient
+};
+
+use App\Http\Controllers\{
+    FargoController,
+    ZoodpayController
+};
+
+use App\Services\Yandex\Delivery;
 
 class WebController extends Controller
 {
     protected int $minProductRemainderForShow = 10;
+    protected Delivery $yandexDeliveryService;
+
+    public function __construct(Delivery $yandexDeliveryService)
+    {
+        $this->yandexDeliveryService = $yandexDeliveryService;
+    }
 
     public function search(Request $request)
     {
@@ -1106,6 +1121,36 @@ class WebController extends Controller
         }
 
         return response($warehouses_for_res);
+    }
+
+    public function getYandexDeliveryPrice(Request $request)
+    {
+        $request->validate([
+            'lat' => 'required|numeric',
+            'lon' => 'required|numeric',
+        ]);
+
+        $shopCoordinates = [(float)'69.24697673833656', (float)'41.2991714162691'];
+
+        $res = $this->yandexDeliveryService->checkPrice([
+            [
+                'coordinates' => $shopCoordinates
+            ],
+            [
+                'coordinates' => [(float)$request->input('lon'), (float)$request->input('lat')]
+            ]
+        ], [
+            ['quantity' => 1]
+        ]);
+
+        if (!$res->ok()) {
+            Log::info($res->json());
+            return response(['message' => 'Сервия Яндекс доставки временно не работает'], 400);
+        }
+
+        return response([
+            'price' => $res->json()['price'] + $this->yandexDeliveryService->addPrice
+        ]);
     }
 
 //    public function check_product_sufficiency($data)

@@ -139,9 +139,10 @@ class OrderController extends Controller
             }
 
             // // send message to clients about status of order (Playmobile)
-            if($order->status != $old_status) {
-                $this->order_status_send($order);
-            }
+            // if($order->status != $old_status) {
+            //     $this->order_status_send($order);
+            // }
+
 
             // // send data to 1c for update remainder
             if($send_1c || ($order->status == 'returned' && $old_status != 'returned')) {

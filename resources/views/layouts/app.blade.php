@@ -554,6 +554,14 @@
 											<span class="menu-title">Yandex Маркет</span>
 										</a>
 									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/integrations/yandex_delivery') ? 'active' : '' }}" href="{{ route('integrations.yandex_delivery.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">Yandex Доставка</span>
+										</a>
+									</div>
 								</div>
 							</div>
 

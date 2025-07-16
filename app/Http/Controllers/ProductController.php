@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Rap2hpoutre\FastExcel\FastExcel;
 
+use App\Models\Yandex\MarketCategory;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -333,15 +334,19 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        // dd($data);
+        // dd(json_decode($data['variations_data']));
 
         $validator = Validator::make($data, [
             'brand' => 'required',
             'categories' => 'required',
-            'is_active' => 'required|boolean',
+            // 'is_active' => 'required|boolean',
+            'status' => 'required|boolean',
             'is_popular' => 'required|boolean',
             'variations_data' => 'required',
         ]);
+        if ($validator->fails()) {
+            return response(['message' => $validator->errors()], 400);
+        }
 
         DB::beginTransaction();
         try {
@@ -398,9 +403,12 @@ class ProductController extends Controller
                 }
             }
 
+            // dd(json_decode($request->variations_data));
+
             $is_first = 1;
-            foreach (json_decode($request->variations_data) as $variation) {
-                ProductVariation::find($variation[5]->value)->update([
+            foreach (json_decode($data['variations_data']) as $variation) {
+                // dd($variation[7]->value);
+                ProductVariation::find($variation[15]->value)->update([
                     'product_code' => $variation[0]->value,
                     'price' => $variation[1]->value,
                     'is_active' => $variation[2]->value,
@@ -408,9 +416,23 @@ class ProductController extends Controller
                     'is_default' => $is_first,
 
                     'slug' => Str::slug($variation[4]->value),
+
+                    'length' => $variation[5]->value != '' ? $variation[5]->value : null,
+                    'width' => $variation[6]->value != '' ? $variation[6]->value : null,
+                    'height' => $variation[7]->value != '' ? $variation[7]->value : null,
+                    'weight' => $variation[8]->value != '' ? $variation[8]->value : null,
+
+                    'expiration_date' => $variation[9]->value != '' ? $variation[9]->value : null,
+                    'expiration_date_comment' => $variation[10]->value != '' ? $variation[10]->value : null,
+                    'service_life' => $variation[11]->value != '' ? $variation[11]->value : null,
+                    'service_life_comment' => $variation[12]->value != '' ? $variation[12]->value : null,
+                    'warranty_period' => $variation[13]->value != '' ? $variation[13]->value : null,
+                    'warranty_period_comment' => $variation[14]->value != '' ? $variation[14]->value : null,
+
+                    'yandex_category_id' => $data['yandex_category'], // buni product tablega qo'shgan ma'qul
                 ]);
 
-                ProductVariation::find($variation[5]->value)->productVariationImages()->delete();
+                ProductVariation::find($variation[15]->value)->productVariationImages()->delete();
                 $is_first = 0;
             }
             unset($is_first);
@@ -721,6 +743,11 @@ class ProductController extends Controller
         $remainder = $product->productVariations()
             ->sum('remainder');
 
+        $yandexCategories = MarketCategory::query()
+            ->whereDoesntHave('children')
+            // ->where('parent_integration_id', 90509)
+            ->get();
+
         return view('app.products.edit', compact(
             'product',
             'languages',
@@ -728,7 +755,8 @@ class ProductController extends Controller
             'brands',
             'categories',
             'page_number',
-            'remainder'
+            'remainder',
+            'yandexCategories'
         ));
     }
 

@@ -251,3 +251,11 @@ Route::get('get_delivery_prices', [FargoController::class, 'get_prices']);
 Route::group(['prefix' => 'loyalty'], function () {
     Route::post('order', [\App\Http\Controllers\LoyaltyController::class, 'order']);
 });
+
+// уведомления от яндекс маркета
+Route::post('for/notification', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'notification']);
+
+Route::get('get_yandex_category_children/{category_integration_id}', [\App\Http\Controllers\Yandex\YandexMarketController::class, 'getCategoryChildren'])->name('get_yandex_category_children');
+
+Route::post('for/check_price', [\App\Http\Controllers\Yandex\YandexDeliveryController::class, 'checkPrice']);
+Route::post('yandex/check_price', [\App\Http\Controllers\WebController::class, 'getYandexDeliveryPrice']);

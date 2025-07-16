@@ -7,6 +7,8 @@ use App\Models\Order;
 use App\Models\ProductVariation;
 use App\Models\Warehouse;
 
+use App\Services\Yandex\Delivery;
+
 //Controllers
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FargoController;
@@ -17,17 +19,24 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use DB;
+use Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    protected Delivery $deliveryService;
+
+    public function __construct(Delivery $deliveryService)
+    {
+        $this->deliveryService = $deliveryService;
+    }
+
     public function store(Request $request)
     {
-        // return response([
-        //     'message' => 'Введутся технические работы, можете позвонить и заказать!',
-        //     'success' => false
-        // ], 400);
+        Log::info($request->all());
+        // $this->dontWorking();
+
         // esli vibran zabrat iz magazina, to doljen i vibiratsya magazin
         if($request->with_delivery == 0) {
             $validator = Validator::make($request->all(), [
@@ -38,8 +47,6 @@ class OrderController extends Controller
             ], 422);
         }
 
-//        dd($request->all());
-
         /* esli netu dostatochnogo kolichestva produktov v magazine */
         $check_product_sufficiency = $this->check_product_sufficiency($request->all());
         if(!$check_product_sufficiency) return response([
@@ -47,7 +54,6 @@ class OrderController extends Controller
             'success' => false
         ], 400);
 
-//        dd($check_product_sufficiency);
 
         // preobrazovanie kollekcii v massiv
         $data = $request->all();
@@ -57,7 +63,7 @@ class OrderController extends Controller
             'phone_number' => 'required|max:255',
             'with_delivery' => 'required',
             'payment_method' => 'required|in:cash,online,card',
-            'payment_card' => 'nullable|in:payme,click,zoodpay',
+            'payment_card' => 'nullable|in:payme,click,zoodpay,cash',
             // 'delivery_type' => [Rule::requiredIf($data['with_delivery']), 'integer', 'in:1,2'], //1-fargo,2-yandex
             'delivery_type' => [Rule::requiredIf(function () use ($data) {
                 if ($data['with_delivery']) return in_array($data['delivery_type'], [1,2]);
@@ -67,8 +73,10 @@ class OrderController extends Controller
         if ($validator->fails()) {
             return response(['message' => $validator->errors()], 400);
         }
+        Log::channel('test')->info($request->all());
 
         // podgotovka dannix dlya zapisi
+        if ($data['payment_card'] == 'cash') $data['payment_card'] = 'payme';
         $data['product_variations'] = json_decode($data['product_variations'], true);
         $data['phone_number'] = preg_replace('/[^0-9]/', '', $data['phone_number']);
         $amount = 0;
@@ -93,14 +101,34 @@ class OrderController extends Controller
                 $delivery_price = $request->region == 1 ? $delivery_prices['city_base_price'] : $delivery_prices['door_door_base_price'];
                 $free_delivery_from = 700000;
             } else {
-                $delivery_price = 15000;
+                // $delivery_price = 15000;
+                $shopCoordinates = [(float)'69.24697673833656', (float)'41.2991714162691'];
+                $res = $this->deliveryService->checkPrice([
+                    [
+                        'coordinates' => $shopCoordinates
+                    ],
+                    [
+                        'coordinates' => [(float)$request->input('lon'), (float)$request->input('lat')]
+                    ]
+                ], [
+                    ['quantity' => 1]
+                ]);
+
+                if (!$res->ok()) {
+                    Log::info($res->json());
+                    return response(['message' => 'Сервия Яндекс доставки временно не работает. Попробуйте позже'], 400);
+                }
+
+                // dobavit straxovuyu summu
+                $delivery_price = $res->json()['price'] + $this->deliveryService->addPrice;
+
             }
             $data['delivery_price'] = $delivery_price;
             $amount += $delivery_price * 100;
         }
 
-//        dd($amount);
 
+        // platejnie sistemi
         if ($data['payment_method'] == 'cash') $data['amount'] = $amount;
         else {
             if ($data['payment_card'] == 'payme') $data['amount'] = $amount;
@@ -188,7 +216,8 @@ class OrderController extends Controller
                 ]);
             } else return response([
                 'with_url' => false,
-                'success' => true
+                'success' => true,
+                'message' => 'Мы свяжемся с Вами в ближайшее время!'
             ]);
         } catch (\Exception $e) {
             DB::rollback();
@@ -199,7 +228,7 @@ class OrderController extends Controller
         }
     }
 
-    public function check_product_sufficiency($data)
+    function check_product_sufficiency($data)
     {
         // json to array
         $data['product_variations'] = json_decode($data['product_variations'], true);
@@ -233,7 +262,7 @@ class OrderController extends Controller
         return false;
     }
 
-    public function order_to_venkom(Order $order) // Order $order
+    function order_to_venkom(Order $order) // Order $order
     {
         // $new_ip_address = '94.232.24.102';
         $new_ip_address = env('C_IP');
@@ -315,4 +344,13 @@ class OrderController extends Controller
 
             "%0A%0A<a href='https://admin.okc.uz/dashboard/orders'>" . 'Перейти на сайт' . "</a>");
     }
+
+    // if need close to order
+    function dontWorking()
+    {
+        return response([
+            'message' => 'Введутся технические работы, можете позвонить и заказать!',
+            'success' => false
+        ], 400);
+    } 
 }

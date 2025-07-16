@@ -44,6 +44,7 @@
                         <th class="min-w-125px">Номер телефона</th>
                         <th class="min-w-125px">Email</th>
                         <th class="min-w-125px">Username</th>
+                        <th class="min-w-125px">Дата регистрации</th>
                         <th class="min-w-200px text-end rounded-end">Действия</th>
                     </tr>
                 </thead>
@@ -71,6 +72,9 @@
                         </td>
                         <td>
                             <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ $user->username }}</a>
+                        </td>
+                        <td>
+                            <a class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{ date('d.m.Y', strtotime($user->created_at)) }}</a>
                         </td>
                         <td class="text-end">
                             <div class="d-flex justify-content-end">

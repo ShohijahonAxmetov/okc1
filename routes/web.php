@@ -29,6 +29,7 @@ use App\Http\Controllers\{
     Express24Controller,
     TelegramBotController,
     Yandex\YandexMarketController,
+    Yandex\YandexDeliveryController,
 };
 
 $new_ip_address = '94.232.24.102';
@@ -212,6 +213,19 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
             Route::post('pin_category', [YandexMarketController::class, 'pinCategory'])->name('pin_category');
             Route::get('products', [YandexMarketController::class, 'products'])->name('products');
             Route::post('product_characteristics', [YandexMarketController::class, 'productCharacteristics'])->name('product_characteristics');
+        });
+
+        Route::prefix('yandex_delivery')->name('integrations.yandex_delivery.')->group(function () {
+            Route::get('/', [YandexDeliveryController::class, 'index'])->name('index');
+            Route::get('/orders', [YandexDeliveryController::class, 'orders'])->name('orders');
+            Route::get('/orders/create', [YandexDeliveryController::class, 'orderCreate'])->name('orders.create');
+            // Route::post('/orders', [YandexDeliveryController::class, 'orderStore'])->name('orders.store');
+            Route::post('/order', [YandexDeliveryController::class, 'order'])->name('order');
+            Route::get('/loading_points', [YandexDeliveryController::class, 'loadingPoints'])->name('loading_points');
+            Route::get('/loading_points/create', [YandexDeliveryController::class, 'loadingPointsCreate'])->name('loading_points.create');
+            Route::post('/loading_points', [YandexDeliveryController::class, 'loadingPointsStore'])->name('loading_points.store');
+            Route::put('/loading_points/{id}', [YandexDeliveryController::class, 'loadingPointsUpdate'])->name('loading_points.update');
+            Route::delete('/loading_points/{id}', [YandexDeliveryController::class, 'loadingPointsDelete'])->name('loading_points.delete');
         });
     });
 });

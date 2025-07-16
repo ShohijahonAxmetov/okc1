@@ -48,6 +48,9 @@
                 <!--begin::Button-->
                 <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#delete_product">Delete product from Order</a> -->
                 <!-- <a class="btn btn-light-primary btn-sm me-lg-n7" data-bs-toggle="modal" data-bs-target="#add_product">Добавить товар в заказ</a> -->
+                @if($order->delivery_type == 2 && isset($order->lat) && isset($order->lon))
+                <a href="{{url('/')}}/dashboard/integrations/yandex_delivery/orders/create?order_id={{$order->id}}" class="btn btn-warning btn-sm me-lg-n7">Доставить</a>
+                @endif
                 @if($order->status == 'new')
                     <form action="{{ route('orders.update', ['id' =>$order->id]) }}" method="post">
                         @csrf

@@ -2,23 +2,66 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
-use App\Models\ProductVariationImage;
-use App\Services\TelegramBot;
-use Illuminate\Support\Facades\Http;
+use App\Models\{Brand, ProductVariationImage, ProductVariation, Product};
+use App\Services\{TelegramBot, Yandex\Delivery, Google\Translate};
 use Illuminate\Http\Request;
-use Storage;
-use Image;
-use File;
-use DB;
+use Storage, Image, File, DB, Http;
 
 class TestController extends Controller
 {
     protected TelegramBot $bot;
+    protected Delivery $yandexDelivery;
+    protected Translate $translate;
 
-    function __construct(TelegramBot $bot)
+    function __construct(TelegramBot $bot, Delivery $yandexDelivery, Translate $translate)
     {
         $this->bot = $bot;
+        $this->yandexDelivery = $yandexDelivery;
+        $this->translate = $translate;
+    }
+
+    public function translate()
+    {
+        dd(1);
+        $products = Product::where('is_active', 1)
+            ->whereNotNull('title->ru')
+            ->whereNotNull('desc->ru')
+            ->get();
+            // dd($products);
+
+        foreach($products as $product) {
+            $title = $product->title;
+            $desc = $product->desc;
+            
+            
+            $res = $this->translate->ru2uz($title['ru']);
+            if (!$res['success']) return $res['res'];
+            $title['uz'] = $res['res'];
+
+            $res = $this->translate->ru2uz(strip_tags($desc['ru']));
+            if (!$res['success']) return $res['res'];
+            $desc['uz'] = $res['res'];
+
+            $product->update([
+                'title' => $title,
+                'desc' => $desc
+            ]);
+        }
+        
+        return 'tugadi';
+    }
+
+    public function delivery()
+    {
+        $res = $this->yandexDelivery->checkPrice([
+            ['coordinates' => [69.250201, 41.329821]],
+            ['coordinates' => [69.251864, 41.332093]],
+            ['coordinates' => [69.241749, 41.322430]],
+        ], [
+            ['quantity' => 2]
+        ]);
+
+        dd($res->json());
     }
 
     public function loyalty(Request $request)

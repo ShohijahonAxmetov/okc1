@@ -146,7 +146,7 @@
                         <label class="fs-6 {{$characteristic->required ? 'required' : ''}} fw-bold mb-2">{{$characteristic->name}}</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-solid" placeholder="..." name="{{$characteristic->market_characteristic_id}}" value="{{$characteristicValues->where('product_variation_id', $product->productVariations[0]->id)->where('characteristic_id', $characteristic->market_characteristic_id)->first()->value ?? null}}" />
+                        <input type="number" class="form-control form-control-solid" placeholder="..." name="{{$characteristic->market_characteristic_id}}" value="{{$characteristicValues->where('product_variation_id', $product->productVariations[0]->id)->where('characteristic_id', $characteristic->market_characteristic_id)->first()->value ?? null}}" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->

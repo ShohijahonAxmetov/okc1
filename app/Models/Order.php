@@ -32,6 +32,9 @@ class Order extends Model
 
         'delivery_type',
         'delivery_price',
+        
+        'lat',
+        'lon',
     ];
 
     public function productVariations()
