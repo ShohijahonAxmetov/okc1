@@ -47,7 +47,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web')
+            Route::prefix('yandex/eats')
+                ->middleware('api')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/yandex/eats.php'));
+
+            Route::middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/test.php'));
         });

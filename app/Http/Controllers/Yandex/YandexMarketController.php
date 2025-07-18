@@ -161,8 +161,8 @@ class YandexMarketController extends Controller
         Log::channel('market')
             ->info('Response: '.json_encode($res->json()));
 
-        if (!$res->ok()) Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
-        else Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
+        if (!$res->ok()) Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
+        else Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
     }
 
     public function sendUzProducts2Market()
@@ -204,8 +204,8 @@ class YandexMarketController extends Controller
         Log::channel('market')
             ->info('Response: '.json_encode($res->json()));
 
-        if (!$res->ok()) Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
-        else Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
+        if (!$res->ok()) Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
+        else Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
     }
 
     public function sendRemainds2Market()
@@ -223,8 +223,8 @@ class YandexMarketController extends Controller
         // Удалить неактивных товаров, если такие имеется
         $this->deleteFromYaMarket();
 
-        if (!$res->ok()) Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
-        else Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
+        if (!$res->ok()) Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($res->json()));
+        else Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.'Успешно обновлено - '.__FUNCTION__);
     }
 
     function formatRemainders2Market(): array
@@ -491,7 +491,7 @@ class YandexMarketController extends Controller
 
     public function notification(Request $request)
     {
-        $res = Http::get('https://api.telegram.org/bot5575336376:AAGG1V_yLba7eT3H9WoVFvw_-bJE2Ll5oK8/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($request->all()));
+        $res = Http::get('https://api.telegram.org/bot'.config('telegram_bot.dev_bot_token').'/sendMessage?parse_mode=HTML&chat_id=-1002617372536&text='.json_encode($request->all()));
 
         Log::info($res->json());
 

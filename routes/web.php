@@ -30,6 +30,7 @@ use App\Http\Controllers\{
     TelegramBotController,
     Yandex\YandexMarketController,
     Yandex\YandexDeliveryController,
+    Yandex\YandexEatsController,
 };
 
 $new_ip_address = '94.232.24.102';
@@ -227,7 +228,17 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
             Route::put('/loading_points/{id}', [YandexDeliveryController::class, 'loadingPointsUpdate'])->name('loading_points.update');
             Route::delete('/loading_points/{id}', [YandexDeliveryController::class, 'loadingPointsDelete'])->name('loading_points.delete');
         });
+
+        Route::prefix('yandex_eats')->name('integrations.yandex_eats.')->group(function () {
+            Route::get('/', [YandexEatsController::class, 'index'])->name('index');
+            Route::get('/products', [YandexEatsController::class, 'products'])->name('products');
+            Route::get('/products/{product}', [YandexEatsController::class, 'productEdit'])->name('products.edit');
+            Route::put('/products/{product}', [YandexEatsController::class, 'productUpdate'])->name('products.update');
+        });
     });
+
+    Route::get('blocked_ip_addresses', [\App\Http\Controllers\BlockedIpAddressController::class, 'index'])->name('blocked_ip_addresses.index');
+    Route::delete('blocked_ip_addresses/{id}', [\App\Http\Controllers\BlockedIpAddressController::class, 'destroy'])->name('blocked_ip_addresses.destroy');
 });
 
 

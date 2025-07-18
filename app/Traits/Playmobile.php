@@ -14,6 +14,7 @@ trait Playmobile {
 
 	protected function order_status_send(Order $order)
 	{
+		abort(503);
 		switch ($order->status) {
 		    case 'accepted':
 
@@ -180,6 +181,7 @@ trait Playmobile {
 
 	protected function mailing($phone_numbers, $text)
 	{
+		abort(503);
 		foreach($phone_numbers as $item) {
 
 			$message = PlaymobileMessage::create([

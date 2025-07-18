@@ -50,8 +50,8 @@ class AuthController extends Controller
         return $this->respondWithToken(auth()->refresh());
     }
 
-    public function send_code(Request $request) {
-
+    public function send_code(Request $request)
+    {
         $data = $request->all();
 
         $validator = Validator::make($data, [

@@ -1,4 +1,4 @@
-<yml_catalog date="2025-07-16T19:00:00+05:00">
+<yml_catalog date="2025-07-18T23:00:00+05:00">
     <shop>
         <name>OKC (Original Korean Cosmetics)</name>
         <company>BEAUTY PROF</company>
@@ -155,7 +155,7 @@
             </offer>
                         <offer id="10000001097">
                 <name>Крем OLLEE SPF для комбинированный и сухой кожи 50 мл SPF50+ PA++</name>
-                <quantityStock>4</quantityStock>
+                <quantityStock>2</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;SPF Крем: для нормальной и склонной к сухости кожи&lt;/h2&gt;
 
@@ -182,7 +182,7 @@
             </offer>
                         <offer id="10000000712">
                 <name>Бесцветная фиксирующая пудра CLIO STAY PERFECT FINISH PACT</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>CLIO</brand>
                 <description>&lt;h2&gt;Бесцветная фиксирующая пудра CLIO STAY PERFECT FINISH PACT&lt;/h2&gt;
 
@@ -490,7 +490,7 @@
             </offer>
                         <offer id="10000000659">
                 <name>Консилер CLIO KILL COVER FOUNWEAR CONCEALER 2 LINGERIE</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>3</quantityStock>
                 <brand>CLIO</brand>
                 <description>&lt;h2&gt;Консилер CLIO KILL COVER FOUNWEAR CONCEALER 2 LINGERIE&lt;/h2&gt;
 
@@ -503,7 +503,7 @@
             </offer>
                         <offer id="10000000658">
                 <name>Палетка теней CLIO SHADE &amp; SHADOW PALETTE 03 SCOOP OF SHADE</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>CLIO</brand>
                 <description>&lt;h2&gt;Палетка теней CLIO SHADE &amp;amp; SHADOW PALETTE 03 SCOOP OF SHADE&lt;/h2&gt;
 
@@ -637,37 +637,6 @@
                 <enabled>1</enabled>
                 <categoryId>100000000035</categoryId>
             </offer>
-                        <offer id="10000000600">
-                <name>Кушон для лица CLIO KILL COVER HIGH GLOW CUSHION 2 LINGERIE SPF50+ PA+++</name>
-                <quantityStock>1</quantityStock>
-                <brand>CLIO</brand>
-                <description>&lt;h2&gt;Стойкий кушон с влажным сияющим финишем CLIO Kill Cover High Glow Cushion SPF50+ PA+++ 2 Lingerie&lt;/h2&gt;
-
-&lt;p&gt;Стойкий кушон&amp;nbsp;CLIO Kill Cover High Glow Cushion SPF50+ PA+++&amp;nbsp;образует тонкое гладкое покрытие, которое выравнивает тон и придаёт коже естественное сияние, сглаживает рельеф и маскирует несовершенства.&lt;br /&gt;
-&lt;br /&gt;
-Продукт ложится невесомой вуалью, увлажняет, придаёт эффект Glass Skin, стойко держится до 72 часов. Особая структура средства позволяет удерживать влагу в коже и отражать свет, тем самым создавая блюр-эффект.&lt;br /&gt;
-&lt;br /&gt;
-Не скатывается, не западает в поры и морщины. Спонж в форме персика подходит для аккуратного нанесения в труднодоступных зонах, например, вокруг глаз и на крыльях носа. Обеспечивает дополнительную защиту от солнца благодаря физическим и химическим УФ-фильтрам в составе.&lt;br /&gt;
-&lt;br /&gt;
-Объём:&amp;nbsp;14 г + рефил&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Основные действующие компоненты:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;Ниацинамид&amp;nbsp;(витамин B3)&amp;nbsp;&lt;/strong&gt;выравнивает общий тон, улучшает цвет лица,&amp;nbsp;стимулирует выработку коллагена,&amp;nbsp;осветляет, замедляет транспортировку меланина в эпидермис, укрепляет гидролипидную мантию, предотвращает образование пигментации.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Экстракт коллагена&amp;nbsp;&lt;/strong&gt;смягчает кожу, улучшает микрорельеф, обеспечивает продолжительное увлажнение.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Аденозин&amp;nbsp;&lt;/strong&gt;стимулирует выработку коллагена, уменьшает глубину морщин и препятствует их появлению, поддерживает упругость и молодость кожи.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Гидролизованная гиалуроновая кислота&lt;/strong&gt;&amp;nbsp;имеет низкую молекулярную массу, проникая глубоко в роговой слой. Увлажняет, удерживает молекулы воды в эпидермисе, поддерживает гидролипидную мантию.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Подходит для всех типов кожи.&lt;/p&gt;</description>
-                <picture>https://admin.okc.uz/upload/products/5RaXOMJoZNAp.webp</picture>
-                <price>435600</price>
-                <sku>10000000600</sku>
-                <enabled>1</enabled>
-                <categoryId>100000000035</categoryId>
-            </offer>
                         <offer id="10000000610">
                 <name>Кушон для лица CLIO KILL COVER HIGH GLOW FOUNDATION 2 LINGERIE</name>
                 <quantityStock>16</quantityStock>
@@ -687,7 +656,7 @@
             </offer>
                         <offer id="10000000585">
                 <name>Кушон для лица CLIO KILL COVER SKIN FIXER CUSHION 21N LINEN SPF50+ PA+++</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>CLIO</brand>
                 <description>&lt;h2&gt;Стойкий фиксирующий кушон с матовым финишем CLIO Kill Cover Skin Fixer Cushion SPF50+ PA+++ 21N Linen&lt;/h2&gt;
 
@@ -728,9 +697,9 @@
             </offer>
                         <offer id="10000001595">
                 <name>MISSHA 3-STEP NUTRITION MASK</name>
-                <quantityStock>34</quantityStock>
+                <quantityStock>31</quantityStock>
                 <brand>MISSHA</brand>
-                <description>Керамиды - это липиды, которые находятся в мембране клеток и удерживают их вместе. Они встречаются во многих слоях кожи и создают защитный барьер, помогая предотвратить инфекции, сохранить оптимальный уровень влаги, таким образом уберегая от обезвоживания кожи. С возрастом уровень керамидов снижается. Чрезмерное принятие солнечных ванн так же может уменьшить количество керамидов в клетках, вследствие чего она становится сухой и морщины образуются гораздо быстрее. Очень важно заново наполнить кожу керамидами, чтобы она была увлажненной и эластичной.</description>
+                <description>&lt;p&gt;Керамиды - это липиды, которые находятся в мембране клеток и удерживают их вместе. Они встречаются во многих слоях кожи и создают защитный барьер, помогая предотвратить инфекции, сохранить оптимальный уровень влаги, таким образом уберегая от обезвоживания кожи. С возрастом уровень керамидов снижается. Чрезмерное принятие солнечных ванн так же может уменьшить количество керамидов в клетках, вследствие чего она становится сухой и морщины образуются гораздо быстрее. Очень важно заново наполнить кожу керамидами, чтобы она была увлажненной и эластичной.&lt;/p&gt;</description>
                 <picture>https://admin.okc.uz/upload/products/5vir1jNqmtxc.webp</picture>
                 <price>38500</price>
                 <sku>10000001595</sku>
@@ -916,7 +885,7 @@
             </offer>
                         <offer id="10000000157">
                 <name>HEMP SEED SOLUTION CALMING ADVANCED AMPOULE , 75ml</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>Ультрауспокаивающая ампульная сыворотка с маслом семян конопли укрепляет защитный барьер кожи, наполняет силой и энергией, способствует скорейшему восстановлению.Масло семян конопли препятствует потере влаги с поверхности кожи, разглаживает морщины и работает как естественный антиоксидант.Экстракты цветов и растений (арбуз, бамбук, аир, пион) минимизируют влияние процессов, разрушающих клетки кожи, возвращают природное сияние и молодость.Ампульная сыворотка подойдет для всех типов кожи, особенно для чувствительной.</description>
                 <picture>https://admin.okc.uz/upload/products/P1tuRj6KHPw7.webp</picture>
@@ -1051,7 +1020,7 @@
             </offer>
                         <offer id="10000002061">
                 <name>SEEKNIQUE Identity Shea Hand Balm ENFP Type</name>
-                <quantityStock>41</quantityStock>
+                <quantityStock>40</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm ENFP Type&lt;/h2&gt;
 
@@ -1143,7 +1112,7 @@
             </offer>
                         <offer id="10000002065">
                 <name>SEEKNIQUE Identity Shea Hand Balm ESFJ Type</name>
-                <quantityStock>53</quantityStock>
+                <quantityStock>52</quantityStock>
                 <brand>SEEKNIQUE</brand>
                 <description>&lt;h2&gt;Бальзам для рук SEEKNIQUE Identity Shea Hand Balm&amp;nbsp;ESFJ Type&lt;/h2&gt;
 
@@ -1414,7 +1383,7 @@
             </offer>
                         <offer id="10000002102">
                 <name>Dr.Different Calming &amp; Moisture MASK (5EA)</name>
-                <quantityStock>60</quantityStock>
+                <quantityStock>54</quantityStock>
                 <brand>Dr.DIFFERENT</brand>
                 <description>&lt;h2&gt;Маска для лица Dr.Different Calming &amp;amp; Moisture MASK&lt;/h2&gt;
 
@@ -1503,7 +1472,7 @@
             </offer>
                         <offer id="10000002124">
                 <name>Тканевая маска MANYO galac niacin essence mask</name>
-                <quantityStock>74</quantityStock>
+                <quantityStock>73</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;p&gt;&lt;strong&gt;Тканевая маска MANYO Galac Niacin Essence Mask&lt;/strong&gt;&lt;br /&gt;
 Эффективное средство для восстановления тусклой и уставшей кожи.&lt;/p&gt;
@@ -1632,7 +1601,7 @@
             </offer>
                         <offer id="10000002151">
                 <name>Тканевая маска для лица Holika Holika Pure Essence Mask Sheet &quot;Lemon&quot;, с экстрактом лимона, 23 мл</name>
-                <quantityStock>80</quantityStock>
+                <quantityStock>79</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Lemon&lt;/h2&gt;
 
@@ -1645,7 +1614,7 @@
             </offer>
                         <offer id="10000002152">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Avocado</name>
-                <quantityStock>78</quantityStock>
+                <quantityStock>75</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Avocado&lt;/h2&gt;
 
@@ -1684,7 +1653,7 @@
             </offer>
                         <offer id="10000002155">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Rice</name>
-                <quantityStock>59</quantityStock>
+                <quantityStock>58</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Pure Essence Mask Sheet - Rice&lt;/h2&gt;
 
@@ -1699,7 +1668,7 @@
             </offer>
                         <offer id="10000002156">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter</name>
-                <quantityStock>90</quantityStock>
+                <quantityStock>88</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маскаHOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter&lt;/h2&gt;
 
@@ -1727,7 +1696,7 @@
             </offer>
                         <offer id="10000002158">
                 <name>HOLIKA HOLIKA Tea tree Juicy Mask Sheet</name>
-                <quantityStock>64</quantityStock>
+                <quantityStock>63</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Tea tree Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1742,7 +1711,7 @@
             </offer>
                         <offer id="10000002159">
                 <name>HOLIKA HOLIKA Mango Juicy Mask Sheet</name>
-                <quantityStock>66</quantityStock>
+                <quantityStock>65</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Mango Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1760,7 +1729,7 @@
             </offer>
                         <offer id="10000002160">
                 <name>Тканевая маска для лица с томатом HOLIKA HOLIKA Tomato Juicy Mask Sheet</name>
-                <quantityStock>108</quantityStock>
+                <quantityStock>106</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Tomato Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1950,7 +1919,7 @@
             </offer>
                         <offer id="10000002195">
                 <name>СОЛНЦЕЗАЩИТНЫЙ КРЕМ ДЛЯ ЖИРНОЙ КОЖИ CELIMAX OIL CONTROL LIGHT SUNSCREEN 40ML SPF 50+ PA++++</name>
-                <quantityStock>22</quantityStock>
+                <quantityStock>21</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Себорегулирующий лёгкий солнцезащитный крем Celimax Oil Control Light Sunscreen SPF50+PA++++&lt;/h2&gt;
 
@@ -1991,7 +1960,7 @@
             </offer>
                         <offer id="10000002196">
                 <name>ТОНИРУЮЩИЙ СОЛНЦЕЗАЩИТНЫЙ КРЕМ CELIMAX HEART PINK TONE UP SUN CREAM 40ML SPF 50+ PA++++</name>
-                <quantityStock>22</quantityStock>
+                <quantityStock>21</quantityStock>
                 <brand>CELIMAX</brand>
                 <description>&lt;h2&gt;Выравнивающий солнцезащитный крем для сияния кожи Celimax Heart Pink Tone Up Sun Cream SPF50+ PA++++&lt;/h2&gt;
 
@@ -3097,7 +3066,7 @@
             </offer>
                         <offer id="10000002235">
                 <name>Пенка для умывания MANYO deep pore cleansing soda foam</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Пенка с содой для глубокого очищения пор Manyo Deep Pore Cleansing Soda Foam&lt;/h2&gt;
 
@@ -3147,7 +3116,7 @@
             </offer>
                         <offer id="10000002237">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND JUICY LASTING TINT 21 DEEP SANGRIA</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -3224,7 +3193,7 @@
             </offer>
                         <offer id="10000002240">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 02 RED DROP</name>
-                <quantityStock>8</quantityStock>
+                <quantityStock>5</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Глянцевый тинт с эффектом стеклянных губ Rom&amp;amp;Nd Glasting Water Tint 02 Red Drop&lt;/h2&gt;
 
@@ -3249,7 +3218,7 @@
             </offer>
                         <offer id="10000002241">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 03 BRICK RIVER</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>4</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Глянцевый тинт с эффектом стеклянных губ Rom&amp;amp;Nd Glasting Water Tint 03 Brick River&lt;/h2&gt;
 
@@ -3299,7 +3268,7 @@
             </offer>
                         <offer id="10000002243">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND GLASTING WATER TINT 05 ROSE SPLASH</name>
-                <quantityStock>5</quantityStock>
+                <quantityStock>4</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Глянцевый тинт с эффектом стеклянных губ Rom&amp;amp;Nd Glasting Water Tint 05 Rose Splash&lt;/h2&gt;
 
@@ -3463,7 +3432,7 @@
             </offer>
                         <offer id="10000002252">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 06 MAUVISH</name>
-                <quantityStock>14</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Матовый тинт для губ rom&amp;amp;nd Blur Fudge Tint 06 Mauvish&lt;/h2&gt;
 
@@ -3489,7 +3458,7 @@
             </offer>
                         <offer id="10000002253">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 07 COOL ROSE UP</name>
-                <quantityStock>16</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Матовый тинт для губ rom&amp;amp;nd Blur Fudge Tint 07 Cool Rose Up&lt;/h2&gt;
 
@@ -3573,7 +3542,7 @@
             </offer>
                         <offer id="10000002256">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING MELTING BALM 01 COCO NUDE</name>
-                <quantityStock>23</quantityStock>
+                <quantityStock>22</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Тающий оттеночный бальзам для губ rom&amp;amp;nd Glasting Melting Balm 01 Coco Nude&lt;/h2&gt;
 
@@ -3859,7 +3828,7 @@
             </offer>
                         <offer id="10000002267">
                 <name>БАЛЬЗАМ ДЛЯ ГУБ ROM&amp;ND GLASTING COLOR GLOSS 04 GRAPY WAY</name>
-                <quantityStock>22</quantityStock>
+                <quantityStock>20</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Стойкий блеск для эффекта стеклянных губ rom&amp;amp;nd Glasting Color Gloss 04 Grapy Way&lt;/h2&gt;
 
@@ -4417,7 +4386,7 @@
             </offer>
                         <offer id="10000002293">
                 <name>ТКАНЕВАЯ МАСКА ДЛЯ ЛИЦА ROUNDLAB MUGWORT CALMING MASK 25ML (10EA)</name>
-                <quantityStock>101</quantityStock>
+                <quantityStock>91</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Успокаивающая тканевая маска с полынью Round Lab Mugwort Calming Sheet Mask&lt;/h2&gt;
 
@@ -4545,7 +4514,7 @@
             </offer>
                         <offer id="10000002297">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB PINE CALMING CICA AMPOULE 30ML</name>
-                <quantityStock>23</quantityStock>
+                <quantityStock>24</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Ампула с экстрактами сосны и центеллы для проблемной кожи Round Lab Pine Calming Cica Ampoule&lt;/h2&gt;
 
@@ -4641,7 +4610,7 @@
             </offer>
                         <offer id="10000002302">
                 <name>ТОНЕР ДЛЯ ЛИЦА MEDI-PEEL PEPTIDE TOX-BOR TONER</name>
-                <quantityStock>19</quantityStock>
+                <quantityStock>18</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Лифтинг-тоник с пептидным комплексом Medi-Peel Bor-Tox Peptide Toner&lt;/h2&gt;
 
@@ -4741,7 +4710,7 @@
             </offer>
                         <offer id="10000002307">
                 <name>Гель для душа MEDI-PEEL vitamin RX. body wash</name>
-                <quantityStock>9</quantityStock>
+                <quantityStock>8</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Липосомный гель для душа с цитрусами Medi-Peel Vitamin Dr.Body Wash&lt;/h2&gt;
 
@@ -5029,7 +4998,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002320">
                 <name>БАЛЬЗАМ ДЛЯ ВОЛОС MASIL 10 PROBIOTICS PERFECT VOLUME TREATMENT 300ML</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Бальзам для объёма волос с пробиотиками Masil 10 Probiotics Perfect Volume Treatment&lt;/h2&gt;
 
@@ -5190,7 +5159,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002325">
                 <name>Гель для душа MASIL NEW 7 CERAMIDE PERFUME SHOWER GEL 300ML (SWEET LOVE)</name>
-                <quantityStock>16</quantityStock>
+                <quantityStock>15</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Питательный парфюмированный гель для душа с церамидами&amp;nbsp;Masil&amp;nbsp;7 Ceramide Perfume Shower Gel&lt;/h2&gt;
 
@@ -5220,7 +5189,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002326">
                 <name>Гель для душа MASIL new 7 ceramide perfume shower gel 300ml (sweet flower)</name>
-                <quantityStock>14</quantityStock>
+                <quantityStock>13</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Питательный парфюмированный гель для душа с церамидами Masil 7 Ceramide Perfume Shower Gel Sweet Flower&lt;/h2&gt;
 
@@ -5443,7 +5412,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002333">
                 <name>ТОНИК ДЛЯ КОЖИ ГОЛОВЫ И ВОЛОС MASIL 11 SALON SCALP CARE AMPOULE TONIC</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Освежающий ампульный тоник для кожи головы Masil 11 Salon Scalp Care Ampoule Tonic&lt;/h2&gt;
 
@@ -5471,7 +5440,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002335">
                 <name>МАССАЖНАЯ ЩЕТКА ДЛЯ ГОЛОВЫ MASIL HEAD CLEANING MASSAGE BRUSH</name>
-                <quantityStock>31</quantityStock>
+                <quantityStock>30</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Массажная щетка для головы Masil Head Cleaning Massage Brush&lt;/h2&gt;
 

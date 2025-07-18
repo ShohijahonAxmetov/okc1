@@ -562,6 +562,14 @@
 											<span class="menu-title">Yandex Доставка</span>
 										</a>
 									</div>
+									<div class="menu-item">
+										<a class="menu-link {{ Request::is('dashboard/integrations/yandex_eats') ? 'active' : '' }}" href="{{ route('integrations.yandex_eats.index') }}">
+											<span class="menu-bullet">
+												<span class="bullet bullet-dot"></span>
+											</span>
+											<span class="menu-title">YandexEats</span>
+										</a>
+									</div>
 								</div>
 							</div>
 
@@ -599,6 +607,20 @@
 										</span>
 									</span>
 									<span class="menu-title">Логи</span>
+								</a>
+							</div>
+							<div class="menu-item">
+								<a class="menu-link {{ Request::is('dashboard/blocked_ip_addresses/*') || Request::is('dashboard/blocked_ip_addresses') ? 'active' : '' }}" href="{{ route('blocked_ip_addresses.index') }}">
+									<span class="menu-icon">
+										<span class="svg-icon svg-icon-muted">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path opacity="0.3" d="M18 22C19.7 22 21 20.7 21 19C21 18.5 20.9 18.1 20.7 17.7L15.3 6.30005C15.1 5.90005 15 5.5 15 5C15 3.3 16.3 2 18 2H6C4.3 2 3 3.3 3 5C3 5.5 3.1 5.90005 3.3 6.30005L8.7 17.7C8.9 18.1 9 18.5 9 19C9 20.7 7.7 22 6 22H18Z" fill="currentColor" />
+												<path d="M18 2C19.7 2 21 3.3 21 5H9C9 3.3 7.7 2 6 2H18Z" fill="currentColor" />
+												<path d="M9 19C9 20.7 7.7 22 6 22C4.3 22 3 20.7 3 19H9Z" fill="currentColor" />
+											</svg>
+										</span>
+									</span>
+									<span class="menu-title">Блокированные IP-адреса</span>
 								</a>
 							</div>
 							@endif

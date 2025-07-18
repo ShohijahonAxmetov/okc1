@@ -41,6 +41,8 @@ class ProductVariation extends Model
         'warranty_period_comment',
         
         'yandex_category_id',
+        
+        'old_price',
     ];
 
     protected $appends = [
