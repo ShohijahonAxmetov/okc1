@@ -65,5 +65,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin_check' => \App\Http\Middleware\AdminAuth::class,
         'venkon_auth' => \App\Http\Middleware\VenkonAuth::class,
+        'yandex_eats' => \App\Http\Middleware\YandexEatsMiddleware::class,
+        'check_yandex_eats' => \App\Http\Middleware\CheckYandexEatsTokenMiddleware::class,
     ];
 }

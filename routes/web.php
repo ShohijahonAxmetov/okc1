@@ -234,6 +234,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth:web'], function () 
             Route::get('/products', [YandexEatsController::class, 'products'])->name('products');
             Route::get('/products/{product}', [YandexEatsController::class, 'productEdit'])->name('products.edit');
             Route::put('/products/{product}', [YandexEatsController::class, 'productUpdate'])->name('products.update');
+            Route::get('/orders', [YandexEatsController::class, 'orders'])->name('orders');
+            Route::get('/orders/{order}', [YandexEatsController::class, 'orderEdit'])->name('orders.edit');
+            Route::put('/orders/{order}', [YandexEatsController::class, 'orderUpdate'])->name('orders.update');
         });
     });
 

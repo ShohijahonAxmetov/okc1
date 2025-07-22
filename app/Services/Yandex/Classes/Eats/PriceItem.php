@@ -19,11 +19,15 @@ class PriceItem {
 
 	public function toArray()
 	{
-		return [
+		return $this->oldPrice ? [
 			'id' => $this->id,
 			'price' => $this->price,
 			'vat' => $this->vat,
 			'oldPrice' => $this->oldPrice,
+		] : [
+			'id' => $this->id,
+			'price' => $this->price,
+			'vat' => $this->vat,
 		];
 	}
 }
