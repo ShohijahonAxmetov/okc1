@@ -214,6 +214,10 @@ class YandexEatsController extends Controller
         try {
             $order = Order::create($yandexOrderCreate->toArray());
 
+            $order->statusChanges()->create([
+                'status' => 'NEW'
+            ]);
+
             DB::commit();
         } catch(\Exception $e) {
             DB::rollBack();
@@ -379,7 +383,37 @@ class YandexEatsController extends Controller
 
     public function orderUpdate(Request $request, Order $order)
     {
+        $request->validate([
+            'status' => 'required|in:next,cancelled'
+        ]);
 
+        if ($request->input('status') == 'next') {
+            switch ($order->currentStatus) {
+                case 'NEW':
+                    $order->statusChanges()->create([
+                        'status' => 'ACCEPTED_BY_RESTAURANT'
+                    ]);
+                    break;
+
+                case 'ACCEPTED_BY_RESTAURANT':
+                    $order->statusChanges()->create([
+                        'status' => 'COOKING'
+                    ]);
+                    break;
+
+                case 'COOKING':
+                    $order->statusChanges()->create([
+                        'status' => 'READY'
+                    ]);
+                    break;
+            }
+        } else if ($request->input('status') == 'cancelled') {
+            $order->statusChanges()->create([
+                'status' => 'CANCELLED'
+            ]);
+        }
+
+        return back()->with(['success' => 1]);
     }
 
     // Дополнительные функции

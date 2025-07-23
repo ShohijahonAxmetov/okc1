@@ -23,7 +23,7 @@ class YandexEatsMiddleware
         '178.154.128.0/18',
         '213.180.192.0/19',
         '185.32.187.0/24',
-        '82.215.97.117', // my ip
+        '82.215.102.255', // my ip
     ];
     
     public function handle(Request $request, Closure $next)

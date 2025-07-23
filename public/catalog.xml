@@ -1,4 +1,4 @@
-<yml_catalog date="2025-07-22T21:00:00+05:00">
+<yml_catalog date="2025-07-23T22:00:00+05:00">
     <shop>
         <name>OKC (Original Korean Cosmetics)</name>
         <company>BEAUTY PROF</company>
@@ -375,7 +375,7 @@
             </offer>
                         <offer id="10000001010">
                 <name>Крем лифтинг Ollee, для кожи вокруг глаз, увлажняющий, с эффектом лифтинга, 40 мл</name>
-                <quantityStock>8</quantityStock>
+                <quantityStock>7</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;p&gt;Крем лифтинг Ollee для кожи вокруг глаз: увлажняющий и с эффектом лифтинга.&lt;/p&gt;
 
@@ -629,7 +629,7 @@
             </offer>
                         <offer id="10000000585">
                 <name>Кушон для лица CLIO KILL COVER SKIN FIXER CUSHION 21N LINEN SPF50+ PA+++</name>
-                <quantityStock>11</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>CLIO</brand>
                 <description>&lt;h2&gt;Стойкий фиксирующий кушон с матовым финишем CLIO Kill Cover Skin Fixer Cushion SPF50+ PA+++ 21N Linen&lt;/h2&gt;
 
@@ -1416,7 +1416,7 @@
             </offer>
                         <offer id="10000002113">
                 <name>Nextbeau Aloe Vera Solution Soothing Ampoule</name>
-                <quantityStock>27</quantityStock>
+                <quantityStock>26</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;h2&gt;Ампульная сыворотка для лица Nextbeau Aloe Vera Solution Soothing Ampoule&lt;/h2&gt;
 
@@ -1461,7 +1461,7 @@
             </offer>
                         <offer id="10000002128">
                 <name>Тканевая маска для лица Nextbeau hemp seed solution calming &amp; relief sheet mask</name>
-                <quantityStock>18</quantityStock>
+                <quantityStock>17</quantityStock>
                 <brand>NEXTBEAU</brand>
                 <description>&lt;p&gt;&lt;strong&gt;Nextbeau Hemp Seed Solution Sheet Mask Calming And Relief.&amp;nbsp;Тканевая маска с маслом семян конопли&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;
 
@@ -1641,7 +1641,7 @@
             </offer>
                         <offer id="10000002156">
                 <name>HOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter</name>
-                <quantityStock>86</quantityStock>
+                <quantityStock>84</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маскаHOLIKA HOLIKA Pure Essence Mask Sheet - Sheabutter&lt;/h2&gt;
 
@@ -1669,7 +1669,7 @@
             </offer>
                         <offer id="10000002158">
                 <name>HOLIKA HOLIKA Tea tree Juicy Mask Sheet</name>
-                <quantityStock>56</quantityStock>
+                <quantityStock>55</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Tea tree Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1684,7 +1684,7 @@
             </offer>
                         <offer id="10000002159">
                 <name>HOLIKA HOLIKA Mango Juicy Mask Sheet</name>
-                <quantityStock>62</quantityStock>
+                <quantityStock>61</quantityStock>
                 <brand>HOLIKA HOLIKA</brand>
                 <description>&lt;h2&gt;Тканевая маска HOLIKA HOLIKA Mango Juicy Mask Sheet&lt;/h2&gt;
 
@@ -1716,7 +1716,7 @@
             </offer>
                         <offer id="10000002174">
                 <name>MISSHA SUPER AQUA ULTRA HYALRON CLEANSING OIL WIPES</name>
-                <quantityStock>7</quantityStock>
+                <quantityStock>6</quantityStock>
                 <brand>MISSHA</brand>
                 <description>&lt;h2&gt;Очищающие салфетки с маслом и гиалуроновыми кислотами MISSHA SUPER AQUA ULTRA HYALRON CLEANSING OIL WIPES&lt;/h2&gt;
 
@@ -2173,7 +2173,7 @@
             </offer>
                         <offer id="10000002202">
                 <name>КРЕМ ДЛЯ ЛИЦА COSRX HYALURONIC ACID INTENSIVE CREAM</name>
-                <quantityStock>12</quantityStock>
+                <quantityStock>11</quantityStock>
                 <brand>COSRX</brand>
                 <description>&lt;h2&gt;Интенсивно увлажняющий крем с гиалуроновой кислотой COSRX Hyaluronic Acid Intensive Cream&lt;/h2&gt;
 
@@ -3005,7 +3005,7 @@
             </offer>
                         <offer id="10000002234">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА MANYO BIFIDA CICA HERB SERUM</name>
-                <quantityStock>23</quantityStock>
+                <quantityStock>22</quantityStock>
                 <brand>MANYO</brand>
                 <description>&lt;h2&gt;Успокаивающая сыворотка против воспалений Manyo Bifida Cica Herb Serum&lt;/h2&gt;
 
@@ -3141,7 +3141,7 @@
             </offer>
                         <offer id="10000002239">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND JUICY LASTING TINT 23 NUCADAMIA</name>
-                <quantityStock>11</quantityStock>
+                <quantityStock>10</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Стойкий глянцевый тинт для губ rom&amp;amp;nd Juicy Lasting Tint 23 Nucadamia&lt;/h2&gt;
 
@@ -3336,7 +3336,7 @@
             </offer>
                         <offer id="10000002249">
                 <name>ПАЛЕТКА ТЕНЕЙ ROM&amp;ND BETTER THAN PALETTE 09 DREAMY LILAC GARDEN</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Большая палетка теней для век rom&amp;amp;nd Better Than Palette 09 Dreamy Lilac Garden&lt;/h2&gt;
 
@@ -3431,7 +3431,7 @@
             </offer>
                         <offer id="10000002253">
                 <name>ТИНТ ДЛЯ ГУБ ROM&amp;ND BLUR FUDGE TINT 07 COOL ROSE UP</name>
-                <quantityStock>15</quantityStock>
+                <quantityStock>14</quantityStock>
                 <brand>ROM&amp;ND</brand>
                 <description>&lt;h2&gt;Матовый тинт для губ rom&amp;amp;nd Blur Fudge Tint 07 Cool Rose Up&lt;/h2&gt;
 
@@ -4027,7 +4027,7 @@
             </offer>
                         <offer id="10000002276">
                 <name>КРЕМ ДЛЯ ЛИЦА ROUNDLAB 1025 DOKDO CREAM 80ml</name>
-                <quantityStock>32</quantityStock>
+                <quantityStock>30</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Увлажняющий крем с церамидами и морской водой Round Lab 1025 Dokdo Cream&lt;/h2&gt;
 
@@ -4118,7 +4118,7 @@
             </offer>
                         <offer id="10000002280">
                 <name>МОЛОЧКО ДЛЯ УМЫВАНИЯ ROUNDLAB 1025 DOKDO CLEANSING MILK 200ML</name>
-                <quantityStock>8</quantityStock>
+                <quantityStock>7</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Нежное молочко для снятия макияжа с морской водой Round Lab 1025 Dokdo Cleansing Milk&lt;/h2&gt;
 
@@ -4298,7 +4298,7 @@
             </offer>
                         <offer id="10000002291">
                 <name>СЫВОРОТКА ДЛЯ ЛИЦА ROUNDLAB MUGWORT CALMING SERUM 50ML</name>
-                <quantityStock>35</quantityStock>
+                <quantityStock>33</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Успокаивающая сыворотка с полынью Round Lab Mugwort Calming Serum&lt;/h2&gt;
 
@@ -4359,7 +4359,7 @@
             </offer>
                         <offer id="10000002293">
                 <name>ТКАНЕВАЯ МАСКА ДЛЯ ЛИЦА ROUNDLAB MUGWORT CALMING MASK 25ML (10EA)</name>
-                <quantityStock>85</quantityStock>
+                <quantityStock>84</quantityStock>
                 <brand>ROUND LAB</brand>
                 <description>&lt;h2&gt;Успокаивающая тканевая маска с полынью Round Lab Mugwort Calming Sheet Mask&lt;/h2&gt;
 
@@ -4650,7 +4650,7 @@
             </offer>
                         <offer id="10000002306">
                 <name>КРЕМ ДЛЯ ЛИЦА MEDI-PEEL POWER AQUA CREAM</name>
-                <quantityStock>6</quantityStock>
+                <quantityStock>5</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Лифтинг-крем с пептидными капсулами Medi-Peel Power Aqua Cream&lt;/h2&gt;
 
@@ -4715,7 +4715,7 @@
             </offer>
                         <offer id="10000002308">
                 <name>ТОНЕР ДЛЯ ЛИЦА MEDI-PEEL HYAL KOMBUCHA TEA-TOX TONER</name>
-                <quantityStock>17</quantityStock>
+                <quantityStock>16</quantityStock>
                 <brand>MEDI-PEEL</brand>
                 <description>&lt;h2&gt;Двухфазный тонер с 70% комбучи и церамидами Medi-Peel Hyal Kombucha Tea-Tox Toner&lt;/h2&gt;
 
@@ -5413,7 +5413,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002335">
                 <name>МАССАЖНАЯ ЩЕТКА ДЛЯ ГОЛОВЫ MASIL HEAD CLEANING MASSAGE BRUSH</name>
-                <quantityStock>29</quantityStock>
+                <quantityStock>58</quantityStock>
                 <brand>MASIL</brand>
                 <description>&lt;h2&gt;Массажная щетка для головы Masil Head Cleaning Massage Brush&lt;/h2&gt;
 
@@ -5431,7 +5431,7 @@ Polyquaternium-10 &amp;mdash; полимер, укрепляющий защит�
             </offer>
                         <offer id="10000002337">
                 <name>OLLEE SPF крем для комбинированной и жирной кожи 50 мл SPF50+PA++</name>
-                <quantityStock>13</quantityStock>
+                <quantityStock>12</quantityStock>
                 <brand>OLLEE</brand>
                 <description>&lt;h2&gt;SPF Крем: для комбинированной и склонной к жирности кожи&lt;/h2&gt;
 

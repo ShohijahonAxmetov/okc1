@@ -29,6 +29,11 @@ class Order extends Model
         'items' => 'array',
     ];
 
+    public function getCurrentStatusAttribute()
+    {
+        return $this->statusChanges()->latest()->first()->status ?? null;
+    }
+
     public function statusChanges()
     {
         return $this->hasMany(OrderStatus::class);

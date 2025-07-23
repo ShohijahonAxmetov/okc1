@@ -47,6 +47,7 @@
                         <th class="min-w-125px">Комментарий</th>
                         <th class="min-w-150px">Дискриминатор </th>
                         <th class="min-w-150px">ID заказа в Яндексе </th>
+                        <th class="min-w-150px">Статус </th>
                         <th class="min-w-150px text-end rounded-end pe-2">Действия</th>
                     </tr>
                 </thead>
@@ -74,6 +75,9 @@
                         </td>
                         <td>
                             <span class="fs-6 fw-bold">{{ $order->eats_id }}</span>
+                        </td>
+                        <td>
+                            <span class="fs-6 fw-bold">{{ $order->currentStatus }}</span>
                         </td>
                         <td class="text-end">
                             <div class="d-flex justify-content-end">
