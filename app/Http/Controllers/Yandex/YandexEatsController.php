@@ -63,22 +63,23 @@ class YandexEatsController extends Controller
         $token = Str::random(64);
 
         // Храним токен
+        $hashedToken = hash('sha256', $token);
         DB::table('oauth_access_tokens')->insert([
-            'access_token' => hash('sha256', $token),
+            'access_token' => $hashedToken,
             'client_id' => $client->id,
             'expires_at' => now()->addHour(),
             'created_at' => now(),
         ]);
 
         return response([
-            'access_token' => $token,
+            'access_token' => $hashedToken,
             'expires_in' => 3600
         ]);
     }
 
     public function prices(string $placeId)
     {
-        $placeId = '00000000011';
+        // $placeId = '00000000011';
 
         $warehouse = Warehouse::query()
             ->where('integration_id', $placeId)
@@ -154,7 +155,7 @@ class YandexEatsController extends Controller
 
     public function availability(string $placeId)
     {
-        $placeId = '00000000011';
+        // $placeId = '00000000011';
 
         $warehouse = Warehouse::query()
             ->where('integration_id', $placeId)

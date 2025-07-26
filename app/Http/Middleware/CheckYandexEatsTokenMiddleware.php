@@ -21,7 +21,8 @@ class CheckYandexEatsTokenMiddleware
         $token = substr($authHeader, 7); // Удалить 'Bearer '
 
         if (!in_array($token, $this->getValidTokens())) {
-            return response()->json(['error' => 'Invalid token'], 403);
+            $error = new ErrorItem(403, 'Invalid token');
+            return response($error->toArray(), $error->getCode());
         }
 
         return $next($request);
